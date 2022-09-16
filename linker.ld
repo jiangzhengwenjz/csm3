@@ -1,4 +1,4 @@
-gNumMusicPlayers = 4;
+gNumMusicPlayers = 6;
 gMaxLines = 0;
 
 ENTRY(__start)
@@ -178,7 +178,7 @@ SECTIONS {
         . = 0x00002590;
         . = ALIGN(8); *libgcc.a:dp-bit.o(.bss);
         . = ALIGN(8); *libgcc.a:fp-bit.o(.bss);
-        . = ALIGN(8); gUnk_030025B8 = .;
+        . = ALIGN(8); SoundMainRAM_Buffer = .;
         . = 0x000025B9; gUnk_030025B9 = .;
         . = 0x00002938; gUnk_03002938 = .;
         . = 0x0000293C; gUnk_0300293C = .;
@@ -377,14 +377,14 @@ SECTIONS {
         . = 0x00006B98; gUnk_03006B98 = .;
         . = 0x00006B9C; gUnk_03006B9C = .;
         . = 0x00006BA0; gUnk_03006BA0 = .;
-        . = 0x00006BB0; gUnk_03006BB0 = .;
+        . = 0x00006BB0; gSoundInfo = .;
         . = 0x00007530; gUnk_03007530 = .;
         . = 0x00007534; gUnk_03007534 = .;
         . = 0x000075B8; gUnk_030075B8 = .;
         . = 0x000075BC; gUnk_030075BC = .;
-        . = 0x000075C0; gUnk_030075C0 = .;
+        . = 0x000075C0; gCgbChans = .;
         . = 0x00007700; gUnk_03007700 = .;
-        . = 0x00007800; gUnk_03007800 = .;
+        . = 0x00007800; gMPlayMemAccArea = .;
         . = 0x00007850; gUnk_03007850 = .;
         . = 0x00007A00; gUnk_03007A00 = .;
         . = 0x00007E00; gUnk_03007E00 = .;
@@ -400,6 +400,7 @@ SECTIONS {
         asm/code_0803E098.o(.text); /* handwritten */
         asm/code.o(.text);
         asm/m4a_asm.o(.text);
+        src/m4a.o(.text);
         asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
         asm/agb_eeprom.o(.text);

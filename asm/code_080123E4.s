@@ -2538,7 +2538,7 @@ sub_080136CC: @ 0x080136CC
 	strh r1, [r0]
 	bl m4aSoundInit
 	ldr r0, _0801374C @ =0x0095F800
-	bl SoundMode_rev01
+	bl m4aSoundMode
 	movs r4, #0
 	str r4, [sp]
 	ldr r5, _08013750 @ =gUnk_03006830
@@ -3820,7 +3820,7 @@ sub_080140F4: @ 0x080140F4
 	strb r1, [r5]
 	bl m4aSoundInit
 	ldr r0, _080141B0 @ =0x0095F800
-	bl SoundMode_rev01
+	bl m4aSoundMode
 	movs r6, #0
 	strb r4, [r5]
 	str r6, [sp]

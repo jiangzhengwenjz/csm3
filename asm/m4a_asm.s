@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_080B6ADC
-sub_080B6ADC: @ 0x080B6ADC
+	thumb_func_start umul3232H32
+umul3232H32: @ 0x080B6ADC
 	add r2, pc, #0x0 @ =sub_080B6AE0
 	bx r2
 
@@ -1182,7 +1182,7 @@ _080B732A:
 	adds r1, r2, #0
 	ldrb r2, [r5, #9]
 	ldr r0, [r4, #0x24]
-	bl MidiKey2fr
+	bl MidiKeyToFreq
 	str r0, [r4, #0x20]
 _080B7336:
 	ldr r4, [r4, #0x34]
@@ -1544,7 +1544,7 @@ _080B75B2:
 	ldrb r2, [r5, #9]
 	adds r1, r3, #0
 	adds r0, r7, #0
-	bl MidiKey2fr
+	bl MidiKeyToFreq
 _080B75BC:
 	str r0, [r4, #0x20]
 	movs r0, #0x80

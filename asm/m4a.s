@@ -4,99 +4,7 @@
 	.syntax unified
 
 	.text
-
-	thumb_func_start MidiKey2fr
-MidiKey2fr: @ 0x080B7674
-	push {r4, r5, r6, r7, lr}
-	mov ip, r0
-	lsls r1, r1, #0x18
-	lsrs r6, r1, #0x18
-	lsls r7, r2, #0x18
-	cmp r6, #0xb2
-	bls _080B7688
-	movs r6, #0xb2
-	movs r7, #0xff
-	lsls r7, r7, #0x18
-_080B7688:
-	ldr r3, _080B76D0 @ =gUnk_080C0684
-	adds r0, r6, r3
-	ldrb r5, [r0]
-	ldr r4, _080B76D4 @ =gUnk_080C0738
-	movs r2, #0xf
-	adds r0, r5, #0
-	ands r0, r2
-	lsls r0, r0, #2
-	adds r0, r0, r4
-	lsrs r1, r5, #4
-	ldr r5, [r0]
-	lsrs r5, r1
-	adds r0, r6, #1
-	adds r0, r0, r3
-	ldrb r1, [r0]
-	adds r0, r1, #0
-	ands r0, r2
-	lsls r0, r0, #2
-	adds r0, r0, r4
-	lsrs r1, r1, #4
-	ldr r0, [r0]
-	lsrs r0, r1
-	mov r1, ip
-	ldr r4, [r1, #4]
-	subs r0, r0, r5
-	adds r1, r7, #0
-	bl sub_080B6ADC
-	adds r1, r0, #0
-	adds r1, r5, r1
-	adds r0, r4, #0
-	bl sub_080B6ADC
-	pop {r4, r5, r6, r7}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_080B76D0: .4byte gUnk_080C0684
-_080B76D4: .4byte gUnk_080C0738
-
-	thumb_func_start DummyFunc
-DummyFunc: @ 0x080B76D8
-	bx lr
-	.align 2, 0
-
-	thumb_func_start MPlayContinue
-MPlayContinue: @ 0x080B76DC
-	adds r2, r0, #0
-	ldr r3, [r2, #0x34]
-	ldr r0, _080B76F0 @ =0x68736D53
-	cmp r3, r0
-	bne _080B76EE
-	ldr r0, [r2, #4]
-	ldr r1, _080B76F4 @ =0x7FFFFFFF
-	ands r0, r1
-	str r0, [r2, #4]
-_080B76EE:
-	bx lr
-	.align 2, 0
-_080B76F0: .4byte 0x68736D53
-_080B76F4: .4byte 0x7FFFFFFF
-
-	thumb_func_start MPlayFadeOut
-MPlayFadeOut: @ 0x080B76F8
-	adds r2, r0, #0
-	lsls r1, r1, #0x10
-	lsrs r1, r1, #0x10
-	ldr r3, [r2, #0x34]
-	ldr r0, _080B7714 @ =0x68736D53
-	cmp r3, r0
-	bne _080B7710
-	strh r1, [r2, #0x26]
-	strh r1, [r2, #0x24]
-	movs r0, #0x80
-	lsls r0, r0, #1
-	strh r0, [r2, #0x28]
-_080B7710:
-	bx lr
-	.align 2, 0
-_080B7714: .4byte 0x68736D53
-
+/*
 	thumb_func_start m4aSoundInit
 m4aSoundInit: @ 0x080B7718
 	push {r4, r5, r6, lr}
@@ -104,31 +12,31 @@ m4aSoundInit: @ 0x080B7718
 	movs r1, #2
 	rsbs r1, r1, #0
 	ands r0, r1
-	ldr r1, _080B7770 @ =gUnk_030025B8
+	ldr r1, _080B7770 @ =SoundMainRAM_Buffer
 	ldr r2, _080B7774 @ =0x040000E0
 	bl CpuSet
-	ldr r0, _080B7778 @ =gUnk_03006BB0
-	bl SoundInit_rev01
-	ldr r0, _080B777C @ =gUnk_030075C0
+	ldr r0, _080B7778 @ =gSoundInfo
+	bl SoundInit
+	ldr r0, _080B777C @ =gCgbChans
 	bl MPlayExtender
 	ldr r0, _080B7780 @ =0x0095F800
-	bl SoundMode_rev01
+	bl m4aSoundMode
 	ldr r0, _080B7784 @ =0x00000006
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _080B7766
-	ldr r5, _080B7788 @ =gUnk_080C6288
+	ldr r5, _080B7788 @ =gMPlayTable
 	adds r6, r0, #0
 _080B774A:
 	ldr r4, [r5]
 	ldr r1, [r5, #4]
 	ldrb r2, [r5, #8]
 	adds r0, r4, #0
-	bl MPlayOpen_rev01
+	bl MPlayOpen
 	ldrh r0, [r5, #0xa]
 	strb r0, [r4, #0xb]
-	ldr r0, _080B778C @ =gUnk_03007800
+	ldr r0, _080B778C @ =gMPlayMemAccArea
 	str r0, [r4, #0x18]
 	adds r5, #0xc
 	subs r6, #1
@@ -140,15 +48,16 @@ _080B7766:
 	bx r0
 	.align 2, 0
 _080B776C: .4byte SoundMainRAM
-_080B7770: .4byte gUnk_030025B8
+_080B7770: .4byte SoundMainRAM_Buffer
 _080B7774: .4byte 0x040000E0
-_080B7778: .4byte gUnk_03006BB0
-_080B777C: .4byte gUnk_030075C0
+_080B7778: .4byte gSoundInfo
+_080B777C: .4byte gCgbChans
 _080B7780: .4byte 0x0095F800
 _080B7784: .4byte 0x00000006
-_080B7788: .4byte gUnk_080C6288
-_080B778C: .4byte gUnk_03007800
+_080B7788: .4byte gMPlayTable
+_080B778C: .4byte gMPlayMemAccArea
 
+*/
 	thumb_func_start m4aSoundMain
 m4aSoundMain: @ 0x080B7790
 	push {lr}
@@ -161,7 +70,7 @@ m4aSoundMain: @ 0x080B7790
 m4aSongNumStart: @ 0x080B779C
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _080B77C0 @ =gUnk_080C6288
+	ldr r2, _080B77C0 @ =gMPlayTable
 	ldr r1, _080B77C4 @ =gUnk_080C62D0
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
@@ -177,14 +86,14 @@ m4aSongNumStart: @ 0x080B779C
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080B77C0: .4byte gUnk_080C6288
+_080B77C0: .4byte gMPlayTable
 _080B77C4: .4byte gUnk_080C62D0
 
 	thumb_func_start m4aSongNumStartOrChange
 m4aSongNumStartOrChange: @ 0x080B77C8
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _080B77F4 @ =gUnk_080C6288
+	ldr r2, _080B77F4 @ =gMPlayTable
 	ldr r1, _080B77F8 @ =gUnk_080C62D0
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
@@ -203,7 +112,7 @@ m4aSongNumStartOrChange: @ 0x080B77C8
 	bl MPlayStart_rev01
 	b _080B7810
 	.align 2, 0
-_080B77F4: .4byte gUnk_080C6288
+_080B77F4: .4byte gMPlayTable
 _080B77F8: .4byte gUnk_080C62D0
 _080B77FC:
 	ldr r2, [r1, #4]
@@ -224,7 +133,7 @@ _080B7810:
 m4aSongNumStartOrContinue: @ 0x080B7814
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _080B7840 @ =gUnk_080C6288
+	ldr r2, _080B7840 @ =gMPlayTable
 	ldr r1, _080B7844 @ =gUnk_080C62D0
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
@@ -243,7 +152,7 @@ m4aSongNumStartOrContinue: @ 0x080B7814
 	bl MPlayStart_rev01
 	b _080B7864
 	.align 2, 0
-_080B7840: .4byte gUnk_080C6288
+_080B7840: .4byte gMPlayTable
 _080B7844: .4byte gUnk_080C62D0
 _080B7848:
 	ldr r2, [r1, #4]
@@ -267,7 +176,7 @@ _080B7864:
 m4aSongNumStop: @ 0x080B7868
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _080B7894 @ =gUnk_080C6288
+	ldr r2, _080B7894 @ =gMPlayTable
 	ldr r1, _080B7898 @ =gUnk_080C62D0
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
@@ -287,14 +196,14 @@ _080B788E:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080B7894: .4byte gUnk_080C6288
+_080B7894: .4byte gMPlayTable
 _080B7898: .4byte gUnk_080C62D0
 
 	thumb_func_start m4aSongNumContinue
 m4aSongNumContinue: @ 0x080B789C
 	push {lr}
 	lsls r0, r0, #0x10
-	ldr r2, _080B78C8 @ =gUnk_080C6288
+	ldr r2, _080B78C8 @ =gMPlayTable
 	ldr r1, _080B78CC @ =gUnk_080C62D0
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
@@ -314,7 +223,7 @@ _080B78C2:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080B78C8: .4byte gUnk_080C6288
+_080B78C8: .4byte gMPlayTable
 _080B78CC: .4byte gUnk_080C62D0
 
 	thumb_func_start m4aMPlayAllStop
@@ -325,7 +234,7 @@ m4aMPlayAllStop: @ 0x080B78D0
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _080B78EE
-	ldr r5, _080B78F8 @ =gUnk_080C6288
+	ldr r5, _080B78F8 @ =gMPlayTable
 	adds r4, r0, #0
 _080B78E0:
 	ldr r0, [r5]
@@ -340,7 +249,7 @@ _080B78EE:
 	bx r0
 	.align 2, 0
 _080B78F4: .4byte 0x00000006
-_080B78F8: .4byte gUnk_080C6288
+_080B78F8: .4byte gMPlayTable
 
 	thumb_func_start m4aMPlayContinue
 m4aMPlayContinue: @ 0x080B78FC
@@ -358,7 +267,7 @@ m4aMPlayAllContinue: @ 0x080B7908
 	lsrs r0, r0, #0x10
 	cmp r0, #0
 	beq _080B7926
-	ldr r5, _080B7930 @ =gUnk_080C6288
+	ldr r5, _080B7930 @ =gMPlayTable
 	adds r4, r0, #0
 _080B7918:
 	ldr r0, [r5]
@@ -373,7 +282,7 @@ _080B7926:
 	bx r0
 	.align 2, 0
 _080B792C: .4byte 0x00000006
-_080B7930: .4byte gUnk_080C6288
+_080B7930: .4byte gMPlayTable
 
 	thumb_func_start m4aMPlayFadeOut
 m4aMPlayFadeOut: @ 0x080B7934
@@ -619,8 +528,8 @@ Clear64byte_rev: @ 0x080B7B04
 	.align 2, 0
 _080B7B14: .4byte gUnk_030075BC
 
-	thumb_func_start SoundInit_rev01
-SoundInit_rev01: @ 0x080B7B18
+	thumb_func_start SoundInit
+SoundInit: @ 0x080B7B18
 	push {r4, r5, lr}
 	sub sp, #4
 	adds r5, r0, #0
@@ -676,7 +585,7 @@ _080B7B34:
 	strb r0, [r5, #7]
 	ldr r0, _080B7BD4 @ =ply_note_rev01
 	str r0, [r5, #0x38]
-	ldr r0, _080B7BD8 @ =DummyFunc_rev
+	ldr r0, _080B7BD8 @ =nullsub_141
 	str r0, [r5, #0x28]
 	str r0, [r5, #0x2c]
 	str r0, [r5, #0x30]
@@ -705,7 +614,7 @@ _080B7BC8: .4byte 0x040000A0
 _080B7BCC: .4byte 0x03007FF0
 _080B7BD0: .4byte 0x05000260
 _080B7BD4: .4byte ply_note_rev01
-_080B7BD8: .4byte DummyFunc_rev
+_080B7BD8: .4byte nullsub_141
 _080B7BDC: .4byte gUnk_03007530
 _080B7BE0: .4byte 0x68736D53
 
@@ -782,8 +691,8 @@ _080B7C7C: .4byte 0x04000100
 _080B7C80: .4byte 0x00044940
 _080B7C84: .4byte 0x04000006
 
-	thumb_func_start SoundMode_rev01
-SoundMode_rev01: @ 0x080B7C88
+	thumb_func_start m4aSoundMode
+m4aSoundMode: @ 0x080B7C88
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	ldr r0, _080B7D14 @ =0x03007FF0
@@ -989,8 +898,8 @@ _080B7E04: .4byte 0x03007FF0
 _080B7E08: .4byte 0x68736D53
 _080B7E0C: .4byte 0x040000C6
 
-	thumb_func_start MPlayOpen_rev01
-MPlayOpen_rev01: @ 0x080B7E10
+	thumb_func_start MPlayOpen
+MPlayOpen: @ 0x080B7E10
 	push {r4, r5, r6, r7, lr}
 	adds r7, r0, #0
 	adds r6, r1, #0
@@ -1163,7 +1072,7 @@ _080B7F4A:
 	cmp r0, #0
 	beq _080B7F5A
 	ldrb r0, [r7, #3]
-	bl SoundMode_rev01
+	bl m4aSoundMode
 _080B7F5A:
 	ldr r0, _080B7F68 @ =0x68736D53
 	str r0, [r5, #0x34]
@@ -2913,7 +2822,8 @@ sub_080B8BBC: @ 0x080B8BBC
 	bx lr
 	.align 2, 0
 
-	thumb_func_start DummyFunc_rev
-DummyFunc_rev: @ 0x080B8BC0
+	thumb_func_start nullsub_141
+nullsub_141: @ 0x080B8BC0
 	bx lr
 	.align 2, 0
+
