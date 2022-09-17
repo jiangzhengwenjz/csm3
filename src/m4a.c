@@ -140,7 +140,7 @@ void m4aSongNumStop(u16 n)
     if (mplay->info->songHeader == song->header)
         MPlayStop(mplay->info);
 }
-/*
+
 void m4aSongNumContinue(u16 n)
 {
     const struct MusicPlayer *mplayTable = gMPlayTable;
@@ -177,7 +177,7 @@ void m4aMPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed)
 {
     MPlayFadeOut(mplayInfo, speed);
 }
-
+/*
 void m4aMPlayFadeOutTemporarily(struct MusicPlayerInfo *mplayInfo, u16 speed)
 {
     if (mplayInfo->ident == ID_NUMBER)
