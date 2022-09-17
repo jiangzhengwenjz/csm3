@@ -5,73 +5,12 @@
 
 	.text
 /*
-	thumb_func_start m4aSoundInit
-m4aSoundInit: @ 0x080B7718
-	push {r4, r5, r6, lr}
-	ldr r0, _080B776C @ =SoundMainRAM
-	movs r1, #2
-	rsbs r1, r1, #0
-	ands r0, r1
-	ldr r1, _080B7770 @ =SoundMainRAM_Buffer
-	ldr r2, _080B7774 @ =0x040000E0
-	bl CpuSet
-	ldr r0, _080B7778 @ =gSoundInfo
-	bl SoundInit
-	ldr r0, _080B777C @ =gCgbChans
-	bl MPlayExtender
-	ldr r0, _080B7780 @ =0x0095F800
-	bl m4aSoundMode
-	ldr r0, _080B7784 @ =0x00000006
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	cmp r0, #0
-	beq _080B7766
-	ldr r5, _080B7788 @ =gMPlayTable
-	adds r6, r0, #0
-_080B774A:
-	ldr r4, [r5]
-	ldr r1, [r5, #4]
-	ldrb r2, [r5, #8]
-	adds r0, r4, #0
-	bl MPlayOpen
-	ldrh r0, [r5, #0xa]
-	strb r0, [r4, #0xb]
-	ldr r0, _080B778C @ =gMPlayMemAccArea
-	str r0, [r4, #0x18]
-	adds r5, #0xc
-	subs r6, #1
-	cmp r6, #0
-	bne _080B774A
-_080B7766:
-	pop {r4, r5, r6}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_080B776C: .4byte SoundMainRAM
-_080B7770: .4byte SoundMainRAM_Buffer
-_080B7774: .4byte 0x040000E0
-_080B7778: .4byte gSoundInfo
-_080B777C: .4byte gCgbChans
-_080B7780: .4byte 0x0095F800
-_080B7784: .4byte 0x00000006
-_080B7788: .4byte gMPlayTable
-_080B778C: .4byte gMPlayMemAccArea
-
-*/
-	thumb_func_start m4aSoundMain
-m4aSoundMain: @ 0x080B7790
-	push {lr}
-	bl SoundMain
-	pop {r0}
-	bx r0
-	.align 2, 0
-
 	thumb_func_start m4aSongNumStart
 m4aSongNumStart: @ 0x080B779C
 	push {lr}
 	lsls r0, r0, #0x10
 	ldr r2, _080B77C0 @ =gMPlayTable
-	ldr r1, _080B77C4 @ =gUnk_080C62D0
+	ldr r1, _080B77C4 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -82,19 +21,19 @@ m4aSongNumStart: @ 0x080B779C
 	ldr r2, [r1]
 	ldr r1, [r0]
 	adds r0, r2, #0
-	bl MPlayStart_rev01
+	bl MPlayStart
 	pop {r0}
 	bx r0
 	.align 2, 0
 _080B77C0: .4byte gMPlayTable
-_080B77C4: .4byte gUnk_080C62D0
-
+_080B77C4: .4byte gSongTable
+*/
 	thumb_func_start m4aSongNumStartOrChange
 m4aSongNumStartOrChange: @ 0x080B77C8
 	push {lr}
 	lsls r0, r0, #0x10
 	ldr r2, _080B77F4 @ =gMPlayTable
-	ldr r1, _080B77F8 @ =gUnk_080C62D0
+	ldr r1, _080B77F8 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -109,11 +48,11 @@ m4aSongNumStartOrChange: @ 0x080B77C8
 	beq _080B77FC
 	adds r0, r1, #0
 	adds r1, r2, #0
-	bl MPlayStart_rev01
+	bl MPlayStart
 	b _080B7810
 	.align 2, 0
 _080B77F4: .4byte gMPlayTable
-_080B77F8: .4byte gUnk_080C62D0
+_080B77F8: .4byte gSongTable
 _080B77FC:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -124,7 +63,7 @@ _080B77FC:
 _080B7808:
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl MPlayStart_rev01
+	bl MPlayStart
 _080B7810:
 	pop {r0}
 	bx r0
@@ -134,7 +73,7 @@ m4aSongNumStartOrContinue: @ 0x080B7814
 	push {lr}
 	lsls r0, r0, #0x10
 	ldr r2, _080B7840 @ =gMPlayTable
-	ldr r1, _080B7844 @ =gUnk_080C62D0
+	ldr r1, _080B7844 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -149,11 +88,11 @@ m4aSongNumStartOrContinue: @ 0x080B7814
 	beq _080B7848
 	adds r0, r1, #0
 	adds r1, r2, #0
-	bl MPlayStart_rev01
+	bl MPlayStart
 	b _080B7864
 	.align 2, 0
 _080B7840: .4byte gMPlayTable
-_080B7844: .4byte gUnk_080C62D0
+_080B7844: .4byte gSongTable
 _080B7848:
 	ldr r2, [r1, #4]
 	ldrh r0, [r1, #4]
@@ -161,7 +100,7 @@ _080B7848:
 	bne _080B785A
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl MPlayStart_rev01
+	bl MPlayStart
 	b _080B7864
 _080B785A:
 	cmp r2, #0
@@ -177,7 +116,7 @@ m4aSongNumStop: @ 0x080B7868
 	push {lr}
 	lsls r0, r0, #0x10
 	ldr r2, _080B7894 @ =gMPlayTable
-	ldr r1, _080B7898 @ =gUnk_080C62D0
+	ldr r1, _080B7898 @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -197,14 +136,14 @@ _080B788E:
 	bx r0
 	.align 2, 0
 _080B7894: .4byte gMPlayTable
-_080B7898: .4byte gUnk_080C62D0
+_080B7898: .4byte gSongTable
 
 	thumb_func_start m4aSongNumContinue
 m4aSongNumContinue: @ 0x080B789C
 	push {lr}
 	lsls r0, r0, #0x10
 	ldr r2, _080B78C8 @ =gMPlayTable
-	ldr r1, _080B78CC @ =gUnk_080C62D0
+	ldr r1, _080B78CC @ =gSongTable
 	lsrs r0, r0, #0xd
 	adds r0, r0, r1
 	ldrh r3, [r0, #4]
@@ -224,7 +163,7 @@ _080B78C2:
 	bx r0
 	.align 2, 0
 _080B78C8: .4byte gMPlayTable
-_080B78CC: .4byte gUnk_080C62D0
+_080B78CC: .4byte gSongTable
 
 	thumb_func_start m4aMPlayAllStop
 m4aMPlayAllStop: @ 0x080B78D0
@@ -962,8 +901,8 @@ _080B7E7C: .4byte 0x03007FF0
 _080B7E80: .4byte 0x68736D53
 _080B7E84: .4byte MPlayMain_rev01
 
-	thumb_func_start MPlayStart_rev01
-MPlayStart_rev01: @ 0x080B7E88
+	thumb_func_start MPlayStart
+MPlayStart: @ 0x080B7E88
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

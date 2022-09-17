@@ -78,7 +78,7 @@ void m4aSoundInit(void)
         mplayInfo->memAccArea = gMPlayMemAccArea;
     }
 }
-/*
+
 void m4aSoundMain(void)
 {
     SoundMain();
@@ -93,7 +93,7 @@ void m4aSongNumStart(u16 n)
 
     MPlayStart(mplay->info, song->header);
 }
-
+/*
 void m4aSongNumStartOrChange(u16 n)
 {
     const struct MusicPlayer *mplayTable = gMPlayTable;
