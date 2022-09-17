@@ -857,7 +857,7 @@ _080B713C:
 	ldr r0, [r0]
 	mov r8, r0
 	adds r0, r7, #0
-	bl FadeOutBody_rev01
+	bl FadeOutBody
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	bge _080B7150
@@ -1116,7 +1116,7 @@ _080B72AC:
 	mov sb, r2
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl TrkVolPitSet_rev01
+	bl TrkVolPitSet
 	ldr r4, [r5, #0x20]
 	cmp r4, #0
 	beq _080B733C
@@ -1218,8 +1218,8 @@ _080B7364: .4byte gUnk_080C0868
 _080B7368: .4byte 0x03007FF0
 _080B736C: .4byte 0x68736D53
 
-	thumb_func_start TrackStop_rev01
-TrackStop_rev01: @ 0x080B7370
+	thumb_func_start TrackStop
+TrackStop: @ 0x080B7370
 	push {r4, r5, r6, lr}
 	adds r5, r1, #0
 	ldrb r1, [r5]
@@ -1490,7 +1490,7 @@ _080B7538:
 _080B754A:
 	ldr r0, [sp]
 	adds r1, r5, #0
-	bl TrkVolPitSet_rev01
+	bl TrkVolPitSet
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x10]
 	ldr r0, [sp, #0x10]
@@ -1566,8 +1566,8 @@ _080B75CA:
 _080B75DC: .4byte 0x03007FF0
 _080B75E0: .4byte gUnk_080C0868
 
-	thumb_func_start ply_endtie_rev01
-ply_endtie_rev01: @ 0x080B75E4
+	thumb_func_start ply_endtie
+ply_endtie: @ 0x080B75E4
 	push {r4, r5}
 	ldr r2, [r1, #0x40]
 	ldrb r3, [r2]
@@ -1634,8 +1634,8 @@ ld_r3_tp_adr_i_rev: @ 0x080B7640
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ply_lfos_rev01
-ply_lfos_rev01: @ 0x080B764C
+	thumb_func_start ply_lfos
+ply_lfos: @ 0x080B764C
 	mov ip, lr
 	bl ld_r3_tp_adr_i_rev
 	strb r3, [r1, #0x19]
@@ -1646,8 +1646,8 @@ _080B765C:
 	bx ip
 	.align 2, 0
 
-	thumb_func_start ply_mod_rev01
-ply_mod_rev01: @ 0x080B7660
+	thumb_func_start ply_mod
+ply_mod: @ 0x080B7660
 	mov ip, lr
 	bl ld_r3_tp_adr_i_rev
 	strb r3, [r1, #0x17]

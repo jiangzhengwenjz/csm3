@@ -5,47 +5,6 @@
 
 	.text
 /*
-	thumb_func_start m4aMPlayImmInit
-m4aMPlayImmInit: @ 0x080B798C
-	push {r4, r5, r6, r7, lr}
-	ldrb r5, [r0, #8]
-	ldr r4, [r0, #0x2c]
-	cmp r5, #0
-	ble _080B79CE
-	movs r7, #0x80
-_080B7998:
-	ldrb r1, [r4]
-	adds r0, r7, #0
-	ands r0, r1
-	cmp r0, #0
-	beq _080B79C6
-	movs r6, #0x40
-	adds r0, r6, #0
-	ands r0, r1
-	cmp r0, #0
-	beq _080B79C6
-	adds r0, r4, #0
-	bl Clear64byte
-	strb r7, [r4]
-	movs r0, #2
-	strb r0, [r4, #0xf]
-	strb r6, [r4, #0x13]
-	movs r0, #0x16
-	strb r0, [r4, #0x19]
-	adds r1, r4, #0
-	adds r1, #0x24
-	movs r0, #1
-	strb r0, [r1]
-_080B79C6:
-	subs r5, #1
-	adds r4, #0x50
-	cmp r5, #0
-	bgt _080B7998
-_080B79CE:
-	pop {r4, r5, r6, r7}
-	pop {r0}
-	bx r0
-	*/
 	thumb_func_start MPlayExtender
 MPlayExtender: @ 0x080B79D4
 	push {r4, r5, r6, lr}
@@ -83,34 +42,34 @@ MPlayExtender: @ 0x080B79D4
 	bne _080B7A94
 	adds r0, r6, #1
 	str r0, [r4]
-	ldr r1, _080B7AB0 @ =gUnk_03007530
+	ldr r1, _080B7AB0 @ =gMPlayJumpTable
 	ldr r0, _080B7AB4 @ =ply_memacc
 	str r0, [r1, #0x20]
-	ldr r0, _080B7AB8 @ =ply_lfos_rev01
+	ldr r0, _080B7AB8 @ =ply_lfos
 	str r0, [r1, #0x44]
-	ldr r0, _080B7ABC @ =ply_mod_rev01
+	ldr r0, _080B7ABC @ =ply_mod
 	str r0, [r1, #0x4c]
 	ldr r0, _080B7AC0 @ =ply_xcmd
 	str r0, [r1, #0x70]
-	ldr r0, _080B7AC4 @ =ply_endtie_rev01
+	ldr r0, _080B7AC4 @ =ply_endtie
 	str r0, [r1, #0x74]
-	ldr r0, _080B7AC8 @ =SampFreqSet_rev01
+	ldr r0, _080B7AC8 @ =SampleFreqSet
 	str r0, [r1, #0x78]
-	ldr r0, _080B7ACC @ =TrackStop_rev01
+	ldr r0, _080B7ACC @ =TrackStop
 	str r0, [r1, #0x7c]
 	adds r2, r1, #0
 	adds r2, #0x80
-	ldr r0, _080B7AD0 @ =FadeOutBody_rev01
+	ldr r0, _080B7AD0 @ =FadeOutBody
 	str r0, [r2]
 	adds r1, #0x84
-	ldr r0, _080B7AD4 @ =TrkVolPitSet_rev01
+	ldr r0, _080B7AD4 @ =TrkVolPitSet
 	str r0, [r1]
 	str r5, [r4, #0x1c]
 	ldr r0, _080B7AD8 @ =CgbSound
 	str r0, [r4, #0x28]
 	ldr r0, _080B7ADC @ =CgbOscOff
 	str r0, [r4, #0x2c]
-	ldr r0, _080B7AE0 @ =MidiKey2CgbFr
+	ldr r0, _080B7AE0 @ =MidiKeyToCgbFreq
 	str r0, [r4, #0x30]
 	ldr r0, _080B7AE4 @ =0x00000000
 	movs r1, #0
@@ -154,22 +113,22 @@ _080B7AA0: .4byte 0x04000080
 _080B7AA4: .4byte 0x04000063
 _080B7AA8: .4byte 0x03007FF0
 _080B7AAC: .4byte 0x68736D53
-_080B7AB0: .4byte gUnk_03007530
+_080B7AB0: .4byte gMPlayJumpTable
 _080B7AB4: .4byte ply_memacc
-_080B7AB8: .4byte ply_lfos_rev01
-_080B7ABC: .4byte ply_mod_rev01
+_080B7AB8: .4byte ply_lfos
+_080B7ABC: .4byte ply_mod
 _080B7AC0: .4byte ply_xcmd
-_080B7AC4: .4byte ply_endtie_rev01
-_080B7AC8: .4byte SampFreqSet_rev01
-_080B7ACC: .4byte TrackStop_rev01
-_080B7AD0: .4byte FadeOutBody_rev01
-_080B7AD4: .4byte TrkVolPitSet_rev01
+_080B7AC4: .4byte ply_endtie
+_080B7AC8: .4byte SampleFreqSet
+_080B7ACC: .4byte TrackStop
+_080B7AD0: .4byte FadeOutBody
+_080B7AD4: .4byte TrkVolPitSet
 _080B7AD8: .4byte CgbSound
 _080B7ADC: .4byte CgbOscOff
-_080B7AE0: .4byte MidiKey2CgbFr
+_080B7AE0: .4byte MidiKeyToCgbFreq
 _080B7AE4: .4byte 0x00000000
 _080B7AE8: .4byte 0x05000040
-
+*/
 	thumb_func_start MusicPlayerJumpTableCopy
 MusicPlayerJumpTableCopy: @ 0x080B7AEC
 	svc #0x2a
@@ -259,13 +218,13 @@ _080B7B34:
 	str r0, [r5, #0x2c]
 	str r0, [r5, #0x30]
 	str r0, [r5, #0x3c]
-	ldr r4, _080B7BDC @ =gUnk_03007530
+	ldr r4, _080B7BDC @ =gMPlayJumpTable
 	adds r0, r4, #0
 	bl MPlyJmpTblCopy
 	str r4, [r5, #0x34]
 	movs r0, #0x80
 	lsls r0, r0, #0xb
-	bl SampFreqSet_rev01
+	bl SampleFreqSet
 	ldr r0, _080B7BE0 @ =0x68736D53
 	str r0, [r5]
 	add sp, #4
@@ -284,11 +243,11 @@ _080B7BCC: .4byte 0x03007FF0
 _080B7BD0: .4byte 0x05000260
 _080B7BD4: .4byte ply_note_rev01
 _080B7BD8: .4byte nullsub_141
-_080B7BDC: .4byte gUnk_03007530
+_080B7BDC: .4byte gMPlayJumpTable
 _080B7BE0: .4byte 0x68736D53
 
-	thumb_func_start SampFreqSet_rev01
-SampFreqSet_rev01: @ 0x080B7BE4
+	thumb_func_start SampleFreqSet
+SampleFreqSet: @ 0x080B7BE4
 	push {r4, r5, r6, lr}
 	adds r2, r0, #0
 	ldr r0, _080B7C64 @ =0x03007FF0
@@ -429,7 +388,7 @@ _080B7CF6:
 	beq _080B7D0A
 	bl SoundVSyncOff_rev01
 	adds r0, r4, #0
-	bl SampFreqSet_rev01
+	bl SampleFreqSet
 _080B7D0A:
 	ldr r0, _080B7D18 @ =0x68736D53
 	str r0, [r5]
@@ -698,7 +657,7 @@ _080B7ECA:
 _080B7EFE:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl TrackStop_rev01
+	bl TrackStop
 	movs r0, #0xc0
 	strb r0, [r4]
 	mov r1, r8
@@ -726,7 +685,7 @@ _080B7F2A:
 _080B7F34:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl TrackStop_rev01
+	bl TrackStop
 	mov r0, r8
 	strb r0, [r4]
 	adds r6, #1
@@ -776,7 +735,7 @@ MPlayStop: @ 0x080B7F6C
 _080B7F8E:
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl TrackStop_rev01
+	bl TrackStop
 	subs r4, #1
 	adds r5, #0x50
 	cmp r4, #0
@@ -791,8 +750,8 @@ _080B7FA2:
 	.align 2, 0
 _080B7FA8: .4byte 0x68736D53
 
-	thumb_func_start FadeOutBody_rev01
-FadeOutBody_rev01: @ 0x080B7FAC
+	thumb_func_start FadeOutBody
+FadeOutBody: @ 0x080B7FAC
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	ldrh r1, [r6, #0x24]
@@ -841,7 +800,7 @@ _080B7FF0:
 _080B8006:
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl TrackStop_rev01
+	bl TrackStop
 	movs r0, #1
 	ldrh r7, [r6, #0x28]
 	ands r0, r7
@@ -902,8 +861,8 @@ _080B806E:
 	pop {r0}
 	bx r0
 
-	thumb_func_start TrkVolPitSet_rev01
-TrkVolPitSet_rev01: @ 0x080B8074
+	thumb_func_start TrkVolPitSet
+TrkVolPitSet: @ 0x080B8074
 	push {r4, lr}
 	adds r2, r1, #0
 	movs r0, #1
@@ -1002,8 +961,8 @@ _080B811C:
 	pop {r0}
 	bx r0
 
-	thumb_func_start MidiKey2CgbFr
-MidiKey2CgbFr: @ 0x080B8128
+	thumb_func_start MidiKeyToCgbFreq
+MidiKeyToCgbFreq: @ 0x080B8128
 	push {r4, r5, r6, r7, lr}
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
@@ -2336,13 +2295,13 @@ _080B8ABC: .4byte gUnk_080C089C
 	thumb_func_start ply_xxx
 ply_xxx: @ 0x080B8AC0
 	push {lr}
-	ldr r2, _080B8AD0 @ =gUnk_03007530
+	ldr r2, _080B8AD0 @ =gMPlayJumpTable
 	ldr r2, [r2]
 	bl _call_via_r2
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080B8AD0: .4byte gUnk_03007530
+_080B8AD0: .4byte gMPlayJumpTable
 
 	thumb_func_start ply_xwave
 ply_xwave: @ 0x080B8AD4

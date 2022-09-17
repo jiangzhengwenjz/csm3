@@ -378,7 +378,7 @@ SECTIONS {
         . = 0x00006B9C; gUnk_03006B9C = .;
         . = 0x00006BA0; gUnk_03006BA0 = .;
         . = 0x00006BB0; gSoundInfo = .;
-        . = 0x00007530; gUnk_03007530 = .;
+        . = 0x00007530; gMPlayJumpTable = .;
         . = 0x00007534; gUnk_03007534 = .;
         . = 0x000075B8; gUnk_030075B8 = .;
         . = 0x000075BC; gUnk_030075BC = .;

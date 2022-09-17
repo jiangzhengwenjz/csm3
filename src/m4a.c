@@ -227,7 +227,7 @@ void m4aMPlayImmInit(struct MusicPlayerInfo *mplayInfo)
         ++track;
     }
 }
-/*
+
 void MPlayExtender(struct CgbChannel *cgbChans)
 {
     struct SoundInfo *soundInfo;
@@ -277,7 +277,7 @@ void MPlayExtender(struct CgbChannel *cgbChans)
     cgbChans[3].panMask = 0x88;
     soundInfo->ident = ident;
 }
-
+/*
 void MusicPlayerJumpTableCopy(void)
 {
     asm("swi 0x2A");
