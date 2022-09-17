@@ -925,7 +925,7 @@ _080B719E:
 	tst r0, r3
 	beq _080B721C
 	adds r0, r5, #0
-	bl Clear64byte_rev
+	bl Clear64byte
 	movs r0, #0x80
 	strb r0, [r5]
 	movs r0, #2

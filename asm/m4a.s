@@ -4,49 +4,7 @@
 	.syntax unified
 
 	.text
-
-	thumb_func_start m4aMPlayFadeOutPause
-m4aMPlayFadeOutPause: @ 0x080B7944
-	adds r2, r0, #0
-	lsls r1, r1, #0x10
-	lsrs r1, r1, #0x10
-	ldr r3, [r2, #0x34]
-	ldr r0, _080B795C @ =0x68736D53
-	cmp r3, r0
-	bne _080B795A
-	strh r1, [r2, #0x26]
-	strh r1, [r2, #0x24]
-	ldr r0, _080B7960 @ =0x00000101
-	strh r0, [r2, #0x28]
-_080B795A:
-	bx lr
-	.align 2, 0
-_080B795C: .4byte 0x68736D53
-_080B7960: .4byte 0x00000101
-
-	thumb_func_start m4aMPlayFadeInContinue
-m4aMPlayFadeInContinue: @ 0x080B7964
-	adds r2, r0, #0
-	lsls r1, r1, #0x10
-	lsrs r1, r1, #0x10
-	ldr r3, [r2, #0x34]
-	ldr r0, _080B7984 @ =0x68736D53
-	cmp r3, r0
-	bne _080B7982
-	strh r1, [r2, #0x26]
-	strh r1, [r2, #0x24]
-	movs r0, #2
-	strh r0, [r2, #0x28]
-	ldr r0, [r2, #4]
-	ldr r1, _080B7988 @ =0x7FFFFFFF
-	ands r0, r1
-	str r0, [r2, #4]
-_080B7982:
-	bx lr
-	.align 2, 0
-_080B7984: .4byte 0x68736D53
-_080B7988: .4byte 0x7FFFFFFF
-
+/*
 	thumb_func_start m4aMPlayImmInit
 m4aMPlayImmInit: @ 0x080B798C
 	push {r4, r5, r6, r7, lr}
@@ -67,7 +25,7 @@ _080B7998:
 	cmp r0, #0
 	beq _080B79C6
 	adds r0, r4, #0
-	bl Clear64byte_rev
+	bl Clear64byte
 	strb r7, [r4]
 	movs r0, #2
 	strb r0, [r4, #0xf]
@@ -87,7 +45,7 @@ _080B79CE:
 	pop {r4, r5, r6, r7}
 	pop {r0}
 	bx r0
-
+	*/
 	thumb_func_start MPlayExtender
 MPlayExtender: @ 0x080B79D4
 	push {r4, r5, r6, lr}
@@ -228,8 +186,8 @@ ClearChain_rev: @ 0x080B7AF0
 	.align 2, 0
 _080B7B00: .4byte gUnk_030075B8
 
-	thumb_func_start Clear64byte_rev
-Clear64byte_rev: @ 0x080B7B04
+	thumb_func_start Clear64byte
+Clear64byte: @ 0x080B7B04
 	push {lr}
 	ldr r1, _080B7B14 @ =gUnk_030075BC
 	ldr r1, [r1]
@@ -631,7 +589,7 @@ _080B7E24:
 	adds r0, r1, #1
 	str r0, [r5]
 	adds r0, r7, #0
-	bl Clear64byte_rev
+	bl Clear64byte
 	str r6, [r7, #0x2c]
 	strb r4, [r7, #8]
 	movs r0, #0x80
