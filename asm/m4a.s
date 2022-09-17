@@ -5,112 +5,6 @@
 
 	.text
 /*
-	thumb_func_start m4aSongNumStart
-m4aSongNumStart: @ 0x080B779C
-	push {lr}
-	lsls r0, r0, #0x10
-	ldr r2, _080B77C0 @ =gMPlayTable
-	ldr r1, _080B77C4 @ =gSongTable
-	lsrs r0, r0, #0xd
-	adds r0, r0, r1
-	ldrh r3, [r0, #4]
-	lsls r1, r3, #1
-	adds r1, r1, r3
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r2, [r1]
-	ldr r1, [r0]
-	adds r0, r2, #0
-	bl MPlayStart
-	pop {r0}
-	bx r0
-	.align 2, 0
-_080B77C0: .4byte gMPlayTable
-_080B77C4: .4byte gSongTable
-*/
-	thumb_func_start m4aSongNumStartOrChange
-m4aSongNumStartOrChange: @ 0x080B77C8
-	push {lr}
-	lsls r0, r0, #0x10
-	ldr r2, _080B77F4 @ =gMPlayTable
-	ldr r1, _080B77F8 @ =gSongTable
-	lsrs r0, r0, #0xd
-	adds r0, r0, r1
-	ldrh r3, [r0, #4]
-	lsls r1, r3, #1
-	adds r1, r1, r3
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	ldr r3, [r1]
-	ldr r2, [r0]
-	cmp r3, r2
-	beq _080B77FC
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl MPlayStart
-	b _080B7810
-	.align 2, 0
-_080B77F4: .4byte gMPlayTable
-_080B77F8: .4byte gSongTable
-_080B77FC:
-	ldr r2, [r1, #4]
-	ldrh r0, [r1, #4]
-	cmp r0, #0
-	beq _080B7808
-	cmp r2, #0
-	bge _080B7810
-_080B7808:
-	adds r0, r1, #0
-	adds r1, r3, #0
-	bl MPlayStart
-_080B7810:
-	pop {r0}
-	bx r0
-
-	thumb_func_start m4aSongNumStartOrContinue
-m4aSongNumStartOrContinue: @ 0x080B7814
-	push {lr}
-	lsls r0, r0, #0x10
-	ldr r2, _080B7840 @ =gMPlayTable
-	ldr r1, _080B7844 @ =gSongTable
-	lsrs r0, r0, #0xd
-	adds r0, r0, r1
-	ldrh r3, [r0, #4]
-	lsls r1, r3, #1
-	adds r1, r1, r3
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	ldr r3, [r1]
-	ldr r2, [r0]
-	cmp r3, r2
-	beq _080B7848
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl MPlayStart
-	b _080B7864
-	.align 2, 0
-_080B7840: .4byte gMPlayTable
-_080B7844: .4byte gSongTable
-_080B7848:
-	ldr r2, [r1, #4]
-	ldrh r0, [r1, #4]
-	cmp r0, #0
-	bne _080B785A
-	adds r0, r1, #0
-	adds r1, r3, #0
-	bl MPlayStart
-	b _080B7864
-_080B785A:
-	cmp r2, #0
-	bge _080B7864
-	adds r0, r1, #0
-	bl MPlayContinue
-_080B7864:
-	pop {r0}
-	bx r0
-
 	thumb_func_start m4aSongNumStop
 m4aSongNumStop: @ 0x080B7868
 	push {lr}
@@ -130,14 +24,14 @@ m4aSongNumStop: @ 0x080B7868
 	cmp r1, r0
 	bne _080B788E
 	adds r0, r2, #0
-	bl MPlayStop_rev01
+	bl MPlayStop
 _080B788E:
 	pop {r0}
 	bx r0
 	.align 2, 0
 _080B7894: .4byte gMPlayTable
 _080B7898: .4byte gSongTable
-
+*/
 	thumb_func_start m4aSongNumContinue
 m4aSongNumContinue: @ 0x080B789C
 	push {lr}
@@ -177,7 +71,7 @@ m4aMPlayAllStop: @ 0x080B78D0
 	adds r4, r0, #0
 _080B78E0:
 	ldr r0, [r5]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	adds r5, #0xc
 	subs r4, #1
 	cmp r4, #0
@@ -1024,8 +918,8 @@ _080B7F5E:
 	.align 2, 0
 _080B7F68: .4byte 0x68736D53
 
-	thumb_func_start MPlayStop_rev01
-MPlayStop_rev01: @ 0x080B7F6C
+	thumb_func_start MPlayStop
+MPlayStop: @ 0x080B7F6C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	ldr r1, [r6, #0x34]

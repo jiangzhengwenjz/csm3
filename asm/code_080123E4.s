@@ -3508,7 +3508,7 @@ _08013E86:
 	ldr r1, _08013EBC @ =gUnk_08B71D8C
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 	ldr r1, _08013EB8 @ =gUnk_03006850
@@ -3649,7 +3649,7 @@ _08013FA2:
 	mov r3, sl
 	strb r0, [r3]
 	ldr r0, [r5]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	mov r1, sl
 	strb r6, [r1]
 	strb r6, [r4]
@@ -3704,7 +3704,7 @@ _08014020:
 	mov r1, sl
 	strb r2, [r1]
 	ldr r0, [r6]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	mov r3, sl
 	strb r5, [r3]
 	strb r5, [r4]
@@ -4109,7 +4109,7 @@ _0801436C:
 	lsls r1, r6, #2
 	adds r1, r1, r0
 	ldr r0, [r1]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #0
@@ -4406,7 +4406,7 @@ sub_080145BC: @ 0x080145BC
 	subs r0, #3
 	bl sub_08014640
 	ldr r0, _080145E4 @ =gUnk_03007700
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 _080145DC:
@@ -4824,7 +4824,7 @@ _080148BE:
 	lsls r0, r6, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 	pop {r4, r5, r6, r7}
@@ -4866,15 +4866,15 @@ sub_080148F0: @ 0x080148F0
 	bl sub_08014640
 	ldr r4, _0801496C @ =gUnk_08B71D8C
 	ldr r0, [r4, #4]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	ldr r0, [r4, #8]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	ldr r0, [r4, #0xc]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	ldr r0, [r4, #0x10]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	ldr r0, [r4, #0x14]
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 	add sp, #4
@@ -4989,7 +4989,7 @@ sub_08014A18: @ 0x08014A18
 	subs r0, #3
 	bl sub_08014640
 	ldr r0, _08014A44 @ =gUnk_03007700
-	bl MPlayStop_rev01
+	bl MPlayStop
 	movs r0, #0
 	bl sub_08014640
 _08014A38:

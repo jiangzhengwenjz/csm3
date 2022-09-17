@@ -93,7 +93,7 @@ void m4aSongNumStart(u16 n)
 
     MPlayStart(mplay->info, song->header);
 }
-/*
+
 void m4aSongNumStartOrChange(u16 n)
 {
     const struct MusicPlayer *mplayTable = gMPlayTable;
@@ -140,7 +140,7 @@ void m4aSongNumStop(u16 n)
     if (mplay->info->songHeader == song->header)
         MPlayStop(mplay->info);
 }
-
+/*
 void m4aSongNumContinue(u16 n)
 {
     const struct MusicPlayer *mplayTable = gMPlayTable;
