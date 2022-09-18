@@ -282,7 +282,7 @@ void MusicPlayerJumpTableCopy(void)
     asm("swi 0x2A");
 }
 
-void ClearChain_rev(void *x)
+void ClearChain_rev(void *x) //不能重命名为ClearChain,因为m4a_asm.asm中也有一个ClearChain(在katam中叫realClearChain)
 {
     void (*func)(void *) = *(&gMPlayJumpTable[34]);
     func(x);
