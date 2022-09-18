@@ -1,17 +1,16 @@
 #include "gba/m4a.h"
 
 
-extern char SoundMainRAM_Buffer[0x380] ;
-
-extern struct SoundInfo gSoundInfo ;
-struct SoundInfo gSoundInfo __attribute__((section("common_data"))) = {};
-MPlayFunc gMPlayJumpTable[36] __attribute__((section("common_data"))) = {};
-struct CgbChannel gCgbChans[4] __attribute__((section("common_data"))) = {};
-struct MusicPlayerInfo gUnk_030016A0 __attribute__((section("common_data"))) = {};
-struct MusicPlayerInfo gUnk_030016E0 __attribute__((section("common_data"))) = {};
-struct MusicPlayerInfo gUnk_03001720 __attribute__((section("common_data"))) = {};
-u8 gMPlayMemAccArea[0x10] __attribute__((section("common_data"))) = {};
-struct MusicPlayerInfo gUnk_03001770 __attribute__((section("common_data"))) = {};
+extern char SoundMainRAM_Buffer[0x380];
+extern struct SoundInfo gSoundInfo;
+extern struct SoundInfo gSoundInfo;
+extern MPlayFunc gMPlayJumpTable[36];
+extern struct CgbChannel gCgbChans[4];
+extern struct MusicPlayerInfo gUnk_030016A0;
+extern struct MusicPlayerInfo gUnk_030016E0;
+extern struct MusicPlayerInfo gUnk_03001720;
+extern u8 gMPlayMemAccArea[0x10];
+extern struct MusicPlayerInfo gUnk_03001770;
 
 
 u32 MidiKeyToFreq(struct WaveData *wav, u8 key, u8 fineAdjust)
@@ -277,13 +276,13 @@ void MPlayExtender(struct CgbChannel *cgbChans)
     cgbChans[3].panMask = 0x88;
     soundInfo->ident = ident;
 }
-/*
+
 void MusicPlayerJumpTableCopy(void)
 {
     asm("swi 0x2A");
 }
 
-void ClearChain(void *x)
+void ClearChain_rev(void *x)
 {
     void (*func)(void *) = *(&gMPlayJumpTable[34]);
     func(x);
@@ -294,7 +293,7 @@ void Clear64byte(void *x)
     void (*func)(void *) = *(&gMPlayJumpTable[35]);
     func(x);
 }
-
+/*
 void SoundInit(struct SoundInfo *soundInfo)
 {
     soundInfo->ident = 0;
@@ -1419,3 +1418,4 @@ void nullsub_141(void)
 {
 }
 */
+
