@@ -31,7 +31,7 @@ Clear64byte: @ 0x080B7B04
 	bx r0
 	.align 2, 0
 _080B7B14: .4byte gUnk_030075BC
-*/
+
 	thumb_func_start SoundInit
 SoundInit: @ 0x080B7B18
 	push {r4, r5, lr}
@@ -121,7 +121,7 @@ _080B7BD4: .4byte ply_note_rev01
 _080B7BD8: .4byte nullsub_141
 _080B7BDC: .4byte gMPlayJumpTable
 _080B7BE0: .4byte 0x68736D53
-
+*/
 	thumb_func_start SampleFreqSet
 SampleFreqSet: @ 0x080B7BE4
 	push {r4, r5, r6, lr}

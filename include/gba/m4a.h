@@ -186,7 +186,7 @@ struct SoundInfo
     void (*ExtVolPit)(void);
     u8 gap2[16];
     struct SoundChannel chans[MAX_DIRECTSOUND_CHANNELS];
-    s8 pcmBuffer[PCM_DMA_BUF_SIZE * 2];
+    s8 pcmBuffer[PCM_DMA_BUF_SIZE];
 };
 
 struct SongHeader
@@ -353,7 +353,7 @@ void CgbSound(void);
 void CgbOscOff(u8);
 u32 MidiKeyToCgbFreq(u8, u8, u8);
 void nullsub_141(void);
-void MPlayJumpTableCopy(MPlayFunc *);
+void MPlyJmpTblCopy(MPlayFunc *);
 void SampleFreqSet(u32 freq);
 void m4aSoundVSyncOn(void);
 void m4aSoundVSyncOff(void);
@@ -398,7 +398,7 @@ void ply_tune(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
 void ply_port(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
 void ply_xcmd(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
 void ply_endtie(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
-void ply_note(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
+void ply_note_rev01(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
 
 // extended sound command handler functions
 void ply_xxx(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
