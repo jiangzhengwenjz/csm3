@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_080B6ADC
-sub_080B6ADC: @ 0x080B6ADC
+	thumb_func_start umul3232H32
+umul3232H32: @ 0x080B6ADC
 	add r2, pc, #0x0 @ =sub_080B6AE0
 	bx r2
 
@@ -453,8 +453,8 @@ SoundMainBTM: @ 0x080B6EA0
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ClearChain
-ClearChain: @ 0x080B6EB8
+	thumb_func_start RealClearChain
+RealClearChain: @ 0x080B6EB8
 	ldr r3, [r0, #0x2c]
 	cmp r3, #0
 	beq _080B6ED6
@@ -491,7 +491,7 @@ _080B6EE2:
 	strb r1, [r4]
 _080B6EF0:
 	adds r0, r4, #0
-	bl ClearChain
+	bl RealClearChain
 	ldr r4, [r4, #0x34]
 	cmp r4, #0
 	bne _080B6EE2
@@ -817,8 +817,8 @@ _080B70FE:
 _080B7100: .4byte 0x040000BC
 _080B7104: .4byte 0x84400004
 
-	thumb_func_start MPlayMain_rev01
-MPlayMain_rev01: @ 0x080B7108
+	thumb_func_start MPlayMain
+MPlayMain: @ 0x080B7108
 	ldr r2, _080B736C @ =0x68736D53
 	ldr r3, [r0, #0x34]
 	cmp r2, r3
@@ -857,7 +857,7 @@ _080B713C:
 	ldr r0, [r0]
 	mov r8, r0
 	adds r0, r7, #0
-	bl FadeOutBody_rev01
+	bl FadeOutBody
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	bge _080B7150
@@ -914,7 +914,7 @@ sub_080B7190: @ 0x080B7190
 	b _080B7198
 _080B7192:
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 _080B7198:
 	ldr r4, [r4, #0x34]
 	cmp r4, #0
@@ -925,7 +925,7 @@ _080B719E:
 	tst r0, r3
 	beq _080B721C
 	adds r0, r5, #0
-	bl Clear64byte_rev
+	bl Clear64byte
 	movs r0, #0x80
 	strb r0, [r5]
 	movs r0, #2
@@ -1116,7 +1116,7 @@ _080B72AC:
 	mov sb, r2
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl TrkVolPitSet_rev01
+	bl TrkVolPitSet
 	ldr r4, [r5, #0x20]
 	cmp r4, #0
 	beq _080B733C
@@ -1126,7 +1126,7 @@ _080B72CA:
 	tst r0, r1
 	bne _080B72DA
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 
 	thumb_func_start sub_080B72D8
 sub_080B72D8: @ 0x080B72D8
@@ -1182,7 +1182,7 @@ _080B732A:
 	adds r1, r2, #0
 	ldrb r2, [r5, #9]
 	ldr r0, [r4, #0x24]
-	bl MidiKey2fr
+	bl MidiKeyToFreq
 	str r0, [r4, #0x20]
 _080B7336:
 	ldr r4, [r4, #0x34]
@@ -1218,8 +1218,8 @@ _080B7364: .4byte gUnk_080C0868
 _080B7368: .4byte 0x03007FF0
 _080B736C: .4byte 0x68736D53
 
-	thumb_func_start TrackStop_rev01
-TrackStop_rev01: @ 0x080B7370
+	thumb_func_start TrackStop
+TrackStop: @ 0x080B7370
 	push {r4, r5, r6, lr}
 	adds r5, r1, #0
 	ldrb r1, [r5]
@@ -1287,8 +1287,8 @@ _080B73E0:
 	strb r0, [r4, #3]
 	bx lr
 
-	thumb_func_start ply_note_rev01
-ply_note_rev01: @ 0x080B73E4
+	thumb_func_start ply_note
+ply_note: @ 0x080B73E4
 	push {r4, r5, r6, r7, lr}
 	mov r4, r8
 	mov r5, sb
@@ -1470,7 +1470,7 @@ _080B7518:
 	beq _080B75CA
 _080B7524:
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 	movs r1, #0
 	str r1, [r4, #0x30]
 	ldr r3, [r5, #0x20]
@@ -1490,7 +1490,7 @@ _080B7538:
 _080B754A:
 	ldr r0, [sp]
 	adds r1, r5, #0
-	bl TrkVolPitSet_rev01
+	bl TrkVolPitSet
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x10]
 	ldr r0, [sp, #0x10]
@@ -1544,7 +1544,7 @@ _080B75B2:
 	ldrb r2, [r5, #9]
 	adds r1, r3, #0
 	adds r0, r7, #0
-	bl MidiKey2fr
+	bl MidiKeyToFreq
 _080B75BC:
 	str r0, [r4, #0x20]
 	movs r0, #0x80
@@ -1566,8 +1566,8 @@ _080B75CA:
 _080B75DC: .4byte 0x03007FF0
 _080B75E0: .4byte gUnk_080C0868
 
-	thumb_func_start ply_endtie_rev01
-ply_endtie_rev01: @ 0x080B75E4
+	thumb_func_start ply_endtie
+ply_endtie: @ 0x080B75E4
 	push {r4, r5}
 	ldr r2, [r1, #0x40]
 	ldrb r3, [r2]
@@ -1634,8 +1634,8 @@ ld_r3_tp_adr_i_rev: @ 0x080B7640
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ply_lfos_rev01
-ply_lfos_rev01: @ 0x080B764C
+	thumb_func_start ply_lfos
+ply_lfos: @ 0x080B764C
 	mov ip, lr
 	bl ld_r3_tp_adr_i_rev
 	strb r3, [r1, #0x19]
@@ -1646,8 +1646,8 @@ _080B765C:
 	bx ip
 	.align 2, 0
 
-	thumb_func_start ply_mod_rev01
-ply_mod_rev01: @ 0x080B7660
+	thumb_func_start ply_mod
+ply_mod: @ 0x080B7660
 	mov ip, lr
 	bl ld_r3_tp_adr_i_rev
 	strb r3, [r1, #0x17]

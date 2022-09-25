@@ -186,7 +186,7 @@ struct SoundInfo
     void (*ExtVolPit)(void);
     u8 gap2[16];
     struct SoundChannel chans[MAX_DIRECTSOUND_CHANNELS];
-    s8 pcmBuffer[PCM_DMA_BUF_SIZE * 2];
+    s8 pcmBuffer[PCM_DMA_BUF_SIZE];
 };
 
 struct SongHeader
@@ -302,19 +302,18 @@ struct Song
 extern const struct MusicPlayer gMPlayTable[];
 extern const struct Song gSongTable[];
 
-extern u8 gMPlayMemAccArea[];
-
-#define MAX_POKEMON_CRIES 2
+extern u8 gMPlayMemAccArea[0x10];
 
 extern char SoundMainRAM[];
 
-extern void *gMPlayJumpTable[];
+typedef void (*MPlayFunc)();
+extern MPlayFunc gMPlayJumpTable[36];
 extern struct MusicPlayerInfo gUnk_030016A0;
 
 typedef void (*XcmdFunc)(struct MusicPlayerInfo *, struct MusicPlayerTrack *);
 extern const XcmdFunc gXcmdTable[];
 
-extern struct CgbChannel gCgbChans[];
+extern struct CgbChannel gCgbChans[4];
 extern const u8 gCgb3Vol[];
 
 extern const u8 gScaleTable[];
@@ -344,7 +343,6 @@ void MPlayStop(struct MusicPlayerInfo *mplayInfo);
 void FadeOutBody(struct MusicPlayerInfo *mplayInfo);
 void TrkVolPitSet(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track);
 void MPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed);
-void ClearChain(void *x);
 void Clear64byte(void *addr);
 void SoundInit(struct SoundInfo *soundInfo);
 void MPlayExtender(struct CgbChannel *cgbChans);
@@ -354,7 +352,7 @@ void CgbSound(void);
 void CgbOscOff(u8);
 u32 MidiKeyToCgbFreq(u8, u8, u8);
 void nullsub_141(void);
-void MPlayJumpTableCopy(void **mplayJumpTable);
+void MPlyJmpTblCopy(MPlayFunc *);
 void SampleFreqSet(u32 freq);
 void m4aSoundVSyncOn(void);
 void m4aSoundVSyncOff(void);
@@ -363,6 +361,7 @@ void m4aSoundVSync(void);
 void m4aSoundMain(void);
 void m4aSoundInit(void);
 void m4aSongNumStartOrChange(u16);
+void m4aMPlayFadeIn(struct MusicPlayerInfo *mplayInfo, u16 speed);
 void m4aMPlayFadeOut(struct MusicPlayerInfo *mplayInfo, u16 speed);
 void m4aSongNumStop(u16 n);
 void m4aSongNumStart(u16);
