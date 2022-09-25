@@ -55,4 +55,3 @@
 })
 
 #endif // GUARD_GLOBAL_H
-

@@ -282,7 +282,7 @@ void MusicPlayerJumpTableCopy(void)
     asm("swi 0x2A");
 }
 
-void ClearChain_rev(void *x) //不能重命名为ClearChain,因为m4a_asm.asm中也有一个ClearChain(在katam中叫realClearChain)
+void ClearChain(void *x)
 {
     void (*func)(void *) = *(&gMPlayJumpTable[34]);
     func(x);
@@ -299,8 +299,9 @@ void SoundInit(struct SoundInfo *soundInfo)
     soundInfo->ident = 0;
     if (REG_DMA1CNT & (DMA_REPEAT << 16))
         REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
-//    if (REG_DMA2CNT & (DMA_REPEAT << 16))             dma2 useless in csm3
+//    if (REG_DMA2CNT & (DMA_REPEAT << 16))           
 //        REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
+//	 The dma2 is useless in csm3. 
     REG_DMA1CNT_H = DMA_32BIT;
 //    REG_DMA2CNT_H = DMA_32BIT;
     REG_SOUNDCNT_X = SOUND_MASTER_ENABLE
@@ -313,7 +314,8 @@ void SoundInit(struct SoundInfo *soundInfo)
                    | SOUND_ALL_MIX_FULL;
 /*	REG_SOUNDCNT_H = SOUND_B_FIFO_RESET | SOUND_B_TIMER_0 | SOUND_B_LEFT_OUTPUT
                    | SOUND_A_FIFO_RESET | SOUND_A_TIMER_0 | SOUND_A_RIGHT_OUTPUT
-                   | SOUND_ALL_MIX_FULL;  some bits are not correct
+                   | SOUND_ALL_MIX_FULL;  
+	Some bits are incorrect. 
 */
     REG_SOUNDBIAS_H = (REG_SOUNDBIAS_H & 0x3F) | 0x40;
     REG_DMA1SAD = (s32)soundInfo->pcmBuffer;
@@ -324,7 +326,7 @@ void SoundInit(struct SoundInfo *soundInfo)
     CpuFill32(0, soundInfo, sizeof(struct SoundInfo));
     soundInfo->maxChans = 8;
     soundInfo->masterVolume = 15;
-    soundInfo->plynote = ply_note_rev01;
+    soundInfo->plynote = ply_note;
     soundInfo->CgbSound = nullsub_141;
     soundInfo->CgbOscOff = (void (*)(u8))nullsub_141;
     soundInfo->MidiKeyToCgbFreq = (u32 (*)(u8, u8, u8))nullsub_141;
@@ -1421,5 +1423,3 @@ void ply_xswee(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track
 void nullsub_141(void)
 {
 }
-
-

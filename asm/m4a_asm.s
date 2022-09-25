@@ -453,8 +453,8 @@ SoundMainBTM: @ 0x080B6EA0
 	bx lr
 	.align 2, 0
 
-	thumb_func_start ClearChain
-ClearChain: @ 0x080B6EB8
+	thumb_func_start RealClearChain
+RealClearChain: @ 0x080B6EB8
 	ldr r3, [r0, #0x2c]
 	cmp r3, #0
 	beq _080B6ED6
@@ -491,7 +491,7 @@ _080B6EE2:
 	strb r1, [r4]
 _080B6EF0:
 	adds r0, r4, #0
-	bl ClearChain
+	bl RealClearChain
 	ldr r4, [r4, #0x34]
 	cmp r4, #0
 	bne _080B6EE2
@@ -914,7 +914,7 @@ sub_080B7190: @ 0x080B7190
 	b _080B7198
 _080B7192:
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 _080B7198:
 	ldr r4, [r4, #0x34]
 	cmp r4, #0
@@ -1126,7 +1126,7 @@ _080B72CA:
 	tst r0, r1
 	bne _080B72DA
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 
 	thumb_func_start sub_080B72D8
 sub_080B72D8: @ 0x080B72D8
@@ -1287,8 +1287,8 @@ _080B73E0:
 	strb r0, [r4, #3]
 	bx lr
 
-	thumb_func_start ply_note_rev01
-ply_note_rev01: @ 0x080B73E4
+	thumb_func_start ply_note
+ply_note: @ 0x080B73E4
 	push {r4, r5, r6, r7, lr}
 	mov r4, r8
 	mov r5, sb
@@ -1470,7 +1470,7 @@ _080B7518:
 	beq _080B75CA
 _080B7524:
 	adds r0, r4, #0
-	bl ClearChain_rev
+	bl ClearChain
 	movs r1, #0
 	str r1, [r4, #0x30]
 	ldr r3, [r5, #0x20]
