@@ -1169,7 +1169,7 @@ void m4aMPlayPanpotControl(struct MusicPlayerInfo *mplayInfo, u16 trackBits, s8 
     }
     mplayInfo->ident = ID_NUMBER;
 }
-/*
+
 void ClearModM(struct MusicPlayerTrack *track)
 {
     track->lfoSpeedC = 0;
@@ -1421,5 +1421,5 @@ void ply_xswee(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track
 void nullsub_141(void)
 {
 }
-*/
+
 

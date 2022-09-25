@@ -401,7 +401,6 @@ SECTIONS {
         asm/code.o(.text);
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);
-        asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
         asm/agb_eeprom.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
