@@ -299,11 +299,11 @@ void SoundInit(struct SoundInfo *soundInfo)
     soundInfo->ident = 0;
     if (REG_DMA1CNT & (DMA_REPEAT << 16))
         REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
-	// if (REG_DMA2CNT & (DMA_REPEAT << 16))           
-	//	   REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
-	//	   The dma2 is useless in csm3. 
+    // if (REG_DMA2CNT & (DMA_REPEAT << 16))           
+    //     REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
+    //     The dma2 is useless in csm3. 
     REG_DMA1CNT_H = DMA_32BIT;
-	// REG_DMA2CNT_H = DMA_32BIT;
+    // REG_DMA2CNT_H = DMA_32BIT;
     REG_SOUNDCNT_X = SOUND_MASTER_ENABLE
                    | SOUND_4_ON
                    | SOUND_3_ON
@@ -446,10 +446,10 @@ void m4aSoundVSyncOff(void)
         soundInfo->ident += 10;
         if (REG_DMA1CNT & (DMA_REPEAT << 16))
             REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
-		// if (REG_DMA2CNT & (DMA_REPEAT << 16))
-		//     REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
+        // if (REG_DMA2CNT & (DMA_REPEAT << 16))
+        //     REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
         REG_DMA1CNT_H = DMA_32BIT;
-		// REG_DMA2CNT_H = DMA_32BIT;
+        // REG_DMA2CNT_H = DMA_32BIT;
         CpuFill32(0, soundInfo->pcmBuffer, sizeof(soundInfo->pcmBuffer));
     }
 }
@@ -462,7 +462,7 @@ void m4aSoundVSyncOn(void)
     if (ident == ID_NUMBER)
         return;
     REG_DMA1CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
-	// REG_DMA2CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
+    // REG_DMA2CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
     soundInfo->pcmDmaCounter = 0;
     soundInfo->ident = ident - 10;
 }
