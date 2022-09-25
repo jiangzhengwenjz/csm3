@@ -162447,7 +162447,7 @@ _08091C18:
 	.align 2, 0
 _08091C38: .4byte gUnk_03006B38
 _08091C3C:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08091C48 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -162518,7 +162518,7 @@ _08091CD0:
 	.align 2, 0
 _08091CD8: .4byte gUnk_03006B38
 _08091CDC:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _08091CE8 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -162605,7 +162605,7 @@ _08091D84:
 	.align 2, 0
 _08091DA4: .4byte gUnk_03006B38
 _08091DA8:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08091DB4 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -162754,7 +162754,7 @@ _08091ED4:
 	.align 2, 0
 _08091EDC: .4byte gUnk_03006B38
 _08091EE0:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _08091EEC @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -162838,7 +162838,7 @@ _08091F84:
 	.align 2, 0
 _08091FA4: .4byte gUnk_03006B38
 _08091FA8:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08091FB4 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -162894,7 +162894,7 @@ _08092014:
 	.align 2, 0
 _0809201C: .4byte gUnk_03006B38
 _08092020:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _0809202C @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163229,7 +163229,7 @@ _080922E0:
 	.align 2, 0
 _08092300: .4byte gUnk_03006B38
 _08092304:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08092310 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163251,7 +163251,7 @@ _08092314:
 	.align 2, 0
 _0809232C: .4byte gUnk_03006B38
 _08092330:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _0809233C @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163349,7 +163349,7 @@ _080923D8:
 	.align 2, 0
 _080923F8: .4byte gUnk_03006B38
 _080923FC:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08092408 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163371,7 +163371,7 @@ _0809240C:
 	.align 2, 0
 _08092424: .4byte gUnk_03006B38
 _08092428:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _08092434 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163460,7 +163460,7 @@ _080924BC:
 	.align 2, 0
 _080924DC: .4byte gUnk_03006B38
 _080924E0:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _080924EC @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163519,7 +163519,7 @@ _08092548:
 _08092550: .4byte 0x01000400
 _08092554: .4byte gUnk_03006B38
 _08092558:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _08092564 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163605,7 +163605,7 @@ _080925E4:
 	.align 2, 0
 _08092604: .4byte gUnk_03006B38
 _08092608:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08092614 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -163628,7 +163628,7 @@ _08092618:
 _08092630: .4byte 0x00001EC8
 _08092634: .4byte gUnk_03006B38
 _08092638:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _08092644 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -164750,7 +164750,7 @@ _08092F88:
 	.align 2, 0
 _08092FA8: .4byte gUnk_03006B38
 _08092FAC:
-	bl SoundVSyncOff_rev01
+	bl m4aSoundVSyncOff
 	ldr r1, _08092FB8 @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1
@@ -164789,7 +164789,7 @@ _08092FF4:
 	.align 2, 0
 _08092FFC: .4byte gUnk_03006B38
 _08093000:
-	bl SoundVSyncOn_rev01
+	bl m4aSoundVSyncOn
 	ldr r1, _0809300C @ =gUnk_03006B38
 	ldrh r0, [r1]
 	adds r0, #1

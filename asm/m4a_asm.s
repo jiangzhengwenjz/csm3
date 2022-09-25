@@ -817,8 +817,8 @@ _080B70FE:
 _080B7100: .4byte 0x040000BC
 _080B7104: .4byte 0x84400004
 
-	thumb_func_start MPlayMain_rev01
-MPlayMain_rev01: @ 0x080B7108
+	thumb_func_start MPlayMain
+MPlayMain: @ 0x080B7108
 	ldr r2, _080B736C @ =0x68736D53
 	ldr r3, [r0, #0x34]
 	cmp r2, r3

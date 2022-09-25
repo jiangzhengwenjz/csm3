@@ -2891,7 +2891,7 @@ _08013992:
 	lsls r2, r1, #0x10
 	lsrs r2, r2, #0x10
 	adds r1, r5, #0
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	pop {r3, r4, r5}
@@ -3038,7 +3038,7 @@ _08013AC2:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _08013B04 @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #1
@@ -3091,7 +3091,7 @@ _08013B34:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _08013B74 @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #1
@@ -3157,7 +3157,7 @@ _08013BC0:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _08013C40 @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	ldrh r0, [r7, #8]
@@ -3870,7 +3870,7 @@ _0801416E:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _080141CC @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #0
@@ -3952,7 +3952,7 @@ _0801422C:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _08014268 @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 _08014254:
@@ -4244,7 +4244,7 @@ _0801446C:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	pop {r4, r5, r6}
@@ -4295,7 +4295,7 @@ sub_080144D8: @ 0x080144D8
 	bl m4aMPlayImmInit
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl MPlayTempoControl
+	bl m4aMPlayTempoControl
 	movs r0, #0
 	bl sub_08014640
 	pop {r4, r5}
@@ -4322,7 +4322,7 @@ sub_08014508: @ 0x08014508
 	adds r0, r5, #0
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl MPlayPitchControl
+	bl m4aMPlayPitchControl
 	movs r0, #0
 	bl sub_08014640
 	pop {r4, r5, r6}
@@ -5059,7 +5059,7 @@ _08014A9C:
 	lsrs r2, r2, #0x10
 	adds r0, r4, #0
 	ldr r1, _08014AE0 @ =0x0000FFFF
-	bl MPlayVolumeControl
+	bl m4aMPlayVolumeControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #0
@@ -5088,7 +5088,7 @@ sub_08014AE4: @ 0x08014AE4
 	bl m4aMPlayImmInit
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl MPlayTempoControl
+	bl m4aMPlayTempoControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #0
@@ -5114,7 +5114,7 @@ sub_08014B1C: @ 0x08014B1C
 	adds r0, r5, #0
 	ldr r1, _08014B54 @ =0x0000FFFF
 	adds r2, r4, #0
-	bl MPlayPitchControl
+	bl m4aMPlayPitchControl
 	movs r0, #0
 	bl sub_08014640
 	movs r0, #0
