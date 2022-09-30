@@ -14035,7 +14035,7 @@ _0800694A:
 	ldrh r0, [r4]
 	ldr r5, _080069A8 @ =gUnk_03002DAC
 	ldr r1, [r5]
-	bl sub_080B8CB8
+	bl EEPROMRead
 	ldr r1, _080069AC @ =gUnk_03002D98
 	strh r0, [r1]
 	lsls r0, r0, #0x10

@@ -37,8 +37,16 @@ u16 EEPROMConfigure(u16 unk_1) {
     }
     return ret;
 }
+
 /*
-static void DMA3Transfer(const void* src, void* dest, u16 count) {
+The DMA3Transfer should be a static function,but I changed its type so that the asm file may call the function. 
+Once this has been done, the type should be fixed.
+Idk how to avoid this situation without this wierd method, sorry. 
+The original type is: 
+static void DMA3Transfer(const void* src, void* dest, u16 count)
+*/
+
+void DMA3Transfer(const void* src, void* dest, u16 count) {
     u32 temp;
 
     u16 IME_save;
@@ -63,7 +71,7 @@ static void DMA3Transfer(const void* src, void* dest, u16 count) {
  * @return errorcode, 0 on success
  */
 
-/*
+
 u16 EEPROMRead(u16 address, u16* data) {
     u16 buffer[0x44];
 
@@ -78,17 +86,20 @@ u16 EEPROMRead(u16 address, u16* data) {
         // setup address
         (u8*)ptr += (gEEPROMConfig->address_width << 1) + 1;
         ((u8*)ptr)++;
+		*(ptr+1) = 0;
+		//Idk if the '+' should be seperated by space. 
+		*(ptr) = 0 ;
         for (t1 = 0; t1 < gEEPROMConfig->address_width; t1++) {
-            *(ptr--) = address;
+            *(ptr--) = 1&address;
             address >>= 1;
         }
         // read request
         *(ptr--) = 1;
         *ptr = 1;
         // send address to eeprom
-        DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 3);
+        DMA3Transfer(buffer, (u16*)0xdffff00, gEEPROMConfig->address_width + 3);
         // recieve data
-        DMA3Transfer((u16*)0xd000000, buffer, 0x44);
+        DMA3Transfer((u16*)0xdffff00, buffer, 0x44);
         // 4 bit junk
         ptr = buffer + 4;
         data += 3;
@@ -104,7 +115,7 @@ u16 EEPROMRead(u16 address, u16* data) {
         return 0;
     }
 }
-
+/*
 u16 EEPROMWrite1(u16 address, const u16* data) {
     return EEPROMWrite(address, data, 1);
 }
