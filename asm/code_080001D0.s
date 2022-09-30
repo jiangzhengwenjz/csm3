@@ -14134,7 +14134,7 @@ sub_08006A04: @ 0x08006A04
 	strh r0, [r1, #4]
 	strh r0, [r1, #6]
 	movs r0, #0x40
-	bl IdentifyEeprom
+	bl EEPROMConfigure
 	pop {r0}
 	bx r0
 	.align 2, 0

@@ -4,7 +4,7 @@
 	.syntax unified
 
 	.text
-
+/*
 	thumb_func_start IdentifyEeprom
 IdentifyEeprom: @ 0x080B8BF0
 	push {lr}
@@ -13,26 +13,26 @@ IdentifyEeprom: @ 0x080B8BF0
 	movs r2, #0
 	cmp r0, #4
 	bne _080B8C0C
-	ldr r1, _080B8C04 @ =gUnk_03007850
-	ldr r0, _080B8C08 @ =gUnk_08B6CF18
+	ldr r1, _080B8C04 @ =gEEPROMConfig
+	ldr r0, _080B8C08 @ =gEEPROMConfig512
 	str r0, [r1]
 	b _080B8C28
 	.align 2, 0
-_080B8C04: .4byte gUnk_03007850
-_080B8C08: .4byte gUnk_08B6CF18
+_080B8C04: .4byte gEEPROMConfig
+_080B8C08: .4byte gEEPROMConfig512
 _080B8C0C:
 	cmp r0, #0x40
 	bne _080B8C20
-	ldr r1, _080B8C18 @ =gUnk_03007850
-	ldr r0, _080B8C1C @ =gUnk_08B6CF24
+	ldr r1, _080B8C18 @ =gEEPROMConfig
+	ldr r0, _080B8C1C @ =gEEPROMConfig8k
 	str r0, [r1]
 	b _080B8C28
 	.align 2, 0
-_080B8C18: .4byte gUnk_03007850
-_080B8C1C: .4byte gUnk_08B6CF24
+_080B8C18: .4byte gEEPROMConfig
+_080B8C1C: .4byte gEEPROMConfig8k
 _080B8C20:
-	ldr r1, _080B8C30 @ =gUnk_03007850
-	ldr r0, _080B8C34 @ =gUnk_08B6CF18
+	ldr r1, _080B8C30 @ =gEEPROMConfig
+	ldr r0, _080B8C34 @ =gEEPROMConfig512
 	str r0, [r1]
 	movs r2, #1
 _080B8C28:
@@ -40,9 +40,9 @@ _080B8C28:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080B8C30: .4byte gUnk_03007850
-_080B8C34: .4byte gUnk_08B6CF18
-
+_080B8C30: .4byte gEEPROMConfig
+_080B8C34: .4byte gEEPROMConfig512
+*/
 	thumb_func_start EepromTimerIntr
 EepromTimerIntr: @ 0x080B8C38
 	push {r4, r5, r6, lr}
@@ -57,7 +57,7 @@ EepromTimerIntr: @ 0x080B8C38
 	ldrh r4, [r5]
 	ldr r3, _080B8CA0 @ =0x0000F8FF
 	ands r4, r3
-	ldr r3, _080B8CA4 @ =gUnk_03007850
+	ldr r3, _080B8CA4 @ =gEEPROMConfig
 	ldr r3, [r3]
 	ldrh r3, [r3, #6]
 	orrs r4, r3
@@ -98,7 +98,7 @@ _080B8C8C:
 _080B8C98: .4byte 0x04000208
 _080B8C9C: .4byte 0x04000204
 _080B8CA0: .4byte 0x0000F8FF
-_080B8CA4: .4byte gUnk_03007850
+_080B8CA4: .4byte gEEPROMConfig
 _080B8CA8: .4byte 0x040000D4
 _080B8CAC: .4byte 0x040000D8
 _080B8CB0: .4byte 0x040000DC
@@ -111,7 +111,7 @@ sub_080B8CB8: @ 0x080B8CB8
 	adds r5, r1, #0
 	lsls r0, r0, #0x10
 	lsrs r3, r0, #0x10
-	ldr r0, _080B8CD0 @ =gUnk_03007850
+	ldr r0, _080B8CD0 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrh r0, [r0, #4]
 	cmp r3, r0
@@ -119,10 +119,10 @@ sub_080B8CB8: @ 0x080B8CB8
 	ldr r0, _080B8CD4 @ =0x000080FF
 	b _080B8D66
 	.align 2, 0
-_080B8CD0: .4byte gUnk_03007850
+_080B8CD0: .4byte gEEPROMConfig
 _080B8CD4: .4byte 0x000080FF
 _080B8CD8:
-	ldr r1, _080B8D70 @ =gUnk_03007850
+	ldr r1, _080B8D70 @ =gEEPROMConfig
 	ldr r0, [r1]
 	ldrb r0, [r0, #8]
 	lsls r0, r0, #1
@@ -157,7 +157,7 @@ _080B8D10:
 	subs r2, #2
 	strh r0, [r2]
 	ldr r4, _080B8D74 @ =0x0DFFFF00
-	ldr r0, _080B8D70 @ =gUnk_03007850
+	ldr r0, _080B8D70 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrb r2, [r0, #8]
 	adds r2, #3
@@ -201,7 +201,7 @@ _080B8D66:
 	pop {r1}
 	bx r1
 	.align 2, 0
-_080B8D70: .4byte gUnk_03007850
+_080B8D70: .4byte gEEPROMConfig
 _080B8D74: .4byte 0x0DFFFF00
 
 	thumb_func_start sub_080B8D78
@@ -228,7 +228,7 @@ sub_080B8D8C: @ 0x080B8D8C
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	mov r8, r2
-	ldr r0, _080B8DB0 @ =gUnk_03007850
+	ldr r0, _080B8DB0 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrh r0, [r0, #4]
 	cmp r5, r0
@@ -236,10 +236,10 @@ sub_080B8D8C: @ 0x080B8D8C
 	ldr r0, _080B8DB4 @ =0x000080FF
 	b _080B8F0C
 	.align 2, 0
-_080B8DB0: .4byte gUnk_03007850
+_080B8DB0: .4byte gEEPROMConfig
 _080B8DB4: .4byte 0x000080FF
 _080B8DB8:
-	ldr r0, _080B8E94 @ =gUnk_03007850
+	ldr r0, _080B8E94 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrb r0, [r0, #8]
 	lsls r0, r0, #1
@@ -272,7 +272,7 @@ _080B8DD6:
 	cmp r4, #3
 	bls _080B8DD0
 	movs r4, #0
-	ldr r0, _080B8E94 @ =gUnk_03007850
+	ldr r0, _080B8E94 @ =gEEPROMConfig
 	adds r1, r0, #0
 	ldr r0, [r0]
 	ldrb r0, [r0, #8]
@@ -299,7 +299,7 @@ _080B8E1C:
 	movs r6, #1
 	strh r6, [r3]
 	ldr r4, _080B8E98 @ =0x0DFFFF00
-	ldr r0, _080B8E94 @ =gUnk_03007850
+	ldr r0, _080B8E94 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrb r2, [r0, #8]
 	adds r2, #0x43
@@ -353,7 +353,7 @@ _080B8E66:
 	str r1, [r2]
 	b _080B8EB6
 	.align 2, 0
-_080B8E94: .4byte gUnk_03007850
+_080B8E94: .4byte gEEPROMConfig
 _080B8E98: .4byte 0x0DFFFF00
 _080B8E9C: .4byte 0x04000006
 _080B8EA0:
@@ -431,7 +431,7 @@ sub_080B8F1C: @ 0x080B8F1C
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	movs r5, #0
-	ldr r0, _080B8F38 @ =gUnk_03007850
+	ldr r0, _080B8F38 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrh r0, [r0, #4]
 	cmp r1, r0
@@ -439,7 +439,7 @@ sub_080B8F1C: @ 0x080B8F1C
 	ldr r0, _080B8F3C @ =0x000080FF
 	b _080B8F6A
 	.align 2, 0
-_080B8F38: .4byte gUnk_03007850
+_080B8F38: .4byte gEEPROMConfig
 _080B8F3C: .4byte 0x000080FF
 _080B8F40:
 	adds r0, r1, #0
