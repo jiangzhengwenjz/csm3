@@ -417,6 +417,8 @@ SECTIONS {
         *libc.a:memcpy.o(.text);
         *libc.a:memset.o(.text);
         data/data.o(.rodata);
+		src/agb_eeprom.o(.rodata);
+		data/data1.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

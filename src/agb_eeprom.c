@@ -1,4 +1,3 @@
-
 #include "global.h"
 #include "gba/eeprom.h"
 
@@ -11,14 +10,15 @@ typedef struct EEPROMConfig {
     // u8 filler[3];
 } EEPROMConfig;
 
-const char EEPROM_V124[] = "EEPROM_V124";
+const char EEPROM_V126[] = "EEPROM_V126";
 extern const EEPROMConfig* gEEPROMConfig;
+/*
 extern const EEPROMConfig gEEPROMConfig512;
 extern const EEPROMConfig gEEPROMConfig8k;
-/*
+*/
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
-*/
+
 u16 EEPROMWrite(u16, const u16*, u8);
 
 u16 EEPROMConfigure(u16 unk_1) {
@@ -46,7 +46,7 @@ The original type is:
 static void DMA3Transfer(const void* src, void* dest, u16 count)
 */
 
-void DMA3Transfer(const void* src, void* dest, u16 count) {
+static void DMA3Transfer(const void* src, void* dest, u16 count) {
     u32 temp;
 
     u16 IME_save;
@@ -223,7 +223,8 @@ u16 EEPROMCompare(u16 address, const u16* data) {
     return ret;
 }
 
-const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
+extern const char EEPROM_NOWAIT[];
+//const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
 u16 EEPROMWrite1_check(u16 address, const u16* data) {
     u8 i;

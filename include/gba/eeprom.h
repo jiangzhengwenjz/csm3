@@ -1,5 +1,5 @@
-#ifndef GUARD_GBA_EEPROM
-#define GUARD_GBA_EEPROM
+#ifndef GUARD_GBA_EEPROM_H
+#define GUARD_GBA_EEPROM_H
 
 #include "types.h"
 
@@ -21,4 +21,4 @@ u16 EEPROMCompare(u16 address, const u16* data);
 u16 EEPROMWrite0_8k_Check(u16 address, const u16* data);
 
 
-#endif // GUARD_GBA_EEPROM
+#endif // GUARD_GBA_EEPROM_H
