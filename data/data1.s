@@ -3,12 +3,7 @@
 
 	.section .rodata
 
-gUnk_08B6CF4C_zeros:: @ 08B6CF4C
-	.incbin "baserom.gba", 0xB6CF4C, 0x100
-
-/*
-I don't know how to rename or abstract above data(gUnk_08B6CF4C), witch are nothing but zeros in the rom. 
-*/
+.space 0x100
 
 gUnk_08B6D04C:: @ 08B6D04C
 	.incbin "baserom.gba", 0xB6D04C, 0xD4

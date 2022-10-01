@@ -12,13 +12,8 @@ typedef struct EEPROMConfig {
 
 const char EEPROM_V126[] = "EEPROM_V126";
 extern const EEPROMConfig* gEEPROMConfig;
-/*
-extern const EEPROMConfig gEEPROMConfig512;
-extern const EEPROMConfig gEEPROMConfig8k;
-*/
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
-
 u16 EEPROMWrite(u16, const u16*, u8);
 
 u16 EEPROMConfigure(u16 unk_1) {
@@ -37,14 +32,6 @@ u16 EEPROMConfigure(u16 unk_1) {
     }
     return ret;
 }
-
-/*
-The DMA3Transfer should be a static function,but I changed its type so that the asm file may call the function. 
-Once this has been done, the type should be fixed.
-Idk how to avoid this situation without this wierd method, sorry. 
-The original type is: 
-static void DMA3Transfer(const void* src, void* dest, u16 count)
-*/
 
 static void DMA3Transfer(const void* src, void* dest, u16 count) {
     u32 temp;
@@ -87,7 +74,6 @@ u16 EEPROMRead(u16 address, u16* data) {
         (u8*)ptr += (gEEPROMConfig->address_width << 1) + 1;
         ((u8*)ptr)++;
         ptr[1] = 0;
-        //Idk if the '+' should be seperated by space. 
         ptr[0] = 0;
         for (t1 = 0; t1 < gEEPROMConfig->address_width; t1++) {
             *(ptr--) = 1 & address;
@@ -130,7 +116,6 @@ u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3) {
     vu16 currentVcount;   
     vu32 passedScanlines; 
     u16 ret;
-    //vu16* temp2;
 
     u32 r2;
 
@@ -222,9 +207,6 @@ u16 EEPROMCompare(u16 address, const u16* data) {
     }
     return ret;
 }
-
-extern const char gEepromNowait[];
-//const char gEepromNowait[] = "EEPROM_NOWAIT";
 
 u16 EEPROMWrite1_check(u16 address, const u16* data) {
     u8 i;
