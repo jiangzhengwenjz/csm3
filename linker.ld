@@ -403,7 +403,6 @@ SECTIONS {
         src/m4a.o(.text);
         asm/libagbsyscall.o(.text);
         src/agb_eeprom.o(.text);
-        asm/agb_eeprom.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
         *libgcc.a:_divsi3.o(.text);
         *libgcc.a:_dvmd_tls.o(.text);

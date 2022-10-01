@@ -13899,7 +13899,7 @@ _08006836:
 	ldrh r0, [r4]
 	ldr r5, _08006894 @ =gUnk_03002DAC
 	ldr r1, [r5]
-	bl VerifyEepromDword
+	bl EEPROMWrite1_check
 	ldr r1, _08006898 @ =gUnk_03002D98
 	strh r0, [r1]
 	lsls r0, r0, #0x10

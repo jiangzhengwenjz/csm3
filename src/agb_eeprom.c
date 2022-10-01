@@ -222,7 +222,7 @@ u16 EEPROMCompare(u16 address, const u16* data) {
     }
     return ret;
 }
-/*
+
 const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
 u16 EEPROMWrite1_check(u16 address, const u16* data) {
@@ -239,7 +239,7 @@ u16 EEPROMWrite1_check(u16 address, const u16* data) {
     }
     return ret;
 }
-
+/*
 u16 EEPROMWrite0_8k(u16 address, const u16* data) {
     u16 ret;
 
