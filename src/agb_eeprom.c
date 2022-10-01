@@ -115,13 +115,13 @@ u16 EEPROMRead(u16 address, u16* data) {
         return 0;
     }
 }
-/*
+
 u16 EEPROMWrite1(u16 address, const u16* data) {
     return EEPROMWrite(address, data, 1);
 }
 
 // reading from EEPROM like a status register
-#define REG_EEPROM (*(vu16*)0xd000000)
+#define REG_EEPROM (*(vu16*)0xdffff00)
 
 u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3) {
     u16 buffer[0x52]; // this is one too large?
@@ -146,7 +146,7 @@ u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3) {
     for (i = 0; i < 4; i++) {
         r2 = *data++;
         for (j = 0; j < 16; j++) {
-            *ptr = r2;
+            *ptr = 1&r2;
             ptr--;
             r2 = r2 >> 1;
         }
@@ -154,13 +154,13 @@ u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3) {
 
     // copy address to buffer
     for (i = 0; i < gEEPROMConfig->address_width; i++) {
-        *ptr = address;
+        *ptr = 1&address;
         ptr--;
         address = address >> 1;
     }
     *ptr-- = 0;
     *ptr-- = 1;
-    DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
+    DMA3Transfer(buffer, (u16*)0xdffff00, gEEPROMConfig->address_width + 0x43);
     ret = 0;
     timeout_flag = 0;
     prev_vcount = REG_VCOUNT;
@@ -222,7 +222,7 @@ u16 EEPROMCompare(u16 address, const u16* data) {
     }
     return ret;
 }
-
+/*
 const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
 u16 EEPROMWrite1_check(u16 address, const u16* data) {
