@@ -13899,7 +13899,7 @@ _08006836:
 	ldrh r0, [r4]
 	ldr r5, _08006894 @ =gUnk_03002DAC
 	ldr r1, [r5]
-	bl VerifyEepromDword
+	bl EEPROMWrite1_check
 	ldr r1, _08006898 @ =gUnk_03002D98
 	strh r0, [r1]
 	lsls r0, r0, #0x10
@@ -14035,7 +14035,7 @@ _0800694A:
 	ldrh r0, [r4]
 	ldr r5, _080069A8 @ =gUnk_03002DAC
 	ldr r1, [r5]
-	bl sub_080B8CB8
+	bl EEPROMRead
 	ldr r1, _080069AC @ =gUnk_03002D98
 	strh r0, [r1]
 	lsls r0, r0, #0x10
@@ -14134,7 +14134,7 @@ sub_08006A04: @ 0x08006A04
 	strh r0, [r1, #4]
 	strh r0, [r1, #6]
 	movs r0, #0x40
-	bl IdentifyEeprom
+	bl EEPROMConfigure
 	pop {r0}
 	bx r0
 	.align 2, 0

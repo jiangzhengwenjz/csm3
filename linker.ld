@@ -385,7 +385,7 @@ SECTIONS {
         . = 0x000075C0; gCgbChans = .;
         . = 0x00007700; gUnk_03007700 = .;
         . = 0x00007800; gMPlayMemAccArea = .;
-        . = 0x00007850; gUnk_03007850 = .;
+        . = 0x00007850; gEEPROMConfig = .;
         . = 0x00007A00; gUnk_03007A00 = .;
         . = 0x00007E00; gUnk_03007E00 = .;
         . = 0x00007FA0; gUnk_03007FA0 = .;
@@ -402,7 +402,7 @@ SECTIONS {
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);
         asm/libagbsyscall.o(.text);
-        asm/agb_eeprom.o(.text);
+        src/agb_eeprom.o(.text);
         *libgcc.a:_call_via_rX.o(.text);
         *libgcc.a:_divsi3.o(.text);
         *libgcc.a:_dvmd_tls.o(.text);
@@ -417,6 +417,8 @@ SECTIONS {
         *libc.a:memcpy.o(.text);
         *libc.a:memset.o(.text);
         data/data.o(.rodata);
+        src/agb_eeprom.o(.rodata);
+        data/data1.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */
