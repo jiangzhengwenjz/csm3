@@ -207,7 +207,7 @@ const u8 gClockTable[] =
     0x60,
     0x00,
     0x00,
-	0x00,
+    0x00,
 };
 
 const XcmdFunc gXcmdTable[] =
@@ -225,4 +225,3 @@ const XcmdFunc gXcmdTable[] =
     ply_xleng,
     ply_xswee,
 };
-

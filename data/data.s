@@ -5073,4 +5073,3 @@ gUnk_080C05E8:: @ 080C05E8
 gUnk_080C05EC:: @ 080C05EC
 	.incbin "baserom.gba", 0x0C05EC, 0x8
 
-

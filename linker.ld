@@ -418,8 +418,8 @@ SECTIONS {
         *libc.a:memset.o(.text);
         data/data.o(.rodata);
         src/m4a_tables.o(.rodata);
-		data/data2.o(.rodata);
-		src/agb_eeprom.o(.rodata);
+        data/data2.o(.rodata);
+        src/agb_eeprom.o(.rodata);
         data/data1.o(.rodata);
     } >rom
 

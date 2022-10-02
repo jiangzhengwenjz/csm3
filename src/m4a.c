@@ -18,7 +18,7 @@ u32 MidiKeyToFreq(struct WaveData *wav, u8 key, u8 fineAdjust)
     u32 val1;
     u32 val2;
     u32 fineAdjustShifted = fineAdjust << 24;
-
+    
     if (key > 178)
     {
         key = 178;
