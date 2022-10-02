@@ -2,12 +2,6 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-/*
-gClockTable:: @ 080C0868
-	.incbin "baserom.gba", 0x0C0868, 0x34
-*/
-gXcmdTable:: @ 080C089C
-	.incbin "baserom.gba", 0x0C089C, 0x30
 
 gUnk_080C08CC:: @ 080C08CC
 	.incbin "baserom.gba", 0x0C08CC, 0x21

@@ -209,7 +209,7 @@ const u8 gClockTable[] =
     0x00,
 	0x00,
 };
-/*
+
 const XcmdFunc gXcmdTable[] =
 {
     ply_xxx,
@@ -225,4 +225,4 @@ const XcmdFunc gXcmdTable[] =
     ply_xleng,
     ply_xswee,
 };
-*/
+
