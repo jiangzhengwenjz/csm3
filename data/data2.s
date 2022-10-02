@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-
+/*
 gScaleTable:: @ 080C0684
 	.incbin "baserom.gba", 0x0C0684, 0x60
 
@@ -53,7 +53,7 @@ gUnk_080C0711:: @ 080C0711
 
 gUnk_080C0726:: @ 080C0726
 	.incbin "baserom.gba", 0x0C0726, 0x12
-
+*/
 gFreqTable:: @ 080C0738
 	.incbin "baserom.gba", 0x0C0738, 0x30
 
