@@ -475,7 +475,9 @@ _080B6ED2:
 	str r1, [r0, #0x2c]
 _080B6ED6:
 	bx lr
-_080B6ED8:
+	
+	thumb_func_start ply_fine
+ply_fine:	@_080B6ED8
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	ldr r4, [r5, #0x20]
@@ -507,7 +509,7 @@ _080B6EFC:
 MPlyJmpTblCopy: @ 0x080B6F08
 	mov ip, lr
 	movs r1, #0x24
-	ldr r2, _080B6F38 @ =gUnk_080C05F4
+	ldr r2, _080B6F38 @ =gMPlayJumpTableTemplate
 _080B6F0E:
 	ldr r3, [r2]
 	bl _080B6F22
@@ -525,7 +527,7 @@ _080B6F22:
 	push {r0}
 	lsrs r0, r2, #0x19
 	bne _080B6F34
-	ldr r0, _080B6F38 @ =gUnk_080C05F4
+	ldr r0, _080B6F38 @ =gMPlayJumpTableTemplate
 	cmp r2, r0
 	blo _080B6F32
 	lsrs r0, r2, #0xe
@@ -536,7 +538,7 @@ _080B6F34:
 	pop {r0}
 	bx lr
 	.align 2, 0
-_080B6F38: .4byte gUnk_080C05F4
+_080B6F38: .4byte gMPlayJumpTableTemplate
 
 	thumb_func_start ld_r3_tp_adr_i
 ld_r3_tp_adr_i: @ 0x080B6F3C
@@ -549,7 +551,9 @@ sub_080B6F3E: @ 0x080B6F3E
 	ldrb r3, [r2]
 	b _080B6F22
 	.align 2, 0
-_080B6F48:
+	
+	thumb_func_start ply_goto
+ply_goto:	@_080B6F48
 	push {lr}
 _080B6F4A:
 	ldr r2, [r1, #0x40]
@@ -580,9 +584,9 @@ ply_patt: @ 0x080B6F68
 	ldrb r2, [r1, #2]
 	adds r2, #1
 	strb r2, [r1, #2]
-	b _080B6F48
+	b ply_goto
 _080B6F80:
-	b _080B6ED8
+	b ply_fine
 	.align 2, 0
 
 	thumb_func_start ply_pend
