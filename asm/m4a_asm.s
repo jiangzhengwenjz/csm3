@@ -1002,7 +1002,7 @@ j_.call_r3_rev_1: @ 0x080B7206
 sub_080B7210: @ 0x080B7210
 	b _080B721C
 _080B7212:
-	ldr r0, _080B7364 @ =gUnk_080C0868
+	ldr r0, _080B7364 @ =gClockTable
 	subs r1, #0x80
 	adds r1, r1, r0
 	ldrb r0, [r1]
@@ -1218,7 +1218,7 @@ _080B7350:
 .call_r3_rev: @ 0x080B7360
 	bx r3
 	.align 2, 0
-_080B7364: .4byte gUnk_080C0868
+_080B7364: .4byte gClockTable
 _080B7368: .4byte 0x03007FF0
 _080B736C: .4byte 0x68736D53
 
@@ -1305,7 +1305,7 @@ ply_note: @ 0x080B73E4
 	ldr r1, _080B75DC @ =0x03007FF0
 	ldr r1, [r1]
 	str r1, [sp, #4]
-	ldr r1, _080B75E0 @ =gUnk_080C0868
+	ldr r1, _080B75E0 @ =gClockTable
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	strb r0, [r5, #4]
@@ -1568,7 +1568,7 @@ _080B75CA:
 	bx r0
 	.align 2, 0
 _080B75DC: .4byte 0x03007FF0
-_080B75E0: .4byte gUnk_080C0868
+_080B75E0: .4byte gClockTable
 
 	thumb_func_start ply_endtie
 ply_endtie: @ 0x080B75E4

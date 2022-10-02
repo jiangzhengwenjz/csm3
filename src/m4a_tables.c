@@ -144,7 +144,7 @@ const u8 gNoiseTable[] =
     0x07, 0x06, 0x05, 0x04,
     0x03, 0x02, 0x01, 0x00,
 };
-/*
+
 const u8 gCgb3Vol[] =
 {
     0x00, 0x00,
@@ -205,8 +205,11 @@ const u8 gClockTable[] =
     0x5A,
     0x5C,
     0x60,
+    0x00,
+    0x00,
+	0x00,
 };
-
+/*
 const XcmdFunc gXcmdTable[] =
 {
     ply_xxx,
