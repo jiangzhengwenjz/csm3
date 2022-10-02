@@ -475,7 +475,9 @@ _080B6ED2:
 	str r1, [r0, #0x2c]
 _080B6ED6:
 	bx lr
-_080B6ED8:
+	
+	thumb_func_start ply_fine
+ply_fine:	@_080B6ED8
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	ldr r4, [r5, #0x20]
@@ -507,7 +509,7 @@ _080B6EFC:
 MPlyJmpTblCopy: @ 0x080B6F08
 	mov ip, lr
 	movs r1, #0x24
-	ldr r2, _080B6F38 @ =gUnk_080C05F4
+	ldr r2, _080B6F38 @ =gMPlayJumpTableTemplate
 _080B6F0E:
 	ldr r3, [r2]
 	bl _080B6F22
@@ -525,7 +527,7 @@ _080B6F22:
 	push {r0}
 	lsrs r0, r2, #0x19
 	bne _080B6F34
-	ldr r0, _080B6F38 @ =gUnk_080C05F4
+	ldr r0, _080B6F38 @ =gMPlayJumpTableTemplate
 	cmp r2, r0
 	blo _080B6F32
 	lsrs r0, r2, #0xe
@@ -536,7 +538,7 @@ _080B6F34:
 	pop {r0}
 	bx lr
 	.align 2, 0
-_080B6F38: .4byte gUnk_080C05F4
+_080B6F38: .4byte gMPlayJumpTableTemplate
 
 	thumb_func_start ld_r3_tp_adr_i
 ld_r3_tp_adr_i: @ 0x080B6F3C
@@ -549,7 +551,9 @@ sub_080B6F3E: @ 0x080B6F3E
 	ldrb r3, [r2]
 	b _080B6F22
 	.align 2, 0
-_080B6F48:
+	
+	thumb_func_start ply_goto
+ply_goto:	@_080B6F48
 	push {lr}
 _080B6F4A:
 	ldr r2, [r1, #0x40]
@@ -580,9 +584,9 @@ ply_patt: @ 0x080B6F68
 	ldrb r2, [r1, #2]
 	adds r2, #1
 	strb r2, [r1, #2]
-	b _080B6F48
+	b ply_goto
 _080B6F80:
-	b _080B6ED8
+	b ply_fine
 	.align 2, 0
 
 	thumb_func_start ply_pend
@@ -998,7 +1002,7 @@ j_.call_r3_rev_1: @ 0x080B7206
 sub_080B7210: @ 0x080B7210
 	b _080B721C
 _080B7212:
-	ldr r0, _080B7364 @ =gUnk_080C0868
+	ldr r0, _080B7364 @ =gClockTable
 	subs r1, #0x80
 	adds r1, r1, r0
 	ldrb r0, [r1]
@@ -1214,7 +1218,7 @@ _080B7350:
 .call_r3_rev: @ 0x080B7360
 	bx r3
 	.align 2, 0
-_080B7364: .4byte gUnk_080C0868
+_080B7364: .4byte gClockTable
 _080B7368: .4byte 0x03007FF0
 _080B736C: .4byte 0x68736D53
 
@@ -1301,7 +1305,7 @@ ply_note: @ 0x080B73E4
 	ldr r1, _080B75DC @ =0x03007FF0
 	ldr r1, [r1]
 	str r1, [sp, #4]
-	ldr r1, _080B75E0 @ =gUnk_080C0868
+	ldr r1, _080B75E0 @ =gClockTable
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	strb r0, [r5, #4]
@@ -1564,7 +1568,7 @@ _080B75CA:
 	bx r0
 	.align 2, 0
 _080B75DC: .4byte 0x03007FF0
-_080B75E0: .4byte gUnk_080C0868
+_080B75E0: .4byte gClockTable
 
 	thumb_func_start ply_endtie
 ply_endtie: @ 0x080B75E4
