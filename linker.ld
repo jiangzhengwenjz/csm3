@@ -395,6 +395,8 @@ SECTIONS {
     rom : ALIGN(4) {
         asm/crt0.o(.text);
         asm/code_080001D0.o(.text);
+        src/main.o(.text);
+        asm/code_main.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
