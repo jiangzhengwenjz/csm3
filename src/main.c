@@ -9,7 +9,14 @@ extern void sub_08001C30(void);
 
 extern int gUnk_03002968;
 
+extern int* gUnk_03002970[5];
+extern int gUnk_08BDA40C;
+extern int gUnk_098C8D9C;
+extern int gUnk_09718FFC;
+extern int gUnk_094D446C;
+extern int gUnk_09E2261C;
 
+//TODO:type
 
 void sub_08001C98(void)
 {
@@ -48,4 +55,13 @@ void sub_08001CBC(u32* arr0,struct unk_1* arr1)
         arr1->unka = 0;
     }
 }
+//TODO:type
 
+void sub_08001D0C(void)
+{
+    gUnk_03002970[0] = &gUnk_08BDA40C;
+    gUnk_03002970[1] = &gUnk_098C8D9C;
+    gUnk_03002970[2] = &gUnk_09718FFC;
+    gUnk_03002970[3] = &gUnk_094D446C;
+    gUnk_03002970[4] = &gUnk_09E2261C;
+}

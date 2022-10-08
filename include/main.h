@@ -10,5 +10,8 @@ struct unk_1 {
     u32 *unk10; u32 *unk14; 
     u32 *unk18;
 };
+//TODO:type
+//Should I put externs here? 
+
 
 #endif

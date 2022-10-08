@@ -67,7 +67,7 @@ _08001D04:
 	pop {r0}
 	bx r0
 	.align 2, 0
-*/
+
 	thumb_func_start sub_08001D0C
 sub_08001D0C: @ 0x08001D0C
 	ldr r1, _08001D24 @ =gUnk_03002970
@@ -89,7 +89,7 @@ _08001D2C: .4byte gUnk_098C8D9C
 _08001D30: .4byte gUnk_09718FFC
 _08001D34: .4byte gUnk_094D446C
 _08001D38: .4byte gUnk_09E2261C
-
+*/
 	thumb_func_start sub_08001D3C
 sub_08001D3C: @ 0x08001D3C
 	lsls r0, r0, #0x10
