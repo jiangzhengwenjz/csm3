@@ -21,12 +21,12 @@ _08001CA8:
 	b _08001CA8
 	.align 2, 0
 _08001CB8: .4byte gUnk_03002968
-*/
+
 	thumb_func_start sub_08001CBC
 sub_08001CBC: @ 0x08001CBC
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, [r2, #0x10]
+	ldr r0, [r2, #0x10] 
 	str r0, [r1]
 	ldr r0, [r2, #0x14]
 	str r0, [r1, #4]
@@ -67,7 +67,7 @@ _08001D04:
 	pop {r0}
 	bx r0
 	.align 2, 0
-
+*/
 	thumb_func_start sub_08001D0C
 sub_08001D0C: @ 0x08001D0C
 	ldr r1, _08001D24 @ =gUnk_03002970
