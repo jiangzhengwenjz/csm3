@@ -41,7 +41,8 @@ void sub_08001CBC(u32* arr0,struct unk_1* arr1)
     arr1->unkc = arr0[7];
     arr1->unke = arr0[8];
     arr1->unk10 = &arr0[arr0[9]>>2];
-    
+    //address=index*sizeof(element)
+
     if (arr0[10])
         arr1->unk14 = &arr0[arr0[10]>>2];
     else
