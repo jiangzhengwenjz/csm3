@@ -89,7 +89,7 @@ _08001D2C: .4byte gUnk_098C8D9C
 _08001D30: .4byte gUnk_09718FFC
 _08001D34: .4byte gUnk_094D446C
 _08001D38: .4byte gUnk_09E2261C
-*/
+
 	thumb_func_start sub_08001D3C
 sub_08001D3C: @ 0x08001D3C
 	lsls r0, r0, #0x10
@@ -123,7 +123,7 @@ sub_08001D5C: @ 0x08001D5C
 	bx lr
 	.align 2, 0
 _08001D74: .4byte gUnk_03002970
-
+*/
 	thumb_func_start sub_08001D78
 sub_08001D78: @ 0x08001D78
 	lsls r1, r1, #0x10

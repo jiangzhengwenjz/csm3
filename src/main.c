@@ -41,7 +41,7 @@ void sub_08001CBC(u32* arr0,struct unk_1* arr1)
     arr1->unkc = arr0[7];
     arr1->unke = arr0[8];
     arr1->unk10 = &arr0[arr0[9]>>2];
-    //address=index*sizeof(element)
+    //offset=index*sizeof(element)
 
     if (arr0[10])
         arr1->unk14 = &arr0[arr0[10]>>2];
@@ -65,4 +65,18 @@ void sub_08001D0C(void)
     gUnk_03002970[2] = &gUnk_09718FFC;
     gUnk_03002970[3] = &gUnk_094D446C;
     gUnk_03002970[4] = &gUnk_09E2261C;
+}
+
+int *sub_08001D3C(u16 a, u16 b)
+{
+    int *var = &gUnk_03002970[a][b * 2 + 2];
+    return &gUnk_03002970[a][*var * 4];
+}
+//Compiler will write lsl/lsr automatically if arguments are u16s. 
+
+int sub_08001D5C(u16 a,u16 b)
+{
+    int* var1 = &gUnk_03002970[a][b*2];
+    //The compile order will be mixed up without var1,but Idk why. 
+    return 16*gUnk_03002970[a][b*2+3];
 }
