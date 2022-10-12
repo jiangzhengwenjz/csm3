@@ -80,3 +80,61 @@ int sub_08001D5C(u16 a,u16 b)
     //The compile order will be mixed up without var1,but Idk why. 
     return 16*gUnk_03002970[a][b*2+3];
 }
+
+int *sub_08001D78(int *a, u16 b)
+{
+    int *var = &a[b * 2 + 2];
+    return &a[*var * 4];
+}
+
+int sub_08001D88(u32 *a,u16 b)
+{
+    //u32 *var1 = &a[b*2];
+    //return var1[3]*16;
+    //registers will swap.
+    return a[b*2+3]*16;
+}
+
+u16 sub_08001D94(u16 *a)
+{
+    return a[0];
+}
+
+void sub_08001D98(u32 *a,struct unk_2 *b)
+{
+    u32 var;//local variable first
+    
+    b->unk0 = a[4];
+    b->unk2 = a[6];
+    b->unk4 = a[8];
+    
+    var = a[5]/4;
+    b->unk8 = &a[var];
+    
+    var = a[7]/4;
+    b->unkc = &a[var];
+
+    var = a[9]/4;
+    b->unk10 = &a[var];   
+}
+
+void sub_08001DC4(struct unk_3 *a,struct unk_4 *b)
+{
+    b->unk0 = a->unk10;
+    b->unk2 = a->unk12;
+    b->unk4 = a->unk14;
+    b->unk6 = a->unk16;
+    b->unk8 = a->unk18;
+    b->unka = a->unk1a;
+    b->unkc = a->unk0 + a->unk1c/4;
+}
+
+void sub_08001DE8(struct unk_5 *a,struct unk_6 *b)
+{
+    b->unk0 = a->unk10;
+    b->unk2 = ((a->unk12+3) >> 2) * 4;
+    b->unk4 = a->unk14;
+    b->unk6 = a->unk16;
+    b->unk8 = a->unk0 + a->unk18/4;
+    b->unkc = a->unk0 + a->unk1c/4;    
+}

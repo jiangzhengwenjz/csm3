@@ -123,7 +123,7 @@ sub_08001D5C: @ 0x08001D5C
 	bx lr
 	.align 2, 0
 _08001D74: .4byte gUnk_03002970
-*/
+
 	thumb_func_start sub_08001D78
 sub_08001D78: @ 0x08001D78
 	lsls r1, r1, #0x10
@@ -219,7 +219,7 @@ sub_08001DE8: @ 0x08001DE8
 	adds r0, r0, r2
 	str r0, [r1, #0xc]
 	bx lr
-
+*/
 	thumb_func_start sub_08001E14
 sub_08001E14: @ 0x08001E14
 	ldr r2, [r0, #0x10]
