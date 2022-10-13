@@ -1,6 +1,6 @@
 #include "global.h"
 #include "main.h"
-
+#include "gba/syscall.h"
 void sub_08001C98(void)
 {
     sub_08001B20();
@@ -144,4 +144,38 @@ void sub_08001E64(u16 *a, struct unk_11 *b)
 {
     b->unk0 = a[8];
     b->unk4 = a + 9;
+}
+
+s16 sub_08001E70(u16 a) 
+{
+    if(a > 359)
+    {
+        a = DivRem(a,0xb4 * 2);
+    }
+    return gUnk_08B6D24C[a];
+}
+
+s16 sub_08001EA0(u16 a) 
+{
+    if(a > 359)
+    {
+        a = DivRem(a,0xb4 * 2);
+    }
+    return gUnk_08B6D24C[a + 90];
+}
+
+s16 sub_08001ED4(s16 a, s16 b) 
+{
+    return a * b >> 8;
+}
+
+s16 sub_08001EE4(s16 a, s16 b) 
+{
+    return Div(a << 8, b);
+}
+
+s16 sub_08001EFC(s16 a) 
+{
+    s32 var1 = 65536;
+    return var1 / a;
 }

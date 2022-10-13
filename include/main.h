@@ -123,6 +123,7 @@ extern const int gUnk_098C8D9C[];
 extern const int gUnk_09718FFC[];
 extern const int gUnk_094D446C[];
 extern const int gUnk_09E2261C[];
+extern const s16 gUnk_08B6D24C[];
 
 void sub_08001C98(void);
 
