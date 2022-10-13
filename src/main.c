@@ -121,6 +121,27 @@ void sub_08001E14(u32 *a, struct unk_7 *b)
     b->unk1 = a[5];
     b->unk2 = 0;
     b->unk3 = 0;
-    b->unk4 = a+a[6]/4;
-    b->unk8 = a+a[7]/4;
+    b->unk4 = a + a[6]/4;
+    b->unk8 = a + a[7]/4;
+}
+
+void sub_08001E38(u32 *a, struct unk_8 *b) 
+{
+    b->unk0 = a[4];
+    b->unk2 = a[5];
+    b->unk4 = a + a[6]/4;
+}
+
+void sub_08001E4C(struct unk_9 *a, struct unk_10 *b) 
+{
+    b->unk0 = a->unk10;
+    b->unk1 = a->unk11;
+    b->unk2 = a->unk12;
+    b->unk4 = a->unk0 + a->unk14/4;
+}
+
+void sub_08001E64(u16 *a, struct unk_11 *b) 
+{
+    b->unk0 = a[8];
+    b->unk4 = a + 9;
 }

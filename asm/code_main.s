@@ -5,58 +5,6 @@
 
 	.text
 /*
-	thumb_func_start sub_08001E14
-sub_08001E14: @ 0x08001E14
-	ldr r2, [r0, #0x10]
-	movs r3, #0
-	strb r2, [r1]
-	ldr r2, [r0, #0x14]
-	strb r2, [r1, #1]
-	strb r3, [r1, #2]
-	strb r3, [r1, #3]
-	ldr r2, [r0, #0x18]
-	lsrs r2, r2, #2
-	lsls r2, r2, #2
-	adds r2, r0, r2
-	str r2, [r1, #4]
-
-	thumb_func_start sub_08001E2C
-sub_08001E2C: @ 0x08001E2C
-	ldr r2, [r0, #0x1c]
-	lsrs r2, r2, #2
-	lsls r2, r2, #2
-	adds r0, r0, r2
-	str r0, [r1, #8]
-	bx lr
-*/
-	thumb_func_start sub_08001E38
-sub_08001E38: @ 0x08001E38
-	ldr r2, [r0, #0x10]
-	strh r2, [r1]
-	ldr r2, [r0, #0x14]
-	strh r2, [r1, #2]
-	ldr r2, [r0, #0x18]
-	lsrs r2, r2, #2
-	lsls r2, r2, #2
-	adds r0, r0, r2
-	str r0, [r1, #4]
-	bx lr
-
-	thumb_func_start sub_08001E4C
-sub_08001E4C: @ 0x08001E4C
-	ldrb r2, [r0, #0x10]
-	strb r2, [r1]
-	ldrb r2, [r0, #0x11]
-	strb r2, [r1, #1]
-	ldrh r2, [r0, #0x12]
-	strh r2, [r1, #2]
-	ldr r2, [r0, #0x14]
-	lsrs r2, r2, #2
-	lsls r2, r2, #2
-	adds r0, r0, r2
-	str r0, [r1, #4]
-	bx lr
-
 	thumb_func_start sub_08001E64
 sub_08001E64: @ 0x08001E64
 	ldrh r2, [r0, #0x10]
@@ -65,7 +13,7 @@ sub_08001E64: @ 0x08001E64
 	str r0, [r1, #4]
 	bx lr
 	.align 2, 0
-
+*/
 	thumb_func_start sub_08001E70
 sub_08001E70: @ 0x08001E70
 	push {lr}

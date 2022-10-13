@@ -80,6 +80,35 @@ struct unk_7
     u32 *unk8;
 };
 
+struct unk_8 
+{
+    u16 unk0;
+    u16 unk2;
+    u32 *unk4;
+};
+
+struct unk_9 
+{
+    u32 unk0[4];
+    u8 unk10;
+    u8 unk11;
+    u16 unk12;
+    u32 unk14;
+};
+struct unk_10 
+{
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u32 *unk4;
+};
+
+struct unk_11 
+{
+    u32 unk0;
+    u16 *unk4;
+};
+
 extern void sub_08001B20(void);
 extern void sub_08001B14(void);
 extern void sub_08001A1C(void);
