@@ -1,27 +1,10 @@
 #include "global.h"
 #include "main.h"
 
-extern void sub_08001B20(void);
-extern void sub_08001B14(void);
-extern void sub_08001A1C(void);
-extern void sub_08001AEC(int);
-extern void sub_08001C30(void);
-
-extern int gUnk_03002968;
-
-extern int* gUnk_03002970[5];
-extern int gUnk_08BDA40C;
-extern int gUnk_098C8D9C;
-extern int gUnk_09718FFC;
-extern int gUnk_094D446C;
-extern int gUnk_09E2261C;
-
-//TODO:type
-
 void sub_08001C98(void)
 {
     sub_08001B20();
-    gUnk_03002968=0;
+    gUnk_03002968 = 0;
     sub_08001B14();
 
     while (1)
@@ -33,7 +16,7 @@ void sub_08001C98(void)
 
 }
 
-void sub_08001CBC(u32* arr0,struct unk_1* arr1)
+void sub_08001CBC(u32* arr0, struct unk_1* arr1)
 {
     arr1->unk0 = arr0[4];
     arr1->unk4 = arr0[5];
@@ -41,7 +24,6 @@ void sub_08001CBC(u32* arr0,struct unk_1* arr1)
     arr1->unkc = arr0[7];
     arr1->unke = arr0[8];
     arr1->unk10 = &arr0[arr0[9]>>2];
-    //offset=index*sizeof(element)
 
     if (arr0[10])
         arr1->unk14 = &arr0[arr0[10]>>2];
@@ -52,33 +34,30 @@ void sub_08001CBC(u32* arr0,struct unk_1* arr1)
         arr1->unka = (arr1->unk18[0]+1) * 4;
     }
     else {
-        arr1->unk18 = 0;
+        arr1->unk18 = NULL;
         arr1->unka = 0;
     }
 }
-//TODO:type
 
 void sub_08001D0C(void)
 {
-    gUnk_03002970[0] = &gUnk_08BDA40C;
-    gUnk_03002970[1] = &gUnk_098C8D9C;
-    gUnk_03002970[2] = &gUnk_09718FFC;
-    gUnk_03002970[3] = &gUnk_094D446C;
-    gUnk_03002970[4] = &gUnk_09E2261C;
+    gUnk_03002970[0] = gUnk_08BDA40C;
+    gUnk_03002970[1] = gUnk_098C8D9C;
+    gUnk_03002970[2] = gUnk_09718FFC;
+    gUnk_03002970[3] = gUnk_094D446C;
+    gUnk_03002970[4] = gUnk_09E2261C;
 }
 
-int *sub_08001D3C(u16 a, u16 b)
+const int *sub_08001D3C(u16 a, u16 b)
 {
-    int *var = &gUnk_03002970[a][b * 2 + 2];
+    const int *var = &gUnk_03002970[a][b * 2 + 2];
     return &gUnk_03002970[a][*var * 4];
 }
-//Compiler will write lsl/lsr automatically if arguments are u16s. 
 
-int sub_08001D5C(u16 a,u16 b)
+const int sub_08001D5C(u16 a, u16 b)
 {
-    int* var1 = &gUnk_03002970[a][b*2];
-    //The compile order will be mixed up without var1,but Idk why. 
-    return 16*gUnk_03002970[a][b*2+3];
+    const int* var1 = &gUnk_03002970[a][b*2];
+    return 16 * gUnk_03002970[a][b*2 + 3];
 }
 
 int *sub_08001D78(int *a, u16 b)
@@ -87,12 +66,9 @@ int *sub_08001D78(int *a, u16 b)
     return &a[*var * 4];
 }
 
-int sub_08001D88(u32 *a,u16 b)
+int sub_08001D88(u32 *a, u16 b)
 {
-    //u32 *var1 = &a[b*2];
-    //return var1[3]*16;
-    //registers will swap.
-    return a[b*2+3]*16;
+    return a[b*2 + 3] * 16;
 }
 
 u16 sub_08001D94(u16 *a)
@@ -100,9 +76,9 @@ u16 sub_08001D94(u16 *a)
     return a[0];
 }
 
-void sub_08001D98(u32 *a,struct unk_2 *b)
+void sub_08001D98(u32 *a, struct unk_2 *b)
 {
-    u32 var;//local variable first
+    u32 var;
     
     b->unk0 = a[4];
     b->unk2 = a[6];
@@ -118,7 +94,7 @@ void sub_08001D98(u32 *a,struct unk_2 *b)
     b->unk10 = &a[var];   
 }
 
-void sub_08001DC4(struct unk_3 *a,struct unk_4 *b)
+void sub_08001DC4(struct unk_3 *a, struct unk_4 *b)
 {
     b->unk0 = a->unk10;
     b->unk2 = a->unk12;
@@ -129,7 +105,7 @@ void sub_08001DC4(struct unk_3 *a,struct unk_4 *b)
     b->unkc = a->unk0 + a->unk1c/4;
 }
 
-void sub_08001DE8(struct unk_5 *a,struct unk_6 *b)
+void sub_08001DE8(struct unk_5 *a, struct unk_6 *b)
 {
     b->unk0 = a->unk10;
     b->unk2 = ((a->unk12+3) >> 2) * 4;
@@ -137,4 +113,14 @@ void sub_08001DE8(struct unk_5 *a,struct unk_6 *b)
     b->unk6 = a->unk16;
     b->unk8 = a->unk0 + a->unk18/4;
     b->unkc = a->unk0 + a->unk1c/4;    
+}
+
+void sub_08001E14(u32 *a, struct unk_7 *b) 
+{
+    b->unk0 = a[4];
+    b->unk1 = a[5];
+    b->unk2 = 0;
+    b->unk3 = 0;
+    b->unk4 = a+a[6]/4;
+    b->unk8 = a+a[7]/4;
 }

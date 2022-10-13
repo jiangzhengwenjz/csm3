@@ -1,21 +1,29 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef GUARD_MAIN_H
+#define GUARD_MAIN_H
 
 #include "global.h"
 
-struct unk_1 {
-    u32 unk0; u32 unk4; 
-    u16 unk8; u16 unka; 
-    u16 unkc; u16 unke; 
-    u32 *unk10; u32 *unk14; 
+struct unk_1 
+{
+    u32 unk0;
+    u32 unk4;
+    u16 unk8;
+    u16 unka;
+    u16 unkc;
+    u16 unke;
+    u32 *unk10;
+    u32 *unk14;
     u32 *unk18;
 };
 
 struct unk_2 
 {
-    u16 unk0; u16 unk2; u16 unk4;
-    
-    u32 *unk8; u32 *unkc; u32 *unk10;
+    u16 unk0;
+    u16 unk2;
+    u16 unk4;
+    u32 *unk8;
+    u32 *unkc;
+    u32 *unk10;
 };
 
 struct unk_3 
@@ -61,7 +69,32 @@ struct unk_6
     u32 *unk8;
     u32 *unkc;
 };
-//TODO:type
-//Should I put externs here? 
+
+struct unk_7 
+{
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u32 *unk4;
+    u32 *unk8;
+};
+
+extern void sub_08001B20(void);
+extern void sub_08001B14(void);
+extern void sub_08001A1C(void);
+extern void sub_08001AEC(int);
+extern void sub_08001C30(void);
+
+extern int gUnk_03002968;
+
+extern const int *gUnk_03002970[5];
+extern const int gUnk_08BDA40C[];
+extern const int gUnk_098C8D9C[];
+extern const int gUnk_09718FFC[];
+extern const int gUnk_094D446C[];
+extern const int gUnk_09E2261C[];
+
+void sub_08001C98(void);
 
 #endif
