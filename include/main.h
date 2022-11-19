@@ -112,7 +112,7 @@ struct unk_11
 extern void sub_08001B20(void);
 extern void sub_08001B14(int unk);
 extern void sub_08001A1C(void);
-extern void sub_08001AEC(int unk);
+extern void sub_08001AEC(s16 unk);
 extern void sub_08001C30(void);
 extern void sub_080934A8(void);
 extern void sub_08001BC0(void);

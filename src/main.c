@@ -8,10 +8,9 @@ int sub_08001A18(int *a)
 {
     return *a;
 }
+
 void sub_08001A1C(void)
 {
-    int i;
-
     sub_08001120();
     sub_080044B0();
     sub_0800F034();
@@ -23,8 +22,7 @@ void sub_08001A1C(void)
     sub_0801978C();
     sub_080AB2D0();
     
-    i = sub_08012F60(0x180);
-    if (i != 1)
+    if (sub_08012F60(0x180) != 1)
     {
         sub_08012C44();
     }
@@ -37,8 +35,7 @@ void sub_08001A1C(void)
     sub_08008B3C();
     sub_080637C4();
     
-    i = sub_08012F60(0x180);
-    if (i != 1)
+    if (sub_08012F60(0x180) != 1)
     {
         sub_08017B1C();
     }
@@ -48,8 +45,7 @@ void sub_08001A1C(void)
     sub_080B4970();
     sub_08062EB0();
     
-    i = sub_08012F60(0x180);
-    if (i != 1)
+    if (sub_08012F60(0x180) != 1)
     {
         sub_08093418();
     }
@@ -64,9 +60,9 @@ void sub_08001A1C(void)
     sub_08012F0C(3,0x55555555);
 }
 
-void sub_08001AEC(int unk)
+void sub_08001AEC(s16 unk)
 {
-    gUnk_03002960 = (s16)unk;
+    gUnk_03002960 = unk;
 }
 
 int sub_08001AFC(void)
@@ -88,11 +84,11 @@ void sub_08001B20(void)
 {
     REG_WAITCNT = WAITCNT_SRAM_4 | WAITCNT_WS0_N_3 | WAITCNT_WS0_S_1 | WAITCNT_PREFETCH_ENABLE;
 
-    DmaFill32(3, 0x55555555, (void*) EWRAM_START, 0x40000);
-    DmaFill32(3, 0x55555555, (void*) IWRAM_START, 0x7b00);
-    DmaFill32(3, 0, (void*) VRAM, 0x18000);
-    DmaFill32(3, 0xa0, (void*) OAM, 0x400);
-    DmaFill16(3, 0, (void*) PLTT, 0x400);
+    DmaFill32(3, 0x55555555, EWRAM_START, 0x40000);
+    DmaFill32(3, 0x55555555, IWRAM_START, 0x7b00);
+    DmaFill32(3, 0, VRAM, 0x18000);
+    DmaFill32(3, 0xa0, OAM, 0x400);
+    DmaFill16(3, 0, PLTT, 0x400);
 
     sub_08006F00();
     sub_08001D0C();
@@ -144,7 +140,7 @@ void sub_08001C30(void)
 
 void sub_08001C64(void)
 {
-    if ( gUnk_03002964 == 1 && (gUnk_0300594C & 0xF) == 15 )
+    if (gUnk_03002964 == 1 && (gUnk_0300594C & 0xF) == 0xF )
     {
         sub_080934A8();
         gUnk_03002960 = 0;
@@ -301,19 +297,15 @@ void sub_08001E64(u16 *a, struct unk_11 *b)
 
 s16 sub_08001E70(u16 a) 
 {
-    if(a >= 360)
-
+    if (a >= 360)
         a = DivRem(a, 360);
-
     return gUnk_08B6D24C[a];
 }
 
 s16 sub_08001EA0(u16 a) 
 {
-    if(a >= 360)
-
+    if (a >= 360)
         a = DivRem(a, 360);
-
     return gUnk_08B6D24C[a + 90];
 }
 
