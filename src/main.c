@@ -4,6 +4,10 @@
 #include "data.h"
 #include "functions.h"
 
+int sub_08001A18(int *a)
+{
+    return *a;
+}
 void sub_08001A1C(void)
 {
     int i;
