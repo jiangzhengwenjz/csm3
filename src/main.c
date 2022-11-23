@@ -4,7 +4,105 @@
 #include "data.h"
 #include "functions.h"
 
-int sub_08001A18(int *a)
+u32 sub_08001918(u8 *sb, u32 *r4)
+{
+    u32 r8 = sub_08001A18(r4);
+    u32 sp, sl, i, r7, ip;
+    u8 *r3, *r1;
+
+    r4 += 1;
+    sp = 0;
+    sl = 0;
+    i = 0;
+    ip = 0;
+    r7 = 0;
+    if (i < r8)
+    {
+        r3 = sb;
+        r1 = (void *)r4;
+        while (i < r8)
+        {
+            s32 r5, x;
+            u32 r0;
+            u32 j;
+            u8 *r2;
+
+            if (!(sl & 7))
+            {
+                r7 = *r1;
+                ++r1;
+            } else
+                r7 >>= 1;
+            ++sl;
+            if (r7 & 1)
+            {
+                *r3 = *r1;
+                ++r1;
+                ++r3;
+                ++i;
+                continue;
+            }
+
+            if (!sp)
+            {
+                ip = *r1;
+                ++r1;
+            } else
+                ip >>= 4;
+            sp ^= 1;
+            r5 = (ip & 0xF) + 2;
+            r0 = *r1 + 1;
+            ++r1;
+            j = 0;
+            if (j < r5)
+            {
+                r2 = (void *)(i + ((uintptr_t)sb - r0)); // TODO: maybe sb is really not a pointer?
+                x = r5 & 3;
+                if (r5 <= 0) goto label;
+                if (x)
+                {
+                    if (x > 1)
+                    {
+                        if (x > 2)
+                        {
+                            *r3 = *r2;
+                            ++r2;
+                            ++r3;
+                            ++i;
+                            ++j;
+                        }
+                        *r3 = *r2;
+                        ++r2;
+                        ++r3;
+                        ++i;
+                        ++j;
+                    }
+                label:
+                    *r3 = *r2;
+                    ++r2;
+                    ++r3;
+                    ++i;
+                    ++j;
+                    if (j >= r5) continue;
+                }
+                do
+                {
+                    r3[0] = r2[0];
+                    r3[1] = r2[1];
+                    r3[2] = r2[2];
+                    r3[3] = r2[3];
+                    r2 += 4;
+                    r3 += 4;
+                    i += 4;
+                    j += 4;
+                } while (j < r5);
+            }
+        }
+    }
+    return r8;
+}
+
+u32 sub_08001A18(u32 *a)
 {
     return *a;
 }

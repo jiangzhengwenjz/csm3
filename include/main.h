@@ -109,6 +109,7 @@ struct unk_11
     u16 *unk4;
 };
 
+extern u32 sub_08001A18(u32 *a);
 extern void sub_08001B20(void);
 extern void sub_08001B14(int unk);
 extern void sub_08001A1C(void);
