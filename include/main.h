@@ -175,7 +175,19 @@ extern void sub_08012F0C(int a,int b);
 
 extern int gUnk_03002968;
 extern int gUnk_02006000;
+extern int gUnk_03003364;
+extern u32 gUnk_03007E00;
+extern u32 gUnk_03007A00;
+extern vu16 gUnk_03002948;
+extern int gUnk_03002954;
+extern int gUnk_03002938;
+extern int gUnk_0300295C;
+extern u16 gUnk_0300294C;
+extern u16 gUnk_03002944;
+extern int gUnk_03002950;
 
+
+extern const u16 gUnk_08B6D04C[];
 extern const int *gUnk_03002970[5];
 extern const int gUnk_08BDA40C[];
 extern const int gUnk_098C8D9C[];
@@ -183,7 +195,6 @@ extern const int gUnk_09718FFC[];
 extern const int gUnk_094D446C[];
 extern const int gUnk_09E2261C[];
 extern const s16 gUnk_08B6D24C[];
-extern vu16 gUnk_03002948;
 
 void sub_08001C98(void);
 

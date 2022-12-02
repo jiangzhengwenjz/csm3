@@ -4,6 +4,139 @@
 #include "data.h"
 #include "functions.h"
 
+void sub_080016A0(void)
+{
+    gUnk_0300294C = 0;
+    gUnk_03002944 = 0;
+    gUnk_03002950 = 0;
+    gUnk_03002948 = 0;
+    gUnk_0300295C = EWRAM_START;
+}
+
+void sub_080016D4(int a)
+{
+    gUnk_0300295C = a;
+}
+
+void sub_080016E0(void)
+{
+    u32 r1;
+    gUnk_03002954 = gUnk_03003364;
+    r1 = REG_VCOUNT & 0xff;
+    if (r1 <= 0x9e)
+    {
+        r1 += 0x44;
+    }
+    else
+    {
+        r1 = (u16)(r1 - 0xa0);
+    }
+    gUnk_03002938 = r1;
+}
+
+void sub_0800171C(u16 a)
+{
+    for (; a; --a) {
+        u16 vcount = REG_VCOUNT;
+        while (vcount == REG_VCOUNT) {} // wait for the next scanline
+    }
+}
+
+void sub_08001750(void)
+{
+    u32 *r1 = &gUnk_03007E00;
+    u32 *r3 = &gUnk_03007A00;
+    u32 *r0;
+    do
+    {
+        *r1 = 0x55555555;
+        r0 = r1 - 1;
+        *r0 = 0x55555555;
+        r0 = r0 - 1;
+        *r0 = 0x55555555;
+        r0 = r0 - 1;
+        *r0 = 0x55555555;
+        r1 = r1 - 4;
+    }while ((u32)r1 > (u32)r3);
+}
+
+u32 sub_0800177C(void)
+{
+    u32 r2 = 0;
+    u32 r1 = IWRAM_START + 0x7E00;
+    u32 r0;
+
+    while (r1 > IWRAM_START) {
+        r0 = *(u32 *)r1;
+        r2++;
+        if (r0 != 0x55555555) r2 = 0;
+        if (r2 >= 8) break;
+        r1 -= 4;
+    }
+    return 0x03008000 - r1;
+}
+
+u32 sub_080017B8(u32 *p)
+{
+    return *p >> 8;
+}
+
+int sub_080017C0(void)
+{
+    return 0;
+}
+
+void sub_080017C4(u16 i)
+{
+    sub_08012F0C(9, i);
+}
+
+int sub_080017D8(void)
+{
+    u32 i = sub_08012F60(9) + gUnk_03003364;
+    i = (i * 214013 + 2531011) >> 0x10; // Linear congruential generator
+    sub_08012F0C(9, i);
+    return (s32)i; // UB
+}
+
+int sub_0800180C(u16 r4)
+{
+    u32 i = sub_08012F60(9) + gUnk_03003364;
+    i = (i * 214013 + 2531011) >> 0x10; // Linear congruential generator
+    sub_08012F0C(9, i);
+    return (s32)i % (r4 + 1); // UB
+}
+
+int sub_08001850(u16 r4)
+{
+    u32 i = sub_08012F60(9) + gUnk_03003364;
+    i = (i * 214013 + 2531011) >> 0x10; // Linear congruential generator
+    sub_08012F0C(9, i);
+    return (s32)i % (r4 * 2 + 1) - r4; // UB
+}
+
+int sub_08001894(int r5, int r4)
+{
+    u32 i = sub_08012F60(9) + gUnk_03003364;
+    i = (i * 214013 + 2531011) >> 0x10; // Linear congruential generator
+    sub_08012F0C(9, i);
+    return (s32)i % (r4 - r5 + 1) + r5; // UB
+}
+u16 sub_080018D8(u8* r5, u32 r4)
+{
+    u16 r2 = 0xFFFF;
+    u16 r3;
+    u8 idx;
+    
+    for (r3 = 0; r3 < r4; r3++)
+    {
+        idx = r2 ^ r5[r3];
+        r2 = gUnk_08B6D04C[idx] ^ (r2 >> 8);
+    }
+    
+    return r2;
+}
+
 u32 sub_08001918(u8 *sb, u32 *r4)
 {
     u32 r8 = sub_08001A18(r4);
