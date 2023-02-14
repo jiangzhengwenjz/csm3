@@ -176,8 +176,6 @@ extern void sub_08012F0C(int a,int b);
 extern int gUnk_03002968;
 extern int gUnk_02006000;
 extern int gUnk_03003364;
-extern u32 gUnk_03007E00;
-extern u32 gUnk_03007A00;
 extern vu16 gUnk_03002948;
 extern int gUnk_03002954;
 extern int gUnk_03002938;
