@@ -4,6 +4,55 @@
 #include "data.h"
 #include "functions.h"
 
+void nullsub_9(void)
+{}
+
+void sub_080015E4(int a1, int a2, u16 a3, int a4, u16 a5)
+{
+    s32 arg2 = a3;
+    s32 r1;
+    s32 var;
+
+    if ((u32)arg2 < a3 + a5)
+    {
+        var = a3 + a5;
+        ++var; --var;
+        r1 = (var - arg2) & 3;
+        if (arg2 >= var) goto label;
+        if (r1 != 0)
+        {
+            if (r1 > 1)
+            {
+                if (r1 > 2)
+                {
+                    ++arg2;
+                }
+                ++arg2;
+            }
+        label:
+            ++arg2;
+            if (arg2 >= (u32)var) return;
+        }
+        do
+        {
+            arg2 += 4;
+        } while (arg2 < (u32)var);
+    }
+}
+asm(".align 2, 0");
+
+void sub_08001624(u32 r0, u32 *r1, u32 *r2, u32 *r3, u32 *sp18)
+{
+    *r1 = 0;
+    *r2 = 0;
+    *r3 = 0;
+    *sp18 = 0;
+    *r1 = r0 / 0x34BC0;
+    *r2 = (r0 -= 0x34BC0 * *r1) / 0xE10;
+    *r3 = (r0 -= 0xE10 * *r2) / 0x3C;
+    *sp18 = r0 - 0x3C * *r3;
+}
+
 void sub_080016A0(void)
 {
     gUnk_0300294C = 0;
