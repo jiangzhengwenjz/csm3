@@ -386,9 +386,6 @@ SECTIONS {
         . = 0x00007700; gUnk_03007700 = .;
         . = 0x00007800; gMPlayMemAccArea = .;
         . = 0x00007850; gEEPROMConfig = .;
-        . = 0x00007A00; gUnk_03007A00 = .;
-        . = 0x00007E00; gUnk_03007E00 = .;
-        . = 0x00007FA0; gUnk_03007FA0 = .;
         . = 0x00008000;
     } >iwram
 

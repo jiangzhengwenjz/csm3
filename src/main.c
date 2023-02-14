@@ -39,7 +39,6 @@ void sub_080015E4(int a1, int a2, u16 a3, int a4, u16 a5)
         } while (arg2 < (u32)var);
     }
 }
-asm(".align 2, 0");
 
 void sub_08001624(u32 r0, u32 *r1, u32 *r2, u32 *r3, u32 *sp18)
 {
@@ -69,17 +68,13 @@ void sub_080016D4(int a)
 
 void sub_080016E0(void)
 {
-    u32 r1;
+    u16 r1;
     gUnk_03002954 = gUnk_03003364;
     r1 = REG_VCOUNT & 0xff;
     if (r1 <= 0x9e)
-    {
         r1 += 0x44;
-    }
     else
-    {
-        r1 = (u16)(r1 - 0xa0);
-    }
+        r1 -= 0xA0;
     gUnk_03002938 = r1;
 }
 
@@ -93,8 +88,8 @@ void sub_0800171C(u16 a)
 
 void sub_08001750(void)
 {
-    u32 *r1 = &gUnk_03007E00;
-    u32 *r3 = &gUnk_03007A00;
+    u32 *r1 = (u32 *)0x3007E00;
+    u32 *r3 = (u32 *)0x3007A00;
     u32 *r0;
     do
     {
@@ -106,7 +101,7 @@ void sub_08001750(void)
         r0 = r0 - 1;
         *r0 = 0x55555555;
         r1 = r1 - 4;
-    }while ((u32)r1 > (u32)r3);
+    } while (r1 > r3);
 }
 
 u32 sub_0800177C(void)
