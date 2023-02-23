@@ -236,7 +236,7 @@ SECTIONS {
         . = 0x00003798; gUnk_03003798 = .;
         . = 0x000037A0; gUnk_030037A0 = .;
         . = 0x000037B0; gUnk_030037B0 = .;
-        . = 0x000038B0; gUnk_030038B0 = .;
+        . = 0x000038B0; gOamBuffer = .;
         . = 0x00003CB0; gUnk_03003CB0 = .;
         . = 0x00003CC0; gUnk_03003CC0 = .;
         . = 0x000040C0; gUnk_030040C0 = .;
@@ -394,6 +394,8 @@ SECTIONS {
         asm/code_080001D0.o(.text);
         src/main.o(.text);
         asm/code_main.o(.text);
+        src/copy.o(.text);
+        asm/code_copy.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */

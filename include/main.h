@@ -134,7 +134,7 @@ extern void sub_08014E68(void);
 extern void sub_0800708C(void);
 extern void sub_080044E4(void);
 extern void sub_08004B30(void);
-extern void sub_080092CC(void);
+extern void DmaCopyBufferToOam(void);
 extern void sub_08006AC4(void);
 extern void sub_0800EF48(void);
 extern void sub_080092EC(void);

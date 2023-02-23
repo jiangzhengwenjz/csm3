@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "data.h"
+#include "main.h"
 
 void sub_08001CBC(u32* arr0, struct unk_1* arr1);
 void sub_08001D0C(void);
