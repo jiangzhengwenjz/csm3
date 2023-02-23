@@ -11713,7 +11713,7 @@ _080075D2:
 _08007646:
 	lsls r4, r7, #4
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #0
 	bl sub_08009490
@@ -12071,7 +12071,7 @@ _08007880:
 _080078F4:
 	lsls r4, r7, #4
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #0
 	bl sub_08009490

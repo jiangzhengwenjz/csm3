@@ -52164,7 +52164,7 @@ _0802B89C:
 	ldr r0, [r0]
 	adds r4, r0, r1
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	ldr r1, [r7]
 	ldrb r0, [r1, #0xc]
 	cmp r0, #1
@@ -65286,7 +65286,7 @@ _08031E40:
 	adds r6, r1, r0
 	adds r4, #1
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #1
 	movs r2, #1
@@ -65297,7 +65297,7 @@ _08031E40:
 	adds r5, r6, #0
 	adds r5, #0x10
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #1
@@ -65307,7 +65307,7 @@ _08031E40:
 	bl sub_08009448
 	adds r5, #0x10
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #1
@@ -65317,7 +65317,7 @@ _08031E40:
 	bl sub_08009448
 	adds r5, #0x10
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #1
@@ -66411,7 +66411,7 @@ sub_08032710: @ 0x08032710
 	lsls r0, r0, #4
 	adds r4, r5, r0
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0
@@ -66428,7 +66428,7 @@ sub_08032710: @ 0x08032710
 	adds r6, r5, r1
 	movs r4, #0
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #0
 	movs r2, #0
@@ -66444,7 +66444,7 @@ sub_08032710: @ 0x08032710
 	lsls r0, r0, #4
 	adds r6, r5, r0
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #0
 	movs r2, #0
@@ -66460,7 +66460,7 @@ sub_08032710: @ 0x08032710
 	lsls r1, r1, #4
 	adds r6, r5, r1
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #0
 	movs r2, #0
@@ -66476,7 +66476,7 @@ sub_08032710: @ 0x08032710
 	lsls r0, r0, #4
 	adds r6, r5, r0
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #0
 	movs r2, #0

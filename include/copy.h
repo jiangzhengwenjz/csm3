@@ -12,6 +12,13 @@ struct Unk_030040C0
     u32 unkC;
 }; /* size = 0x10 */
 
+struct Unk_03003CC0
+{
+    u8* unk0;
+    u16 unk4;
+    u16 unk8;
+};/* size = 0x8 */
+
 extern void sub_08009684(void);
 extern void sub_080092EC(void);
 
@@ -19,5 +26,6 @@ extern u8 gUnk_03003CB0[];
 extern u32 gOamBuffer[];
 extern u16 gUnk_030037A0[];
 extern struct Unk_030040C0 gUnk_030040C0[];
+extern struct Unk_03003CC0 gUnk_03003CC0[];
 
 #endif

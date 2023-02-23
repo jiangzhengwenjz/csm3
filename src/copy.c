@@ -44,9 +44,37 @@ void sub_08009364(u8 a1, u16 a2, u32 a3)
     var->unk8 = a3;
 }
 
-u32 sub_08009378(u8 a1, u16 a2, u32 a3)
+u32 sub_08009378(u8 a1)
 {
     struct Unk_030040C0 *var = &gUnk_030040C0[a1];
 
     return var->unkC;
+}
+
+u32 sub_08009388(u8 a1)
+{
+    return gUnk_030040C0[a1].unk2;
+}
+
+u8 sub_08009398(void)
+{
+    return gUnk_03003CB0[2];
+}
+
+void CpuClear16Bytes(void *a)
+{
+    CpuFill32(0, a, 0x10);
+}
+
+void sub_080093C0(u8* a)
+{
+    u32 v1 = gUnk_03003CB0[0];
+    struct Unk_03003CC0 *var = &gUnk_03003CC0[v1];
+    if(v1 != 0x80)
+    {
+        var->unk0 = a;
+        var->unk4 = gUnk_030037A0[a[8]];
+        gUnk_030037A0[a[8]] = v1;
+        gUnk_03003CB0[0] = gUnk_03003CB0[0] + 1;
+    }
 }
