@@ -374,7 +374,7 @@ void sub_08001BC0(void)
     sub_0800708C();
     sub_080044E4();
     sub_08004B30();
-    sub_080092CC();
+    DmaCopyBufferToOam();
     sub_08006AC4();
     
     gUnk_03002948 = REG_VCOUNT;
