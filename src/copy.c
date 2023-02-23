@@ -42,7 +42,7 @@ void sub_08009364(u8 a1, u16 a2, u32 a3)
 {
     u16 *v1;
     u32 *v2;
-    v1 = gUnk_030040C0 + a1 * 8;  //TODO:Same above.
+    v1 = gUnk_030040C0 + a1 * 8;  //TODO:Same above.I tried struct array type,but it doesn't match.
     v2 = (u32*)v1;
     v1[0] = a2;
     v2[2] = a3;
