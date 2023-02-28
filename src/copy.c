@@ -25,18 +25,18 @@ void sub_080092EC(void)
     gUnk_03003CB0[2] = 0;
 }
 
-void sub_08009334(u8 a1, u32 *a2, u32 tilesVram, u32 a4)
+void sub_08009334(u8 a1, struct Unk_08009334 *a2, u32 tilesVram, u32 a4)
 {
     struct Unk_030040C0 *var = &gUnk_030040C0[a1];
 
-    var->unk0 = a2[0];
+    var->unk0 = a2->unk0;
     var->unk2 = (tilesVram - 0x6010000) / 32; // 4BPP
-    var->unk4 = a2[4];
-    var->unk8 = a2[6];
+    var->unk4 = a2->unk10;
+    var->unk8 = a2->unk18;
     var->unkC = a4;
 }
 
-void sub_08009364(u8 a1, u16 a2, u32 a3)
+void sub_08009364(u8 a1, u16 a2, struct Unk_030040C0_8 *a3)
 {
     struct Unk_030040C0 *var = &gUnk_030040C0[a1];
 
@@ -77,4 +77,16 @@ void sub_080093C0(u8* a)
         gUnk_030037A0[a[8]] = v1;
         gUnk_03003CB0[0] = gUnk_03003CB0[0] + 1;
     }
+}
+
+void sub_08009400(struct Unk_08009400 *r0, u8 r1, u8 r2)
+{
+    struct Unk_030040C0_8_4 *var = gUnk_030040C0[r1].unk8->unk4;
+    struct Unk_030040C0_8_4 *r3 = var + r2;
+    u16 idx2;
+
+    r0->unkC = r3->unk0;
+    r0->unkD = r3->unk1;
+    idx2 = r3->unk2;
+    r0->unkE = gUnk_030040C0[r1].unk2 + idx2;
 }
