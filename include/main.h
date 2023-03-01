@@ -3,7 +3,7 @@
 
 #include "global.h"
 
-struct unk_1 
+struct Unk_08001CBC 
 {
     u32 unk0;
     u32 unk4;
@@ -14,9 +14,9 @@ struct unk_1
     u32 *unk10;
     u32 *unk14;
     u32 *unk18;
-};
+}; /* size = unknown */
 
-struct unk_2 
+struct Unk_08001D98 
 {
     u16 unk0;
     u16 unk2;
@@ -24,9 +24,9 @@ struct unk_2
     u32 *unk8;
     u32 *unkc;
     u32 *unk10;
-};
+}; /* size = unknown */
 
-struct unk_3 
+struct Unk_08001DC4_1 
 {
     u32 unk0[4];
     u16 unk10;
@@ -36,9 +36,9 @@ struct unk_3
     u16 unk18;
     u16 unk1a;
     u32 unk1c;
-};
+}; /* size = unknown */
 
-struct unk_4 
+struct Unk_08001DC4_2  
 {
     u16 unk0;
     u16 unk2;
@@ -47,9 +47,9 @@ struct unk_4
     u16 unk8;
     u16 unka;
     u32 *unkc;
-};
+}; /* size = unknown */
 
-struct unk_5 
+struct Unk_08001DE8_1 
 {
     u32 unk0[4];
     u16 unk10;
@@ -58,9 +58,9 @@ struct unk_5
     u16 unk16;
     u32 unk18;
     u32 unk1c;
-};
+}; /* size = unknown */
 
-struct unk_6 
+struct Unk_08001DE8_2 
 {
     u16 unk0;
     u16 unk2;
@@ -68,9 +68,9 @@ struct unk_6
     u16 unk6;
     u32 *unk8;
     u32 *unkc;
-};
+}; /* size = unknown */
 
-struct unk_7 
+struct Unk_08001E14 
 {
     u8 unk0;
     u8 unk1;
@@ -78,36 +78,36 @@ struct unk_7
     u8 unk3;
     u32 *unk4;
     u32 *unk8;
-};
+}; /* size = unknown */
 
-struct unk_8 
+struct Unk_08001E38 
 {
     u16 unk0;
     u16 unk2;
     u32 *unk4;
-};
+}; /* size = unknown */
 
-struct unk_9 
+struct Unk_08001E4C_1 
 {
     u32 unk0[4];
     u8 unk10;
     u8 unk11;
     u16 unk12;
     u32 unk14;
-};
-struct unk_10 
+}; /* size = unknown */
+struct Unk_08001E4C_2 
 {
     u8 unk0;
     u8 unk1;
     u16 unk2;
     u32 *unk4;
-};
+}; /* size = unknown */
 
-struct unk_11 
+struct Unk_08001E64 
 {
     u32 unk0;
     u16 *unk4;
-};
+}; /* size = unknown */
 
 extern u32 sub_08001A18(u32 *a);
 extern void sub_08001B20(void);

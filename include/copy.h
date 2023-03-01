@@ -14,10 +14,27 @@ struct Unk_030040C0
 
 struct Unk_03003CC0
 {
-    u8* unk0;
+    struct Unk_080093C0 *unk0;
     u16 unk4;
     u16 unk8;
-};/* size = 0x8 */
+}; /* size = 0x8 */
+
+struct Unk_080093C0
+{
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u16 unk4;
+    u16 unk6;
+    u8 unk8;
+    u8 unk9;
+    u8 fillter10[2];
+    u8 unk12;
+    u8 unk13;
+    u16 unk14;
+    u8 fillter16;
+}; /* size = 0x10 */
 
 struct Unk_08009400
 {
@@ -30,11 +47,11 @@ struct Unk_08009400
 struct Unk_08009334
 {
     u32 unk0;
-    u32 fillter0[3];
+    u32 fillter4[3];
     u32 unk10;
-    u32 fillter1;
+    u32 fillter14;
     struct Unk_030040C0_8 *unk18;
-};
+}; /* size = UNKNOWN */
 
 struct Unk_030040C0_8_4
 {

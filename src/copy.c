@@ -66,15 +66,15 @@ void CpuClear16Bytes(void *a)
     CpuFill32(0, a, 0x10);
 }
 
-void sub_080093C0(u8* a)
+void sub_080093C0(struct Unk_080093C0 *a)
 {
     u32 v1 = gUnk_03003CB0[0];
     struct Unk_03003CC0 *var = &gUnk_03003CC0[v1];
-    if(v1 != 0x80)
+    if (v1 != 0x80)
     {
         var->unk0 = a;
-        var->unk4 = gUnk_030037A0[a[8]];
-        gUnk_030037A0[a[8]] = v1;
+        var->unk4 = gUnk_030037A0[a->unk8];
+        gUnk_030037A0[a->unk8] = v1;
         gUnk_03003CB0[0] = gUnk_03003CB0[0] + 1;
     }
 }
