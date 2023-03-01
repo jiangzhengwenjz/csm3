@@ -90,3 +90,46 @@ void sub_08009400(struct Unk_08009400 *r0, u8 r1, u8 r2)
     idx2 = r3->unk2;
     r0->unkE = gUnk_030040C0[r1].unk2 + idx2;
 }
+
+void sub_08009434(struct Unk_08009434_1 *r0, struct Unk_08009434_2 *r1, u16 r2)
+{
+    r0->unkc = r1->unk0;
+    r0->unkd = r1->unk1;
+    r0->unke = r2+r1->unk2;
+}
+
+void sub_08009448(u8 *a, u8 b)
+{
+    a[2] = b;
+}
+
+void sub_0800944C(u8 *a, u8 b, u8 c)
+{
+    a[8] = b;
+    a[9] = c;
+}
+
+void sub_08009454(u8 *r0, u32 r1, u32 r2)
+{
+    if (r1 == 1)
+    {
+        *r0 = (*r0 & 0xfe) | 0x80; 
+    }
+    else
+    {
+        *r0 = *r0 & 0x7f;
+    }
+    if (r2 == 1)
+    {
+        *r0 = (*r0 & 0xfe) | 0x40; 
+    }
+    else
+    {
+        *r0 = *r0 & 0xbf;
+    }
+}
+
+void sub_08009490(u8 *r0, u8 r1)
+{
+    r0[1] = r1;
+}

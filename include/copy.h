@@ -29,11 +29,11 @@ struct Unk_080093C0
     u16 unk6;
     u8 unk8;
     u8 unk9;
-    u8 fillter10[2];
+    u8 filler10[2];
     u8 unk12;
     u8 unk13;
     u16 unk14;
-    u8 fillter16;
+    u8 filler16;
 }; /* size = 0x10 */
 
 struct Unk_08009400
@@ -47,9 +47,9 @@ struct Unk_08009400
 struct Unk_08009334
 {
     u32 unk0;
-    u32 fillter4[3];
+    u32 filler4[3];
     u32 unk10;
-    u32 fillter14;
+    u32 filler14;
     struct Unk_030040C0_8 *unk18;
 }; /* size = UNKNOWN */
 
@@ -65,6 +65,20 @@ struct Unk_030040C0_8
     u32 filler0;
     struct Unk_030040C0_8_4 unk4[0]; // TODO: update the size
 }; /* size = UNKNOWN */
+
+struct Unk_08009434_1
+{
+    u8 filler0[12];
+    u8 unkc;
+    u8 unkd;
+    u16 unke;
+}; /* size = unknown */
+struct Unk_08009434_2
+{
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+}; /*size = unknown */
 
 extern void sub_08009684(void);
 extern void sub_080092EC(void);
