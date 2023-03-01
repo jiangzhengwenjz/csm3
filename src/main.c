@@ -518,7 +518,7 @@ void sub_08001D98(u32 *a, struct Unk_08001D98 *b)
     b->unk10 = &a[var];   
 }
 
-void sub_08001DC4(struct Unk_08001DC4_1 *a, struct Unk_08001DC4_2 *b)
+void sub_08001DC4(struct Unk_0200B000 *a, struct Unk_08001DC4_2 *b)
 {
     b->unk0 = a->unk10;
     b->unk2 = a->unk12;

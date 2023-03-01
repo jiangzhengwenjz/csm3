@@ -26,7 +26,7 @@ struct Unk_08001D98
     u32 *unk10;
 }; /* size = unknown */
 
-struct Unk_08001DC4_1 
+struct Unk_0200B000 
 {
     u32 unk0[4];
     u16 unk10;
@@ -37,6 +37,10 @@ struct Unk_08001DC4_1
     u16 unk1a;
     u32 unk1c;
 }; /* size = unknown */
+
+extern struct Unk_0200B000 gUnk_0200B000, gUnk_0200D800, gUnk_02031800, gUnk_02033000;
+
+/* 02031800 is passed to 1dc4 as an argument in 3afa8. And it is passed to 1cbc in 59edc ? */
 
 struct Unk_08001DC4_2  
 {
