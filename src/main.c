@@ -511,10 +511,10 @@ void sub_08001D98(u32 *a, struct Unk_08001D98 *b)
     var = a[5] / 4;
     b->unk8 = &a[var];
     
-    var = a[7]/4;
+    var = a[7] / 4;
     b->unkc = &a[var];
 
-    var = a[9]/4;
+    var = a[9] / 4;
     b->unk10 = &a[var];   
 }
 
