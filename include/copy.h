@@ -14,19 +14,19 @@ struct Unk_030040C0
 
 struct Unk_03003CC0
 {
-    struct Unk_080093C0 *unk0;
+    struct Unk_08009400 *unk0;
     u16 unk4;
     u16 unk8;
 }; /* size = 0x8 */
 
-struct Unk_080093C0
+struct Unk_08009400
 {
     u8 unk0;
     u8 unk1;
     u8 unk2;
     u8 unk3;
-    u16 unk4;
-    u16 unk6;
+    u16 unk4; /* 240 in 91c4*/
+    u16 unk6; /* 160 in 91c4*/
     u8 unk8;
     u8 unk9;
     u8 fillerA[2];
@@ -34,14 +34,6 @@ struct Unk_080093C0
     u8 unkD;
     u16 unkE;
 }; /* size = 0x10 */
-
-struct Unk_08009400
-{
-    u8 filler0[0xC];
-    u8 unkC;
-    u8 unkD;
-    u16 unkE;
-}; /* size = UNKNOWN */
 
 struct Unk_08009334
 {
@@ -61,24 +53,11 @@ struct Unk_030040C0_8_4
 
 struct Unk_030040C0_8
 {
-    u32 filler0;
-    struct Unk_030040C0_8_4 unk4[0]; // TODO: update the size
-}; /* size = UNKNOWN */
-
-struct Unk_08009434_1
-{
-    u8 filler0[12];
-    u8 unkC;
-    u8 unkD;
-    u16 unkE;
-}; /* size = unknown */
-
-struct Unk_08009434_2
-{
     u8 unk0;
     u8 unk1;
     u16 unk2;
-}; /*size = unknown */
+    struct Unk_030040C0_8_4 unk4[0]; // TODO: update the size
+}; /* size = UNKNOWN */
 
 struct Unk_08009494
 {
@@ -91,7 +70,7 @@ struct Unk_080094D8
 {
     u8 unk0;
 }; /* size = UNKNOWN */
-/* Not match with array. Is this normal? */
+/* Not matching with u8[]. Is this normal? Cannot figure out what this is. Need more decomp. */
 
 extern void sub_08009684(void);
 extern void sub_080092EC(void);

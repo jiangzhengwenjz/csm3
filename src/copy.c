@@ -66,7 +66,7 @@ void CpuClear16Bytes(void *a)
     CpuFill32(0, a, 0x10);
 }
 
-void sub_080093C0(struct Unk_080093C0 *a)
+void sub_080093C0(struct Unk_08009400 *a)
 {
     u32 v1 = gUnk_03003CB0[0];
     struct Unk_03003CC0 *var = &gUnk_03003CC0[v1];
@@ -91,47 +91,49 @@ void sub_08009400(struct Unk_08009400 *r0, u8 r1, u8 r2)
     r0->unkE = gUnk_030040C0[r1].unk2 + idx2;
 }
 
-void sub_08009434(struct Unk_08009434_1 *r0, struct Unk_08009434_2 *r1, u16 r2)
+void sub_08009434(struct Unk_08009400 *r0, struct Unk_030040C0_8 *r1, u16 r2)
 {
     r0->unkC = r1->unk0;
     r0->unkD = r1->unk1;
     r0->unkE = r2 + r1->unk2;
 }
 
-void sub_08009448(u8 *a, u8 b)
+void sub_08009448(struct Unk_08009400 *r0, u8 b)
 {
-    a[2] = b;
+    r0->unk2 = b;
 }
 
-void sub_0800944C(u8 *a, u8 b, u8 c)
+void sub_0800944C(struct Unk_08009400 *r0, u8 b, u8 c)
 {
-    a[8] = b;
-    a[9] = c;
+    r0->unk8 = b;
+    r0->unk9 = c;
 }
 
-void sub_08009454(u8 *r0, u32 r1, u32 r2)
+void sub_08009454(struct Unk_08009494 *r0, u32 r1, u32 r2)
 {
     if (r1 == 1)
     {
-        *r0 = (*r0 & 0xfe) | 0x80; 
+        r0->unk0 &= ~1;
+        r0->unk0 |= 0x80;
     }
     else
     {
-        *r0 = *r0 & 0x7f;
+        r0->unk0 &= ~0x80;
     }
     if (r2 == 1)
     {
-        *r0 = (*r0 & 0xfe) | 0x40; 
+        r0->unk0 &= ~1;
+        r0->unk0 |= 0x40;
     }
     else
     {
-        *r0 = *r0 & 0xbf;
+        r0->unk0 &= ~0x40;
     }
 }
 
-void sub_08009490(u8 *r0, u8 r1)
+void sub_08009490(struct Unk_08009400 *r0, u8 r1)
 {
-    r0[1] = r1;
+    r0->unk1 = r1;
 }
 
 void sub_08009494(struct Unk_08009494 *r0, u16 r1, u8 r2)
@@ -146,7 +148,7 @@ void sub_08009494(struct Unk_08009494 *r0, u16 r1, u8 r2)
     }
     if (r2 != 0xff)
     {
-        r0->unk0 &= 0x3f;
+        r0->unk0 &= ~0xc0;
         r0->unk0 |= 1;
         r0->unk3 = r2;
     }
@@ -165,6 +167,27 @@ void sub_080094D8(struct Unk_080094D8 *r0, u16 r1)
     }
     else
     {
-        r0->unk0 &= 0xef;
+        r0->unk0 &= ~0x10;
     }
 }
+
+void sub_080094F8(struct Unk_080094D8 *r0, struct Unk_030040C0 *r1, struct Unk_030040C0 *r2)
+{
+    if (r0->unk0 & 1)
+    {
+        r1->unk0 = 0;
+        r2->unk0 = 0;
+    }
+    else
+    {
+        if (r0->unk0 & 0x80)
+            r1->unk0 = 1;
+        else
+            r1->unk0 = 0;
+        if (r0->unk0 & 0x40)
+            r2->unk0 = 1;
+        else
+            r2->unk0 = 0;
+    }
+}
+/* Ida cannot find any reference to 94f8. Hex editor cannot find any pointer to this function. ? */

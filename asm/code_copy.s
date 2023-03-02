@@ -5,48 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_080094F8
-sub_080094F8: @ 0x080094F8
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	ldrb r3, [r4]
-	movs r5, #1
-	adds r0, r5, #0
-	ands r0, r3
-	cmp r0, #0
-	beq _0800950E
-	movs r0, #0
-	strh r0, [r1]
-	b _08009530
-_0800950E:
-	movs r0, #0x80
-	ands r0, r3
-	lsls r0, r0, #0x18
-
-	thumb_func_start sub_08009514
-sub_08009514: @ 0x08009514
-	lsrs r0, r0, #0x18
-	cmp r0, #0
-	beq _0800951E
-	strh r5, [r1]
-	b _08009520
-_0800951E:
-	strh r0, [r1]
-_08009520:
-	ldrb r1, [r4]
-	movs r0, #0x40
-	ands r0, r1
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	cmp r0, #0
-	beq _08009530
-	movs r0, #1
-_08009530:
-	strh r0, [r2]
-	pop {r4, r5}
-	pop {r0}
-	bx r0
-
 	thumb_func_start sub_08009538
 sub_08009538: @ 0x08009538
 	push {r4, r5, lr}
