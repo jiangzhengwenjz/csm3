@@ -156,3 +156,15 @@ void sub_08009494(struct Unk_08009494 *r0, u16 r1, u8 r2)
         r0->unk3 = 0;
     }
 }
+
+void sub_080094D8(struct Unk_080094D8 *r0, u16 r1)
+{
+    if (r1 == 1)
+    {
+        r0->unk0 |= 0x10;
+    }
+    else
+    {
+        r0->unk0 &= 0xef;
+    }
+}

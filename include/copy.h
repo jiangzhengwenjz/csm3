@@ -87,6 +87,12 @@ struct Unk_08009494
     u8 unk3;
 }; /* size = UNKNOWN */
 
+struct Unk_080094D8
+{
+    u8 unk0;
+}; /* size = UNKNOWN */
+/* Not match with array. Is this normal? */
+
 extern void sub_08009684(void);
 extern void sub_080092EC(void);
 
