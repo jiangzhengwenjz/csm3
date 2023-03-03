@@ -10,6 +10,13 @@ const u8 gUnk_080BAAEC[3][4] = {
      0x10, 0x20, 0x20, 0x40,
 };
 
+const u8 gUnk_080BAAF8[3][4] = {
+        8, 0x10, 0x20, 0x40,
+     0x10, 0x20, 0x20, 0x40,
+        8,    8, 0x10, 0x20,
+};
+
+
 void sub_080092B0(void)
 {
     sub_08009684();
@@ -203,6 +210,17 @@ u8 sub_08009538(u8 a1, u8 a2)
     const struct Unk_030040C0_8_4 *var2, *var;
 
     memcpy(array, gUnk_080BAAEC, sizeof(gUnk_080BAAEC));
+    var2 = gUnk_030040C0[a1].unk8->unk4;
+    var = var2 + a2;
+    return array[var->unk0 / 0x40][var->unk1 / 0x40];
+}
+
+u8 sub_08009584(u8 a1, u8 a2)
+{
+    u8 array[3][4];
+    const struct Unk_030040C0_8_4 *var2, *var;
+
+    memcpy(array, gUnk_080BAAF8, sizeof(gUnk_080BAAF8));
     var2 = gUnk_030040C0[a1].unk8->unk4;
     var = var2 + a2;
     return array[var->unk0 / 0x40][var->unk1 / 0x40];
