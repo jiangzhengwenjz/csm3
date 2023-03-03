@@ -5,45 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_08009584
-sub_08009584: @ 0x08009584
-	push {r4, r5, lr}
-	sub sp, #0xc
-	adds r4, r0, #0
-	adds r5, r1, #0
-	lsls r4, r4, #0x18
-	lsrs r4, r4, #0x18
-	lsls r5, r5, #0x18
-	lsrs r5, r5, #0x18
-	ldr r1, _080095C8 @ =gUnk_080BAAF8
-	mov r0, sp
-	movs r2, #0xc
-	bl memcpy
-	ldr r0, _080095CC @ =gUnk_030040C0
-	lsls r4, r4, #4
-	adds r0, #8
-	adds r4, r4, r0
-	ldr r0, [r4]
-	adds r0, #4
-	lsls r5, r5, #2
-	adds r0, r0, r5
-	ldrb r1, [r0, #1]
-	lsrs r1, r1, #6
-	ldrb r0, [r0]
-	lsrs r0, r0, #6
-	lsls r0, r0, #2
-	adds r1, r1, r0
-	mov r2, sp
-	adds r0, r2, r1
-	ldrb r0, [r0]
-	add sp, #0xc
-	pop {r4, r5}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_080095C8: .4byte gUnk_080BAAF8
-_080095CC: .4byte gUnk_030040C0
-
 	thumb_func_start sub_080095D0
 sub_080095D0: @ 0x080095D0
 	push {r4, r5, r6, lr}

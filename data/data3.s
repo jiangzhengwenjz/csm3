@@ -2,9 +2,6 @@
 
 	.section .rodata
 
-gUnk_080BAAF8:: @ 080BAAF8
-	.incbin "baserom.gba", 0x0BAAF8, 0xC
-
 gUnk_080BAB04:: @ 080BAB04
 	.incbin "baserom.gba", 0x0BAB04, 0x4
 
