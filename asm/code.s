@@ -15619,7 +15619,7 @@ _08045E36:
 	mov r4, sb
 	adds r4, #0x18
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #2
@@ -15649,7 +15649,7 @@ _08045E36:
 	lsrs r7, r0, #5
 	adds r4, #0x28
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #2
@@ -22579,7 +22579,7 @@ sub_08049714: @ 0x08049714
 	lsls r0, r0, #1
 	adds r4, r5, r0
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_08009448
@@ -22596,7 +22596,7 @@ sub_08049714: @ 0x08049714
 	lsls r0, r0, #1
 	adds r4, r5, r0
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_08009448
@@ -22614,7 +22614,7 @@ sub_08049714: @ 0x08049714
 	lsls r0, r0, #2
 	adds r4, r5, r0
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_08009448
@@ -64553,7 +64553,7 @@ sub_0805E5E0: @ 0x0805E5E0
 	adds r4, #0xa0
 _0805E6AA:
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0xe
 	bl sub_08009448
@@ -64566,7 +64566,7 @@ _0805E6AA:
 	movs r2, #2
 	bl sub_0800944C
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #0xe
 	bl sub_08009448
@@ -68439,10 +68439,10 @@ sub_080606C8: @ 0x080606C8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #8
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	adds r0, #0x18
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	movs r0, #0
 	strh r0, [r4, #4]
 	pop {r4}
@@ -87386,7 +87386,7 @@ sub_0806A670: @ 0x0806A670
 	adds r3, r4, #0
 	bl sub_08009334
 	adds r0, r7, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r7, #0
 	movs r1, #1
 	movs r2, #0
@@ -87473,7 +87473,7 @@ _0806A758:
 	adds r4, r7, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
@@ -87520,7 +87520,7 @@ _0806A758:
 	adds r4, r7, #0
 	adds r4, #0x20
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #3
 	movs r2, #0
@@ -87742,7 +87742,7 @@ sub_0806A9A8: @ 0x0806A9A8
 	adds r3, r4, #0
 	bl sub_08009334
 	adds r0, r7, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r7, #0
 	movs r1, #1
 	movs r2, #0
@@ -87829,7 +87829,7 @@ _0806AA84:
 	adds r4, r7, #0
 	adds r4, #0x10
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
@@ -87876,7 +87876,7 @@ _0806AA84:
 	adds r4, r7, #0
 	adds r4, #0x20
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #3
 	movs r2, #0
@@ -188294,7 +188294,7 @@ _0809E5EE:
 	adds r4, #0x34
 	add r4, sb
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #4
 	bl sub_08009448
@@ -188317,7 +188317,7 @@ _0809E5EE:
 	cmp r5, #6
 	bls _0809E5EE
 	adds r0, r6, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r6, #0
 	movs r1, #4
 	bl sub_08009448
@@ -188334,7 +188334,7 @@ _0809E5EE:
 	movs r2, #4
 	bl sub_080091C4
 	adds r0, r7, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r7, #0
 	movs r1, #4
 	bl sub_08009448
@@ -188351,7 +188351,7 @@ _0809E5EE:
 	movs r2, #4
 	bl sub_080091C4
 	mov r0, r8
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	mov r0, r8
 	movs r1, #4
 	bl sub_08009448
@@ -188994,7 +188994,7 @@ _0809EBAA:
 	adds r4, r5, #0
 	adds r4, #0x44
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_08009448
@@ -215500,7 +215500,7 @@ _080ABE08:
 	lsrs r4, r4, #5
 	adds r5, #0x18
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #2
@@ -215535,7 +215535,7 @@ _080ABE08:
 	lsrs r4, r4, #5
 	adds r5, #0x18
 	adds r0, r5, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #2
@@ -226415,7 +226415,7 @@ _080B1732:
 	lsls r4, r4, #2
 	add r4, sl
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0
@@ -226832,7 +226832,7 @@ _080B1B50:
 	lsls r4, r4, #2
 	add r4, sl
 	adds r0, r4, #0
-	bl sub_080093A4
+	bl CpuClear16Bytes
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0
