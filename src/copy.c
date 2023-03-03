@@ -4,6 +4,12 @@
 #include "data.h"
 #include "functions.h"
 
+const u8 gUnk_080BAAEC[3][4] = {
+        8, 0x10, 0x20, 0x40,
+        8,    8, 0x10, 0x20,
+     0x10, 0x20, 0x20, 0x40,
+};
+
 void sub_080092B0(void)
 {
     sub_08009684();
@@ -109,7 +115,7 @@ void sub_0800944C(struct Unk_08009400 *r0, u8 b, u8 c)
     r0->unk9 = c;
 }
 
-void sub_08009454(struct Unk_08009494 *r0, u32 r1, u32 r2)
+void sub_08009454(struct Unk_08009400 *r0, u32 r1, u32 r2)
 {
     if (r1 == 1)
     {
@@ -136,7 +142,7 @@ void sub_08009490(struct Unk_08009400 *r0, u8 r1)
     r0->unk1 = r1;
 }
 
-void sub_08009494(struct Unk_08009494 *r0, u16 r1, u8 r2)
+void sub_08009494(struct Unk_08009400 *r0, u16 r1, u8 r2)
 {
     if (r1 == 1)
     {
@@ -171,23 +177,33 @@ void sub_080094D8(struct Unk_080094D8 *r0, u16 r1)
     }
 }
 
-void sub_080094F8(struct Unk_080094D8 *r0, struct Unk_030040C0 *r1, struct Unk_030040C0 *r2)
+void sub_080094F8(struct Unk_080094D8 *r0, u16 *r1, u16 *r2) //no reference
 {
     if (r0->unk0 & 1)
     {
-        r1->unk0 = 0;
-        r2->unk0 = 0;
+        *r1 = 0;
+        *r2 = 0;
     }
     else
     {
         if (r0->unk0 & 0x80)
-            r1->unk0 = 1;
+            *r1 = 1;
         else
-            r1->unk0 = 0;
+            *r1 = 0;
         if (r0->unk0 & 0x40)
-            r2->unk0 = 1;
+            *r2 = 1;
         else
-            r2->unk0 = 0;
+            *r2 = 0;
     }
 }
-/* Ida cannot find any reference to 94f8. Hex editor cannot find any pointer to this function. ? */
+
+u8 sub_08009538(u8 a1, u8 a2)
+{
+    u8 array[3][4];
+    const struct Unk_030040C0_8_4 *var2, *var;
+
+    memcpy(array, gUnk_080BAAEC, sizeof(gUnk_080BAAEC));
+    var2 = gUnk_030040C0[a1].unk8->unk4;
+    var = var2 + a2;
+    return array[var->unk0 / 0x40][var->unk1 / 0x40];
+}

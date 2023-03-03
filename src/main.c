@@ -539,7 +539,7 @@ void sub_08001DE8(struct Unk_08001DE8_1 *a, struct Unk_08001DE8_2 *b)
     b->unkc = a->unk0 + a->unk1c / 4;    
 }
 
-void sub_08001E14(u32 *a, struct Unk_08001E14 *b) 
+void sub_08001E14(u32 *a, struct Unk_08001E14 *b) //no reference
 {
     b->unk0 = a[4];
     b->unk1 = a[5];
@@ -549,7 +549,7 @@ void sub_08001E14(u32 *a, struct Unk_08001E14 *b)
     b->unk8 = a + a[7] / 4;
 }
 
-void sub_08001E38(u32 *a, struct Unk_08001E38 *b) 
+void sub_08001E38(u32 *a, struct Unk_08001E38 *b) //no reference
 {
     b->unk0 = a[4];
     b->unk2 = a[5];

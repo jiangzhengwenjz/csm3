@@ -59,13 +59,6 @@ struct Unk_030040C0_8
     struct Unk_030040C0_8_4 unk4[0]; // TODO: update the size
 }; /* size = UNKNOWN */
 
-struct Unk_08009494
-{
-    u8 unk0;
-    u8 filler1[2];
-    u8 unk3;
-}; /* size = UNKNOWN */
-
 struct Unk_080094D8
 {
     u8 unk0;
@@ -80,5 +73,6 @@ extern u32 gOamBuffer[];
 extern u16 gUnk_030037A0[];
 extern struct Unk_030040C0 gUnk_030040C0[];
 extern struct Unk_03003CC0 gUnk_03003CC0[];
+extern const u8 gUnk_080BAAEC[3][4];
 
 #endif
