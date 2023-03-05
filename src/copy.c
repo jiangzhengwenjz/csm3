@@ -225,3 +225,17 @@ u8 sub_08009584(u8 a1, u8 a2)
     var = var2 + a2;
     return array[var->unk0 / 0x40][var->unk1 / 0x40];
 }
+
+void sub_080095D0(u8 a1, u8 a2, u16 *a3, u16 *a4)
+{
+    u8 array1[3][4];
+    u8 array2[3][4];
+    const struct Unk_030040C0_8_4 *var2, *var;
+
+    memcpy(array1, gUnk_080BAAF8, sizeof(gUnk_080BAAF8));
+    memcpy(array2, gUnk_080BAAEC, sizeof(gUnk_080BAAEC));
+    var2 = gUnk_030040C0[a1].unk8->unk4;
+    var = var2 + a2;
+    *a3 = array1[var->unk0 / 0x40][var->unk1 / 0x40];
+    *a4 = array2[var->unk0 / 0x40][var->unk1 / 0x40];
+}
