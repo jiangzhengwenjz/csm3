@@ -166,7 +166,7 @@ extern void sub_0800AF74(void);
 extern void sub_0801B960(void);
 extern void sub_08008B3C(void);
 extern void sub_080637C4(void);
-extern void sub_08017B1C(void);
+extern void InitAttribTablePointer(void);
 extern void sub_0806EF50(void);
 extern void sub_080B3128(void);
 extern void sub_080B4970(void);

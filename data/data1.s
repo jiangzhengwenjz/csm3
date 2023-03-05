@@ -140,7 +140,7 @@ gUnk_08B71DA4:: @ 08B71DA4
 gUnk_08B71EF6:: @ 08B71EF6
 	.incbin "baserom.gba", 0xB71EF6, 0x33E
 
-gUnk_08B72234:: @ 08B72234
+gAttribTable:: @ 08B72234
 	.incbin "baserom.gba", 0xB72234, 0x131
 
 gUnk_08B72365:: @ 08B72365

@@ -312,7 +312,7 @@ void sub_08001A1C(void)
     
     if (sub_08012F60(0x180) != 1)
     {
-        sub_08017B1C();
+        InitAttribTablePointer();
     }
 
     sub_0806EF50();

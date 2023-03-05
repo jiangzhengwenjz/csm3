@@ -5,31 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_08009654
-sub_08009654: @ 0x08009654
-	adds r2, r0, #0
-	lsls r2, r2, #0x18
-	lsls r1, r1, #0x18
-	lsrs r2, r2, #0x14
-	ldr r0, _08009678 @ =gUnk_030040C0
-	adds r2, r2, r0
-	ldr r0, [r2, #8]
-	lsrs r1, r1, #0x16
-	adds r0, r0, r1
-	ldrh r1, [r0, #6]
-	ldr r0, _0800967C @ =0x000003FF
-	ands r0, r1
-	ldrh r2, [r2, #2]
-	adds r0, r0, r2
-	lsls r0, r0, #5
-	ldr r1, _08009680 @ =0x06010000
-	adds r0, r0, r1
-	bx lr
-	.align 2, 0
-_08009678: .4byte gUnk_030040C0
-_0800967C: .4byte 0x000003FF
-_08009680: .4byte 0x06010000
-
 	thumb_func_start sub_08009684
 sub_08009684: @ 0x08009684
 	push {r4, lr}

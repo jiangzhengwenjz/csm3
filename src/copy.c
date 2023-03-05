@@ -239,3 +239,12 @@ void sub_080095D0(u8 a1, u8 a2, u16 *a3, u16 *a4)
     *a3 = array1[var->unk0 / 0x40][var->unk1 / 0x40];
     *a4 = array2[var->unk0 / 0x40][var->unk1 / 0x40];
 }
+
+u32 sub_08009654(u8 a1, u8 a2)
+{
+    const struct Unk_030040C0 *var3 = &gUnk_030040C0[a1];
+    const struct Unk_030040C0_8_4 *var2 = var3->unk8->unk4;
+    const struct Unk_030040C0_8_4 *var = var2 + a2;
+
+    return ((var->unk2 & 0x3FF) + var3->unk2) * 0x20 + 0x06010000;
+}
