@@ -322,7 +322,7 @@ SECTIONS {
         . = 0x0000690C; gUnk_0300690C = .;
         . = 0x00006950; gUnk_03006950 = .;
         . = 0x00006994; gUnk_03006994 = .;
-        . = 0x00006998; gUnk_03006998 = .;
+        . = 0x00006998; gpAttribTable = .;
         . = 0x0000699C; gUnk_0300699C = .;
         . = 0x000069A0; gUnk_030069A0 = .;
         . = 0x000069B0; gUnk_030069B0 = .;
@@ -398,6 +398,8 @@ SECTIONS {
         asm/code_copy.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
+        src/attribute.o(.text);
+        asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
         asm/code.o(.text);
         asm/m4a_asm.o(.text);
