@@ -39,7 +39,7 @@ struct SaveBlock1
     u8 spearForgeLevel;
     u8 boxGloveForgeLevel;
     u8 bowForgeLevel;
-    u8 filler8[0x1C]; //Something related to player name
+    u16 filler8[0xE]; //Something related to player name
     u16 playerMaxHp; //max = 0x270f,but more is ok
     u16 playerCurrentHp;
     u16 equippedOneAtk; //max = 0x3e7
