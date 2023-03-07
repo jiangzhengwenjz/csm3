@@ -10,18 +10,18 @@ struct RoleAttrib
 
 struct BagWeapon
 {
-    u8 filler0; //something related to reforge
+    u8 filler0; // something related to reforge
     u8 weaponType;
     u8 weaponSpecialEffect;
     u8 weaponSkill;
-    u8 firstEnhanceItem; //null = 0xff
+    u8 firstEnhanceItem; // null = 0xff
     u8 secondEnhanceItem;
     u8 thirdEnhanceItem;
     u8 weaponTec;
     u16 weaponAtk;
     u16 weaponDef;
     u16 weaponAgl;
-    u16 weaponInitAtk; //Atk when not enhanced or boosted
+    u16 weaponInitAtk; // Atk when not enhanced or boosted
     u16 weaponInitDef;
     u16 weaponInitAgl;
     u16 weaponCurrentDur;
@@ -32,21 +32,21 @@ struct BagWeapon
 
 struct SaveBlock1
 {
-    u8 playerGender; //00 = male
+    u8 playerGender; // 00 = male
     u8 playerLevel; 
-    u8 bladeForgeLevel; //00-09
+    u8 bladeForgeLevel; // 00-09
     u8 axeForgeLevel;
     u8 spearForgeLevel;
     u8 boxGloveForgeLevel;
     u8 bowForgeLevel;
-    u16 filler8[0xE]; //Something related to player name
-    u16 playerMaxHp; //max = 0x270f,but more is ok
+    u16 playerName[0xE];
+    u16 playerMaxHp; // max = 0x270f, but more is ok
     u16 playerCurrentHp;
-    u16 equippedOneAtk; //max = 0x3e7
+    u16 equippedOneAtk; // max = 0x3e7
     u16 equippedTwoAtk;
     u16 equippedThreeAtk;
     u16 notEquippedAtk;
-    u16 filler30; //TODO:maybe this is a substruct align
+    u16 filler30; // TODO: maybe this is a substruct align
     u16 equippedOneDef;
     u16 equippedTwoDef;
     u16 equippedThreeDef;
@@ -57,20 +57,20 @@ struct SaveBlock1
     u16 equippedThreeAgl;
     u16 notEquippedAgl; 
     u16 filler44;
-    u8 equipOneIndex; //max = 0x1D, as one can take up to 30 wepons in the bag
+    u8 equipOneIndex; // max = 0x1D, as one can take up to 30 wepons in the bag
     u8 equipTwoIndex;
     u8 equipThreeIndex;
     u8 equipItemIndex;
     u16 filler4A;
     u8 filler4C[8];
     u16 filler54;
-    u16 bonusStats; //synced with 020036BA, void?
+    u16 bonusStats; // synced with 020036BA, void?
     u32 filler58;
-    u32 playerExp; //max = 00BD95FC
+    u32 playerExp; // max = 00BD95FC
     u32 filler60;
-    u8 guardimalType; //00-04
+    u8 guardimalType; // 00-04
     u8 guardimalLevel;
-    u8 filler66[0xE]; //Something related to guardimal name
+    u8 filler66[0xE]; // Something related to guardimal name
     u16 guardimalHp;
     u16 filler76;
     u16 guardimalMag;
@@ -88,7 +88,7 @@ struct SaveBlock1
     struct BagWeapon bagWeapon[0x1E]; 
     u8 filler42C[0x1E];
     u8 numWoundBand;
-    u8 numJvhuaCha; // TODO:rename this
+    u8 numJvhuaCha; // TODO: rename this
     u8 numGoodPotion;
     u8 numSoftBoiledEgg;
     u8 numEggFryRice;
@@ -135,8 +135,8 @@ struct SaveBlock1
     u8 numParalyzeBomb;
     u8 numSleepBomb;
     u8 numLottery;
-    u8 null; //probably for struct align
-    u8 mineralList[0x28]; //from 1 to 40
+    u8 null; // probably for struct align
+    u8 mineralList[0x28]; // from 1 to 40
     u32 filler4A4[2];
     u16 filler4AC;
     u8 numStorageCell;
@@ -188,7 +188,7 @@ struct SaveBlock1
     u8 numDareDevelLoveLetter;
     u8 numSuperMotor;
     u16 filler4DE;
-    u8 suitRings[0xB]; // TODO:list name.
+    u8 suitRings[0xB]; // TODO: list name. 
     u8 suitBracelets[0xB];
     u8 suitShoes[0xB];
     u8 numMilitantShoe;
@@ -208,7 +208,7 @@ struct SaveBlock1
     u8 numBossRing1;
     u8 numBossRing2;
     u8 numCrafterRing;
-    u8 normalFishPole; //00 = don't have
+    u8 normalFishPole; // 00 = don't have
     u8 superFishPole;
     u8 ultraFishPole;
     u8 chopTutorial;
@@ -238,7 +238,7 @@ struct SaveBlock1
     u8 mightBook4;
     u8 mightBook5;
     u8 craftMightBook;
-    u8 mightBook6; // looks wierd.maybe need a fix
+    u8 mightBook6; // looks wierd. maybe need a fix
     u8 auditionMachine;
     u8 waterDragonScale;
     u8 inviteToTheGreatWar;
@@ -255,18 +255,18 @@ struct SaveBlock1
     u8 filler53E;
     u8 filler53F;
     u8 filler540[0x24];
-    u8 weaponDex[0x1E]; // This is a bit field. 1 = dex lighted, 0 = not lighted.
+    u8 weaponDex[0x1E]; // This is a bit field. 1 = dex lighted, 0 = not lighted. 
     u8 filler582; // wierd
     u8 weaponSkillDex1[6];
-    u8 weaponSkillDex2[6]; //maybe a useless checksum, need more evidence
+    u8 weaponSkillDex2[6]; // maybe a useless checksum, need more evidence
     u8 weaponSpecialEffectDex1[5];
     u8 filler594;
     u8 weaponSpecialEffectDex2[5];
     u8 filler59A;
     u8 summonGuardianDex[17];
-    u32 money; // max = 0x0098967F
-    u8 filler5B0[0x14]; //something related to the map.
-    u32 filler5C4; //something related to the probability of collision with an enemy.
+    u32 money; // max = 9999999, or 0x0098967F in hex
+    u8 filler5B0[0x14]; // something related to the map. 
+    u32 filler5C4; // something related to the probability of collision with an enemy. 
     u8 filler5C8[0xE];
     u16 fishingPoint;
 }; /* size = 0x5D8 */
