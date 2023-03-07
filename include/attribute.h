@@ -34,12 +34,9 @@ struct SaveBlock1
 {
     u8 playerGender; // 00 = male
     u8 playerLevel; 
-    u8 bladeForgeLevel; // 00-09
-    u8 axeForgeLevel;
-    u8 spearForgeLevel;
-    u8 boxGloveForgeLevel;
-    u8 bowForgeLevel;
-    u16 playerName[0xE];
+    u8 forgeLevelList[6]; // blade, axe, spear, boxglove, drill, bow. 00-09
+    u16 playerName[0x7];
+    u16 unk16[0x7];
     u16 playerMaxHp; // max = 0x270f, but more is ok
     u16 playerCurrentHp;
     u16 equippedOneAtk; // max = 0x3e7
@@ -270,6 +267,7 @@ struct SaveBlock1
     u8 filler5C8[0xE];
     u16 fishingPoint;
 }; /* size = 0x5D8 */
+/* TODO: list offsets */
 
 extern struct SaveBlock1 *gSaveBlock1Ptr; 
 extern struct SaveBlock1 gSaveBlock1;
