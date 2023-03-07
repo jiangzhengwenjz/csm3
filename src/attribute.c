@@ -80,3 +80,43 @@ void sub_08017C20(u32 r0)
     sb1->playerExp = r0;
 }
 /* The really first one. It keeps showing bhi until I switched the order of if else. Then I realize I can directly use r0 instead of a new variable to remove else. Finally, it matched. */
+
+void sub_08017C40(u32 r0)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (r0 > 99999999)
+    {
+        r0 = 99999999;
+    }
+    sb1->unk60 = r0;
+}
+
+void sub_08017C60(u8 r0, u16 r1)
+{
+    gSaveBlock1Ptr->playerAtkList[r0] = r1;
+}
+
+void sub_08017C74(u8 r0, u16 r1)
+{
+    gSaveBlock1Ptr->playerDefList[r0] = r1;
+}
+
+void sub_08017C88(u8 r0, u16 r1)
+{
+    gSaveBlock1Ptr->playerAglList[r0] = r1;
+}
+
+void sub_08017C9C(u8 r0)
+{
+    gSaveBlock1Ptr->unk58[0] = r0;
+}
+
+void sub_08017CAC(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->equipIndexList[r0] = r1;
+}
+
+void sub_08017CC0(u8 r0)
+{
+    gSaveBlock1Ptr->equipItemIndex = r0;
+}
