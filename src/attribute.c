@@ -69,3 +69,14 @@ void sub_08017C00(u16 r0)
         gSaveBlock1Ptr->playerCurrentHp = r0;
     }
 }
+
+void sub_08017C20(u32 r0)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (r0 > 99999999)
+    {
+        r0 = 99999999;
+    }
+    sb1->playerExp = r0;
+}
+/* The really first one. It keeps showing bhi until I switched the order of if else. Then I realize I can directly use r0 instead of a new variable to remove else. Finally, it matched. */
