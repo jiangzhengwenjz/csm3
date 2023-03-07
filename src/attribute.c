@@ -10,7 +10,7 @@ void InitAttribTablePointer(void)
     sub_080154F0();  
 }
 
-void CopyBufferToPlayerName(u16 *nameBuffer)
+void SetPlayerName(u16 *nameBuffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i = 0;

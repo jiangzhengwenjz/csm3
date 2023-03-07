@@ -6418,7 +6418,7 @@ sub_080154F0: @ 0x080154F0
 	bl sub_08017C40
 	ldr r0, _080156B8 @ =gUnk_08B801AC
 	ldr r0, [r0]
-	bl CopyBufferToPlayerName
+	bl SetPlayerName
 	movs r0, #0
 	bl sub_08017BB4
 	movs r0, #0

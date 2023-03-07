@@ -208113,7 +208113,7 @@ _080A80B4:
 	ldr r1, [r5]
 	bl sub_0800E77C
 	ldr r0, [r5]
-	bl CopyBufferToPlayerName
+	bl SetPlayerName
 	ldr r0, _080A80F0 @ =0x0000C283
 	ldr r1, _080A80F4 @ =gUnk_08BD57B0
 	adds r4, r4, r1
@@ -210589,7 +210589,7 @@ _080A9404:
 	adds r1, r4, #0
 	bl sub_0800E77C
 	adds r0, r4, #0
-	bl CopyBufferToPlayerName
+	bl SetPlayerName
 	ldr r0, _080A942C @ =0x0000C283
 	adds r4, #0xe
 	adds r1, r4, #0
