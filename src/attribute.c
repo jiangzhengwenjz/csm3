@@ -3,7 +3,7 @@
 #include "data.h"
 #include "functions.h"
 
-const u8 gUnk_080BABCA[0xA] = { 1, 2, 3, 4, 5, 6, 7};
+const u8 gUnk_080BABCA[0xA] = { 1, 2, 3, 4, 5, 6, 7 };
 
 void InitAttribTablePointer(void)
 {
@@ -180,7 +180,6 @@ u8 sub_08017CE0(u16 r5)
                 }
             }
         }
-
     }
     return r6;
 }
