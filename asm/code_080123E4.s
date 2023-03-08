@@ -6410,9 +6410,9 @@ sub_080154F0: @ 0x080154F0
 	mov r0, sp
 	bl CpuSet
 	movs r0, #1
-	bl sub_08017BD4
+	bl SetPlayerLevel
 	movs r0, #0
-	bl sub_08017C20
+	bl SetPlayerExp
 	movs r0, #2
 	bl sub_08018EC4
 	bl sub_08017C40
@@ -6420,56 +6420,56 @@ sub_080154F0: @ 0x080154F0
 	ldr r0, [r0]
 	bl SetPlayerName
 	movs r0, #0
-	bl sub_08017BB4
+	bl SetPlayerGender
 	movs r0, #0
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #1
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #2
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #3
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #4
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #5
 	movs r1, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	movs r0, #1
 	bl sub_08018E74
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08017BF4
+	bl SetPlayerMaxHp
 	movs r0, #1
 	bl sub_08018E74
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08017C00
+	bl SetPlayerCurrentHp
 	movs r0, #1
 	bl sub_08018E88
 	adds r1, r0, #0
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #4
-	bl sub_08017C60
+	bl SetPlayerAtk
 	movs r0, #1
 	bl sub_08018E9C
 	adds r1, r0, #0
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #4
-	bl sub_08017C74
+	bl SetPlayerDef
 	movs r0, #1
 	bl sub_08018EB0
 	adds r1, r0, #0
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #4
-	bl sub_08017C88
+	bl SetPlayerAgl
 	movs r0, #0
 	bl sub_08018354
 	ldr r0, _080156BC @ =gUnk_080BABB4
@@ -6534,15 +6534,15 @@ _080155CC:
 	bl sub_08015A28
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	movs r0, #0xff
-	bl sub_08017CC0
+	bl SetPlayerEquipItemType
 	bl sub_0801644C
 	movs r0, #0xff
 	bl sub_080181C8

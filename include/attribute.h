@@ -30,44 +30,33 @@ struct BagWeapon
     u16 isGoodWeapon;
 }; /* size = 0x1C */
 
+/* TODO: list offsets */
 struct SaveBlock1
 {
     u8 playerGender; // 00 = male
     u8 playerLevel; 
-    u8 bladeForgeLevel; // 00-09
-    u8 axeForgeLevel;
-    u8 spearForgeLevel;
-    u8 boxGloveForgeLevel;
-    u8 bowForgeLevel;
-    u16 playerName[0xE];
+    u8 forgeLevelList[6]; // blade, axe, spear, boxglove, drill, bow. 00-09
+    u16 playerName[0x7];
+    u16 unk16[0x7];
     u16 playerMaxHp; // max = 0x270f, but more is ok
     u16 playerCurrentHp;
-    u16 equippedOneAtk; // max = 0x3e7
-    u16 equippedTwoAtk;
-    u16 equippedThreeAtk;
-    u16 notEquippedAtk;
-    u16 filler30; // TODO: maybe this is a substruct align
-    u16 equippedOneDef;
-    u16 equippedTwoDef;
-    u16 equippedThreeDef;
-    u16 notEquippedDef; 
+    u16 playerAtkList[4]; //Atk when equip weapon1, weapon2, weapon3, noweapon, max = 03e7
+    u16 filler30; // always 03e7 in memory, wierd
+    u16 playerDefList[4];
     u16 filler3A;
-    u16 equippedOneAgl;
-    u16 equippedTwoAgl;
-    u16 equippedThreeAgl;
-    u16 notEquippedAgl; 
+    u16 playerAglList[4];
     u16 filler44;
-    u8 equipOneIndex; // max = 0x1D, as one can take up to 30 wepons in the bag
-    u8 equipTwoIndex;
-    u8 equipThreeIndex;
-    u8 equipItemIndex;
+    u8 equipWeaponTypeList[3]; // index of equip weapon1, weapon2, weapon3 max = 0x1D, as one can take up to 30 wepons in the bag
+    u8 equipItemType;
     u16 filler4A;
     u8 filler4C[8];
     u16 filler54;
     u16 bonusStats; // synced with 020036BA, void?
-    u32 filler58;
+    u8 unk58;
+    u8 unk59;
+    u16 filler5A;
     u32 playerExp; // max = 00BD95FC
-    u32 filler60;
+    u32 unk60;
     u8 guardimalType; // 00-04
     u8 guardimalLevel;
     u8 filler66[0xE]; // Something related to guardimal name
@@ -278,5 +267,7 @@ extern const struct RoleAttrib *gAttribTablePtr;
 extern const struct RoleAttrib gAttribTable[];
 
 extern void sub_080154F0(void);
+extern u8 sub_08018728(u8 a);
+extern u8 sub_080639E8(u8 a);
 
 #endif

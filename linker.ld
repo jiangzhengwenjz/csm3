@@ -422,6 +422,8 @@ SECTIONS {
         data/data.o(.rodata);
         src/copy.o(.rodata);
         data/data3.o(.rodata);
+        src/attribute.o(.rodata);
+        data/data4.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/data2.o(.rodata);
         src/agb_eeprom.o(.rodata);

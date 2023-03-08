@@ -66163,7 +66163,7 @@ sub_0805F49C: @ 0x0805F49C
 	adds r2, r6, #0
 	bl sub_08018EF8
 	adds r0, r4, #0
-	bl sub_08017C20
+	bl SetPlayerExp
 	ldr r0, [sp, #4]
 	bl sub_08017C40
 	bl sub_08018914
@@ -66269,7 +66269,7 @@ _0805F592:
 	adds r4, r0, r1
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08017BD4
+	bl SetPlayerLevel
 	bl sub_0801844C
 	adds r4, r0, #0
 	bl sub_08018440
@@ -66333,7 +66333,7 @@ _0805F5F2:
 	adds r4, r1, r2
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08017BF4
+	bl SetPlayerMaxHp
 	bl sub_08018440
 	lsls r0, r0, #0x18
 	movs r1, #0xfe
@@ -66415,7 +66415,7 @@ _0805F672:
 	lsls r1, r4, #0x10
 	lsrs r1, r1, #0x10
 	movs r0, #4
-	bl sub_08017C60
+	bl SetPlayerAtk
 	movs r0, #4
 	bl sub_08018490
 	lsls r0, r0, #0x10
@@ -66430,7 +66430,7 @@ _0805F672:
 	lsls r1, r4, #0x10
 	lsrs r1, r1, #0x10
 	movs r0, #4
-	bl sub_08017C74
+	bl SetPlayerDef
 	movs r0, #4
 	bl sub_080184A4
 	lsls r0, r0, #0x10
@@ -66445,7 +66445,7 @@ _0805F672:
 	lsls r1, r4, #0x10
 	asrs r1, r1, #0x10
 	movs r0, #4
-	bl sub_08017C88
+	bl SetPlayerAgl
 	bl sub_0801644C
 _0805F70E:
 	movs r0, #0xff
@@ -66737,7 +66737,7 @@ _0805F970:
 _0805F97C:
 	mov r7, r8
 	ldrh r0, [r7, #0x30]
-	bl sub_08017C00
+	bl SetPlayerCurrentHp
 	movs r6, #0
 	ldr r0, _0805FA40 @ =0x00000A38
 	adds r0, r0, r4
@@ -66784,7 +66784,7 @@ _0805F992:
 	beq _0805F9F0
 	adds r0, r7, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	bl sub_0801644C
 _0805F9F0:
 	adds r5, #0x18
@@ -68938,7 +68938,7 @@ _08060A9E:
 	ldrsb r1, [r4, r1]
 	bl sub_08012F0C
 	ldrb r0, [r4]
-	bl sub_08017BB4
+	bl SetPlayerGender
 	movs r6, #0
 _08060ABE:
 	adds r0, r5, #0
@@ -92061,7 +92061,7 @@ _0806CCD8:
 	bne _0806CCF2
 	lsls r0, r6, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08017C00
+	bl SetPlayerCurrentHp
 	bl sub_08018458
 	b _0806CD0A
 _0806CCF2:
@@ -107920,7 +107920,7 @@ _08075184:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	b _080751CC
 _080751A2:
 	bl sub_080184E0
@@ -107938,7 +107938,7 @@ _080751A2:
 	adds r0, r4, #0
 	bl sub_08018338
 	movs r0, #0xff
-	bl sub_08017CC0
+	bl SetPlayerEquipItemType
 _080751CC:
 	bl sub_0801644C
 	ldrh r0, [r5, #4]
@@ -109227,7 +109227,7 @@ _08075CA8:
 	bne _08075CC4
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08075CC4:
 	movs r0, #1
 	bl sub_080184CC
@@ -109240,7 +109240,7 @@ _08075CC4:
 	bne _08075CE0
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08075CE0:
 	movs r0, #2
 	bl sub_080184CC
@@ -109253,13 +109253,13 @@ _08075CE0:
 	bne _08075CFC
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08075CFC:
 	ldrb r0, [r5, #4]
 	ldrh r1, [r5, #6]
 	adds r1, r4, r1
 	ldrb r1, [r1]
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	bl sub_0801644C
 	adds r0, r6, #0
 	movs r1, #2
@@ -110697,11 +110697,11 @@ _08076898:
 	adds r0, r4, #0
 	bl sub_08018338
 	movs r0, #0xff
-	bl sub_08017CC0
+	bl SetPlayerEquipItemType
 _080768E6:
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08017CC0
+	bl SetPlayerEquipItemType
 	adds r0, r4, #0
 	bl sub_08018B50
 	adds r1, r0, #0
@@ -117467,7 +117467,7 @@ _0807A114:
 	bne _0807A112
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _0807A132:
 	bl sub_0801644C
 	b _0807A1A0
@@ -126380,7 +126380,7 @@ _0807EBDA:
 	bne _0807EC10
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _0807EC10:
 	movs r0, #1
 	bl sub_080184CC
@@ -126390,7 +126390,7 @@ _0807EC10:
 	bne _0807EC26
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _0807EC26:
 	movs r0, #2
 	bl sub_080184CC
@@ -126400,7 +126400,7 @@ _0807EC26:
 	bne _0807EC3C
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _0807EC3C:
 	bl sub_0801644C
 	bl sub_08015A28
@@ -130580,7 +130580,7 @@ _08080E34:
 	bne _08080E50
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08080E50:
 	movs r0, #1
 	bl sub_080184CC
@@ -130593,7 +130593,7 @@ _08080E50:
 	bne _08080E6C
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08080E6C:
 	movs r0, #2
 	bl sub_080184CC
@@ -130606,13 +130606,13 @@ _08080E6C:
 	bne _08080E88
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _08080E88:
 	ldrb r0, [r5, #0xa]
 	ldrh r1, [r5, #6]
 	adds r1, r4, r1
 	ldrb r1, [r1]
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	bl sub_0801644C
 	movs r0, #0
 	movs r1, #0x10
@@ -139264,7 +139264,7 @@ _08085758:
 	bne _0808577A
 	ldrb r1, [r6, #0x10]
 	movs r0, #0
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	b _080857A8
 _0808577A:
 	movs r0, #1
@@ -139275,7 +139275,7 @@ _0808577A:
 	bne _08085792
 	ldrb r1, [r6, #0x10]
 	movs r0, #1
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 	b _080857A8
 _08085792:
 	movs r0, #2
@@ -139286,7 +139286,7 @@ _08085792:
 	bne _080857A8
 	ldrb r1, [r6, #0x10]
 	movs r0, #2
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _080857A8:
 	bl sub_0801644C
 _080857AC:
@@ -148021,7 +148021,7 @@ _0808A1B4:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r6, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	str r4, [r7, #0x18]
 	adds r0, r6, #0
 	bl sub_0801842C
@@ -148056,7 +148056,7 @@ _0808A232:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r6, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	ldr r0, [r7, #0x14]
 	cmp r0, #1
 	bne _0808A258
@@ -152399,7 +152399,7 @@ _0808C6C2:
 	bne _0808C6C0
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_08017CAC
+	bl SetPlayerEquipWeaponType
 _0808C6E0:
 	bl sub_0801644C
 	ldr r0, _0808C734 @ =0x000003B6
@@ -208886,7 +208886,7 @@ _080A8680:
 _080A86A8: .4byte 0x000001F5
 _080A86AC:
 	movs r0, #0x5a
-	bl sub_08017BD4
+	bl SetPlayerLevel
 	movs r0, #0x5a
 	bl sub_080165E0
 	b _080A86C2
@@ -234861,7 +234861,7 @@ sub_080B5E1C: @ 0x080B5E1C
 	ldrh r0, [r6, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08017BB4
+	bl SetPlayerGender
 _080B5E36:
 	movs r2, #0xa
 	ldrsh r0, [r6, r2]
@@ -234870,7 +234870,7 @@ _080B5E36:
 	ldrh r0, [r6, #0x22]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08017BD4
+	bl SetPlayerLevel
 	ldrh r0, [r6, #0x22]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
@@ -234888,7 +234888,7 @@ _080B5E60:
 	lsrs r4, r4, #0x18
 	ldrb r1, [r5]
 	adds r0, r4, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	ldrb r0, [r5]
 	bl sub_08018EE8
 	adds r1, r0, #0
@@ -234901,7 +234901,7 @@ _080B5E60:
 	lsrs r4, r4, #0x18
 	ldrb r1, [r5, #2]
 	adds r0, r4, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	ldrb r0, [r5, #2]
 	bl sub_08018EE8
 	adds r1, r0, #0
@@ -234914,7 +234914,7 @@ _080B5E60:
 	lsrs r4, r4, #0x18
 	ldrb r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_08017BE0
+	bl SetForgeLevel
 	ldrb r0, [r5, #4]
 	bl sub_08018EE8
 	adds r1, r0, #0
