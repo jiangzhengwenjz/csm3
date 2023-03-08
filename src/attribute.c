@@ -3,7 +3,7 @@
 #include "data.h"
 #include "functions.h"
 
-const u8 gUnk_080BABCA[0xA] = { 1, 2, 3, 4, 5, 6, 7, 0, 0, 0};
+const u8 gUnk_080BABCA[0xA] = { 1, 2, 3, 4, 5, 6, 7};
 
 void InitAttribTablePointer(void)
 {
@@ -42,7 +42,7 @@ void sub_08017B7C(u16 *buffer)
 void SetPlayerGender(u8 gender)
 {
     gSaveBlock1Ptr->playerGender = gender;
-    sub_08012F0C(0x182,gender); // This appears in main. 
+    sub_08012F0C(0x182, gender); // This appears in main. 
 }
 
 void SetPlayerLevel(u8 level)

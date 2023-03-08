@@ -2,6 +2,7 @@
 
 	.section .rodata
 
+	.align 2,0
 gUnk_080BABD4:: @ 080BABD4
 	.incbin "baserom.gba", 0x0BABD4, 0x8
 
