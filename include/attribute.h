@@ -267,5 +267,7 @@ extern const struct RoleAttrib *gAttribTablePtr;
 extern const struct RoleAttrib gAttribTable[];
 
 extern void sub_080154F0(void);
+extern u8 sub_08018728(u8 a);
+extern u8 sub_080639E8(u8 a);
 
 #endif

@@ -3,6 +3,8 @@
 #include "data.h"
 #include "functions.h"
 
+const u8 gUnk_080BABCA[0xA] = { 1, 2, 3, 4, 5, 6, 7, 0, 0, 0};
+
 void InitAttribTablePointer(void)
 {
     gSaveBlock1Ptr = &gSaveBlock1;  
@@ -123,4 +125,62 @@ void SetPlayerEquipItemType(u8 type)
 void sub_08017CD0(u8 r0)
 {
     gSaveBlock1Ptr->unk59 = r0;
+}
+
+u8 sub_08017CE0(u16 r5)
+{
+    u8 arr1[7];
+    s32 r4;
+    u8 r6;
+    u8 temp;
+    memcpy(arr1, gUnk_080BABCA, 7);
+    r6 = 0;
+
+#ifndef NONMATCHING
+    asm("":::"r4");
+#endif
+    for (r4 = 0; r4 < 30; r4 += 3)
+    {
+        ++r5; --r5;
+        temp = sub_08018728(r4);
+        if (temp != 0xff)
+        {
+            if (temp <= 0xef)
+            {
+                if (sub_080639E8(temp) == arr1[r5]) 
+                {
+                    r6 = 1;
+                    break;
+                }
+            }
+        }
+        ++r5; --r5;
+        temp = sub_08018728(r4 + 1);
+        if (temp != 0xff)
+        {
+            if (temp <= 0xef)
+            {
+                if (sub_080639E8(temp) == arr1[r5]) 
+                {
+                    r6 = 1;
+                    break;
+                }
+            }
+        }
+        ++r5; --r5;
+        temp = sub_08018728(r4 + 2);
+        if (temp != 0xff)
+        {
+            if (temp <= 0xef)
+            {
+                if (sub_080639E8(temp) == arr1[r5]) 
+                {
+                    r6 = 1;
+                    break;
+                }
+            }
+        }
+
+    }
+    return r6;
 }
