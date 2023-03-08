@@ -37,47 +37,47 @@ void sub_08017B7C(u16 *buffer)
     }
 }
 
-void sub_08017BB4(u8 r0)
+void SetPlayerGender(u8 gender)
 {
-    gSaveBlock1Ptr->playerGender = r0;
-    sub_08012F0C(0x182,r0); // This appears in main. 
+    gSaveBlock1Ptr->playerGender = gender;
+    sub_08012F0C(0x182,gender); // This appears in main. 
 }
 
-void sub_08017BD4(u8 r0)
+void SetPlayerLevel(u8 level)
 {
-    gSaveBlock1Ptr->playerLevel = r0;
+    gSaveBlock1Ptr->playerLevel = level;
 }
 
-void sub_08017BE0(u8 r0, u8 r1)
+void SetForgeLevel(u8 type, u8 level)
 {
-    gSaveBlock1Ptr->forgeLevelList[r0] = r1;
+    gSaveBlock1Ptr->forgeLevelList[type] = level;
 }
 
-void sub_08017BF4(u16 r0)
+void SetPlayerMaxHp(u16 hp)
 {
-    gSaveBlock1Ptr->playerMaxHp = r0;
+    gSaveBlock1Ptr->playerMaxHp = hp;
 }
 
-void sub_08017C00(u16 r0)
+void SetPlayerCurrentHp(u16 hp)
 {
-    if (r0 > gSaveBlock1Ptr->playerMaxHp)
+    if (hp > gSaveBlock1Ptr->playerMaxHp)
     {
         gSaveBlock1Ptr->playerCurrentHp = gSaveBlock1Ptr->playerMaxHp;
     }
     else
     {
-        gSaveBlock1Ptr->playerCurrentHp = r0;
+        gSaveBlock1Ptr->playerCurrentHp = hp;
     }
 }
 
-void sub_08017C20(u32 r0)
+void SetPlayerExp(u32 exp)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
-    if (r0 > 99999999)
+    if (exp > 99999999)
     {
-        r0 = 99999999;
+        exp = 99999999;
     }
-    sb1->playerExp = r0;
+    sb1->playerExp = exp;
 }
 
 void sub_08017C40(u32 r0)
@@ -90,32 +90,37 @@ void sub_08017C40(u32 r0)
     sb1->unk60 = r0;
 }
 
-void sub_08017C60(u8 r0, u16 r1)
+void SetPlayerAtk(u8 index, u16 atk)
 {
-    gSaveBlock1Ptr->playerAtkList[r0] = r1;
+    gSaveBlock1Ptr->playerAtkList[index] = atk;
 }
 
-void sub_08017C74(u8 r0, u16 r1)
+void SetPlayerDef(u8 index, u16 def)
 {
-    gSaveBlock1Ptr->playerDefList[r0] = r1;
+    gSaveBlock1Ptr->playerDefList[index] = def;
 }
 
-void sub_08017C88(u8 r0, u16 r1)
+void SetPlayerAgl(u8 index, u16 agl)
 {
-    gSaveBlock1Ptr->playerAglList[r0] = r1;
+    gSaveBlock1Ptr->playerAglList[index] = agl;
 }
 
 void sub_08017C9C(u8 r0)
 {
-    gSaveBlock1Ptr->unk58[0] = r0;
+    gSaveBlock1Ptr->unk58 = r0;
 }
 
-void sub_08017CAC(u8 r0, u8 r1)
+void SetPlayerEquipWeaponType(u8 index, u8 type)
 {
-    gSaveBlock1Ptr->equipIndexList[r0] = r1;
+    gSaveBlock1Ptr->equipWeaponTypeList[index] = type;
 }
 
-void sub_08017CC0(u8 r0)
+void SetPlayerEquipItemType(u8 type)
 {
-    gSaveBlock1Ptr->equipItemIndex = r0;
+    gSaveBlock1Ptr->equipItemType = type;
+}
+
+void sub_08017CD0(u8 r0)
+{
+    gSaveBlock1Ptr->unk59 = r0;
 }

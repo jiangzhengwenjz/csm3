@@ -3,16 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08017CD0
-sub_08017CD0: @ 0x08017CD0
-	ldr r1, _08017CDC @ =gSaveBlock1Ptr
-	ldr r1, [r1]
-	adds r1, #0x59
-	strb r0, [r1]
-	bx lr
-	.align 2, 0
-_08017CDC: .4byte gSaveBlock1Ptr
-
 	thumb_func_start sub_08017CE0
 sub_08017CE0: @ 0x08017CE0
 	push {r4, r5, r6, lr}

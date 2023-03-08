@@ -46,13 +46,15 @@ struct SaveBlock1
     u16 filler3A;
     u16 playerAglList[4];
     u16 filler44;
-    u8 equipIndexList[3]; // index of equip weapon1, weapon2, weapon3 max = 0x1D, as one can take up to 30 wepons in the bag
-    u8 equipItemIndex;
+    u8 equipWeaponTypeList[3]; // index of equip weapon1, weapon2, weapon3 max = 0x1D, as one can take up to 30 wepons in the bag
+    u8 equipItemType;
     u16 filler4A;
     u8 filler4C[8];
     u16 filler54;
     u16 bonusStats; // synced with 020036BA, void?
-    u8 unk58[4];
+    u8 unk58;
+    u8 unk59;
+    u16 filler5A;
     u32 playerExp; // max = 00BD95FC
     u32 unk60;
     u8 guardimalType; // 00-04
