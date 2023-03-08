@@ -30,6 +30,7 @@ struct BagWeapon
     u16 isGoodWeapon;
 }; /* size = 0x1C */
 
+/* TODO: list offsets */
 struct SaveBlock1
 {
     u8 playerGender; // 00 = male
@@ -256,7 +257,6 @@ struct SaveBlock1
     u8 filler5C8[0xE];
     u16 fishingPoint;
 }; /* size = 0x5D8 */
-/* TODO: list offsets */
 
 extern struct SaveBlock1 *gSaveBlock1Ptr; 
 extern struct SaveBlock1 gSaveBlock1;

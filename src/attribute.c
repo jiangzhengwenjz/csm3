@@ -23,6 +23,7 @@ void SetPlayerName(u16 *nameBuffer)
     }
 }
 
+/* The same as SetPlayerName but uses unk16. */
 void sub_08017B7C(u16 *buffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
@@ -35,12 +36,11 @@ void sub_08017B7C(u16 *buffer)
         sb1->unk16[i] = buffer[i];
     }
 }
-/* The structure of this func is the same to the upper one. But after checking the memory, unk16 is not where the name array lays. */
 
 void sub_08017BB4(u8 r0)
 {
     gSaveBlock1Ptr->playerGender = r0;
-    sub_08012F0C(0x182,r0); // This apprears in main. Maybe I should figure out what this func does. 
+    sub_08012F0C(0x182,r0); // This appears in main. 
 }
 
 void sub_08017BD4(u8 r0)
@@ -79,7 +79,6 @@ void sub_08017C20(u32 r0)
     }
     sb1->playerExp = r0;
 }
-/* The really first one. It keeps showing bhi until I switched the order of if else. Then I realize I can directly use r0 instead of a new variable to remove else. Finally, it matched. */
 
 void sub_08017C40(u32 r0)
 {
