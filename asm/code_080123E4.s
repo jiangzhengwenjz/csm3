@@ -7345,7 +7345,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017DD8
+	bl SetBagWeaponAtk
 	adds r0, r6, #0
 	bl sub_080187EC
 	adds r1, r0, #0
@@ -7354,7 +7354,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017E18
+	bl SetBagWeaponDef
 	adds r0, r6, #0
 	bl sub_08018808
 	adds r1, r0, #0
@@ -7362,7 +7362,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017E58
+	bl SetBagWeaponAgl
 	adds r0, r6, #0
 	bl sub_08018824
 	adds r1, r0, #0

@@ -66452,7 +66452,7 @@ _0805F70E:
 	lsls r0, r0, #1
 	add r0, r8
 	ldrh r0, [r0]
-	bl sub_08017DB4
+	bl SetBonusStats
 	movs r4, #0x85
 	lsls r4, r4, #2
 	add r4, r8
@@ -143224,13 +143224,13 @@ _08087892:
 	bl sub_0801802C
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_08017DD8
+	bl SetBagWeaponAtk
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08017E18
+	bl SetBagWeaponDef
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_08017E58
+	bl SetBagWeaponAgl
 	adds r0, r7, #0
 	adds r1, r4, #0
 	bl sub_08017EEC

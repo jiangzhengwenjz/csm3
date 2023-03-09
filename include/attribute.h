@@ -20,7 +20,7 @@ struct BagWeapon
     u8 weaponTec;
     u16 weaponAtk;
     u16 weaponDef;
-    u16 weaponAgl;
+    s16 weaponAgl;
     u16 weaponInitAtk; // Atk when not enhanced or boosted
     u16 weaponInitDef;
     u16 weaponInitAgl;
@@ -48,9 +48,7 @@ struct SaveBlock1
     u16 filler44;
     u8 equipWeaponTypeList[3]; // index of equip weapon1, weapon2, weapon3 max = 0x1D, as one can take up to 30 wepons in the bag
     u8 equipItemType;
-    u16 filler4A;
-    u8 filler4C[8];
-    u16 filler54;
+    u16 unk4A[6];
     u16 bonusStats; // synced with 020036BA, void?
     u8 unk58;
     u8 unk59;
@@ -265,6 +263,7 @@ extern struct SaveBlock1 gSaveBlock1;
 
 extern const struct RoleAttrib *gAttribTablePtr;
 extern const struct RoleAttrib gAttribTable[];
+extern const u16 gUnk_08B80178[];
 
 extern void sub_080154F0(void);
 extern u8 sub_08018728(u8 a);

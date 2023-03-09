@@ -183,3 +183,65 @@ u8 sub_08017CE0(u16 r5)
     }
     return r6;
 }
+
+void sub_08017D84(u8 r0, u16 r1)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (r1 > gUnk_08B80178[9])
+    {
+        r1 = gUnk_08B80178[9];
+    }
+    sb1->unk4A[r0] = r1;
+}
+
+void SetBonusStats(u16 stats)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (stats > 9999)
+    {
+        stats = 9999;
+    }
+    sb1->bonusStats = stats;
+}
+
+void SetBagWeaponAtk(u8 wpIndex, s16 atk)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (atk > 999)
+    {
+        atk = 999;
+    }
+    else if (atk < 0)
+    {
+        atk = 0;
+    }
+    bw[wpIndex].weaponAtk = atk;
+}
+
+void SetBagWeaponDef(u8 wpIndex, s16 def)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (def > 999)
+    {
+        def = 999;
+    }
+    else if (def < 0)
+    {
+        def = 0;
+    }
+    bw[wpIndex].weaponDef = def;
+}
+
+void SetBagWeaponAgl(u8 wpIndex, s16 agl)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (agl > 999)
+    {
+        agl = 999;
+    }
+    else if (agl < ~127)
+    {
+        agl = ~127;
+    }
+    bw[wpIndex].weaponAgl = agl;
+}
