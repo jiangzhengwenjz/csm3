@@ -245,3 +245,102 @@ void SetBagWeaponAgl(u8 wpIndex, s16 agl)
     }
     bw[wpIndex].weaponAgl = agl;
 }
+
+void sub_08017EA0(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > sub_080187B4(r0))
+    {
+        r1 = sub_080187B4(r0);
+    }
+    else if (r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[r0].weaponCurrentDur = r1;
+}
+
+void sub_08017EEC(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 999)
+    {
+        r1 = 999;
+    }
+    else if(r1 <= 0)
+    {
+        r1 = 1;
+    }
+    bw[r0].weaponMaxDur = r1;
+}
+
+/* Why do they use a s16 argument to set a u8's value? Is this just copying and pasting? */
+void sub_08017F2C(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 255)
+    {
+        r1 = 255;
+    }
+    else if(r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[r0].weaponTec = r1;
+}
+
+void sub_08017F64(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 999)
+    {
+        r1 = 999;
+    }
+    else if(r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[r0].weaponInitAtk = r1;
+}
+
+void sub_08017FA4(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 999)
+    {
+        r1 = 999;
+    }
+    else if(r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[r0].weaponInitDef = r1;
+}
+
+void sub_08017FE4(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 999)
+    {
+        r1 = 999;
+    }
+    else if(r1 < ~127)
+    {
+        r1 = ~127;
+    }
+    bw[r0].weaponInitAgl = r1;
+}
+
+void sub_0801802C(u8 r0, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > 999)
+    {
+        r1 = 999;
+    }
+    else if(r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[r0].weaponInitDur = r1;
+}

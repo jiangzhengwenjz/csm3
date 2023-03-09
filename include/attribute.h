@@ -268,5 +268,6 @@ extern const u16 gUnk_08B80178[];
 extern void sub_080154F0(void);
 extern u8 sub_08018728(u8 a);
 extern u8 sub_080639E8(u8 a);
+extern u16 sub_080187B4(u8 a);
 
 #endif
