@@ -246,101 +246,131 @@ void SetBagWeaponAgl(u8 wpIndex, s16 agl)
     bw[wpIndex].weaponAgl = agl;
 }
 
-void sub_08017EA0(u8 r0, s16 r1)
+void SetBagWeaponCurrentDur(u8 wpIndex, s16 r1)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > sub_080187B4(r0))
+    if (r1 > sub_080187B4(wpIndex))
     {
-        r1 = sub_080187B4(r0);
+        r1 = sub_080187B4(wpIndex);
     }
     else if (r1 < 0)
     {
         r1 = 0;
     }
-    bw[r0].weaponCurrentDur = r1;
+    bw[wpIndex].weaponCurrentDur = r1;
 }
 
-void sub_08017EEC(u8 r0, s16 r1)
+void SetBagWeaponMaxDur(u8 wpIndex, s16 dur)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 999)
+    if (dur > 999)
     {
-        r1 = 999;
+        dur = 999;
     }
-    else if(r1 <= 0)
+    else if (dur <= 0)
     {
-        r1 = 1;
+        dur = 1;
     }
-    bw[r0].weaponMaxDur = r1;
+    bw[wpIndex].weaponMaxDur = dur;
 }
 
 /* Why do they use a s16 argument to set a u8's value? Is this just copying and pasting? */
-void sub_08017F2C(u8 r0, s16 r1)
+void SetBagWeaponTec(u8 wpIndex, s16 tec)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 255)
+    if (tec > 255)
     {
-        r1 = 255;
+        tec = 255;
     }
-    else if(r1 < 0)
+    else if (tec < 0)
     {
-        r1 = 0;
+        tec = 0;
     }
-    bw[r0].weaponTec = r1;
+    bw[wpIndex].weaponTec = tec;
 }
 
-void sub_08017F64(u8 r0, s16 r1)
+void SetBagWeaponInitAtk(u8 wpIndex, s16 initAtk)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 999)
+    if (initAtk > 999)
     {
-        r1 = 999;
+        initAtk = 999;
     }
-    else if(r1 < 0)
+    else if (initAtk < 0)
     {
-        r1 = 0;
+        initAtk = 0;
     }
-    bw[r0].weaponInitAtk = r1;
+    bw[wpIndex].weaponInitAtk = initAtk;
 }
 
-void sub_08017FA4(u8 r0, s16 r1)
+void SetBagWeaponInitDef(u8 wpIndex, s16 initDef)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 999)
+    if (initDef > 999)
     {
-        r1 = 999;
+        initDef = 999;
     }
-    else if(r1 < 0)
+    else if (initDef < 0)
     {
-        r1 = 0;
+        initDef = 0;
     }
-    bw[r0].weaponInitDef = r1;
+    bw[wpIndex].weaponInitDef = initDef;
 }
 
-void sub_08017FE4(u8 r0, s16 r1)
+void SetBagWeaponInitAgl(u8 wpIndex, s16 initAgl)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 999)
+    if (initAgl > 999)
     {
-        r1 = 999;
+        initAgl = 999;
     }
-    else if(r1 < ~127)
+    else if (initAgl < -0x80)
     {
-        r1 = ~127;
+        initAgl = -0x80;
     }
-    bw[r0].weaponInitAgl = r1;
+    bw[wpIndex].weaponInitAgl = initAgl;
 }
 
-void sub_0801802C(u8 r0, s16 r1)
+void SetBagWeaponInitDur(u8 wpIndex, s16 initDur)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > 999)
+    if (initDur > 999)
     {
-        r1 = 999;
+        initDur = 999;
     }
-    else if(r1 < 0)
+    else if (initDur < 0)
     {
-        r1 = 0;
+        initDur = 0;
     }
-    bw[r0].weaponInitDur = r1;
+    bw[wpIndex].weaponInitDur = initDur;
+}
+
+void sub_0801806C(u8 r0, u8 r1, s8 a3)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (a3 == 1)
+    {
+        bw[r0].unk0 |= r1;
+    }
+    else if (a3 == 0)
+    {
+        bw[r0].unk0 &= ~r1;
+    }
+}
+
+void sub_080180B8(u8 r0, u8 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    bw[r0].weaponSpecialEffect = r1;
+}
+
+void sub_080180D4(u8 r0, u8 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    bw[r0].weaponSkill = r1;
+}
+
+void sub_080180F0(u8 r0, u8 r1, u8 r2)
+{
+    gSaveBlock1Ptr->bagWeapon[r0].enhanceItemList[r1] = r2;
 }

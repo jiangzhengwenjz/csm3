@@ -7371,7 +7371,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017EEC
+	bl SetBagWeaponMaxDur
 	adds r0, r6, #0
 	ldr r1, [sp, #0xc]
 	bl sub_080180D4
@@ -7496,11 +7496,11 @@ _08015DD0:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r5, #0
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 _08015E2C:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 	pop {r4, r5}
 	pop {r0}
 	bx r0

@@ -10,13 +10,11 @@ struct RoleAttrib
 
 struct BagWeapon
 {
-    u8 filler0; // something related to reforge
+    u8 unk0; // something related to reforge
     u8 weaponType;
     u8 weaponSpecialEffect;
     u8 weaponSkill;
-    u8 firstEnhanceItem; // null = 0xff
-    u8 secondEnhanceItem;
-    u8 thirdEnhanceItem;
+    u8 enhanceItemList[3]; // null = 0xff
     u8 weaponTec;
     u16 weaponAtk;
     u16 weaponDef;
