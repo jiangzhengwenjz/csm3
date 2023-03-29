@@ -7374,10 +7374,10 @@ _08015CAE:
 	bl SetBagWeaponMaxDur
 	adds r0, r6, #0
 	ldr r1, [sp, #0xc]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r6, #0
 	ldr r1, [sp, #0x10]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	bl sub_08015A28
 	adds r0, r6, #0
 	add sp, #0x14
@@ -7463,22 +7463,22 @@ _08015D9E:
 _08015DD0:
 	adds r0, r5, #0
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r5, #0
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	bl sub_08015E3C
 	adds r0, r5, #0

@@ -358,19 +358,46 @@ void sub_0801806C(u8 r0, u8 r1, s8 a3)
     }
 }
 
-void sub_080180B8(u8 r0, u8 r1)
+void SetBagWeaponSpecialEffect(u8 wpIndex, u8 specialEffect)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    bw[r0].weaponSpecialEffect = r1;
+    bw[wpIndex].weaponSpecialEffect = specialEffect;
 }
 
-void sub_080180D4(u8 r0, u8 r1)
+void SetBagWeaponSkill(u8 wpIndex, u8 skill)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    bw[r0].weaponSkill = r1;
+    bw[wpIndex].weaponSkill = skill;
 }
 
-void sub_080180F0(u8 r0, u8 r1, u8 r2)
+void SetBagWeaponEnhanceItem(u8 wpIndex, u8 itemIndex, u8 itemType)
 {
-    gSaveBlock1Ptr->bagWeapon[r0].enhanceItemList[r1] = r2;
+    gSaveBlock1Ptr->bagWeapon[wpIndex].enhanceItemList[itemIndex] = itemType;
+}
+
+void sub_08018118(void)
+{
+    u16 temp = sub_0801844C();
+    s32 count;
+    u8 r4, var;
+    if (temp > gSaveBlock1Ptr->playerMaxHp)
+    {
+        gSaveBlock1Ptr->playerCurrentHp = gSaveBlock1Ptr->playerMaxHp;
+    }
+    else
+    {
+        gSaveBlock1Ptr->playerCurrentHp = temp;
+    }
+    for (count = 0; count <= 0x14; count += 3)
+    {
+        r4 = count;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+        r4 = count + 1;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+        r4 = count + 2;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+    }
 }

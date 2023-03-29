@@ -139080,7 +139080,7 @@ _080855D4:
 	bne _080855E2
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	b _080855F2
 _080855E2:
 	cmp r0, #1
@@ -139089,7 +139089,7 @@ _080855E2:
 	adds r1, r6, #0
 	adds r1, #0xba
 	ldrb r1, [r1]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 _080855F2:
 	movs r0, #0x17
 	strh r0, [r6, #2]
@@ -139111,7 +139111,7 @@ _0808560E:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	bl _080860B2
 _08085626:
 	adds r0, r6, #0
@@ -139135,7 +139135,7 @@ _0808564C:
 	bne _0808565A
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	b _0808566A
 _0808565A:
 	cmp r0, #1
@@ -139144,7 +139144,7 @@ _0808565A:
 	adds r1, r6, #0
 	adds r1, #0xc2
 	ldrb r1, [r1]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 _0808566A:
 	movs r0, #0x1a
 	strh r0, [r6, #2]
@@ -139166,7 +139166,7 @@ _08085686:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	movs r0, #1
 	bl sub_080861BC
 	bl _080860B2
@@ -139680,7 +139680,7 @@ _08085B00:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #0
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B1A:
 	ldrh r2, [r6, #0x16]
 	adds r0, r5, #0
@@ -139691,7 +139691,7 @@ _08085B1A:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #1
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B30:
 	ldrh r2, [r6, #0x18]
 	adds r0, r5, #0
@@ -139702,7 +139702,7 @@ _08085B30:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #2
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B46:
 	ldrb r0, [r6, #0x10]
 	bl sub_08015E3C
@@ -139826,7 +139826,7 @@ _08085C32:
 	bne _08085C42
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	b _08085C62
 _08085C42:
 	cmp r0, #1
@@ -139834,7 +139834,7 @@ _08085C42:
 	ldrb r0, [r6, #0x10]
 	mov r3, sb
 	ldrb r1, [r3]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	ldrb r0, [r7]
 	cmp r0, #0xff
 	beq _08085C62
@@ -139873,7 +139873,7 @@ _08085C8C:
 	lsrs r4, r0, #0x18
 	ldrb r0, [r6, #0x10]
 	adds r1, r4, #0
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r6, #0
 	adds r0, #0x86
 	movs r1, #0
@@ -139964,7 +139964,7 @@ _08085D44:
 	bne _08085D54
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	b _08085DDE
 _08085D54:
 	cmp r0, #1
@@ -139972,7 +139972,7 @@ _08085D54:
 	ldrb r0, [r6, #0x10]
 	mov r3, sb
 	ldrb r1, [r3]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	ldrb r0, [r7]
 	cmp r0, #0xff
 	beq _08085DDE
@@ -140008,7 +140008,7 @@ _08085D9A:
 	lsrs r4, r0, #0x18
 	ldrb r0, [r6, #0x10]
 	adds r1, r4, #0
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	adds r0, r6, #0
 	adds r0, #0x86
 	movs r1, #0

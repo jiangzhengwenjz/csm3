@@ -3,63 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08018118
-sub_08018118: @ 0x08018118
-	push {r4, r5, lr}
-	bl sub_0801844C
-	lsls r0, r0, #0x10
-	lsrs r2, r0, #0x10
-	ldr r0, _08018130 @ =gSaveBlock1Ptr
-	ldr r0, [r0]
-	ldrh r1, [r0, #0x24]
-	cmp r2, r1
-	bls _08018134
-	strh r1, [r0, #0x26]
-	b _08018136
-	.align 2, 0
-_08018130: .4byte gSaveBlock1Ptr
-_08018134:
-	strh r2, [r0, #0x26]
-_08018136:
-	movs r5, #0
-_08018138:
-	lsls r4, r5, #0x18
-	lsrs r4, r4, #0x18
-	adds r0, r4, #0
-	bl sub_080189BC
-	adds r1, r0, #0
-	lsls r1, r1, #0x18
-	lsrs r1, r1, #0x18
-	adds r0, r4, #0
-	bl sub_08018298
-	adds r4, r5, #1
-	lsls r4, r4, #0x18
-	lsrs r4, r4, #0x18
-	adds r0, r4, #0
-	bl sub_080189BC
-	adds r1, r0, #0
-	lsls r1, r1, #0x18
-	lsrs r1, r1, #0x18
-	adds r0, r4, #0
-	bl sub_08018298
-	adds r4, r5, #2
-	lsls r4, r4, #0x18
-	lsrs r4, r4, #0x18
-	adds r0, r4, #0
-	bl sub_080189BC
-	adds r1, r0, #0
-	lsls r1, r1, #0x18
-	lsrs r1, r1, #0x18
-	adds r0, r4, #0
-	bl sub_08018298
-	adds r5, #3
-	cmp r5, #0x14
-	ble _08018138
-	pop {r4, r5}
-	pop {r0}
-	bx r0
-	.align 2, 0
-
 	thumb_func_start sub_0801818C
 sub_0801818C: @ 0x0801818C
 	push {r4, r5, lr}
