@@ -239,9 +239,9 @@ void SetBagWeaponAgl(u8 wpIndex, s16 agl)
     {
         agl = 999;
     }
-    else if (agl < ~127)
+    else if (agl < -0x80)
     {
-        agl = ~127;
+        agl = -0x80;
     }
     bw[wpIndex].weaponAgl = agl;
 }

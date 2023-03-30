@@ -28,7 +28,7 @@ struct BagWeapon
     u16 isGoodWeapon;
 }; /* size = 0x1C */
 
-/* TODO: list offsets */
+/* TODO: list offsets and add defines */
 struct SaveBlock1
 {
     /*0x000*/ u8 playerGender; // 00 = male
@@ -38,8 +38,8 @@ struct SaveBlock1
     /*0x016*/ u16 unk16[0x7];
     /*0x024*/ u16 playerMaxHp; // max = 0x270f, but more is ok
     /*0x026*/ u16 playerCurrentHp;
-    /*0x028*/ u16 playerAtkList[4]; //Atk when equip weapon1, weapon2, weapon3, noweapon, max = 03e7
-    /*0x030*/ u16 filler30; // always 03e7 in memory, wierd
+    /*0x028*/ u16 playerAtkList[4]; // Atk when equip weapon1, weapon2, weapon3, noweapon, max = 03e7
+    /*0x030*/ u16 filler30; // always 03e7 in memory, weird
     /*0x032*/ u16 playerDefList[4];
     /*0x03A*/ u16 filler3A;
     /*0x03C*/ u16 playerAglList[4];
@@ -92,7 +92,7 @@ struct SaveBlock1
     /*0x*/ u8 numSlimyTreeLiquid;
     /*0x*/ u8 numMatureFruit;
     /*0x*/ u8 numSoftStone;
-    /*0x*/ u8 numWierdStone;
+    /*0x*/ u8 numWeirdStone;
     /*0x*/ u8 numWeed;
     /*0x*/ u8 numSoftGrass;
     /*0x*/ u8 numGoodPaper;
@@ -224,7 +224,7 @@ struct SaveBlock1
     /*0x*/ u8 mightBook4;
     /*0x*/ u8 mightBook5;
     /*0x*/ u8 craftMightBook;
-    /*0x*/ u8 mightBook6; // looks wierd. maybe need a fix
+    /*0x*/ u8 mightBook6; // looks weird. may need a fix
     /*0x*/ u8 auditionMachine;
     /*0x*/ u8 waterDragonScale;
     /*0x*/ u8 inviteToTheGreatWar;
@@ -241,10 +241,10 @@ struct SaveBlock1
     /*0x*/ u8 filler53E;
     /*0x*/ u8 filler53F;
     /*0x*/ u8 filler540[0x24];
-    /*0x*/ u8 weaponDex[0x1E]; // This is a bit field. 1 = dex lighted, 0 = not lighted. 
-    /*0x*/ u8 filler582; // wierd
+    /*0x*/ bool8 weaponDexLighted[0x1E]; 
+    /*0x*/ u8 filler582; // weird
     /*0x*/ u8 weaponSkillDex1[6];
-    /*0x*/ u8 weaponSkillDex2[6]; // maybe a useless checksum, need more evidence
+    /*0x*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
     /*0x*/ u8 weaponSpecialEffectDex1[5];
     /*0x*/ u8 filler594;
     /*0x*/ u8 weaponSpecialEffectDex2[5];
