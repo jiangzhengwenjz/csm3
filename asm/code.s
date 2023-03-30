@@ -66452,7 +66452,7 @@ _0805F70E:
 	lsls r0, r0, #1
 	add r0, r8
 	ldrh r0, [r0]
-	bl sub_08017DB4
+	bl SetBonusStats
 	movs r4, #0x85
 	lsls r4, r4, #2
 	add r4, r8
@@ -66768,7 +66768,7 @@ _0805F992:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 	movs r2, #0xc
 	ldrsh r0, [r5, r2]
 	movs r1, #0x64
@@ -66777,7 +66777,7 @@ _0805F992:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 	ldrh r0, [r5]
 	ldrh r3, [r5, #2]
 	cmp r0, r3
@@ -92070,7 +92070,7 @@ _0806CCF2:
 	lsrs r0, r0, #0x18
 	lsls r1, r6, #0x10
 	asrs r1, r1, #0x10
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
@@ -138623,7 +138623,7 @@ _080850E6:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017F64
+	bl SetBagWeaponInitAtk
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
 	bl sub_080187EC
@@ -138635,7 +138635,7 @@ _080850E6:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017FA4
+	bl SetBagWeaponInitDef
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
 	bl sub_08018808
@@ -138645,7 +138645,7 @@ _080850E6:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017FE4
+	bl SetBagWeaponInitAgl
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
 	bl sub_08018824
@@ -138657,13 +138657,13 @@ _080850E6:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_0801802C
+	bl SetBagWeaponInitDur
 	ldrb r0, [r5, #0x10]
 	bl sub_08015E3C
 	bl sub_0801644C
 	ldrb r0, [r5, #0x10]
 	movs r1, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 _0808516A:
 	movs r0, #3
 	bl sub_080861BC
@@ -139080,7 +139080,7 @@ _080855D4:
 	bne _080855E2
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	b _080855F2
 _080855E2:
 	cmp r0, #1
@@ -139089,7 +139089,7 @@ _080855E2:
 	adds r1, r6, #0
 	adds r1, #0xba
 	ldrb r1, [r1]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 _080855F2:
 	movs r0, #0x17
 	strh r0, [r6, #2]
@@ -139111,7 +139111,7 @@ _0808560E:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	bl _080860B2
 _08085626:
 	adds r0, r6, #0
@@ -139135,7 +139135,7 @@ _0808564C:
 	bne _0808565A
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	b _0808566A
 _0808565A:
 	cmp r0, #1
@@ -139144,7 +139144,7 @@ _0808565A:
 	adds r1, r6, #0
 	adds r1, #0xc2
 	ldrb r1, [r1]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 _0808566A:
 	movs r0, #0x1a
 	strh r0, [r6, #2]
@@ -139166,7 +139166,7 @@ _08085686:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	movs r0, #1
 	bl sub_080861BC
 	bl _080860B2
@@ -139680,7 +139680,7 @@ _08085B00:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #0
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B1A:
 	ldrh r2, [r6, #0x16]
 	adds r0, r5, #0
@@ -139691,7 +139691,7 @@ _08085B1A:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #1
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B30:
 	ldrh r2, [r6, #0x18]
 	adds r0, r5, #0
@@ -139702,7 +139702,7 @@ _08085B30:
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	movs r1, #2
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 _08085B46:
 	ldrb r0, [r6, #0x10]
 	bl sub_08015E3C
@@ -139714,7 +139714,7 @@ _08085B46:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 	ldrh r1, [r6, #0x14]
 	adds r0, r5, #0
 	ands r0, r1
@@ -139826,7 +139826,7 @@ _08085C32:
 	bne _08085C42
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	b _08085C62
 _08085C42:
 	cmp r0, #1
@@ -139834,7 +139834,7 @@ _08085C42:
 	ldrb r0, [r6, #0x10]
 	mov r3, sb
 	ldrb r1, [r3]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	ldrb r0, [r7]
 	cmp r0, #0xff
 	beq _08085C62
@@ -139873,7 +139873,7 @@ _08085C8C:
 	lsrs r4, r0, #0x18
 	ldrb r0, [r6, #0x10]
 	adds r1, r4, #0
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r6, #0
 	adds r0, #0x86
 	movs r1, #0
@@ -139964,7 +139964,7 @@ _08085D44:
 	bne _08085D54
 	ldrb r0, [r6, #0x10]
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	b _08085DDE
 _08085D54:
 	cmp r0, #1
@@ -139972,7 +139972,7 @@ _08085D54:
 	ldrb r0, [r6, #0x10]
 	mov r3, sb
 	ldrb r1, [r3]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	ldrb r0, [r7]
 	cmp r0, #0xff
 	beq _08085DDE
@@ -140008,7 +140008,7 @@ _08085D9A:
 	lsrs r4, r0, #0x18
 	ldrb r0, [r6, #0x10]
 	adds r1, r4, #0
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	adds r0, r6, #0
 	adds r0, #0x86
 	movs r1, #0
@@ -143203,47 +143203,47 @@ _08087892:
 	asrs r1, r1, #0x10
 	mov r8, r1
 	adds r0, r7, #0
-	bl sub_08017F64
+	bl SetBagWeaponInitAtk
 	mov r2, sl
 	lsls r6, r2, #0x10
 	asrs r6, r6, #0x10
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08017FA4
+	bl SetBagWeaponInitDef
 	ldr r0, [sp]
 	lsls r5, r0, #0x10
 	asrs r5, r5, #0x10
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_08017FE4
+	bl SetBagWeaponInitAgl
 	ldr r1, [sp, #4]
 	lsls r4, r1, #0x10
 	asrs r4, r4, #0x10
 	adds r0, r7, #0
 	adds r1, r4, #0
-	bl sub_0801802C
+	bl SetBagWeaponInitDur
 	adds r0, r7, #0
 	mov r1, r8
-	bl sub_08017DD8
+	bl SetBagWeaponAtk
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_08017E18
+	bl SetBagWeaponDef
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_08017E58
+	bl SetBagWeaponAgl
 	adds r0, r7, #0
 	adds r1, r4, #0
-	bl sub_08017EEC
+	bl SetBagWeaponMaxDur
 	adds r0, r7, #0
 	bl sub_080187B4
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r7, #0
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 	ldr r1, [sp, #8]
 	adds r0, r7, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 	mov r6, sb
 	adds r6, #0x80
 	mov r4, sb
@@ -215029,7 +215029,7 @@ _080AB9DE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r5, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 _080ABA40:
 	pop {r4, r5, r6}
 	pop {r0}
@@ -233721,7 +233721,7 @@ _080B5530:
 	cmp r0, #0xff
 	beq _080B554A
 	movs r1, #0xff
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 _080B554A:
 	movs r0, #1
 	bl sub_080184CC
@@ -233730,7 +233730,7 @@ _080B554A:
 	cmp r0, #0xff
 	beq _080B555E
 	movs r1, #0xff
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 _080B555E:
 	movs r0, #2
 	bl sub_080184CC
@@ -233739,7 +233739,7 @@ _080B555E:
 	cmp r0, #0xff
 	beq _080B5572
 	movs r1, #0xff
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 _080B5572:
 	pop {r4}
 	pop {r0}

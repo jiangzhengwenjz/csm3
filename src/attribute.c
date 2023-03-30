@@ -183,3 +183,235 @@ u8 sub_08017CE0(u16 r5)
     }
     return r6;
 }
+
+void sub_08017D84(u8 r0, u16 r1)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (r1 > gUnk_08B80178[9])
+    {
+        r1 = gUnk_08B80178[9];
+    }
+    sb1->unk4A[r0] = r1;
+}
+
+void SetBonusStats(u16 stats)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (stats > 9999)
+    {
+        stats = 9999;
+    }
+    sb1->bonusStats = stats;
+}
+
+void SetBagWeaponAtk(u8 wpIndex, s16 atk)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (atk > 999)
+    {
+        atk = 999;
+    }
+    else if (atk < 0)
+    {
+        atk = 0;
+    }
+    bw[wpIndex].weaponAtk = atk;
+}
+
+void SetBagWeaponDef(u8 wpIndex, s16 def)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (def > 999)
+    {
+        def = 999;
+    }
+    else if (def < 0)
+    {
+        def = 0;
+    }
+    bw[wpIndex].weaponDef = def;
+}
+
+void SetBagWeaponAgl(u8 wpIndex, s16 agl)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (agl > 999)
+    {
+        agl = 999;
+    }
+    else if (agl < -0x80)
+    {
+        agl = -0x80;
+    }
+    bw[wpIndex].weaponAgl = agl;
+}
+
+void SetBagWeaponCurrentDur(u8 wpIndex, s16 r1)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (r1 > sub_080187B4(wpIndex))
+    {
+        r1 = sub_080187B4(wpIndex);
+    }
+    else if (r1 < 0)
+    {
+        r1 = 0;
+    }
+    bw[wpIndex].weaponCurrentDur = r1;
+}
+
+void SetBagWeaponMaxDur(u8 wpIndex, s16 dur)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (dur > 999)
+    {
+        dur = 999;
+    }
+    else if (dur <= 0)
+    {
+        dur = 1;
+    }
+    bw[wpIndex].weaponMaxDur = dur;
+}
+
+/* Why do they use a s16 argument to set a u8's value? Is this just copying and pasting? */
+void SetBagWeaponTec(u8 wpIndex, s16 tec)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (tec > 255)
+    {
+        tec = 255;
+    }
+    else if (tec < 0)
+    {
+        tec = 0;
+    }
+    bw[wpIndex].weaponTec = tec;
+}
+
+void SetBagWeaponInitAtk(u8 wpIndex, s16 initAtk)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (initAtk > 999)
+    {
+        initAtk = 999;
+    }
+    else if (initAtk < 0)
+    {
+        initAtk = 0;
+    }
+    bw[wpIndex].weaponInitAtk = initAtk;
+}
+
+void SetBagWeaponInitDef(u8 wpIndex, s16 initDef)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (initDef > 999)
+    {
+        initDef = 999;
+    }
+    else if (initDef < 0)
+    {
+        initDef = 0;
+    }
+    bw[wpIndex].weaponInitDef = initDef;
+}
+
+void SetBagWeaponInitAgl(u8 wpIndex, s16 initAgl)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (initAgl > 999)
+    {
+        initAgl = 999;
+    }
+    else if (initAgl < -0x80)
+    {
+        initAgl = -0x80;
+    }
+    bw[wpIndex].weaponInitAgl = initAgl;
+}
+
+void SetBagWeaponInitDur(u8 wpIndex, s16 initDur)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (initDur > 999)
+    {
+        initDur = 999;
+    }
+    else if (initDur < 0)
+    {
+        initDur = 0;
+    }
+    bw[wpIndex].weaponInitDur = initDur;
+}
+
+void sub_0801806C(u8 r0, u8 r1, s8 a3)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    if (a3 == 1)
+    {
+        bw[r0].unk0 |= r1;
+    }
+    else if (a3 == 0)
+    {
+        bw[r0].unk0 &= ~r1;
+    }
+}
+
+void SetBagWeaponSpecialEffect(u8 wpIndex, u8 specialEffect)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    bw[wpIndex].weaponSpecialEffect = specialEffect;
+}
+
+void SetBagWeaponSkill(u8 wpIndex, u8 skill)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    bw[wpIndex].weaponSkill = skill;
+}
+
+void SetBagWeaponEnhanceItem(u8 wpIndex, u8 itemIndex, u8 itemType)
+{
+    gSaveBlock1Ptr->bagWeapon[wpIndex].enhanceItemList[itemIndex] = itemType;
+}
+
+void sub_08018118(void)
+{
+    u16 temp = sub_0801844C();
+    s32 count;
+    u8 r4, var;
+    if (temp > gSaveBlock1Ptr->playerMaxHp)
+    {
+        gSaveBlock1Ptr->playerCurrentHp = gSaveBlock1Ptr->playerMaxHp;
+    }
+    else
+    {
+        gSaveBlock1Ptr->playerCurrentHp = temp;
+    }
+    for (count = 0; count <= 0x14; count += 3)
+    {
+        r4 = count;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+        r4 = count + 1;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+        r4 = count + 2;
+        var = sub_080189BC(r4);
+        sub_08018298(r4, var);
+    }
+}
+
+void sub_0801818C(u16 *nameBuffer)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u16 i = 0;
+
+    memcpy(&sb1->unk66[0], &nameBuffer[0], sizeof(nameBuffer[0]));
+    ++sb1; --sb1;
+    while (nameBuffer[i])
+    {
+        ++i;
+        sb1->unk66[i] = nameBuffer[i];
+    }
+}

@@ -7345,7 +7345,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017DD8
+	bl SetBagWeaponAtk
 	adds r0, r6, #0
 	bl sub_080187EC
 	adds r1, r0, #0
@@ -7354,7 +7354,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017E18
+	bl SetBagWeaponDef
 	adds r0, r6, #0
 	bl sub_08018808
 	adds r1, r0, #0
@@ -7362,7 +7362,7 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017E58
+	bl SetBagWeaponAgl
 	adds r0, r6, #0
 	bl sub_08018824
 	adds r1, r0, #0
@@ -7371,13 +7371,13 @@ _08015CAE:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r6, #0
-	bl sub_08017EEC
+	bl SetBagWeaponMaxDur
 	adds r0, r6, #0
 	ldr r1, [sp, #0xc]
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r6, #0
 	ldr r1, [sp, #0x10]
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	bl sub_08015A28
 	adds r0, r6, #0
 	add sp, #0x14
@@ -7463,22 +7463,22 @@ _08015D9E:
 _08015DD0:
 	adds r0, r5, #0
 	movs r1, #0xff
-	bl sub_080180D4
+	bl SetBagWeaponSkill
 	adds r0, r5, #0
 	movs r1, #0xff
-	bl sub_080180B8
+	bl SetBagWeaponSpecialEffect
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #0xff
-	bl sub_080180F0
+	bl SetBagWeaponEnhanceItem
 	adds r0, r5, #0
 	bl sub_08015E3C
 	adds r0, r5, #0
@@ -7496,11 +7496,11 @@ _08015DD0:
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
 	adds r0, r5, #0
-	bl sub_08017EA0
+	bl SetBagWeaponCurrentDur
 _08015E2C:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08017F2C
+	bl SetBagWeaponTec
 	pop {r4, r5}
 	pop {r0}
 	bx r0
