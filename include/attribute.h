@@ -55,7 +55,7 @@ struct SaveBlock1
     /*0x060*/ u32 unk60;
     /*0x064*/ u8 guardimalType; // 00-04
     /*0x065*/ u8 guardimalLevel;
-    /*0x066*/ u16 filler66[0x7]; // Something related to guardimal name
+    /*0x066*/ u16 unk66[0x7]; // Something related to guardimal name
     /*0x074*/ u16 guardimalHp;
     /*0x076*/ u16 filler76;
     /*0x078*/ u16 guardimalMag;

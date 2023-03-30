@@ -407,11 +407,11 @@ void sub_0801818C(u16 *nameBuffer)
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i = 0;
 
-    memcpy(&sb1->filler66[0], &nameBuffer[0], sizeof(nameBuffer[0]));
-    ++sb1;--sb1;
+    memcpy(&sb1->unk66[0], &nameBuffer[0], sizeof(nameBuffer[0]));
+    ++sb1; --sb1;
     while (nameBuffer[i])
     {
         ++i;
-        sb1->filler66[i] = nameBuffer[i];
+        sb1->unk66[i] = nameBuffer[i];
     }
 }
