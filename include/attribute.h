@@ -28,6 +28,22 @@ struct BagWeapon
     u16 isGoodWeapon;
 }; /* size = 0x1C */
 
+struct GuardimalAttrib
+{
+    /*0x00*/u8 guardimalType; // 00-04
+    /*0x01*/u8 guardimalLevel;
+    /*0x02*/u16 unk66[0x7]; // Something related to guardimal name
+    /*0x10*/u16 guardimalHp;
+    /*0x12*/u16 unk76;
+    /*0x14*/u16 guardimalMag;
+    /*0x16*/u16 guardimalAtk;
+    u16 guardimalDef;
+    u16 guardimalAgl;
+    u32 filler80;
+    u32 guardimalExp;
+    u32 guardimalNextExp;
+};
+
 /* TODO: list offsets and add defines */
 struct SaveBlock1
 {
@@ -53,18 +69,7 @@ struct SaveBlock1
     /*0x05A*/ u16 filler5A;
     /*0x05C*/ u32 playerExp; // max = 00BD95FC
     /*0x060*/ u32 unk60;
-    /*0x064*/ u8 guardimalType; // 00-04
-    /*0x065*/ u8 guardimalLevel;
-    /*0x066*/ u16 unk66[0x7]; // Something related to guardimal name
-    /*0x074*/ u16 guardimalHp;
-    /*0x076*/ u16 filler76;
-    /*0x078*/ u16 guardimalMag;
-    /*0x07A*/ u16 guardimalAtk;
-    /*0x07C*/ u16 guardimalDef;
-    /*0x07E*/ u16 guardimalAgl;
-    /*0x080*/ u32 filler80;
-    /*0x084*/ u32 guardimalExp;
-    /*0x088*/ u32 guardimalNextExp;
+    /*0x064*/ struct GuardimalAttrib guardimalAttrib;
     /*0x08C*/ u8 battleItemOne;
     /*0x08D*/ u8 battleItemTwo;
     /*0x08E*/ u8 battleItemThree;
