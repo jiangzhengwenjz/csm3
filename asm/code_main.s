@@ -10228,8 +10228,8 @@ sub_08006AB8: @ 0x08006AB8
 	bx r0
 	.align 2, 0
 
-	thumb_func_start sub_08006AC4
-sub_08006AC4: @ 0x08006AC4
+	thumb_func_start DmaCopyMapAndPltt
+DmaCopyMapAndPltt: @ 0x08006AC4
 	push {r4, r5, r6, lr}
 	ldr r0, _08006B98 @ =gUnk_03003180
 	ldr r6, [r0]

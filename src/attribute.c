@@ -402,21 +402,21 @@ void sub_08018118(void)
     }
 }
 
-void sub_0801818C(u16 *nameBuffer)
+void SetGuardimalName(u16 *nameBuffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i = 0;
 
-    memcpy(&sb1->guardimalAttrib.unk66[0], &nameBuffer[0], sizeof(nameBuffer[0]));
+    memcpy(&sb1->guardimalAttrib.guardimalName[0], &nameBuffer[0], sizeof(nameBuffer[0]));
     ++sb1; --sb1;
     while (nameBuffer[i])
     {
         ++i;
-        sb1->guardimalAttrib.unk66[i] = nameBuffer[i];
+        sb1->guardimalAttrib.guardimalName[i] = nameBuffer[i];
     }
 }
 
-void sub_080181C8(u8 r4)
+void SetGuardimalType(u8 r4)
 {
     gSaveBlock1Ptr->guardimalAttrib.guardimalType = r4;
     sub_08012F0C(0x183, (s8)r4);
@@ -426,7 +426,7 @@ void sub_080181C8(u8 r4)
     }
 }
 
-void sub_08018200(u8 r0)
+void SetGuardimalLevel(u8 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalLevel = r0;
@@ -445,31 +445,31 @@ void sub_08018210(u16 r0)
     }
 }
 
-void sub_08018234(u16 r0)
+void SetGuardimalHp(u16 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalHp = r0;
 }
 
-void sub_08018244(u16 r0)
+void SetGuardimalMag(u16 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalMag = r0;
 }
 
-void sub_08018254(u16 r0)
+void SetGuardimalAtk(u16 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalAtk = r0;
 }
 
-void sub_08018264(u16 r0)
+void SetGuardimalDef(u16 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalDef = r0;
 }
 
-void sub_08018274(u16 r0)
+void SetGuardimalAgl(u16 r0)
 {
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalAgl = r0;

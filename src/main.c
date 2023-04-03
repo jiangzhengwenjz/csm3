@@ -375,7 +375,7 @@ void sub_08001BC0(void)
     sub_080044E4();
     sub_08004B30();
     DmaCopyBufferToOam();
-    sub_08006AC4();
+    DmaCopyMapAndPltt();
     
     gUnk_03002948 = REG_VCOUNT;
 
@@ -450,14 +450,16 @@ void sub_08001CBC(u32 *arr0, struct Unk_08001CBC *arr1)
     arr1->unk10 = &arr0[arr0[9] >> 2];
 
     if (arr0[10])
-        arr1->unk14 = &arr0[arr0[10]>>2];
+        arr1->unk14 = &arr0[arr0[10] >> 2];
     else
         arr1->unk14 = NULL;
-    if (arr0[11]) {
-        arr1->unk18 = &arr0[arr0[11]>>2];
-        arr1->unka = (arr1->unk18[0]+1) * 4;
+    if (arr0[11]) 
+    {
+        arr1->unk18 = &arr0[arr0[11] >> 2];
+        arr1->unka = (arr1->unk18[0] + 1) * 4;
     }
-    else {
+    else 
+    {
         arr1->unk18 = NULL;
         arr1->unka = 0;
     }

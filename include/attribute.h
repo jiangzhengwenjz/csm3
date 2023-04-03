@@ -30,18 +30,18 @@ struct BagWeapon
 
 struct GuardimalAttrib
 {
-    /*0x00*/u8 guardimalType; // 00-04
-    /*0x01*/u8 guardimalLevel;
-    /*0x02*/u16 unk66[0x7]; // Something related to guardimal name
-    /*0x10*/u16 guardimalHp;
-    /*0x12*/u16 unk76;
-    /*0x14*/u16 guardimalMag;
-    /*0x16*/u16 guardimalAtk;
-    u16 guardimalDef;
-    u16 guardimalAgl;
-    u32 filler80;
-    u32 guardimalExp;
-    u32 guardimalNextExp;
+    /*0x00*/ u8 guardimalType; // 00-04
+    /*0x01*/ u8 guardimalLevel;
+    /*0x02*/ u16 guardimalName[0x7]; // Something related to guardimal name
+    /*0x10*/ u16 guardimalHp;
+    /*0x12*/ u16 unk76;
+    /*0x14*/ u16 guardimalMag;
+    /*0x16*/ u16 guardimalAtk;
+    /*0x18*/ u16 guardimalDef;
+    /*0x1A*/ u16 guardimalAgl;
+    /*0x1C*/ u32 filler80;
+    /*0x20*/ u32 guardimalExp;
+    /*0x24*/ u32 guardimalNextExp;
 };
 
 /* TODO: list offsets and add defines */
