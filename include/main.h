@@ -172,10 +172,10 @@ extern void sub_080B3128(void);
 extern void sub_080B4970(void);
 extern void sub_08062EB0(void);
 extern void sub_08093418(void);
-extern void sub_08012D14(int a,int *b);
+extern void sub_08012D14(int a, int *b);
 extern void sub_08012D30(void);
-extern void sub_08012D64(int a,int b,int c);
-extern void sub_08012F0C(int a,int b);
+extern void sub_08012D64(int a, int b, int c);
+extern void sub_08012F0C(int a, int b);
 
 extern int gUnk_03002968;
 extern int gUnk_02006000;

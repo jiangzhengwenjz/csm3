@@ -25,7 +25,7 @@ struct BagWeapon
     u16 weaponCurrentDur;
     u16 weaponMaxDur;
     u16 weaponInitDur;
-    u16 isGoodWeapon;
+    bool16 isGoodWeapon;
 }; /* size = 0x1C */
 
 struct GuardimalAttrib
@@ -34,15 +34,15 @@ struct GuardimalAttrib
     /*0x01*/ u8 guardimalLevel;
     /*0x02*/ u16 guardimalName[0x7]; // Something related to guardimal name
     /*0x10*/ u16 guardimalHp;
-    /*0x12*/ u16 unk76;
+    /*0x12*/ u16 unk12;
     /*0x14*/ u16 guardimalMag;
     /*0x16*/ u16 guardimalAtk;
     /*0x18*/ u16 guardimalDef;
     /*0x1A*/ u16 guardimalAgl;
-    /*0x1C*/ u32 filler80;
+    /*0x1C*/ u32 filler1C;
     /*0x20*/ u32 guardimalExp;
     /*0x24*/ u32 guardimalNextExp;
-};
+}; /* size = unknown */
 
 /* TODO: list offsets and add defines */
 struct SaveBlock1
@@ -246,8 +246,8 @@ struct SaveBlock1
     /*0x*/ u8 filler53E;
     /*0x*/ u8 filler53F;
     /*0x*/ u8 filler540[0x24];
-    /*0x*/ bool8 weaponDexLighted[0x1E]; 
-    /*0x*/ u8 filler582; // weird
+    /*0x*/ u8 weaponDexLighted[0x1E]; 
+    /*0x*/ u8 filler582; // Weird. Idk why it needs a struct align here. 
     /*0x*/ u8 weaponSkillDex1[6];
     /*0x*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
     /*0x*/ u8 weaponSpecialEffectDex1[5];

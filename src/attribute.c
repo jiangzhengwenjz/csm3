@@ -419,10 +419,10 @@ void SetGuardimalName(u16 *nameBuffer)
 void SetGuardimalType(u8 r4)
 {
     gSaveBlock1Ptr->guardimalAttrib.guardimalType = r4;
-    sub_08012F0C(0x183, (s8)r4);
+    sub_08012F0C(0x183, (s8)r4); // UB
     if (r4 != 0xff)
     {
-        sub_08012F0C(0x176, (s8)r4);
+        sub_08012F0C(0x176, (s8)r4); // UB
     }
 }
 
@@ -437,11 +437,11 @@ void sub_08018210(u16 r0)
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     if (r0 > gap->guardimalHp)
     {
-        gap->unk76 = gap->guardimalHp;
+        gap->unk12 = gap->guardimalHp;
     }
     else
     {
-        gap->unk76 = r0;
+        gap->unk12 = r0;
     }
 }
 
