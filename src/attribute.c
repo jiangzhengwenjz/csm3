@@ -474,3 +474,53 @@ void SetGuardimalAgl(u16 r0)
     struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
     gap->guardimalAgl = r0;
 }
+
+void sub_08018284(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk0 = r1;
+}
+
+void sub_08018298(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk2 = r1;
+}
+
+void sub_080182AC(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk3 = r1;
+}
+
+void SetBattleAidItem(u8 index, u8 item)
+{
+    gSaveBlock1Ptr->battleAidItemList[index] = item;
+}
+
+void SetGuardimalExp(u32 exp)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(exp > 99999999)
+    {
+        exp = 99999999;
+    }
+    ga1->guardimalExp = exp;
+}
+
+void SetGuardimalNextExp(u32 exp)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(exp > 99999999)
+    {
+        exp = 99999999;
+    }
+    ga1->guardimalNextExp = exp;
+}
+
+void sub_08018314(u16 r0)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(r0 > 9999)
+    {
+        r0 = 9999;
+    }
+    ga1->unk1C = r0;
+}

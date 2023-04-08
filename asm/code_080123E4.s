@@ -6548,32 +6548,32 @@ _080155CC:
 	bl SetGuardimalType
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #0
 	bl sub_080160F8
 	movs r0, #1
 	bl sub_08016724
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	bl sub_080191E4
 	add sp, #4
 	pop {r4, r5, r6, r7}
@@ -7910,22 +7910,22 @@ _08016104:
 	lsrs r0, r0, #0x18
 	bl SetGuardimalMag
 	movs r0, #0
-	bl sub_080182D4
+	bl SetGuardimalExp
 	movs r0, #2
 	bl sub_08016E58
-	bl sub_080182F4
+	bl SetGuardimalNextExp
 	movs r0, #0
 	movs r1, #0x92
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r6, #0
 	ldr r0, _08016260 @ =gUnk_08B7E0A8
 	adds r4, r4, r5

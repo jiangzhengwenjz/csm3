@@ -39,10 +39,19 @@ struct GuardimalAttrib
     /*0x16*/ u16 guardimalAtk;
     /*0x18*/ u16 guardimalDef;
     /*0x1A*/ u16 guardimalAgl;
-    /*0x1C*/ u32 filler1C;
+    /*0x1C*/ u16 unk1C;
+    /*0x1E*/ u16 filler1E;
     /*0x20*/ u32 guardimalExp;
     /*0x24*/ u32 guardimalNextExp;
 }; /* size = unknown */
+
+struct SB90
+{
+    u8 unk0;
+    u8 filler1;
+    u8 unk2;
+    u8 unk3;
+};
 
 /* TODO: list offsets and add defines */
 struct SaveBlock1
@@ -70,14 +79,11 @@ struct SaveBlock1
     /*0x05C*/ u32 playerExp; // max = 00BD95FC
     /*0x060*/ u32 unk60;
     /*0x064*/ struct GuardimalAttrib guardimalAttrib;
-    /*0x08C*/ u8 battleItemOne;
-    /*0x08D*/ u8 battleItemTwo;
-    /*0x08E*/ u8 battleItemThree;
-    /*0x08F*/ u8 battleItemFour;
-    /*0x090*/ u8 filler90[0x54];
+    /*0x08C*/ u8 battleAidItemList[4]; // guardimal's equipment. 
+    /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 filler42C[0x1E];
-    /*0x*/ u8 numWoundBand;
+    /*0x44A*/ u8 numWoundBand;
     /*0x*/ u8 numJvhuaCha; // TODO: rename this
     /*0x*/ u8 numGoodPotion;
     /*0x*/ u8 numSoftBoiledEgg;
