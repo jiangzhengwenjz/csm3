@@ -402,16 +402,125 @@ void sub_08018118(void)
     }
 }
 
-void sub_0801818C(u16 *nameBuffer)
+void SetGuardimalName(u16 *nameBuffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i = 0;
 
-    memcpy(&sb1->unk66[0], &nameBuffer[0], sizeof(nameBuffer[0]));
+    memcpy(&sb1->guardimalAttrib.guardimalName[0], &nameBuffer[0], sizeof(nameBuffer[0]));
     ++sb1; --sb1;
     while (nameBuffer[i])
     {
         ++i;
-        sb1->unk66[i] = nameBuffer[i];
+        sb1->guardimalAttrib.guardimalName[i] = nameBuffer[i];
     }
+}
+
+void SetGuardimalType(u8 r4)
+{
+    gSaveBlock1Ptr->guardimalAttrib.guardimalType = r4;
+    sub_08012F0C(0x183, (s8)r4); // UB
+    if (r4 != 0xff)
+    {
+        sub_08012F0C(0x176, (s8)r4); // UB
+    }
+}
+
+void SetGuardimalLevel(u8 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalLevel = r0;
+}
+
+void sub_08018210(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    if (r0 > gap->guardimalHp)
+    {
+        gap->unk12 = gap->guardimalHp;
+    }
+    else
+    {
+        gap->unk12 = r0;
+    }
+}
+
+void SetGuardimalHp(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalHp = r0;
+}
+
+void SetGuardimalMag(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalMag = r0;
+}
+
+void SetGuardimalAtk(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalAtk = r0;
+}
+
+void SetGuardimalDef(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalDef = r0;
+}
+
+void SetGuardimalAgl(u16 r0)
+{
+    struct GuardimalAttrib *gap = &gSaveBlock1Ptr->guardimalAttrib;
+    gap->guardimalAgl = r0;
+}
+
+void sub_08018284(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk0 = r1;
+}
+
+void sub_08018298(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk2 = r1;
+}
+
+void sub_080182AC(u8 r0, u8 r1)
+{
+    gSaveBlock1Ptr->unk90[r0].unk3 = r1;
+}
+
+void SetBattleAidItem(u8 index, u8 item)
+{
+    gSaveBlock1Ptr->battleAidItemList[index] = item;
+}
+
+void SetGuardimalExp(u32 exp)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(exp > 99999999)
+    {
+        exp = 99999999;
+    }
+    ga1->guardimalExp = exp;
+}
+
+void SetGuardimalNextExp(u32 exp)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(exp > 99999999)
+    {
+        exp = 99999999;
+    }
+    ga1->guardimalNextExp = exp;
+}
+
+void sub_08018314(u16 r0)
+{
+    struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
+    if(r0 > 9999)
+    {
+        r0 = 9999;
+    }
+    ga1->unk1C = r0;
 }

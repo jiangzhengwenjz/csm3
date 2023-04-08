@@ -6545,35 +6545,35 @@ _080155CC:
 	bl SetPlayerEquipItemType
 	bl sub_0801644C
 	movs r0, #0xff
-	bl sub_080181C8
+	bl SetGuardimalType
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #0
 	bl sub_080160F8
 	movs r0, #1
 	bl sub_08016724
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	bl sub_080191E4
 	add sp, #4
 	pop {r4, r5, r6, r7}
@@ -7871,19 +7871,19 @@ sub_080160F8: @ 0x080160F8
 	b _08016254
 _08016104:
 	adds r0, r5, #0
-	bl sub_080181C8
+	bl SetGuardimalType
 	ldr r0, _0801625C @ =gUnk_08B801BC
 	lsls r4, r5, #2
 	adds r0, r4, r0
 	ldr r0, [r0]
-	bl sub_0801818C
+	bl SetGuardimalName
 	movs r0, #1
-	bl sub_08018200
+	bl SetGuardimalLevel
 	movs r0, #1
 	bl sub_08016C78
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018234
+	bl SetGuardimalHp
 	movs r0, #1
 	bl sub_08016C78
 	lsls r0, r0, #0x18
@@ -7893,39 +7893,39 @@ _08016104:
 	bl sub_08016CD8
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018254
+	bl SetGuardimalAtk
 	movs r0, #1
 	bl sub_08016D38
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018264
+	bl SetGuardimalDef
 	movs r0, #1
 	bl sub_08016D98
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
-	bl sub_08018274
+	bl SetGuardimalAgl
 	movs r0, #1
 	bl sub_08016DF8
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018244
+	bl SetGuardimalMag
 	movs r0, #0
-	bl sub_080182D4
+	bl SetGuardimalExp
 	movs r0, #2
 	bl sub_08016E58
-	bl sub_080182F4
+	bl SetGuardimalNextExp
 	movs r0, #0
 	movs r1, #0x92
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	movs r6, #0
 	ldr r0, _08016260 @ =gUnk_08B7E0A8
 	adds r4, r4, r5

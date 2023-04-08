@@ -25,8 +25,33 @@ struct BagWeapon
     u16 weaponCurrentDur;
     u16 weaponMaxDur;
     u16 weaponInitDur;
-    u16 isGoodWeapon;
+    bool16 isGoodWeapon;
 }; /* size = 0x1C */
+
+struct GuardimalAttrib
+{
+    /*0x00*/ u8 guardimalType; // 00-04
+    /*0x01*/ u8 guardimalLevel;
+    /*0x02*/ u16 guardimalName[0x7]; // Something related to guardimal name
+    /*0x10*/ u16 guardimalHp;
+    /*0x12*/ u16 unk12;
+    /*0x14*/ u16 guardimalMag;
+    /*0x16*/ u16 guardimalAtk;
+    /*0x18*/ u16 guardimalDef;
+    /*0x1A*/ u16 guardimalAgl;
+    /*0x1C*/ u16 unk1C;
+    /*0x1E*/ u16 filler1E;
+    /*0x20*/ u32 guardimalExp;
+    /*0x24*/ u32 guardimalNextExp;
+}; /* size = unknown */
+
+struct SB90
+{
+    u8 unk0;
+    u8 filler1;
+    u8 unk2;
+    u8 unk3;
+};
 
 /* TODO: list offsets and add defines */
 struct SaveBlock1
@@ -53,26 +78,12 @@ struct SaveBlock1
     /*0x05A*/ u16 filler5A;
     /*0x05C*/ u32 playerExp; // max = 00BD95FC
     /*0x060*/ u32 unk60;
-    /*0x064*/ u8 guardimalType; // 00-04
-    /*0x065*/ u8 guardimalLevel;
-    /*0x066*/ u16 unk66[0x7]; // Something related to guardimal name
-    /*0x074*/ u16 guardimalHp;
-    /*0x076*/ u16 filler76;
-    /*0x078*/ u16 guardimalMag;
-    /*0x07A*/ u16 guardimalAtk;
-    /*0x07C*/ u16 guardimalDef;
-    /*0x07E*/ u16 guardimalAgl;
-    /*0x080*/ u32 filler80;
-    /*0x084*/ u32 guardimalExp;
-    /*0x088*/ u32 guardimalNextExp;
-    /*0x08C*/ u8 battleItemOne;
-    /*0x08D*/ u8 battleItemTwo;
-    /*0x08E*/ u8 battleItemThree;
-    /*0x08F*/ u8 battleItemFour;
-    /*0x090*/ u8 filler90[0x54];
+    /*0x064*/ struct GuardimalAttrib guardimalAttrib;
+    /*0x08C*/ u8 battleAidItemList[4]; // guardimal's equipment. 
+    /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 filler42C[0x1E];
-    /*0x*/ u8 numWoundBand;
+    /*0x44A*/ u8 numWoundBand;
     /*0x*/ u8 numJvhuaCha; // TODO: rename this
     /*0x*/ u8 numGoodPotion;
     /*0x*/ u8 numSoftBoiledEgg;
@@ -241,8 +252,8 @@ struct SaveBlock1
     /*0x*/ u8 filler53E;
     /*0x*/ u8 filler53F;
     /*0x*/ u8 filler540[0x24];
-    /*0x*/ bool8 weaponDexLighted[0x1E]; 
-    /*0x*/ u8 filler582; // weird
+    /*0x*/ u8 weaponDexLighted[0x1E]; 
+    /*0x*/ u8 filler582; // Weird. Idk why it needs a struct align here. 
     /*0x*/ u8 weaponSkillDex1[6];
     /*0x*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
     /*0x*/ u8 weaponSpecialEffectDex1[5];

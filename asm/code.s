@@ -66181,9 +66181,9 @@ sub_0805F49C: @ 0x0805F49C
 	adds r2, r6, #0
 	bl sub_08018F64
 	adds r0, r4, #0
-	bl sub_080182D4
+	bl SetGuardimalExp
 	ldr r0, [sp, #4]
-	bl sub_080182F4
+	bl SetGuardimalNextExp
 _0805F4FC:
 	movs r5, #0
 	ldr r0, [r7]
@@ -66468,7 +66468,7 @@ _0805F728:
 	adds r4, r0, r4
 	lsls r0, r4, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018200
+	bl SetGuardimalLevel
 	bl sub_08018944
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
@@ -66479,7 +66479,7 @@ _0805F728:
 	adds r4, r0, r1
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08018234
+	bl SetGuardimalHp
 	bl sub_08018964
 	lsls r0, r0, #0x10
 	ldr r1, _0805F938 @ =0x00000216
@@ -66489,7 +66489,7 @@ _0805F728:
 	adds r4, r0, r1
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08018254
+	bl SetGuardimalAtk
 	bl sub_08018974
 	lsls r0, r0, #0x10
 	movs r1, #0x86
@@ -66500,7 +66500,7 @@ _0805F728:
 	adds r4, r0, r1
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08018264
+	bl SetGuardimalDef
 	bl sub_08018984
 	lsls r0, r0, #0x10
 	ldr r1, _0805F93C @ =0x0000021A
@@ -66510,7 +66510,7 @@ _0805F728:
 	adds r4, r0, r1
 	lsls r0, r4, #0x10
 	asrs r0, r0, #0x10
-	bl sub_08018274
+	bl SetGuardimalAgl
 	bl sub_08018954
 	lsls r0, r0, #0x10
 	movs r1, #0x87
@@ -66521,7 +66521,7 @@ _0805F728:
 	adds r4, r0, r1
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
-	bl sub_08018244
+	bl SetGuardimalMag
 	movs r1, #0
 	mov sb, r1
 	mov sl, r1
@@ -66854,7 +66854,7 @@ _0805FA6C:
 	lsls r0, r6, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _0805FA84:
 	mov r6, r8
 	cmp r6, #3
@@ -92741,7 +92741,7 @@ _0806D26C: .4byte gUnk_03006B1C
 _0806D270:
 	adds r0, r5, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	b _0806D2AA
 _0806D27A:
 	bl sub_08018E3C
@@ -112122,7 +112122,7 @@ _080774E8:
 	bne _0807754A
 	ldrb r0, [r5, #4]
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	bl sub_080775B4
 	adds r0, r5, #0
 	adds r0, #0x10
@@ -116972,7 +116972,7 @@ _08079CE8:
 	bne _08079D42
 	movs r0, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _08079D42:
 	movs r0, #1
 	bl sub_080189D0
@@ -116982,7 +116982,7 @@ _08079D42:
 	bne _08079D58
 	movs r0, #1
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _08079D58:
 	movs r0, #2
 	bl sub_080189D0
@@ -116992,7 +116992,7 @@ _08079D58:
 	bne _08079D6E
 	movs r0, #2
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _08079D6E:
 	movs r0, #3
 	bl sub_080189D0
@@ -117002,7 +117002,7 @@ _08079D6E:
 	bne _08079E28
 	movs r0, #3
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	b _08079E28
 _08079D86:
 	cmp r1, #0x82
@@ -117517,7 +117517,7 @@ _0807A176:
 	bne _0807A174
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _0807A1A0:
 	movs r1, #0xa
 	ldrsh r0, [r5, r1]
@@ -121474,11 +121474,11 @@ _0807C272:
 	bne _0807C26C
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _0807C290:
 	ldrb r0, [r7, #0xa]
 	adds r1, r6, #0
-	bl sub_080182C0
+	bl SetBattleAidItem
 	mov r0, r8
 	movs r1, #2
 	movs r2, #1
@@ -121901,7 +121901,7 @@ _0807C62C:
 	bne _0807C624
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 	b _0807C7DA
 _0807C654:
 	adds r0, r7, #0
@@ -124040,13 +124040,13 @@ _0807D7E6:
 	bne _0807D7E0
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _0807D80A:
 	ldrb r0, [r6, #0xa]
 	mov r2, sl
 	lsls r1, r2, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_080182C0
+	bl SetBattleAidItem
 	mov r0, r8
 	movs r1, #2
 	movs r2, #1
@@ -150992,7 +150992,7 @@ _0808BAA2:
 	bne _0808BAA0
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_080182C0
+	bl SetBattleAidItem
 _0808BACC:
 	ldr r0, _0808BB20 @ =0x00000B0A
 	adds r5, r6, r0
@@ -208140,7 +208140,7 @@ _080A80F8:
 	ldr r1, [r4]
 	bl sub_0800E77C
 	ldr r0, [r4]
-	bl sub_0801818C
+	bl SetGuardimalName
 _080A8118:
 	pop {r4, r5}
 	pop {r0}
@@ -210607,7 +210607,7 @@ _080A9430:
 	adds r1, r4, #0
 	bl sub_0800E77C
 	adds r0, r4, #0
-	bl sub_0801818C
+	bl SetGuardimalName
 _080A9442:
 	pop {r4, r5}
 	pop {r0}
@@ -234937,12 +234937,12 @@ _080B5EC6:
 	cmp r0, #4
 	bne _080B5EE0
 	movs r0, #0xff
-	bl sub_080181C8
+	bl SetGuardimalType
 	b _080B5EF4
 _080B5EE0:
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080181C8
+	bl SetGuardimalType
 	bl sub_08018924
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
@@ -234955,7 +234955,7 @@ _080B5EF4:
 	ldrh r0, [r6, #0x26]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018200
+	bl SetGuardimalLevel
 	ldrh r0, [r6, #0x26]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
