@@ -15,13 +15,12 @@ void InitAttribTablePointer(void)
 void SetPlayerName(u16 *nameBuffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
-    u16 i = 0;
+    u16 i;
 
-    sb1->playerName[0] = nameBuffer[0];
-    while (nameBuffer[i])
+    for (i = 0; ;++i)
     {
-        ++i;
         sb1->playerName[i] = nameBuffer[i];
+        if(!nameBuffer[i]) break;
     }
 }
 
@@ -29,13 +28,12 @@ void SetPlayerName(u16 *nameBuffer)
 void sub_08017B7C(u16 *buffer)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
-    u16 i = 0;
+    u16 i;
 
-    sb1->unk16[0] = buffer[0];
-    while (buffer[i])
+    for (i = 0; ; ++i)
     {
-        ++i;
         sb1->unk16[i] = buffer[i];
+        if (!buffer[i]) break;
     }
 }
 
