@@ -3559,7 +3559,7 @@ _0800AFFA:
 	cmp r0, #1
 	bne _0800B0AC
 	ldr r4, _0800B11C @ =0x0000C083
-	bl sub_08018408
+	bl GetSavedPlayerName
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_0800E77C

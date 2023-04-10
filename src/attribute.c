@@ -377,7 +377,7 @@ void SetBagWeaponEnhanceItem(u8 wpIndex, u8 itemIndex, u8 itemType)
 
 void sub_08018118(void)
 {
-    u16 temp = sub_0801844C();
+    u16 temp = GetPlayerMaxHp();
     s32 count;
     u8 r4, var;
     if (temp > gSaveBlock1Ptr->playerMaxHp)
@@ -523,4 +523,144 @@ void sub_08018314(u16 r0)
         r0 = 9999;
     }
     ga1->unk1C = r0;
+}
+
+void sub_08018338(u16 idx, u8 num)
+{
+    gSaveBlock1Ptr->itemQuantityList[idx] = num;
+}
+
+void sub_08018354(s32 money1)
+{
+    if (money1 > 9999999)
+    {
+        money1 = 9999999;
+    }
+    else if(money1 < 0)
+    {
+        money1 = 0;
+    }
+    gSaveBlock1Ptr->money = money1;
+}
+
+void sub_08018384(u32 point)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    if (point > 0xffff)
+    {
+        point = 0xffff;
+    }
+    sb1->fishingPoint = point;
+}
+
+void sub_080183AC(u16 *r5)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u16 i;
+
+    CpuFill16(0, sb1->unk5B0, sizeof(sb1->unk5B0));
+    for (i = 0; ; ++i)
+    {
+        sb1->unk5B0[i] = r5[i];
+        if (!r5[i]) break;
+    }
+}
+
+u16* GetSavedPlayerName(void)
+{
+    return gSaveBlock1Ptr->playerName;
+}
+
+u16* sub_08018414(void)
+{
+    return gSaveBlock1Ptr->unk16;
+}
+
+u8 GetPlayerGender(void)
+{
+    return gSaveBlock1Ptr->playerGender;
+}
+
+u8 GetForgeLevel(u8 idx)
+{
+    return gSaveBlock1Ptr->forgeLevelList[idx];
+}
+
+u8 GetPlayerLevel(void)
+{
+    return gSaveBlock1Ptr->playerLevel;
+}
+
+u16 GetPlayerMaxHp(void)
+{
+    return gSaveBlock1Ptr->playerMaxHp;
+}
+
+u16 GetPlayerCurrentHp(void)
+{
+    return gSaveBlock1Ptr->playerCurrentHp;
+}
+
+u32 GetPlayerExp(void)
+{
+    return gSaveBlock1Ptr->playerExp;
+}
+
+u32 sub_08018470(void)
+{
+    return gSaveBlock1Ptr->unk60;
+}
+
+u16 GetPlayerAtk(u8 idx)
+{
+    return gSaveBlock1Ptr->playerAtkList[idx];
+}
+
+u16 GetPlayerDef(u8 idx)
+{
+    return gSaveBlock1Ptr->playerDefList[idx];
+}
+
+s16 GetPlayerAgl(u8 idx)
+{
+    return gSaveBlock1Ptr->playerAglList[idx];
+}
+
+u8 sub_080184BC(void)
+{
+    return gSaveBlock1Ptr->unk58;
+}
+
+u8 GetEquipWeapon(u8 idx)
+{
+    return gSaveBlock1Ptr->equipWeaponTypeList[idx];
+}
+
+u8 GetEquipItem(void)
+{
+    return gSaveBlock1Ptr->equipItemType;
+}
+
+u8 sub_080184F0(void)
+{
+    return gSaveBlock1Ptr->unk59;
+}
+
+u16 sub_08018500(u8 idx)
+{
+    return gSaveBlock1Ptr->unk4A[idx];
+}
+
+u16 GetBonusStats(void)
+{
+    return gSaveBlock1Ptr->bonusStats;
+}
+
+const u16 sub_08018524(u8 a)
+{
+    if (a > 9)
+    {
+        a = 9;
+    }
+    return gUnk_08B80178[a];
 }

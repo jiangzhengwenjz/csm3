@@ -7137,7 +7137,7 @@ sub_08015AA4: @ 0x08015AA4
 	mov r8, r0
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_0801842C
+	bl GetForgeLevel
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 	adds r0, r6, #0
@@ -7249,7 +7249,7 @@ _08015BFE:
 	mov sl, r1
 _08015C08:
 	movs r0, #0
-	bl sub_080184CC
+	bl GetEquipWeapon
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, r6
@@ -7266,7 +7266,7 @@ _08015C28: .4byte 0x00000FFF
 _08015C2C: .4byte gSaveBlock1Ptr
 _08015C30:
 	movs r0, #1
-	bl sub_080184CC
+	bl GetEquipWeapon
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, r6
@@ -7280,7 +7280,7 @@ _08015C30:
 _08015C48: .4byte gSaveBlock1Ptr
 _08015C4C:
 	movs r0, #2
-	bl sub_080184CC
+	bl GetEquipWeapon
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, r6
@@ -10609,7 +10609,7 @@ _0801762C: .4byte gUnk_03006578
 	thumb_func_start sub_08017630
 sub_08017630: @ 0x08017630
 	push {r4, r5, r6, lr}
-	bl sub_0801844C
+	bl GetPlayerMaxHp
 	lsls r0, r0, #0x10
 	lsrs r2, r0, #0x10
 	ldr r0, _08017648 @ =gSaveBlock1Ptr

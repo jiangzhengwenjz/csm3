@@ -3,6 +3,11 @@
 
 #include "global.h"
 
+/* Array index defines. Used in itemQuantityList */
+#define NUM_WOUND_BAND 0
+#define NUM_JVHUA_CHA 1
+#define GOOD_POTION 2
+
 struct RoleAttrib
 {
     u8 filler0[0x78];
@@ -67,7 +72,7 @@ struct SaveBlock1
     /*0x030*/ u16 filler30; // always 03e7 in memory, weird
     /*0x032*/ u16 playerDefList[4];
     /*0x03A*/ u16 filler3A;
-    /*0x03C*/ u16 playerAglList[4];
+    /*0x03C*/ s16 playerAglList[4];
     /*0x044*/ u16 filler44;
     /*0x046*/ u8 equipWeaponTypeList[3]; // index of equip weapon1, weapon2, weapon3 max = 0x1D, as one can take up to 30 wepons in the bag
     /*0x049*/ u8 equipItemType;
@@ -83,9 +88,7 @@ struct SaveBlock1
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 filler42C[0x1E];
-    /*0x44A*/ u8 numWoundBand;
-    /*0x*/ u8 numJvhuaCha; // TODO: rename this
-    /*0x*/ u8 numGoodPotion;
+    /*0x44A*/ u8 itemQuantityList[0x3]; // TODO:Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 numSoftBoiledEgg;
     /*0x*/ u8 numEggFryRice;
     /*0x*/ u8 numSpicyCurry;
@@ -261,10 +264,8 @@ struct SaveBlock1
     /*0x*/ u8 weaponSpecialEffectDex2[5];
     /*0x*/ u8 filler59A;
     /*0x*/ u8 summonGuardianDex[17];
-    /*0x*/ u32 money; // max = 9999999, or 0x0098967F in hex
-    /*0x*/ u8 filler5B0[0x14]; // something related to the map. 
-    /*0x*/ u32 filler5C4; // something related to the probability of collision with an enemy. 
-    /*0x*/ u8 filler5C8[0xE];
+    /*0x*/ s32 money; // max = 9999999, or 0x0098967F in hex
+    /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the possibility to evade enemies. 
     /*0x*/ u16 fishingPoint;
 }; /* size = 0x5D8 */
 
@@ -279,7 +280,7 @@ extern void sub_080154F0(void);
 extern u8 sub_08018728(u8 a);
 extern u8 sub_080639E8(u8 a);
 extern u16 sub_080187B4(u8 a);
-extern u16 sub_0801844C(void);
+extern u16 GetPlayerMaxHp(void);
 extern u8 sub_080189BC(u8 a);
 extern void sub_08018298(u8 a, u8 b);
 
