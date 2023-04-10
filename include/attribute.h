@@ -4,9 +4,9 @@
 #include "global.h"
 
 /* Array index defines. Used in itemQuantityList */
-#define NUM_WOUND_BAND 0
-#define NUM_JVHUA_CHA 1
-#define GOOD_POTION 2
+#define ITEM_QUANTITY_WOUND_BAND_IDX 0
+#define ITEM_QUANTITY_JVHUA_CHA_IDX 1
+#define ITEM_QUANTITY_GOOD_POTION_IDX 2
 
 struct RoleAttrib
 {

@@ -17,10 +17,10 @@ void SetPlayerName(u16 *nameBuffer)
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i;
 
-    for (i = 0; ;++i)
+    for (i = 0; ; ++i)
     {
         sb1->playerName[i] = nameBuffer[i];
-        if(!nameBuffer[i]) break;
+        if (!nameBuffer[i]) break;
     }
 }
 
@@ -516,7 +516,7 @@ void SetGuardimalNextExp(u32 exp)
 void sub_08018314(u16 r0)
 {
     struct GuardimalAttrib *ga1 = &gSaveBlock1Ptr->guardimalAttrib;
-    if(r0 > 9999)
+    if (r0 > 9999)
     {
         r0 = 9999;
     }
@@ -534,7 +534,7 @@ void sub_08018354(s32 money1)
     {
         money1 = 9999999;
     }
-    else if(money1 < 0)
+    else if (money1 < 0)
     {
         money1 = 0;
     }
@@ -654,7 +654,7 @@ u16 GetBonusStats(void)
     return gSaveBlock1Ptr->bonusStats;
 }
 
-const u16 sub_08018524(u8 a)
+u16 sub_08018524(u8 a)
 {
     if (a > 9)
     {
