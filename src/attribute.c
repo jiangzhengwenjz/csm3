@@ -405,7 +405,7 @@ void SetGuardimalName(u16 *nameBuffer)
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u16 i = 0;
 
-    memcpy(&sb1->guardimalAttrib.guardimalName[0], &nameBuffer[0], sizeof(nameBuffer[0]));
+    memcpy(&sb1->guardimalAttrib.guardimalName[0], &nameBuffer[0], sizeof(nameBuffer[0])); // cannot match with for loop like SetPlayerName.
     ++sb1; --sb1;
     while (nameBuffer[i])
     {
