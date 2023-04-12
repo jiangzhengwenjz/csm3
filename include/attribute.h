@@ -88,7 +88,7 @@ struct SaveBlock1
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 filler42C[0x1E];
-    /*0x44A*/ u8 itemQuantityList[0x3]; // TODO:Find out what's the real data structure. Current array is just for matching. 
+    /*0x44A*/ u8 itemQuantityList[0x3]; // TODO: Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 numSoftBoiledEgg;
     /*0x*/ u8 numEggFryRice;
     /*0x*/ u8 numSpicyCurry;
@@ -265,7 +265,7 @@ struct SaveBlock1
     /*0x*/ u8 filler59A;
     /*0x*/ u8 summonGuardianDex[17];
     /*0x*/ s32 money; // max = 9999999, or 0x0098967F in hex
-    /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the possibility to evade enemies. 
+    /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the probability to evade enemies. 
     /*0x*/ u16 fishingPoint;
 }; /* size = 0x5D8 */
 

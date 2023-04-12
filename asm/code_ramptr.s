@@ -3,23 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08012D14
-sub_08012D14: @ 0x08012D14
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	ldr r3, _08012D2C @ =gUnk_03006590
-	lsls r2, r0, #4
-	adds r2, r2, r0
-	lsls r2, r2, #2
-	subs r2, r2, r0
-	lsls r2, r2, #2
-	adds r3, #0x28
-	adds r2, r2, r3
-	str r1, [r2]
-	bx lr
-	.align 2, 0
-_08012D2C: .4byte gUnk_03006590
-
 	thumb_func_start sub_08012D30
 sub_08012D30: @ 0x08012D30
 	push {r4, lr}
