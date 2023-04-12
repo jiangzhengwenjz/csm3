@@ -3,32 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08012CDC
-sub_08012CDC: @ 0x08012CDC
-	push {r4, lr}
-	sub sp, #4
-	mov r0, sp
-	movs r4, #0
-	strh r4, [r0]
-	movs r1, #0x80
-	lsls r1, r1, #0x12
-	ldr r2, _08012D08 @ =0x01000200
-	bl CpuSet
-	mov r0, sp
-	adds r0, #2
-	strh r4, [r0]
-	ldr r1, _08012D0C @ =gUnk_02000540
-	ldr r2, _08012D10 @ =0x010000F2
-	bl CpuSet
-	add sp, #4
-	pop {r4}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08012D08: .4byte 0x01000200
-_08012D0C: .4byte gUnk_02000540
-_08012D10: .4byte 0x010000F2
-
 	thumb_func_start sub_08012D14
 sub_08012D14: @ 0x08012D14
 	lsls r0, r0, #0x10
