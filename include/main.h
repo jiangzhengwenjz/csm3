@@ -172,13 +172,13 @@ extern void sub_080B3128(void);
 extern void sub_080B4970(void);
 extern void sub_08062EB0(void);
 extern void sub_08093418(void);
-extern void sub_08012D14(u16 a, struct Unk_08001DE8_1 *b);
+extern void sub_08012D14(u16 a, u32 *b);
 extern void sub_08012D30(void);
 extern void sub_08012D64(int a, int b, int c);
 extern void sub_08012F0C(int a, int b);
 
 extern int gUnk_03002968;
-extern struct Unk_08001DE8_1 gUnk_02006000;
+extern int gUnk_02006000;
 extern int gUnk_03003364;
 extern vu16 gUnk_03002948;
 extern int gUnk_03002954;

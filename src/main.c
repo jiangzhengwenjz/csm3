@@ -486,10 +486,10 @@ int sub_08001D5C(u16 a, u16 b)
     return 16 * gUnk_03002970[a][b * 2 + 3];
 }
 
-struct Unk_08001DE8_1 *sub_08001D78(int *a, u16 b)
+int *sub_08001D78(int *a, u16 b)
 {
     int *var = &a[b * 2 + 2];
-    return (struct Unk_08001DE8_1 *) &a[*var * 4]; // TODO: Fix cast.
+    return &a[*var * 4];
 }
 
 int sub_08001D88(u32 *a, u16 b)
@@ -502,7 +502,7 @@ u16 sub_08001D94(u16 *a)
     return a[0];
 }
 
-void sub_08001D98(u32 *a, struct Unk_08001D98 *b) // TODO: Fix a's type. It's struct Unk_08001DE8_1 * actually.
+void sub_08001D98(u32 *a, struct Unk_08001D98 *b)
 {
     u32 var;
     

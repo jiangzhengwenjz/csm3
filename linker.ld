@@ -11,7 +11,6 @@ MEMORY {
 
 SECTIONS {
     ewram (NOLOAD) : ALIGN(4) {
-        . = 0x00000000; gUnk_02000000 = .;
         . = 0x00000100; gUnk_02000100 = .;
         . = 0x00000180; gUnk_02000180 = .;
         . = 0x000001C0; gUnk_020001C0 = .;

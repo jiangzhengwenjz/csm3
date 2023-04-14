@@ -9,7 +9,7 @@ struct Unk_030040C0
     u16 unk2; // obj tile index
     u32 unk4;
     struct Unk_030040C0_8 *unk8;
-    struct Unk_08001DE8_1 *unkC;
+    u32 *unkC;
 }; /* size = 0x10 */
 
 struct Unk_03003CC0

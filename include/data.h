@@ -6,7 +6,7 @@
 struct Unk_03006590
 {
     u8 filler0[0x28];
-    struct Unk_08001DE8_1 *unk28;
+    u32 *unk28;
     u8 filler2c[0xE0];
 }; /* size = 0x10C */
 

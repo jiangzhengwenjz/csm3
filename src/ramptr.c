@@ -22,7 +22,7 @@ void sub_08012CDC(void)
     CpuFill16(0, gUnk_02000540, 0x1E4);
 }
 
-void sub_08012D14(u16 r0, struct Unk_08001DE8_1 *r1)
+void sub_08012D14(u16 r0, u32 *r1)
 {
     gUnk_03006590[r0].unk28 = r1;
 }
