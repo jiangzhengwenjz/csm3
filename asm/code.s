@@ -1163,7 +1163,7 @@ _0803EE28:
 	bl GetEquipWeapon
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 _0803EE3A:
@@ -1175,16 +1175,16 @@ _0803EE3A:
 	beq _0803EEC8
 	adds r4, r5, #0
 	adds r0, r4, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	strh r0, [r6, #0x10]
 	adds r0, r4, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	strh r0, [r6, #0x12]
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	strh r0, [r6, #0x14]
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0x64
@@ -1192,7 +1192,7 @@ _0803EE3A:
 	mov r2, r8
 	str r0, [r2]
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r3, #0x64
@@ -1200,7 +1200,7 @@ _0803EE3A:
 	ldr r1, [sp, #0x50]
 	str r0, [r1]
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r2, #0x64
@@ -1213,10 +1213,10 @@ _0803EE3A:
 	cmp r0, #0xf5
 	bhi _0803EEB4
 	adds r0, r4, #0
-	bl sub_08018894
+	bl GetWeaponSkill
 	strb r0, [r6, #0xe]
 	adds r0, r4, #0
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	strb r0, [r6, #0xf]
 	b _0803EF02
 _0803EEB4:
@@ -59367,7 +59367,7 @@ _0805BBA0:
 	ldr r3, _0805BC08 @ =0xFFFFFC18
 	adds r0, r0, r3
 	adds r0, r0, r4
-	bl sub_08018354
+	bl SetMoney
 	ldr r0, [sp, #8]
 	adds r0, #1
 	str r0, [sp, #8]
@@ -66848,7 +66848,7 @@ _0805FA6C:
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
 	adds r1, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	cmp r4, #0
 	bne _0805FA84
 	lsls r0, r6, #0x18
@@ -87356,7 +87356,7 @@ sub_0806A670: @ 0x0806A670
 	lsls r3, r3, #0x10
 	lsrs r3, r3, #0x10
 	mov r8, r3
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sb, r0
@@ -87546,11 +87546,11 @@ _0806A84C:
 	movs r0, #0
 	bl sub_08010FC8
 	mov r0, sl
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	mov r0, sl
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	mov r0, sb
@@ -87667,7 +87667,7 @@ _0806A94C:
 	bne _0806A992
 _0806A95C:
 	mov r0, sl
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne _0806A992
@@ -90029,7 +90029,7 @@ _0806BC64:
 	ldrh r0, [r5, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	strh r0, [r5, #0x1e]
@@ -91144,7 +91144,7 @@ _0806C520:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -91462,7 +91462,7 @@ _0806C81C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0xd
@@ -91486,7 +91486,7 @@ _0806C81C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0x11
@@ -91642,14 +91642,14 @@ _0806C99C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	cmp r4, #0
@@ -91985,13 +91985,13 @@ _0806CC4C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 _0806CC64:
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
@@ -92074,7 +92074,7 @@ _0806CCF2:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 _0806CD0A:
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
@@ -92285,7 +92285,7 @@ _0806CE6C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #0x11
@@ -92302,7 +92302,7 @@ _0806CE6C:
 	ldrh r0, [r7, #0x20]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsls r1, r6, #0x10
 	lsrs r4, r0, #0x10
@@ -92501,7 +92501,7 @@ sub_0806D054: @ 0x0806D054
 	mov sb, r0
 	cmp r6, #0xf7
 	bhi _0806D0BC
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 	lsls r0, r6, #0x18
@@ -92586,7 +92586,7 @@ _0806D11C:
 	ble _0806D138
 	adds r0, r5, #0
 	movs r1, #0x63
-	bl sub_08018338
+	bl SetItemQuantity
 _0806D12A:
 	ldr r0, _0806D134 @ =gUnk_03006B18
 	mov r2, sb
@@ -92600,7 +92600,7 @@ _0806D138:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r5, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0806D146:
 	ldr r0, _0806D150 @ =gUnk_03006B18
 	mov r1, sb
@@ -92621,7 +92621,7 @@ _0806D160:
 	bge _0806D17C
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	ldr r0, _0806D178 @ =gUnk_03006B18
 	mov r2, sb
 	strh r2, [r0]
@@ -92634,7 +92634,7 @@ _0806D17C:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r5, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0806D18A:
 	ldr r0, _0806D200 @ =gUnk_03006B18
 	mov r1, sb
@@ -92728,7 +92728,7 @@ _0806D244:
 	bhi _0806D27A
 	bl sub_08018E3C
 	adds r0, r0, r5
-	bl sub_08018354
+	bl SetMoney
 	ldr r0, _0806D268 @ =gUnk_03006B18
 	strh r4, [r0]
 	ldr r0, _0806D26C @ =gUnk_03006B1C
@@ -92759,7 +92759,7 @@ _0806D27A:
 	strh r1, [r0]
 	bl sub_08018E3C
 	adds r0, r0, r5
-	bl sub_08018354
+	bl SetMoney
 _0806D2A2:
 	ldr r0, _0806D2E8 @ =gUnk_03005170
 	ldr r1, _0806D2EC @ =gUnk_08BCA088
@@ -95456,7 +95456,7 @@ _0806E8BC:
 	asrs r0, r0, #0x10
 	cmp r0, #1
 	bne _0806E930
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1e
@@ -95728,7 +95728,7 @@ _0806EB0E:
 	cmp r4, #0xff
 	beq _0806EB4C
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	adds r0, r5, #0
@@ -95944,7 +95944,7 @@ _0806ECFE:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	beq _0806ECF8
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639BC
@@ -96092,7 +96092,7 @@ _0806EDF0:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	beq _0806EE64
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639BC
@@ -98151,7 +98151,7 @@ _0806FE7C: .4byte gUnk_080BB80C
 _0806FE80: .4byte gUnk_080BB810
 _0806FE84:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -98169,17 +98169,17 @@ _0806FE84:
 	lsrs r5, r0, #0x18
 _0806FEAC:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0x18]
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 _0806FECE:
@@ -98272,7 +98272,7 @@ _0806FF8C: .4byte gUnk_08BC9CF4
 _0806FF90: .4byte gUnk_08BC9CF7
 _0806FF94:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -98290,17 +98290,17 @@ _0806FF94:
 	lsrs r5, r0, #0x18
 _0806FFBC:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0x18]
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 _0806FFDE:
@@ -98393,7 +98393,7 @@ _0807009C: .4byte gUnk_08BC9CF4
 _080700A0: .4byte gUnk_08BC9CF7
 _080700A4:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -98411,17 +98411,17 @@ _080700A4:
 	lsrs r5, r0, #0x18
 _080700CC:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0x18]
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 _080700EE:
@@ -98655,7 +98655,7 @@ _080702C2:
 	movs r0, #1
 	strb r0, [r6, #0xe]
 _080702D6:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080702E4
@@ -99485,7 +99485,7 @@ _080709E0: .4byte gUnk_0201095C
 _080709E4: .4byte gUnk_02010C5C
 _080709E8:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -99505,12 +99505,12 @@ _080709E8:
 	mov r8, r0
 _08070A14:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 _08070A2A:
@@ -99603,7 +99603,7 @@ _08070A2A:
 _08070AE8: .4byte gUnk_02010800
 _08070AEC:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -99623,12 +99623,12 @@ _08070AEC:
 	mov r8, r0
 _08070B18:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x18]
@@ -99721,7 +99721,7 @@ _08070B30:
 _08070BEC: .4byte gUnk_02010800
 _08070BF0:
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -99741,12 +99741,12 @@ _08070BF0:
 	mov r8, r0
 _08070C1C:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x18]
@@ -107936,7 +107936,7 @@ _080751A2:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r0, #0xff
 	bl SetPlayerEquipItemType
 _080751CC:
@@ -108080,7 +108080,7 @@ sub_08075298: @ 0x08075298
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	beq _080752FA
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639BC
@@ -108115,7 +108115,7 @@ _08075318:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	beq _08075344
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639BC
@@ -108142,7 +108142,7 @@ _0807534E:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	beq _0807537C
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639BC
@@ -108251,7 +108251,7 @@ sub_08075408: @ 0x08075408
 	cmp r4, #0xff
 	beq _08075464
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -108539,7 +108539,7 @@ _080756A8: .4byte gUnk_0201089C
 _080756AC: .4byte gUnk_020108DC
 _080756B0:
 	adds r0, r7, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -108554,12 +108554,12 @@ _080756B0:
 	adds r5, #0x6f
 _080756D2:
 	adds r0, r6, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0x18]
 	adds r0, r6, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 _080756E8:
@@ -108815,7 +108815,7 @@ _080758F6:
 	ldrh r2, [r5, #6]
 	adds r0, r0, r2
 	ldrb r0, [r0]
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r2, #0xe3
@@ -109199,7 +109199,7 @@ _08075C6C:
 	adds r4, #0x94
 	adds r0, r4, r0
 	ldrb r0, [r0]
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne _08075CA8
@@ -109587,7 +109587,7 @@ _08075F7C:
 	mov r8, r0
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sb, r0
@@ -109636,7 +109636,7 @@ _08075FE4:
 	adds r1, r4, r1
 	str r0, [r1]
 	mov r0, r8
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne _08076010
@@ -109732,7 +109732,7 @@ sub_0807607C: @ 0x0807607C
 	mov r8, r0
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -109858,7 +109858,7 @@ sub_0807618C: @ 0x0807618C
 	adds r0, r0, r1
 	ldrb r4, [r0]
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	movs r3, #0xe3
 	lsls r3, r3, #2
 	adds r1, r7, r3
@@ -109952,7 +109952,7 @@ sub_0807618C: @ 0x0807618C
 	beq _080762F0
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -109967,17 +109967,17 @@ sub_0807618C: @ 0x0807618C
 	adds r5, #0x6f
 _080762AC:
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sb, r0
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r8, r0
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sl, r0
@@ -110132,7 +110132,7 @@ _080762F8:
 	mov r8, r0
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	movs r0, #3
 	bl GetPlayerAtk
 	lsls r0, r0, #0x10
@@ -110146,21 +110146,21 @@ _080762F8:
 	lsls r0, r0, #0x10
 	lsrs r7, r0, #0x10
 	adds r0, r4, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r1, r5, #0x10
 	asrs r1, r1, #0x10
 	adds r1, r1, r0
 	lsls r1, r1, #0x10
 	lsrs r5, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r1, r6, #0x10
 	asrs r1, r1, #0x10
 	adds r1, r1, r0
 	lsls r1, r1, #0x10
 	lsrs r6, r1, #0x10
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r1, r7, #0x10
 	asrs r1, r1, #0x10
 	adds r1, r1, r0
@@ -110389,17 +110389,17 @@ _0807663E:
 	bl sub_080012D4
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sb, r0
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r8, r0
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sl, r0
@@ -110695,7 +110695,7 @@ _08076898:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r0, #0xff
 	bl SetPlayerEquipItemType
 _080768E6:
@@ -110709,7 +110709,7 @@ _080768E6:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	bl sub_0801644C
 	adds r0, r6, #0
 	movs r1, #2
@@ -117034,7 +117034,7 @@ _08079DAA:
 _08079DBC:
 	cmp r1, #0x84
 	bne _08079DE2
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _08079DD4
@@ -117320,7 +117320,7 @@ _08079FFE:
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r4, #0
@@ -117492,7 +117492,7 @@ _0807A138:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r7, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r6, #0
 	b _0807A176
 	.align 2, 0
@@ -118584,7 +118584,7 @@ _0807A9A8: .4byte 0x00001FFF
 _0807A9AC:
 	cmp r0, #0xc
 	bne _0807A9E4
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -119823,7 +119823,7 @@ _0807B3FE:
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	strh r4, [r5, #0x10]
@@ -121504,7 +121504,7 @@ _0807C2AC:
 	lsrs r5, r5, #0x18
 	bl sub_0806F038
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -121578,7 +121578,7 @@ _0807C334:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0807C37E:
 	adds r0, r6, #0
 	bl sub_08018B50
@@ -121587,7 +121587,7 @@ _0807C37E:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r6, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	mov r2, sb
 	ldrh r0, [r2]
 	lsls r0, r0, #1
@@ -121876,7 +121876,7 @@ _0807C5F6:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r6, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r5, #0
 	b _0807C626
 _0807C624:
@@ -121978,7 +121978,7 @@ _0807C6D8:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0xb
-	bl sub_08018338
+	bl SetItemQuantity
 	ldr r0, _0807C724 @ =0x000001C9
 	movs r1, #2
 	bl sub_08012F0C
@@ -122014,7 +122014,7 @@ _0807C728:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0xc
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r0, #0xf3
 	lsls r0, r0, #1
 	movs r1, #2
@@ -122030,7 +122030,7 @@ _0807C74C:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0xd
-	bl sub_08018338
+	bl SetItemQuantity
 	movs r0, #0xf3
 	lsls r0, r0, #1
 	movs r1, #1
@@ -122088,7 +122088,7 @@ _0807C7D0:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0807C7DA:
 	movs r0, #0x28
 	strh r0, [r7, #2]
@@ -123034,7 +123034,7 @@ _0807CF3E:
 	strb r0, [r1]
 _0807CF54:
 	ldrb r0, [r6, #0xc]
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -125132,7 +125132,7 @@ _0807E0D0:
 	adds r1, #0x94
 	adds r1, r1, r0
 	ldrb r0, [r1]
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r2, #0xed
@@ -125616,7 +125616,7 @@ _0807E558:
 	adds r1, #0x94
 	adds r1, r1, r0
 	ldrb r0, [r1]
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _0807E588
@@ -125691,7 +125691,7 @@ _0807E610:
 	ldrb r5, [r0]
 	adds r4, r5, #0
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 	adds r0, r7, #0
@@ -125705,28 +125705,28 @@ _0807E610:
 	cmp r0, #5
 	bls _0807E684
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _0807E684
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _0807E67C
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _0807E67C
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -125767,7 +125767,7 @@ _0807E684:
 	lsls r4, r5, #0x18
 	lsrs r0, r4, #0x18
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -125784,7 +125784,7 @@ _0807E6F0:
 	bl sub_0806F038
 	lsrs r0, r4, #0x18
 	movs r1, #1
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -125803,7 +125803,7 @@ _0807E716:
 	bl sub_0806F038
 	lsrs r0, r4, #0x18
 	movs r1, #2
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -125823,11 +125823,11 @@ _0807E734:
 	ldrb r7, [r0]
 	adds r4, r7, #0
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -125867,7 +125867,7 @@ _0807E764:
 _0807E7AC:
 	cmp r0, #0
 	bne _0807E7DC
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1e
@@ -126309,7 +126309,7 @@ _0807EB42:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	ldrh r0, [r6, #0xa]
 	bl sub_08018B50
 	lsls r0, r0, #0x18
@@ -126467,7 +126467,7 @@ _0807ECC4:
 	adds r0, r0, r1
 	ldrb r5, [r0]
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -126526,7 +126526,7 @@ _0807ED42:
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	mov r8, r0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	cmp r4, #0
@@ -126602,7 +126602,7 @@ _0807EDF6:
 	mov r8, r2
 	lsrs r5, r2, #0x18
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sb, r0
@@ -126652,7 +126652,7 @@ _0807EE30:
 	mov r4, r8
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -126669,7 +126669,7 @@ _0807EE9E:
 	bl sub_0806F038
 	lsrs r0, r4, #0x18
 	movs r1, #1
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -126688,7 +126688,7 @@ _0807EEC6:
 	bl sub_0806F038
 	lsrs r0, r4, #0x18
 	movs r1, #2
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	cmp r1, #0xff
@@ -126777,7 +126777,7 @@ _0807EF7E:
 	adds r0, r0, r1
 	ldrb r5, [r0]
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -126919,7 +126919,7 @@ _0807F0AC:
 	adds r0, r0, r2
 	ldrb r5, [r0]
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -127102,7 +127102,7 @@ _0807F21C:
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0xc]
 	adds r5, r0, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -127179,7 +127179,7 @@ _0807F2A0:
 	cmp r6, #2
 	bls _0807F332
 	adds r0, r5, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -127303,7 +127303,7 @@ sub_0807F390: @ 0x0807F390
 	mov r8, r0
 	mov r4, r8
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	bl sub_080639E8
@@ -127427,7 +127427,7 @@ sub_0807F4A0: @ 0x0807F4A0
 	adds r0, r0, r4
 	ldrb r0, [r0]
 	mov r8, r0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x14]
@@ -127438,7 +127438,7 @@ sub_0807F4A0: @ 0x0807F4A0
 	movs r2, #0x9a
 	movs r3, #7
 	bl sub_0806A670
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldr r7, _0807F604 @ =gUnk_02010800
@@ -127503,32 +127503,32 @@ sub_0807F4A0: @ 0x0807F4A0
 	adds r3, r6, #0
 	bl sub_08001284
 	mov r0, r8
-	bl sub_08018744
+	bl GetWeaponAtk
 	adds r5, r0, #0
 	lsls r5, r5, #0x10
 	lsrs r5, r5, #0x10
 	mov r0, r8
-	bl sub_08018760
+	bl GetWeaponDef
 	adds r6, r0, #0
 	lsls r6, r6, #0x10
 	lsrs r6, r6, #0x10
 	mov r0, r8
-	bl sub_0801877C
+	bl GetWeaponAgl
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	mov r0, r8
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	mov r0, r8
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #0x18]
 	mov r0, r8
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov r8, r0
@@ -130553,7 +130553,7 @@ _08080E06:
 	adds r4, #0x18
 	adds r0, r4, r0
 	ldrb r0, [r0]
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne _08080E34
@@ -131378,7 +131378,7 @@ _08081520:
 	lsrs r7, r0, #0x18
 	adds r6, r7, #0
 	adds r0, r6, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldr r1, [sp]
@@ -131541,16 +131541,16 @@ sub_08081650: @ 0x08081650
 	adds r0, r0, r1
 	ldrb r5, [r0]
 	adds r0, r5, #0
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
 	adds r0, r5, #0
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r7, r0, #0x18
 	adds r0, r5, #0
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x14]
@@ -132663,7 +132663,7 @@ _08081FC6:
 	lsrs r7, r0, #0x18
 	adds r6, r7, #0
 	adds r0, r6, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov r1, sb
@@ -132843,7 +132843,7 @@ _080820EC:
 	lsls r7, r7, #0x18
 	lsrs r0, r7, #0x18
 	movs r1, #0
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -132880,7 +132880,7 @@ _0808217C:
 	lsls r1, r3, #0x18
 	lsrs r1, r1, #0x18
 	lsrs r0, r7, #0x18
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -132911,7 +132911,7 @@ _080821BC:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	lsrs r0, r7, #0x18
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -132994,7 +132994,7 @@ sub_0808224C: @ 0x0808224C
 	mov sl, r0
 	mov r6, sl
 	adds r0, r6, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov sb, r0
@@ -133079,7 +133079,7 @@ _080822E2:
 	movs r0, #0
 	bl sub_080012D4
 	adds r0, r6, #0
-	bl sub_080187D0
+	bl GetWeaponInitAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xe
@@ -133093,7 +133093,7 @@ _080822E2:
 	movs r3, #5
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_080187EC
+	bl GetWeaponInitDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xf
@@ -133108,12 +133108,12 @@ _080822E2:
 	movs r0, #0
 	bl sub_080012D4
 	adds r0, r6, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _080823C4
 	adds r0, r6, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -133140,7 +133140,7 @@ _080823C4:
 	movs r0, #2
 	bl sub_080012D4
 	adds r0, r6, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -133159,7 +133159,7 @@ _080823F0:
 	mov r0, sl
 	lsls r5, r0, #0x18
 	lsrs r0, r5, #0x18
-	bl sub_08018824
+	bl GetWeaponInitDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r4, _0808249C @ =gUnk_02010800
@@ -133188,7 +133188,7 @@ _08082428:
 	lsrs r1, r1, #0x18
 	ldr r2, [sp, #0x14]
 	lsrs r0, r2, #0x18
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	cmp r5, #0xff
@@ -133329,7 +133329,7 @@ _0808252E:
 	ldr r0, [sp, #0x14]
 	lsrs r4, r0, #0x18
 	adds r0, r4, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xe
@@ -133343,7 +133343,7 @@ _0808252E:
 	movs r3, #0x19
 	bl sub_0806F2D0
 	adds r0, r4, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xf
@@ -133356,12 +133356,12 @@ _0808252E:
 	movs r3, #0x19
 	bl sub_0806F2D0
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _080825D8
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -133381,7 +133381,7 @@ _080825D8:
 	movs r0, #2
 	bl sub_080012D4
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -133398,7 +133398,7 @@ _080825D8:
 _08082602:
 	ldr r1, [sp, #0x14]
 	lsrs r0, r1, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r2, _08082638 @ =gUnk_02010800
@@ -138599,7 +138599,7 @@ _080850B8:
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	strh r0, [r5, #0x10]
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	strh r0, [r5, #0xc]
@@ -138615,7 +138615,7 @@ _080850E6:
 	bne _08085172
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
-	bl sub_080187D0
+	bl GetWeaponInitAtk
 	adds r1, r0, #0
 	ldrh r0, [r5, #0x1a]
 	lsls r0, r0, #1
@@ -138626,7 +138626,7 @@ _080850E6:
 	bl SetBagWeaponInitAtk
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
-	bl sub_080187EC
+	bl GetWeaponInitDef
 	adds r1, r0, #0
 	ldrh r2, [r5, #0x1c]
 	lsls r0, r2, #1
@@ -138638,7 +138638,7 @@ _080850E6:
 	bl SetBagWeaponInitDef
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	adds r1, r0, #0
 	ldrh r0, [r5, #0x1e]
 	adds r1, r1, r0
@@ -138648,7 +138648,7 @@ _080850E6:
 	bl SetBagWeaponInitAgl
 	ldrb r4, [r5, #0x10]
 	adds r0, r4, #0
-	bl sub_08018824
+	bl GetWeaponInitDur
 	adds r1, r0, #0
 	ldrh r2, [r5, #0x20]
 	lsls r0, r2, #2
@@ -139709,7 +139709,7 @@ _08085B46:
 	bl sub_0801644C
 	ldrb r4, [r6, #0x10]
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
@@ -139782,7 +139782,7 @@ _08085BB8:
 	adds r4, #0xc0
 	strh r0, [r4]
 	ldrb r0, [r6, #0x10]
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	mov sb, r8
@@ -139920,7 +139920,7 @@ _08085CCA:
 	adds r4, #0xc8
 	strh r0, [r4]
 	ldrb r0, [r6, #0x10]
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r1, r0, #0x18
 	mov sb, r8
@@ -140179,7 +140179,7 @@ _08085E7C:
 	bl sub_0800B4E4
 _08085F08:
 	ldrb r0, [r6, #0x10]
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -140243,7 +140243,7 @@ _08085F8A:
 	bl sub_0800B4E4
 _08085F96:
 	ldrb r0, [r6, #0x10]
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	cmp r4, #0xff
@@ -140725,7 +140725,7 @@ _0808637E:
 	mov r1, sl
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018894
+	bl GetWeaponSkill
 _08086388:
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
@@ -140834,7 +140834,7 @@ _0808645E:
 	mov r1, sl
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 _08086468:
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
@@ -141079,7 +141079,7 @@ _08086680:
 	lsls r4, r0, #0x18
 	lsrs r5, r4, #0x18
 	adds r0, r5, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	ldr r1, _080866FC @ =gUnk_02010800
@@ -141095,7 +141095,7 @@ _08086680:
 	movs r3, #8
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #8
@@ -141108,12 +141108,12 @@ _08086680:
 	movs r3, #8
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _08086700
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #9
@@ -141130,7 +141130,7 @@ _08086680:
 _080866FC: .4byte gUnk_02010800
 _08086700:
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #9
@@ -141145,7 +141145,7 @@ _08086700:
 	bl sub_0806F2D0
 _08086720:
 	lsrs r0, r4, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r2, _080867B8 @ =gUnk_02010800
@@ -141166,7 +141166,7 @@ _08086742:
 	lsls r4, r0, #0x18
 	lsrs r5, r4, #0x18
 	adds r0, r5, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	ldr r7, _080867B8 @ =gUnk_02010800
@@ -141181,7 +141181,7 @@ _08086742:
 	movs r3, #0xb
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #8
@@ -141194,12 +141194,12 @@ _08086742:
 	movs r3, #0xb
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _080867BC
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #9
@@ -141216,7 +141216,7 @@ _08086742:
 _080867B8: .4byte gUnk_02010800
 _080867BC:
 	adds r0, r5, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #9
@@ -141230,7 +141230,7 @@ _080867BC:
 	bl sub_0806F2D0
 _080867DA:
 	lsrs r0, r4, #0x18
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r2, _08086800 @ =gUnk_02010800
@@ -141756,7 +141756,7 @@ _08086C2A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _08086C64:
 	ldrh r1, [r6, #2]
 	adds r0, r1, #0
@@ -141774,7 +141774,7 @@ _08086C64:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _08086C8A:
 	ldrh r1, [r6, #4]
 	adds r0, r1, #0
@@ -141792,7 +141792,7 @@ _08086C8A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _08086CB0:
 	movs r4, #0
 	movs r0, #0
@@ -141995,7 +141995,7 @@ _08086E5A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r5, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	lsls r1, r6, #2
 	adds r0, r7, #0
 	adds r0, #0x18
@@ -142296,7 +142296,7 @@ sub_080870B4: @ 0x080870B4
 	ldr r1, [sp, #0x14]
 	ldrb r7, [r1, #0xc]
 	adds r0, r7, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	mov r8, r0
@@ -142383,7 +142383,7 @@ _0808714A:
 	movs r0, #0
 	bl sub_080012D4
 	adds r0, r7, #0
-	bl sub_080187D0
+	bl GetWeaponInitAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xe
@@ -142397,7 +142397,7 @@ _0808714A:
 	movs r3, #5
 	bl sub_0806F2D0
 	adds r0, r7, #0
-	bl sub_080187EC
+	bl GetWeaponInitDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xf
@@ -142412,12 +142412,12 @@ _0808714A:
 	movs r0, #0
 	bl sub_080012D4
 	adds r0, r7, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _0808722C
 	adds r0, r7, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -142444,7 +142444,7 @@ _0808722C:
 	movs r0, #2
 	bl sub_080012D4
 	adds r0, r7, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -142463,7 +142463,7 @@ _08087258:
 	mov r1, sb
 	lsls r5, r1, #0x18
 	lsrs r0, r5, #0x18
-	bl sub_08018824
+	bl GetWeaponInitDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r4, _080873B4 @ =gUnk_02010800
@@ -142489,7 +142489,7 @@ _0808728A:
 	lsrs r1, r1, #0x18
 	ldr r2, [sp, #0x20]
 	lsrs r0, r2, #0x18
-	bl sub_080188B0
+	bl GetWeaponEnhanceItem
 	lsls r0, r0, #0x18
 	lsrs r6, r0, #0x18
 	cmp r6, #0xff
@@ -142756,21 +142756,21 @@ _080874DA:
 	ldr r1, [sp, #0x20]
 	lsrs r4, r1, #0x18
 	adds r0, r4, #0
-	bl sub_080187D0
+	bl GetWeaponInitAtk
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	adds r0, r4, #0
-	bl sub_080187EC
+	bl GetWeaponInitDef
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r8, r0
 	adds r0, r4, #0
-	bl sub_08018808
+	bl GetWeaponInitAgl
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sb, r0
 	adds r0, r4, #0
-	bl sub_08018824
+	bl GetWeaponInitDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
@@ -143027,36 +143027,36 @@ sub_0808770C: @ 0x0808770C
 	ldrb r5, [r0, #0xc]
 	ldrb r4, [r0, #0x10]
 	adds r0, r4, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	lsrs r6, r0, #0x10
 	adds r0, r4, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov sl, r0
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp]
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp, #4]
 	adds r0, r4, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #8]
 	adds r0, r4, #0
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0xc]
 	adds r0, r4, #0
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x10]
@@ -143078,7 +143078,7 @@ sub_0808770C: @ 0x0808770C
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	mov r1, sb
 	ldrh r0, [r1, #0x12]
 	cmp r0, #1
@@ -143101,14 +143101,14 @@ _080877C8:
 	lsls r5, r0, #0x18
 	lsrs r4, r5, #0x18
 	adds r0, r4, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r1, r6, #0x10
 	asrs r1, r1, #0x10
 	adds r1, r1, r0
 	lsls r1, r1, #0x10
 	lsrs r6, r1, #0x10
 	adds r0, r4, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	mov r2, sl
 	lsls r1, r2, #0x10
 	asrs r1, r1, #0x10
@@ -143117,7 +143117,7 @@ _080877C8:
 	lsrs r1, r1, #0x10
 	mov sl, r1
 	adds r0, r4, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	ldr r2, [sp]
 	lsls r1, r2, #0x10
 	asrs r1, r1, #0x10
@@ -143126,7 +143126,7 @@ _080877C8:
 	lsrs r1, r1, #0x10
 	str r1, [sp]
 	adds r0, r4, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	ldr r1, [sp, #4]
 	adds r0, r0, r1
 	lsls r0, r0, #0x10
@@ -143235,7 +143235,7 @@ _08087892:
 	adds r1, r4, #0
 	bl SetBagWeaponMaxDur
 	adds r0, r7, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	adds r1, r0, #0
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
@@ -143265,7 +143265,7 @@ _08087892:
 	strh r0, [r4]
 _08087930:
 	adds r0, r7, #0
-	bl sub_08018894
+	bl GetWeaponSkill
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0xc]
@@ -143314,7 +143314,7 @@ _08087966:
 _0808798C:
 	ldr r2, [sp, #0x14]
 	lsrs r0, r2, #0x18
-	bl sub_08018878
+	bl GetWeaponSpecialEffect
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x10]
@@ -144078,7 +144078,7 @@ _08087F58:
 	movs r3, #9
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #6
@@ -144092,7 +144092,7 @@ _08087F58:
 	movs r3, #8
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #7
@@ -144105,12 +144105,12 @@ _08087F58:
 	movs r3, #8
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	blt _08088078
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #8
@@ -144134,7 +144134,7 @@ _08088070: .4byte gUnk_080BFF80
 _08088074: .4byte gUnk_080BFF88
 _08088078:
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #8
@@ -144152,7 +144152,7 @@ _08088098:
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp, #0x18]
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r4, _08088224 @ =gUnk_02010800
@@ -149424,7 +149424,7 @@ _0808AD84:
 	ldr r0, _0808ADC4 @ =0x0000012B
 	cmp r2, r0
 	bhi _0808ADD6
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1e
@@ -149505,7 +149505,7 @@ _0808AE34:
 	cmp r6, r0
 	bhi _0808AE64
 	adds r0, r6, #0
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0x1e
@@ -149602,7 +149602,7 @@ _0808AEF6:
 	adds r1, r1, r2
 	ldr r1, [r1]
 	subs r0, r0, r1
-	bl sub_08018354
+	bl SetMoney
 _0808AF28:
 	ldrh r0, [r5, #6]
 	bl sub_0808B3F8
@@ -149647,7 +149647,7 @@ _0808AF48:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	bl sub_08018E3C
 	ldrh r2, [r5, #6]
 	lsls r2, r2, #2
@@ -149658,7 +149658,7 @@ _0808AF48:
 	ldr r1, [r1]
 	muls r1, r7, r1
 	subs r0, r0, r1
-	bl sub_08018354
+	bl SetMoney
 _0808AFA6:
 	ldrh r0, [r5, #6]
 	bl sub_0808B3F8
@@ -150144,7 +150144,7 @@ _0808B308:
 	bhi _0808B388
 	lsls r0, r5, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080186B0
+	bl GetCertainWeaponAmount
 	b _0808B394
 	.align 2, 0
 _0808B378: .4byte 0xFFFFFED4
@@ -150954,7 +150954,7 @@ _0808BA66:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r7, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	bl sub_08018E3C
 	ldrh r2, [r6, #6]
 	lsls r2, r2, #2
@@ -150964,7 +150964,7 @@ _0808BA66:
 	ldr r1, [r1]
 	muls r1, r5, r1
 	adds r0, r0, r1
-	bl sub_08018354
+	bl SetMoney
 	movs r5, #0
 	movs r4, #0x14
 	adds r4, r4, r6
@@ -151885,7 +151885,7 @@ _0808C234:
 	adds r0, #0x90
 	adds r0, r0, r1
 	ldrb r0, [r0]
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	ldr r2, _0808C2DC @ =0x00000424
@@ -152378,7 +152378,7 @@ _0808C68C:
 	adds r1, r1, r2
 	ldr r1, [r1]
 	adds r0, r0, r1
-	bl sub_08018354
+	bl SetMoney
 	movs r5, #0
 	movs r1, #0xe
 	adds r1, r1, r6
@@ -152644,7 +152644,7 @@ _0808C8C4:
 	mov sb, r0
 	mov r8, sb
 	mov r0, r8
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r6, r0, #0x18
 	mov r2, sl
@@ -152690,7 +152690,7 @@ _0808C8C4:
 	lsrs r0, r0, #0x10
 	str r0, [r1]
 	mov r0, r8
-	bl sub_08018744
+	bl GetWeaponAtk
 	adds r5, r0, #0
 	adds r0, r6, #0
 	bl sub_08063AC4
@@ -152700,7 +152700,7 @@ _0808C8C4:
 	lsrs r0, r0, #0x10
 	subs r5, r5, r0
 	mov r0, r8
-	bl sub_08018760
+	bl GetWeaponDef
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_08063ADC
@@ -152711,7 +152711,7 @@ _0808C8C4:
 	subs r4, r4, r0
 	adds r5, r5, r4
 	mov r0, r8
-	bl sub_0801877C
+	bl GetWeaponAgl
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_08063AF4
@@ -152722,7 +152722,7 @@ _0808C8C4:
 	subs r4, r4, r0
 	adds r5, r5, r4
 	mov r0, r8
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_08063B0C
@@ -152828,7 +152828,7 @@ sub_0808CA20: @ 0x0808CA20
 	str r0, [sp, #0x14]
 	lsls r4, r0, #0x18
 	lsrs r0, r4, #0x18
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r3, r0, #0x18
 	ldr r0, _0808CAEC @ =0x000004CF
@@ -153052,7 +153052,7 @@ sub_0808CC08: @ 0x0808CC08
 	mov r8, r1
 	ldrb r6, [r0]
 	adds r0, r6, #0
-	bl sub_08018728
+	bl GetWeaponType
 	adds r4, r0, #0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -153124,7 +153124,7 @@ sub_0808CC08: @ 0x0808CC08
 	movs r3, #0x10
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_08018744
+	bl GetWeaponAtk
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xe
@@ -153138,7 +153138,7 @@ sub_0808CC08: @ 0x0808CC08
 	movs r3, #0xf
 	bl sub_0806F2D0
 	adds r0, r6, #0
-	bl sub_08018760
+	bl GetWeaponDef
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0xf
@@ -153156,14 +153156,14 @@ sub_0808CC08: @ 0x0808CC08
 	movs r2, #0x10
 	bl sub_08001284
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bge _0808CD84
 	movs r0, #2
 	bl sub_080012D4
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -153192,7 +153192,7 @@ _0808CD7C: .4byte gUnk_080BFFA0
 _0808CD80: .4byte gUnk_080BFFD0
 _0808CD84:
 	adds r0, r6, #0
-	bl sub_0801877C
+	bl GetWeaponAgl
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x10
@@ -153209,7 +153209,7 @@ _0808CDA2:
 	lsls r5, r1, #0x18
 	lsrs r5, r5, #0x18
 	adds r0, r5, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	ldr r6, _0808CEA4 @ =gUnk_02010800
@@ -153232,7 +153232,7 @@ _0808CDA2:
 	mov r3, r8
 	bl sub_08001284
 	adds r0, r5, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	mov r1, sl
@@ -153245,7 +153245,7 @@ _0808CDA2:
 	movs r3, #0x13
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0x12
@@ -153274,12 +153274,12 @@ _0808CDA2:
 	movs r3, #0x13
 	bl sub_0806F2D0
 	adds r0, r5, #0
-	bl sub_080187B4
+	bl GetWeaponMaxDur
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r5, #0
-	bl sub_08018798
+	bl GetWeaponCurrentDur
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [sp]
@@ -153296,7 +153296,7 @@ _0808CDA2:
 	adds r3, r4, #0
 	bl sub_0806F174
 	adds r0, r5, #0
-	bl sub_08018840
+	bl GetWeaponTec
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r0, [sp]
@@ -153895,7 +153895,7 @@ _0808D36A:
 	muls r4, r1, r4
 	adds r1, r4, #0
 	subs r0, r0, r1
-	bl sub_08018354
+	bl SetMoney
 	ldrh r1, [r6, #6]
 	lsls r1, r1, #1
 	movs r2, #0x88
@@ -153910,7 +153910,7 @@ _0808D36A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r3, r6, #0
 	adds r3, #0x12
 	str r3, [sp, #0x18]
@@ -153939,7 +153939,7 @@ _0808D36A:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0808D3E8:
 	ldrh r0, [r6, #6]
 	lsls r1, r0, #1
@@ -153962,7 +153962,7 @@ _0808D3E8:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0808D418:
 	ldrh r0, [r6, #6]
 	lsls r1, r0, #1
@@ -153985,7 +153985,7 @@ _0808D418:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _0808D448:
 	ldrh r0, [r6, #6]
 	bl sub_0808DC80
@@ -155811,7 +155811,7 @@ _0808E33A:
 _0808E344: .4byte 0x0000012B
 _0808E348: .4byte 0xFFFFFED4
 _0808E34C:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1e
@@ -155836,7 +155836,7 @@ _0808E37C:
 	adds r0, r5, #0
 	movs r1, #0
 	bl sub_08008E34
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0x1e
@@ -155918,7 +155918,7 @@ _0808E3E4:
 	muls r0, r7, r0
 	subs r4, r4, r0
 	adds r0, r4, #0
-	bl sub_08018384
+	bl SetFishingPoint
 	ldr r0, _0808E464 @ =0x0000012B
 	cmp r5, r0
 	bls _0808E46C
@@ -155935,7 +155935,7 @@ _0808E3E4:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	b _0808E48A
 	.align 2, 0
 _0808E460: .4byte 0x00000594
@@ -156419,7 +156419,7 @@ _0808E828: .4byte 0xFFFFFED4
 _0808E82C:
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_080186B0
+	bl GetCertainWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	str r5, [sp]
@@ -157030,7 +157030,7 @@ _0808ED56:
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -157052,7 +157052,7 @@ _0808ED84:
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -157074,7 +157074,7 @@ _0808EDB4:
 	lsls r0, r0, #0x18
 	lsrs r4, r0, #0x18
 	adds r0, r4, #0
-	bl sub_08018728
+	bl GetWeaponType
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
@@ -159302,7 +159302,7 @@ _0809010C:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0xa
-	bl sub_08018338
+	bl SetItemQuantity
 _08090128:
 	ldrh r0, [r5, #0xa]
 	ldr r1, _08090168 @ =gUnk_08BC9F48
@@ -159387,7 +159387,7 @@ _080901CA:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0xa
-	bl sub_08018338
+	bl SetItemQuantity
 _080901E6:
 	bl sub_08090CFC
 	movs r0, #0x2a
@@ -225419,7 +225419,7 @@ _080B0F08:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 _080B0F40:
 	adds r0, r7, #0
 	adds r0, #0xb4
@@ -228957,7 +228957,7 @@ _080B2D66:
 	lsrs r0, r0, #0x10
 	ldr r1, [r7, #0x64]
 	adds r0, r0, r1
-	bl sub_08018384
+	bl SetFishingPoint
 	b _080B2DD4
 	.align 2, 0
 _080B2D78: .4byte gUnk_08BDA148
@@ -230760,7 +230760,7 @@ _080B3C88:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0x30
-	bl sub_08018338
+	bl SetItemQuantity
 	b _080B3CC4
 _080B3CB0:
 	movs r0, #0x30
@@ -230770,7 +230770,7 @@ _080B3CB0:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	movs r0, #0x30
-	bl sub_08018338
+	bl SetItemQuantity
 _080B3CC4:
 	bl sub_080B4B20
 	movs r0, #0
@@ -234995,7 +234995,7 @@ _080B5F4C:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r5, #1
 	cmp r5, #0x30
 	bhi _080B5FF8
@@ -235016,7 +235016,7 @@ _080B5F76:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235034,7 +235034,7 @@ _080B5F9C:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #2
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235052,7 +235052,7 @@ _080B5FC2:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #3
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235070,7 +235070,7 @@ _080B5FE8:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r5, #4
 	cmp r5, #0x30
 	bls _080B5F5C
@@ -235093,7 +235093,7 @@ _080B6014:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235111,7 +235111,7 @@ _080B603A:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #2
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235129,7 +235129,7 @@ _080B6060:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #3
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235147,7 +235147,7 @@ _080B6086:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r5, #4
 	cmp r5, #0x59
 	bls _080B5FFA
@@ -235169,7 +235169,7 @@ _080B60B2:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235187,7 +235187,7 @@ _080B60D8:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #2
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235205,7 +235205,7 @@ _080B60FE:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r5, #3
 	cmp r5, #0x93
 	bls _080B6098
@@ -235227,7 +235227,7 @@ _080B612A:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r0, r5, #1
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
@@ -235245,7 +235245,7 @@ _080B6150:
 	lsls r1, r0, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl sub_08018338
+	bl SetItemQuantity
 	adds r5, #2
 	cmp r5, #0xc7
 	bls _080B6110
@@ -235258,13 +235258,13 @@ _080B6160:
 	ldrh r1, [r6, #0x3a]
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_08018338
+	bl SetItemQuantity
 _080B6174:
 	movs r2, #0x1a
 	ldrsh r0, [r6, r2]
 	cmp r0, #1
 	bne _080B6196
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235279,7 +235279,7 @@ _080B6196:
 	ldrsh r0, [r6, r1]
 	cmp r0, #1
 	bne _080B620E
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235287,7 +235287,7 @@ _080B6196:
 	movs r0, #0xf0
 	bl sub_08015854
 _080B61B0:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235295,7 +235295,7 @@ _080B61B0:
 	movs r0, #0xf1
 	bl sub_08015854
 _080B61C2:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235303,7 +235303,7 @@ _080B61C2:
 	movs r0, #0xf2
 	bl sub_08015854
 _080B61D4:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235311,7 +235311,7 @@ _080B61D4:
 	movs r0, #0xf3
 	bl sub_08015854
 _080B61E6:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d
@@ -235319,7 +235319,7 @@ _080B61E6:
 	movs r0, #0xf4
 	bl sub_08015854
 _080B61F8:
-	bl sub_08018540
+	bl GetPlayerWeaponAmount
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	cmp r0, #0x1d

@@ -87,7 +87,7 @@ struct SaveBlock1
     /*0x08C*/ u8 battleAidItemList[4]; // guardimal's equipment. 
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
-    /*0x42C*/ u8 filler42C[0x1E];
+    /*0x42C*/ u8 unk42C[0x1E];
     /*0x44A*/ u8 itemQuantityList[0x3]; // TODO: Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 numSoftBoiledEgg;
     /*0x*/ u8 numEggFryRice;
@@ -269,7 +269,7 @@ struct SaveBlock1
     /*0x*/ u16 fishingPoint;
 }; /* size = 0x5D8 */
 
-extern struct SaveBlock1 *gSaveBlock1Ptr; 
+extern struct SaveBlock1 *gSaveBlock1Ptr;
 extern struct SaveBlock1 gSaveBlock1;
 
 extern const struct RoleAttrib *gAttribTablePtr;
@@ -277,9 +277,9 @@ extern const struct RoleAttrib gAttribTable[];
 extern const u16 gUnk_08B80178[];
 
 extern void sub_080154F0(void);
-extern u8 sub_08018728(u8 a);
+extern u8 GetWeaponType(u8 a);
 extern u8 sub_080639E8(u8 a);
-extern u16 sub_080187B4(u8 a);
+extern u16 GetWeaponMaxDur(u8 a);
 extern u16 GetPlayerMaxHp(void);
 extern u8 sub_080189BC(u8 a);
 extern void sub_08018298(u8 a, u8 b);

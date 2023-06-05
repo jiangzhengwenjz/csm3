@@ -2739,31 +2739,3 @@ _080015AE:
 	pop {r4, r5, r6}
 	pop {r0}
 	bx r0
-
-	thumb_func_start sub_080015B4
-sub_080015B4: @ 0x080015B4
-	push {r4, lr}
-	adds r4, r0, #0
-	adds r3, r1, #0
-	movs r2, #0
-	ldrb r0, [r3]
-	strb r0, [r4]
-	b _080015D0
-_080015C2:
-	adds r2, #1
-	cmp r2, #0x1d
-	bhi _080015D6
-	adds r1, r4, r2
-	adds r0, r3, r2
-	ldrb r0, [r0]
-	strb r0, [r1]
-_080015D0:
-	lsls r0, r0, #0x18
-	cmp r0, #0
-	bne _080015C2
-_080015D6:
-	lsls r0, r2, #0x10
-	lsrs r0, r0, #0x10
-	pop {r4}
-	pop {r1}
-	bx r1

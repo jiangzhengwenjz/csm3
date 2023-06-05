@@ -4,6 +4,17 @@
 #include "data.h"
 #include "functions.h"
 
+u16 sub_080015B4(u8 *r4, u8 *r3)
+{
+    u32 r2;
+    for(r2 = 0; r2 <= 0x1d; r2++)
+    {
+        r4[r2] = r3[r2];
+        if(!r4[r2]) break;
+    }
+    return r2;
+}
+
 void nullsub_9(void)
 {}
 

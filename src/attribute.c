@@ -140,7 +140,7 @@ u8 sub_08017CE0(u16 r5)
     for (r4 = 0; r4 < 30; r4 += 3)
     {
         ++r5; --r5;
-        temp = sub_08018728(r4);
+        temp = GetWeaponType(r4);
         if (temp != 0xff)
         {
             if (temp <= 0xef)
@@ -153,7 +153,7 @@ u8 sub_08017CE0(u16 r5)
             }
         }
         ++r5; --r5;
-        temp = sub_08018728(r4 + 1);
+        temp = GetWeaponType(r4 + 1);
         if (temp != 0xff)
         {
             if (temp <= 0xef)
@@ -166,7 +166,7 @@ u8 sub_08017CE0(u16 r5)
             }
         }
         ++r5; --r5;
-        temp = sub_08018728(r4 + 2);
+        temp = GetWeaponType(r4 + 2);
         if (temp != 0xff)
         {
             if (temp <= 0xef)
@@ -247,9 +247,9 @@ void SetBagWeaponAgl(u8 wpIndex, s16 agl)
 void SetBagWeaponCurrentDur(u8 wpIndex, s16 r1)
 {
     struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
-    if (r1 > sub_080187B4(wpIndex))
+    if (r1 > GetWeaponMaxDur(wpIndex))
     {
-        r1 = sub_080187B4(wpIndex);
+        r1 = GetWeaponMaxDur(wpIndex);
     }
     else if (r1 < 0)
     {
@@ -523,12 +523,12 @@ void sub_08018314(u16 r0)
     ga1->unk1C = r0;
 }
 
-void sub_08018338(u16 idx, u8 num)
+void SetItemQuantity(u16 idx, u8 num)
 {
     gSaveBlock1Ptr->itemQuantityList[idx] = num;
 }
 
-void sub_08018354(s32 money1)
+void SetMoney(s32 money1)
 {
     if (money1 > 9999999)
     {
@@ -541,7 +541,7 @@ void sub_08018354(s32 money1)
     gSaveBlock1Ptr->money = money1;
 }
 
-void sub_08018384(u32 point)
+void SetFishingPoint(u32 point)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     if (point > 0xffff)
@@ -661,4 +661,181 @@ u16 sub_08018524(u8 a)
         a = 9;
     }
     return gUnk_08B80178[a];
+}
+
+u8 GetPlayerWeaponAmount(void)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u32 i;
+    u32 sum = 0;
+    struct BagWeapon *bwBase, *bw;
+
+    for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
+    {
+        bw = bwBase;
+        if (bw->weaponType != 0xff) sum++;
+        bw = bwBase + 1;
+        if (bw->weaponType != 0xff) sum++;
+        bw = bwBase + 2;
+        if (bw->weaponType != 0xff) sum++;
+        bw = bwBase + 3;
+        if (bw->weaponType != 0xff) sum++;
+        bw = bwBase + 4;
+        if (bw->weaponType != 0xff) sum++;
+        bwBase += 5;
+    }
+    return sum;
+}
+
+u8 sub_08018598(void)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u32 i;
+    u32 sum = 0;
+    struct BagWeapon *bwBase, *bw, *bwBase2;
+
+    for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
+    {
+        bwBase2 = bwBase;
+        bw = *&bwBase2; // TODO:Fix fake match
+        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        bw = bwBase2 + 1;
+        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        bw = bwBase2 + 2;
+        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        bw = bwBase2 + 3;
+        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        bw = bwBase2 + 4;
+        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        bwBase += 5;
+    }
+    return sum;
+}
+
+u8 sub_08018624(void)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u32 i;
+    u32 sum = 0;
+    struct BagWeapon *bwBase, *bw, *bwBase2;
+    for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
+    {
+        bwBase2 = bwBase;
+        bw = *&bwBase2; // TODO:Fix fake match
+        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        bw = bwBase2 + 1;
+        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        bw = bwBase2 + 2;
+        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        bw = bwBase2 + 3;
+        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        bw = bwBase2 + 4;
+        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        bwBase += 5;
+    }
+    return sum;
+}
+
+u8 GetCertainWeaponAmount(u8 type)
+{
+    struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
+    u32 i;
+    u32 sum = 0;
+    struct BagWeapon *bwBase, *bw;
+    for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
+    {
+        bw = bwBase;
+        if (bw->weaponType == type) sum++;
+        bw = bwBase + 1;
+        if (bw->weaponType == type) sum++;
+        bw = bwBase + 2;
+        if (bw->weaponType == type) sum++;
+        bw = bwBase + 3;
+        if (bw->weaponType == type) sum++;
+        bw = bwBase + 4;
+        if (bw->weaponType == type) sum++;
+        bwBase += 5;
+    }
+    return sum;
+}
+
+u8 sub_0801870C(u8 a)
+{
+    return gSaveBlock1Ptr->unk42C[a];
+}
+
+u8 GetWeaponType(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponType;
+}
+
+s16 GetWeaponAtk(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponAtk;
+}
+
+s16 GetWeaponDef(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponDef;
+}
+
+s16 GetWeaponAgl(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponAgl;
+}
+
+
+u16 GetWeaponCurrentDur(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponCurrentDur;
+}
+
+u16 GetWeaponMaxDur(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponMaxDur;
+}
+
+s16 GetWeaponInitAtk(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponInitAtk;
+}
+
+s16 GetWeaponInitDef(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponInitDef;
+}
+
+s16 GetWeaponInitAgl(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponInitAgl;
+}
+
+u16 GetWeaponInitDur(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponInitDur;
+}
+
+u8 GetWeaponTec(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponTec;
+}
+
+u8 sub_0801885C(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].unk0;
+}
+
+u8 GetWeaponSpecialEffect(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponSpecialEffect;
+}
+
+u8 GetWeaponSkill(u8 index)
+{
+    return gSaveBlock1Ptr->bagWeapon[index].weaponSkill;
+}
+
+u8 GetWeaponEnhanceItem(u8 wpIdx, u8 itemIdx)
+{
+    return gSaveBlock1Ptr->bagWeapon[wpIdx].enhanceItemList[itemIdx];
 }
