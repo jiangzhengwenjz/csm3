@@ -30,7 +30,8 @@ struct BagWeapon
     u16 weaponCurrentDur;
     u16 weaponMaxDur;
     u16 weaponInitDur;
-    bool16 isGoodWeapon;
+    bool8 isGoodWeapon;
+    u8 unk1B;
 }; /* size = 0x1C */
 
 struct GuardimalAttrib
@@ -43,7 +44,7 @@ struct GuardimalAttrib
     /*0x14*/ u16 guardimalMag;
     /*0x16*/ u16 guardimalAtk;
     /*0x18*/ u16 guardimalDef;
-    /*0x1A*/ u16 guardimalAgl;
+    /*0x1A*/ s16 guardimalAgl; //TODO: Find out real type
     /*0x1C*/ u16 unk1C;
     /*0x1E*/ u16 filler1E;
     /*0x20*/ u32 guardimalExp;

@@ -697,7 +697,7 @@ u8 sub_08018598(void)
     for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
     {
         bwBase2 = bwBase;
-        bw = *&bwBase2; // TODO:Fix fake match
+        bw = *&bwBase2; // TODO: Fix fake match
         if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
         bw = bwBase2 + 1;
         if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
@@ -721,7 +721,7 @@ u8 sub_08018624(void)
     for (i = 0, bwBase = sb1->bagWeapon; i < 30; i += 5)
     {
         bwBase2 = bwBase;
-        bw = *&bwBase2; // TODO:Fix fake match
+        bw = *&bwBase2; // TODO: Fix fake match
         if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
         bw = bwBase2 + 1;
         if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
@@ -838,4 +838,106 @@ u8 GetWeaponSkill(u8 index)
 u8 GetWeaponEnhanceItem(u8 wpIdx, u8 itemIdx)
 {
     return gSaveBlock1Ptr->bagWeapon[wpIdx].enhanceItemList[itemIdx];
+}
+
+u8 sub_080188D0(u8 a)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    return bw[a].isGoodWeapon;
+}
+
+struct BagWeapon *sub_080188EC(u8 a)
+{
+    struct BagWeapon *bw = gSaveBlock1Ptr->bagWeapon;
+    return &bw[a];
+}
+
+u16 *sub_08018908(void)
+{
+    return gSaveBlock1Ptr->guardimalAttrib.guardimalName;
+}
+
+u8 sub_08018914(void)
+{
+    return gSaveBlock1Ptr->guardimalAttrib.guardimalType;
+}
+
+u8 sub_08018924(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalLevel;
+}
+
+u16 sub_08018934(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->unk12;
+}
+
+u16 sub_08018944(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalHp;
+}
+
+u16 sub_08018954(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalMag;
+}
+
+u16 sub_08018964(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalAtk;
+}
+
+u16 sub_08018974(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalDef;
+}
+
+s16 sub_08018984(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalAgl;
+}
+
+u8 sub_08018994(u8 a)
+{
+    return gSaveBlock1Ptr->unk90[a].unk0;
+}
+
+u8 sub_080189A8(u8 a)
+{
+    return gSaveBlock1Ptr->unk90[a].unk2;
+}
+
+u8 sub_080189BC(u8 a)
+{
+    return gSaveBlock1Ptr->unk90[a].unk3;
+}
+
+u8 sub_080189D0(u8 a)
+{
+    return gSaveBlock1Ptr->battleAidItemList[a];
+}
+
+u32 sub_080189E4(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalExp;
+}
+
+u32 sub_080189F4(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->guardimalNextExp;
+}
+
+u16 sub_08018A04(void)
+{
+    struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
+    return ga->unk1C;
 }
