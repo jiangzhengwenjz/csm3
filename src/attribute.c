@@ -663,7 +663,7 @@ u16 sub_08018524(u8 a)
     return gUnk_08B80178[a];
 }
 
-u8 GetPlayerWeaponAmount(void)
+u8 GetPlayerWeaponQuantity(void)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u32 i;
@@ -698,15 +698,15 @@ u8 sub_08018598(void)
     {
         bwBase2 = bwBase;
         bw = *&bwBase2; // TODO: Fix fake match
-        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        if (bw->weaponType != 0xff && !(bw->unk0 & 1)) sum++;
         bw = bwBase2 + 1;
-        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        if (bw->weaponType != 0xff && !(bw->unk0 & 1)) sum++;
         bw = bwBase2 + 2;
-        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        if (bw->weaponType != 0xff && !(bw->unk0 & 1)) sum++;
         bw = bwBase2 + 3;
-        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        if (bw->weaponType != 0xff && !(bw->unk0 & 1)) sum++;
         bw = bwBase2 + 4;
-        if ((bw->weaponType != 0xff) && !((bw->unk0) & 1)) sum++;
+        if (bw->weaponType != 0xff && !(bw->unk0 & 1)) sum++;
         bwBase += 5;
     }
     return sum;
@@ -722,21 +722,21 @@ u8 sub_08018624(void)
     {
         bwBase2 = bwBase;
         bw = *&bwBase2; // TODO: Fix fake match
-        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        if (bw->weaponType != 0xff && bw->unk0 & 1) sum++;
         bw = bwBase2 + 1;
-        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        if (bw->weaponType != 0xff && bw->unk0 & 1) sum++;
         bw = bwBase2 + 2;
-        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        if (bw->weaponType != 0xff && bw->unk0 & 1) sum++;
         bw = bwBase2 + 3;
-        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        if (bw->weaponType != 0xff && bw->unk0 & 1) sum++;
         bw = bwBase2 + 4;
-        if ((bw->weaponType != 0xff) && (((bw->unk0) & 1) != 0)) sum++;
+        if (bw->weaponType != 0xff && bw->unk0 & 1) sum++;
         bwBase += 5;
     }
     return sum;
 }
 
-u8 GetCertainWeaponAmount(u8 type)
+u8 GetCertainWeaponQuantity(u8 type)
 {
     struct SaveBlock1 *sb1 = gSaveBlock1Ptr;
     u32 i;
