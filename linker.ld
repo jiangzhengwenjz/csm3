@@ -398,6 +398,8 @@ SECTIONS {
         asm/code_copy.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
+        src/ramptr.o(.text);
+        asm/code_ramptr.o(.text);
         src/attribute.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */

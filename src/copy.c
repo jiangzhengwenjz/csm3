@@ -38,7 +38,7 @@ void sub_080092EC(void)
     gUnk_03003CB0[2] = 0;
 }
 
-void sub_08009334(u8 a1, struct Unk_08009334 *a2, u32 tilesVram, u32 a4)
+void sub_08009334(u8 a1, struct Unk_08009334 *a2, u32 tilesVram, u32 *a4)
 {
     struct Unk_030040C0 *var = &gUnk_030040C0[a1];
 
@@ -57,7 +57,7 @@ void sub_08009364(u8 a1, u16 a2, struct Unk_030040C0_8 *a3)
     var->unk8 = a3;
 }
 
-u32 sub_08009378(u8 a1)
+u32 *sub_08009378(u8 a1)
 {
     struct Unk_030040C0 *var = &gUnk_030040C0[a1];
 
