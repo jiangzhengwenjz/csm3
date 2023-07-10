@@ -7,6 +7,54 @@
 #define ITEM_QUANTITY_WOUND_BAND_IDX 0
 #define ITEM_QUANTITY_JVHUA_CHA_IDX 1
 #define ITEM_QUANTITY_GOOD_POTION_IDX 2
+#define ITEM_QUANTITY_SOFT_BOILED_EGG_IDX 3
+#define ITEM_QUANTITY_EGG_FRY_RICE_IDX 4
+#define ITEM_QUANTITY_SPICY_CURRY_IDX 5
+#define ITEM_QUANTITY_EMERGENCY_BAG_IDX 6
+#define ITEM_QUANTITY_NEEDLE_STONE_IDX 7
+#define ITEM_QUANTITY_MIDDLE_STONE_IDX 8
+#define ITEM_QUANTITY_HARD_STONE_IDX 9
+#define ITEM_QUANTITY_MEMO_DIARY_IDX 10
+#define ITEM_QUANTITY_ENTRY_TRANSTONE_IDX 11
+#define ITEM_QUANTITY_ENEMY_EVADE_SCROLL_IDX 12
+#define ITEM_QUANTITY_ENEMY_SUMMON_SCROLL_IDX 13
+#define ITEM_QUANTITY_JVHUA_FRUIT_IDX 14
+#define ITEM_QUANTITY_OIL_FRUIT_IDX 15
+#define ITEM_QUANTITY_SWEET_FRUIT_IDX 16
+#define ITEM_QUANTITY_SLIMY_TREE_LIQUID_IDX 17
+#define ITEM_QUANTITY_MATURE_FRUIT_IDX 18
+#define ITEM_QUANTITY_SOFT_STONE_IDX 19
+#define ITEM_QUANTITY_WEIRD_STONE_IDX 20
+#define ITEM_QUANTITY_WEED_IDX 21
+#define ITEM_QUANTITY_SOFT_GRASS_IDX 22
+#define ITEM_QUANTITY_GOOD_PAPER_IDX 23
+#define ITEM_QUANTITY_FIT_STICK_IDX 24
+#define ITEM_QUANTITY_CLEAN_CLOTH_IDX 25
+#define ITEM_QUANTITY_SMELLY_ONION_IDX 26
+#define ITEM_QUANTITY_SWEET_HONEY_IDX 27
+#define ITEM_QUANTITY_SOFT_SKIN_IDX 28
+#define ITEM_QUANTITY_SOLID_SKIN_IDX 29
+#define ITEM_QUANTITY_GOOD_SKIN_IDX 30
+#define ITEM_QUANTITY_SPICY_SEASONING_IDX 31
+#define ITEM_QUANTITY_SECRET_CORN_IDX 32
+#define ITEM_QUANTITY_GOOD_PURE_WATER_IDX 33
+#define ITEM_QUANTITY_SECRET_EGG_IDX 34
+#define ITEM_QUANTITY_BEAUTIFUL_EGG_IDX 35
+#define ITEM_QUANTITY_SMALL_EARTHWORM_IDX 36
+#define ITEM_QUANTITY_TARO_BALL_IDX 37
+#define ITEM_QUANTITY_DRY_SHRIMP_IDX 38
+#define ITEM_QUANTITY_CARROT_BIT_IDX 39
+#define ITEM_QUANTITY_GOOD_SHELL_IDX 40
+#define ITEM_QUANTITY_SMALL_BOMB_IDX 41
+#define ITEM_QUANTITY_MIDDLE_BOMB_IDX 42
+#define ITEM_QUANTITY_BIG_BOMB_IDX 43
+#define ITEM_QUANTITY_POISON_BOMB_IDX 44
+#define ITEM_QUANTITY_PARALYZE_BOMB_IDX 45
+#define ITEM_QUANTITY_SLEEP_BOMB_IDX 46
+#define ITEM_QUANTITY_RUST_BOMB_IDX 47
+#define ITEM_QUANTITY_LOTTERY_IDX 48
+#define ITEM_QUANTITY_NULL_IDX 49
+// I don't know why this null item is needed.
 
 struct RoleAttrib
 {
@@ -89,54 +137,7 @@ struct SaveBlock1
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 unk42C[0x1E];
-    /*0x44A*/ u8 itemQuantityList[0x3]; // TODO: Find out what's the real data structure. Current array is just for matching. 
-    /*0x*/ u8 numSoftBoiledEgg;
-    /*0x*/ u8 numEggFryRice;
-    /*0x*/ u8 numSpicyCurry;
-    /*0x*/ u8 numEmergencyBag;
-    /*0x*/ u8 numNeedleStone;
-    /*0x*/ u8 numMiddleStone;
-    /*0x*/ u8 numHardStone;
-    /*0x*/ u8 numMemoDiary;
-    /*0x*/ u8 numEntryTranstone;
-    /*0x*/ u8 numEnemyEvadeScroll;
-    /*0x*/ u8 numEnemySummonScroll;
-    /*0x*/ u8 numJvhuaFruit;
-    /*0x*/ u8 numOilFruit;
-    /*0x*/ u8 numSweetFruit;
-    /*0x*/ u8 numSlimyTreeLiquid;
-    /*0x*/ u8 numMatureFruit;
-    /*0x*/ u8 numSoftStone;
-    /*0x*/ u8 numWeirdStone;
-    /*0x*/ u8 numWeed;
-    /*0x*/ u8 numSoftGrass;
-    /*0x*/ u8 numGoodPaper;
-    /*0x*/ u8 numFitStick;
-    /*0x*/ u8 numCleanCloth;
-    /*0x*/ u8 numSmellyOnion;
-    /*0x*/ u8 numSweetHoney;
-    /*0x*/ u8 numSoftSkin;
-    /*0x*/ u8 numSolidSkin;
-    /*0x*/ u8 numGoodSkin;
-    /*0x*/ u8 numSpicySeasoning;
-    /*0x*/ u8 numSecretCorn;
-    /*0x*/ u8 numGoodPureWater;
-    /*0x*/ u8 numSecretEgg;
-    /*0x*/ u8 numBeautifulEgg;
-    /*0x*/ u8 numSmallEarthworm;
-    /*0x*/ u8 numTaroBall;
-    /*0x*/ u8 numDryShrimp;
-    /*0x*/ u8 numCarrotBit;
-    /*0x*/ u8 numGoodShell;
-    /*0x*/ u8 numSmallBomb;
-    /*0x*/ u8 numMiddleBomb;
-    /*0x*/ u8 numBigBomb;
-    /*0x*/ u8 numPoisonBomb;
-    /*0x*/ u8 numParalyzeBomb;
-    /*0x*/ u8 numSleepBomb;
-    /*0x*/ u8 numRustBomb;
-    /*0x*/ u8 numLottery;
-    /*0x*/ u8 null; // probably for struct align
+    /*0x44A*/ u8 itemQuantityList[0x32]; // TODO: Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 mineralList[0x28]; // from 1 to 40
     /*0x*/ u32 filler4A4[2];
     /*0x*/ u16 filler4AC;
@@ -255,16 +256,17 @@ struct SaveBlock1
     /*0x*/ u8 filler53D;
     /*0x*/ u8 filler53E;
     /*0x*/ u8 filler53F;
-    /*0x*/ u8 filler540[0x24];
-    /*0x*/ u8 weaponDexLighted[0x1E]; 
+    /*0x540*/ u8 filler540[0xA];
+    /*0x54A*/ u8 unk54A[0x1A];
+    /*0x564*/ u8 weaponDexLighted[0x1E]; 
     /*0x*/ u8 filler582; // Weird. Idk why it needs a struct align here. 
-    /*0x*/ u8 weaponSkillDex1[6];
+    /*0x583*/ u8 weaponSkillDex1[6];
     /*0x*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
-    /*0x*/ u8 weaponSpecialEffectDex1[5];
+    /*0x58F*/ u8 weaponSpecialEffectDex1[5];
     /*0x*/ u8 filler594;
     /*0x*/ u8 weaponSpecialEffectDex2[5];
     /*0x*/ u8 filler59A;
-    /*0x*/ u8 summonGuardianDex[17];
+    /*0x59B*/ u8 summonGuardianDex[17];
     /*0x*/ s32 money; // max = 9999999, or 0x0098967F in hex
     /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the probability to evade enemies. 
     /*0x*/ u16 fishingPoint;
