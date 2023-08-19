@@ -4,6 +4,7 @@
 #include "global.h"
 
 /* Array index defines. Used in itemQuantityList */
+// Below are usable items. 
 #define ITEM_QUANTITY_WOUND_BAND_IDX 0
 #define ITEM_QUANTITY_JVHUA_CHA_IDX 1
 #define ITEM_QUANTITY_GOOD_POTION_IDX 2
@@ -53,8 +54,163 @@
 #define ITEM_QUANTITY_SLEEP_BOMB_IDX 46
 #define ITEM_QUANTITY_RUST_BOMB_IDX 47
 #define ITEM_QUANTITY_LOTTERY_IDX 48
-#define ITEM_QUANTITY_NULL_IDX 49
-// I don't know why this null item is needed.
+
+#define ITEM_QUANTITY_NULL1_IDX 49
+// I don't know why this null item is needed. Below are minerals. 
+#define ITEM_QUANTITY_IRON_ORE_IDX 50
+#define ITEM_QUANTITY_SLENDER_CRYSTAL_IDX 51
+#define ITEM_QUANTITY_CUTTING_ORE_IDX 52
+#define ITEM_QUANTITY_AKINEEL_ORE_IDX 53
+#define ITEM_QUANTITY_LARGE_ORE_IDX 54
+#define ITEM_QUANTITY_ERUVINE_CRYSTAL_IDX 55
+#define ITEM_QUANTITY_WING_FOSSIL_IDX 56
+#define ITEM_QUANTITY_IRON_CUTTING_ORE_IDX 57
+#define ITEM_QUANTITY_LARGE_IRON_ORE_IDX 58
+#define ITEM_QUANTITY_HEAVY_GOLD_ORE_IDX5 59
+#define ITEM_QUANTITY_RANGER_ORE_IDX 60
+#define ITEM_QUANTITY_ELEGANT_ORE_IDX 61
+#define ITEM_QUANTITY_CUTE_CRYSTAL_IDX 62
+#define ITEM_QUANTITY_SHELL_FOSSIL_IDX 63
+#define ITEM_QUANTITY_BLACK_ORE_IDX 64
+#define ITEM_QUANTITY_ILLUSION_ORE_IDX 65
+#define ITEM_QUANTITY_COMMON_CRYSTAL_IDX 66
+#define ITEM_QUANTITY_BANISH_ORE_IDX 67
+#define ITEM_QUANTITY_SASH_ORE_IDX 68
+#define ITEM_QUANTITY_GAUL_ORE_IDX 69
+#define ITEM_QUANTITY_KITCHEN_ORE_IDX 70
+#define ITEM_QUANTITY_IRON_BLADE_STONE_IDX 71
+#define ITEM_QUANTITY_NOVILLE_CRYSTAL_IDX 72
+#define ITEM_QUANTITY_TWIN_SNAKE_ORE_IDX 73
+#define ITEM_QUANTITY_SPLENDID_ORE_IDX 74
+#define ITEM_QUANTITY_EXCELLENT_ORE_IDX 75
+#define ITEM_QUANTITY_WOOD_FOSSIL_IDX 76
+#define ITEM_QUANTITY_RESISTOR_CRYSTAL_IDX 77
+#define ITEM_QUANTITY_YUUBISU_ORE_IDX 78
+#define ITEM_QUANTITY_CONCEALED_STONE_IDX 79
+#define ITEM_QUANTITY_MAD_GHOST_ORE_IDX 80
+#define ITEM_QUANTITY_WISE_BLADE_ORE_IDX 81
+#define ITEM_QUANTITY_STEELFANG_CRYSTAL_IDX 82
+#define ITEM_QUANTITY_GARDEN_ORE_IDX 83
+#define ITEM_QUANTITY_EVIL_NINJA_ORE_IDX 84
+#define ITEM_QUANTITY_PAW_FOSSIL_IDX 85
+#define ITEM_QUANTITY_MECHA_CRYSTAL_IDX 86
+#define ITEM_QUANTITY_BLOOD_LOTUS_ORE_IDX 87
+#define ITEM_QUANTITY_CURSED_ORE_IDX 88
+#define ITEM_QUANTITY_GEM_OF_LIGHT_IDX 89
+// idk why they put nulls here. 
+#define ITEM_QUANTITY_NULL2_IDX 90
+#define ITEM_QUANTITY_NULL3_IDX 91
+#define ITEM_QUANTITY_NULL4_IDX 92
+#define ITEM_QUANTITY_NULL5_IDX 93
+#define ITEM_QUANTITY_NULL6_IDX 94
+#define ITEM_QUANTITY_NULL7_IDX 95
+#define ITEM_QUANTITY_NULL8_IDX 96
+#define ITEM_QUANTITY_NULL9_IDX 97
+#define ITEM_QUANTITY_NULL10_IDX 98
+#define ITEM_QUANTITY_NULL11_IDX 99
+// Below are items for weapon enhancement
+#define ITEM_QUANTITY_STORAGE_CELL_IDX 100
+#define ITEM_QUANTITY_THUNDER_SCROLL_IDX 101
+#define ITEM_QUANTITY_THUNDER_CRYSTAL_SEGMENT_IDX 102
+#define ITEM_QUANTITY_THUNDER_CRYSTAL_IDX 103
+#define ITEM_QUANTITY_LIGHTER_DEVICE_IDX 104
+#define ITEM_QUANTITY_FIRE_SCROLL_IDX 105
+#define ITEM_QUANTITY_FIRE_CRYSTAL_SEGMENT_IDX 106
+#define ITEM_QUANTITY_FIRE_CRYSTAL_IDX 107
+#define ITEM_QUANTITY_CLEAN_WATER_TANK_IDX 108
+#define ITEM_QUANTITY_WATER_SCROLL_IDX 109
+#define ITEM_QUANTITY_WATER_CRYSTAL_SEGMENT_IDX 110
+#define ITEM_QUANTITY_WATER_CRYSTAL_IDX 111
+#define ITEM_QUANTITY_ELECTRIC_FAN_IDX 112
+#define ITEM_QUANTITY_WIND_SCROLL_IDX 113
+#define ITEM_QUANTITY_WIND_CRYSTAL_SEGMENT_IDX 114
+#define ITEM_QUANTITY_WIND_CRYSTAL_IDX 115
+#define ITEM_QUANTITY_BACK_LIGHT_IDX 116
+#define ITEM_QUANTITY_SHINNY_SCROLL_IDX 117
+#define ITEM_QUANTITY_BLOOD_SUCKER_IDX 118
+#define ITEM_QUANTITY_DARK_RUST_CUP_IDX 119
+#define ITEM_QUANTITY_ACCELERATE_WOUND_IDX 120
+#define ITEM_QUANTITY_SUPER_ACCELERATOR_IDX 121
+#define ITEM_QUANTITY_LUCK_SCROLL_IDX 122
+#define ITEM_QUANTITY_LUCKY_LEAF_IDX 123
+#define ITEM_QUANTITY_TOGGLE_SWITCH_IDX 124
+#define ITEM_QUANTITY_ESSENCE_SCROLL_IDX 125
+#define ITEM_QUANTITY_BODY_ART_SCROLL_IDX 126
+#define ITEM_QUANTITY_PHYSICAL_MODIFY_BOOK_IDX 127
+#define ITEM_QUANTITY_DISTRIBUTION_DEVICE_IDX 128
+#define ITEM_QUANTITY_DESTROY_SWITCH_IDX 129
+#define ITEM_QUANTITY_PARA_POWDER_IDX 130
+#define ITEM_QUANTITY_POISON_POWDER_IDX 131
+#define ITEM_QUANTITY_SLEEP_POWDER_IDX 132
+#define ITEM_QUANTITY_RUST_POWDER_IDX 133
+#define ITEM_QUANTITY_FORCE_LICENSE_IDX 134
+#define ITEM_QUANTITY_DEFEND_LICENSE_IDX 135
+#define ITEM_QUANTITY_SUPER_MAN_LICENSE_IDX 136
+#define ITEM_QUANTITY_LEGEND_WOUND_IDX 137
+#define ITEM_QUANTITY_MIND_EYE_GLASSES_IDX 138
+#define ITEM_QUANTITY_MARTIAL_TUTOR_BOOK_IDX 139
+#define ITEM_QUANTITY_STRONG_LUCK_AMULET_IDX 140
+#define ITEM_QUANTITY_HEALTH_BUCKET_IDX 141
+#define ITEM_QUANTITY_LEGEND_BAMBOO_IDX 142
+#define ITEM_QUANTITY_OLD_GRIND_STONE_IDX 143
+#define ITEM_QUANTITY_REPARE_PARTS_IDX 144
+#define ITEM_QUANTITY_LEGEND_IRON_STRING_IDX 145
+#define ITEM_QUANTITY_DARE_DEVEL_LOVE_LETTER_IDX 146
+#define ITEM_QUANTITY_SUPER_MOTOR_IDX 147
+
+#define ITEM_QUANTITY_NULL12_IDX 148
+#define ITEM_QUANTITY_NULL13_IDX 149
+// Below are equipments. 
+#define ITEM_QUANTITY_METAL_RING_IDX 150
+#define ITEM_QUANTITY_CUTTING_RING_IDX 151
+#define ITEM_QUANTITY_STEEL_RING_IDX 152
+#define ITEM_QUANTITY_SLICE_RING_IDX 153
+#define ITEM_QUANTITY_SURVIVAL_RING_IDX 154
+#define ITEM_QUANTITY_SHELL_RING_IDX 155
+#define ITEM_QUANTITY_COMMON_RING_IDX 156
+#define ITEM_QUANTITY_GAUL_RING_IDX 157
+#define ITEM_QUANTITY_CELEB_RING_IDX 158
+#define ITEM_QUANTITY_HIGH_RING_IDX 159
+#define ITEM_QUANTITY_RUNE_RING_IDX 160
+#define ITEM_QUANTITY_METAL_BRACELET_IDX 161
+#define ITEM_QUANTITY_CUTTING_BRACELET_IDX 162
+#define ITEM_QUANTITY_STEEL_BRACELET_IDX 163
+#define ITEM_QUANTITY_SLICE_BRACELET_IDX 164
+#define ITEM_QUANTITY_SURVIVAL_BRACELET_IDX 165
+#define ITEM_QUANTITY_SHELL_BRACELET_IDX 166
+#define ITEM_QUANTITY_COMMON_BRACELET_IDX 167
+#define ITEM_QUANTITY_GAUL_BRACELET_IDX 168
+#define ITEM_QUANTITY_CELEB_BRACELET_IDX 169
+#define ITEM_QUANTITY_HIGH_BRACELET_IDX 170
+#define ITEM_QUANTITY_RUNE_BRACELET_IDX 171
+#define ITEM_QUANTITY_METAL_BOOTS_IDX 172
+#define ITEM_QUANTITY_CUTTING_BOOTS_IDX 173
+#define ITEM_QUANTITY_STELL_BOOTS_IDX 174
+#define ITEM_QUANTITY_SLICE_BOOTS_IDX 175
+#define ITEM_QUANTITY_SURVIVAL_BOOTS_IDX 176
+#define ITEM_QUANTITY_SHELL_BOOTS_IDX 177
+#define ITEM_QUANTITY_COMMON_BOOTS_IDX 178
+#define ITEM_QUANTITY_GAUL_BOOTS_IDX 179
+#define ITEM_QUANTITY_CELEB_BOOTS_IDX 180
+#define ITEM_QUANTITY_HIGH_BOOTS_IDX 181
+#define ITEM_QUANTITY_RUNE_BOOTS_IDX 182
+#define ITEM_QUANTITY_WAR_BOOTS_IDX 183
+#define ITEM_QUANTITY_ESCAPE_BOOTS_IDX 184
+#define ITEM_QUANTITY_EXTEND_RING_IDX 185
+#define ITEM_QUANTITY_RE_EXTEND_RING_IDX 186
+#define ITEM_QUANTITY_LONG_STAY_RING_IDX 187
+#define ITEM_QUANTITY_SPEED_BRACELET_IDX 188
+#define ITEM_QUANTITY_DEF_BRACELET_IDX 189
+#define ITEM_QUANTITY_ATTACK_BRACELET_IDX 190
+#define ITEM_QUANTITY_CRIT_ENHANCE_RING_IDX 191
+#define ITEM_QUANTITY_MAGIC_BRACELET_IDX 192
+#define ITEM_QUANTITY_VITALITY_RING_IDX 193
+#define ITEM_QUANTITY_INSOMNIA_RING_IDX 194
+#define ITEM_QUANTITY_DETOX_RING_IDX 195
+#define ITEM_QUANTITY_COATING_RING_IDX 196
+#define ITEM_QUANTITY_BOSS_RING_1_IDX 197
+#define ITEM_QUANTITY_BOSS_RING_2_IDX 198
+#define ITEM_QUANTITY_CRAFTLORD_RING_IDX 199
 
 struct RoleAttrib
 {
@@ -137,79 +293,7 @@ struct SaveBlock1
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
     /*0x42C*/ u8 unk42C[0x1E];
-    /*0x44A*/ u8 itemQuantityList[0x32]; // TODO: Find out what's the real data structure. Current array is just for matching. 
-    /*0x*/ u8 mineralList[0x28]; // from 1 to 40
-    /*0x*/ u32 filler4A4[2];
-    /*0x*/ u16 filler4AC;
-    /*0x*/ u8 numStorageCell;
-    /*0x*/ u8 numThunderScroll;
-    /*0x*/ u8 numThunderCrystalSegment;
-    /*0x*/ u8 numThunderCrystal;
-    /*0x*/ u8 numLighterDevice;
-    /*0x*/ u8 numFireScroll;
-    /*0x*/ u8 numFireCrystalSegment;
-    /*0x*/ u8 numFireCrystal;
-    /*0x*/ u8 numCleanWaterTank;
-    /*0x*/ u8 numWaterScroll;
-    /*0x*/ u8 numWaterCrystalSegment;
-    /*0x*/ u8 numWaterCrystal;
-    /*0x*/ u8 numElectricFan;
-    /*0x*/ u8 numWindScroll;
-    /*0x*/ u8 numWindCrystalSegment;
-    /*0x*/ u8 numWindCrystal;
-    /*0x*/ u8 numBackLight;
-    /*0x*/ u8 numShinnyScroll;
-    /*0x*/ u8 numBloodSucker;
-    /*0x*/ u8 numDarkRustCup;
-    /*0x*/ u8 numAccelerateWound;
-    /*0x*/ u8 numSuperAccelerator;
-    /*0x*/ u8 numLuckScroll;
-    /*0x*/ u8 numLuckyLeaf;
-    /*0x*/ u8 numToggleSwitch;
-    /*0x*/ u8 numEssenceScroll;
-    /*0x*/ u8 numBodyArtScroll;
-    /*0x*/ u8 numPhysicalModifyBook;
-    /*0x*/ u8 numDistributionDevice;
-    /*0x*/ u8 numDestroySwitch;
-    /*0x*/ u8 numParaPowder;
-    /*0x*/ u8 numPoisonPowder;
-    /*0x*/ u8 numSleepPowder;
-    /*0x*/ u8 numRustPowder;
-    /*0x*/ u8 numForceLicense;
-    /*0x*/ u8 numDefendLicense;
-    /*0x*/ u8 numSuperManLicense;
-    /*0x*/ u8 numLegendWound;
-    /*0x*/ u8 numMindEyeGlasses;
-    /*0x*/ u8 numMartialTutorBook;
-    /*0x*/ u8 numStrongLuckAmulet;
-    /*0x*/ u8 numHealthBucket;
-    /*0x*/ u8 numLegendBamboo;
-    /*0x*/ u8 numOldGrindStone;
-    /*0x*/ u8 numRepareParts;
-    /*0x*/ u8 numLegendIronString;
-    /*0x*/ u8 numDareDevelLoveLetter;
-    /*0x*/ u8 numSuperMotor;
-    /*0x*/ u16 filler4DE;
-    /*0x*/ u8 suitRings[0xB]; // TODO: list name. 
-    /*0x*/ u8 suitBracelets[0xB];
-    /*0x*/ u8 suitShoes[0xB];
-    /*0x*/ u8 numMilitantShoe;
-    /*0x*/ u8 numEscapeShoe;
-    /*0x*/ u8 numNormalExtendRing;
-    /*0x*/ u8 numSuperExtendRing;
-    /*0x*/ u8 numUltraExtendRing;
-    /*0x*/ u8 numSpeedBracelet;
-    /*0x*/ u8 numGuardBracelet;
-    /*0x*/ u8 numAttackBracelet;
-    /*0x*/ u8 numCritEnhanceRing;
-    /*0x*/ u8 numMagBracelet;
-    /*0x*/ u8 numActiveRing;
-    /*0x*/ u8 numAwakeRing;
-    /*0x*/ u8 numDetoxifyRing;
-    /*0x*/ u8 numGoldenRing;
-    /*0x*/ u8 numBossRing1;
-    /*0x*/ u8 numBossRing2;
-    /*0x*/ u8 numCrafterRing;
+    /*0x44A*/ u8 itemQuantityList[0xC8]; // TODO: Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 normalFishPole; // 00 = don't have
     /*0x*/ u8 superFishPole;
     /*0x*/ u8 ultraFishPole;

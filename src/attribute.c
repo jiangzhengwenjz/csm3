@@ -977,9 +977,9 @@ bool32 sub_08018B10(u16 idx)
     idx += 0xff9c;
     if ((gSaveBlock1Ptr->summonGuardianDex[idx / 8] >> (idx & 7) & 1) )
     {
-        return 1;
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
 
 u8 sub_08018B50(u16 itemIdx)

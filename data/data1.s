@@ -2763,37 +2763,21 @@ gUnk_08BD5894:: @ 08BD5894
 	.incbin "baserom.gba", 0xBD5894, 0x1C
 
 gUnk_08BD58B0:: @ 08BD58B0
-	.incbin "baserom.gba", 0xBD58B0, 0x200
+	.incbin "graphics/game_boy_advance.pltt"
+
+/*
+I don't know how to avoid gbagfx, so I use 'pltt' as the filename.
+*/
 
 gUnk_08BD5AB0:: @ 08BD5AB0
-	.incbin "baserom.gba", 0xBD5AB0, 0x27FB
+	.incbin "graphics/game_boy_advance.8bpp"
 
-gUnk_08BD82AB:: @ 08BD82AB
-	.incbin "baserom.gba", 0xBD82AB, 0x282
-
-gUnk_08BD852D:: @ 08BD852D
-	.incbin "baserom.gba", 0xBD852D, 0x2A3
-
-gUnk_08BD87D0:: @ 08BD87D0
-	.incbin "baserom.gba", 0xBD87D0, 0xB7
-
-gUnk_08BD8887:: @ 08BD8887
-	.incbin "baserom.gba", 0xBD8887, 0xA6
-
-gUnk_08BD892D:: @ 08BD892D
-	.incbin "baserom.gba", 0xBD892D, 0x1F4
-
-gUnk_08BD8B21:: @ 08BD8B21
-	.incbin "baserom.gba", 0xBD8B21, 0xE4A
-
-gUnk_08BD996B:: @ 08BD996B
-	.incbin "baserom.gba", 0xBD996B, 0x145
+/*
+I find out the file's size by search for the tile pointer and read the code. I wonder if there are better ways. 
+*/
 
 gUnk_08BD9AB0:: @ 08BD9AB0
-	.incbin "baserom.gba", 0xBD9AB0, 0x2CF
-
-gUnk_08BD9D7F:: @ 08BD9D7F
-	.incbin "baserom.gba", 0xBD9D7F, 0x231
+	.incbin "graphics/game_boy_advance.bin"
 
 gUnk_08BD9FB0:: @ 08BD9FB0
 	.incbin "baserom.gba", 0xBD9FB0, 0x4
