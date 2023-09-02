@@ -986,3 +986,29 @@ u8 sub_08018B50(u16 itemIdx)
 {
     return gSaveBlock1Ptr->itemQuantityList[itemIdx];
 }
+
+/*
+u16 sub_08018B6C(void)
+{
+    u16 sum = 0;
+    s32 i = 0;
+    u8 *iql = gSaveBlock1Ptr->itemQuantityList;
+    void *labels[2] = { &&label };
+
+    for (; i < 0xc8; i += 5)
+label:
+    {
+        u16 r0 = i;
+        sum += iql[r0];
+        r0 = i + 1;
+        sum += iql[r0];
+        r0 = i + 2;
+        sum += iql[r0];
+        r0 = i + 3;
+        sum += iql[r0];
+        r0 = i + 4;
+        sum += iql[r0];        
+    }
+    return sum;
+}
+*/
