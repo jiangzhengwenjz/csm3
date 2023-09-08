@@ -19,7 +19,7 @@ DebugFunc: @ 0x080001D0
 	beq _080001E8
 	b _08000876
 _080001E8:
-	ldr r0, _08000228 @ =gUnk_03005920
+	ldr r0, _08000228 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #4
 	ands r0, r1
@@ -53,7 +53,7 @@ _0800020E:
 	b _0800023E
 	.align 2, 0
 _08000224: .4byte 0x000001B5
-_08000228: .4byte gUnk_03005920
+_08000228: .4byte gKeyNewPress
 _0800022C: .4byte gUnk_03002944
 _08000230: .4byte gUnk_0300294C
 _08000234: .4byte gUnk_03002940
@@ -917,14 +917,14 @@ _08000876:
 	bl sub_08012F60
 	cmp r0, #0
 	ble _080008E4
-	ldr r0, _080008B8 @ =gUnk_0300594C
+	ldr r0, _080008B8 @ =gKeyHeld
 	ldrh r1, [r0]
 	movs r2, #4
 	adds r0, r2, #0
 	ands r0, r1
 	cmp r0, #0
 	beq _080008E4
-	ldr r0, _080008BC @ =gUnk_03005920
+	ldr r0, _080008BC @ =gKeyNewPress
 	ldrh r1, [r0]
 	adds r0, r2, #0
 	ands r0, r1
@@ -939,8 +939,8 @@ _080008A8: .4byte gUnk_0300293C
 _080008AC: .4byte 0x0000025A
 _080008B0: .4byte gUnk_03003364
 _080008B4: .4byte gUnk_03002950
-_080008B8: .4byte gUnk_0300594C
-_080008BC: .4byte gUnk_03005920
+_080008B8: .4byte gKeyHeld
+_080008BC: .4byte gKeyNewPress
 _080008C0:
 	bl VBlankIntrWait
 	adds r4, #1

@@ -425,7 +425,7 @@ void sub_08001C30(void)
 
 void sub_08001C64(void)
 {
-    if (gUnk_03002964 == 1 && (gUnk_0300594C & 0xF) == 0xF)
+    if (gUnk_03002964 == 1 && (gKeyHeld & 0xF) == 0xF)
     {
         sub_080934A8();
         gUnk_03002960 = 0;

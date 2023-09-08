@@ -5879,7 +5879,7 @@ _0801B73C:
 	movs r0, #6
 	strb r0, [r1, #8]
 _0801B742:
-	ldr r0, _0801B75C @ =gUnk_0300594C
+	ldr r0, _0801B75C @ =gKeyHeld
 	ldrh r2, [r0]
 	movs r1, #0x81
 	lsls r1, r1, #1
@@ -5892,7 +5892,7 @@ _0801B742:
 	strb r0, [r1, #7]
 	b _0801B768
 	.align 2, 0
-_0801B75C: .4byte gUnk_0300594C
+_0801B75C: .4byte gKeyHeld
 _0801B760:
 	movs r0, #0x6a
 	movs r1, #0
@@ -5913,7 +5913,7 @@ _0801B780: .4byte gUnk_03006AA4
 _0801B784: .4byte 0x000001C3
 _0801B788: .4byte gUnk_030069B0
 _0801B78C:
-	ldr r0, _0801B7C4 @ =gUnk_03005920
+	ldr r0, _0801B7C4 @ =gKeyNewPress
 	ldrh r1, [r0]
 	ands r4, r1
 	cmp r4, #0
@@ -5943,7 +5943,7 @@ _0801B7B8:
 	movs r0, #0
 	b _0801B7E4
 	.align 2, 0
-_0801B7C4: .4byte gUnk_03005920
+_0801B7C4: .4byte gKeyNewPress
 _0801B7C8: .4byte gUnk_03006AA4
 _0801B7CC: .4byte gUnk_030069C0
 _0801B7D0: .4byte 0x000001C3
@@ -6026,7 +6026,7 @@ _0801B84A:
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	strb r2, [r0, #1]
-	ldr r0, _0801B8A4 @ =gUnk_0300594C
+	ldr r0, _0801B8A4 @ =gKeyHeld
 	ldrh r1, [r0]
 	movs r2, #0x81
 	lsls r2, r2, #1
@@ -6058,7 +6058,7 @@ _0801B88A:
 	adds r3, r1, #0
 	b _0801B8DA
 	.align 2, 0
-_0801B8A4: .4byte gUnk_0300594C
+_0801B8A4: .4byte gKeyHeld
 _0801B8A8: .4byte gUnk_03006AA4
 _0801B8AC: .4byte gUnk_030069C0
 _0801B8B0: .4byte gUnk_030069B0
@@ -29875,7 +29875,7 @@ _0802711C:
 	movs r3, #0x8c
 	lsls r3, r3, #4
 	adds r0, r1, r3
-	ldr r1, _080271A4 @ =gUnk_0300594C
+	ldr r1, _080271A4 @ =gKeyHeld
 	ldrh r1, [r1]
 	bl sub_080412D8
 	ldr r1, [r4]
@@ -29929,7 +29929,7 @@ _08027184:
 	b _08027420
 	.align 2, 0
 _080271A0: .4byte gUnk_03006AC0
-_080271A4: .4byte gUnk_0300594C
+_080271A4: .4byte gKeyHeld
 _080271A8: .4byte 0x00001A90
 _080271AC: .4byte 0x000001BF
 _080271B0:
@@ -29960,7 +29960,7 @@ _080271E2:
 	beq _080271EE
 	b _08027420
 _080271EE:
-	ldr r0, _0802721C @ =gUnk_03005920
+	ldr r0, _0802721C @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #9
 	ands r0, r1
@@ -29981,10 +29981,10 @@ _080271FC:
 _08027210: .4byte 0x00001A90
 _08027214: .4byte 0x000001BF
 _08027218: .4byte 0x000001AD
-_0802721C: .4byte gUnk_03005920
+_0802721C: .4byte gKeyNewPress
 _08027220: .4byte gUnk_03006AC0
 _08027224:
-	ldr r0, _08027268 @ =gUnk_03005920
+	ldr r0, _08027268 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #8
 	ands r0, r1
@@ -30016,7 +30016,7 @@ _08027224:
 	bl sub_08035278
 	b _08027420
 	.align 2, 0
-_08027268: .4byte gUnk_03005920
+_08027268: .4byte gKeyNewPress
 _0802726C: .4byte 0x0000044E
 _08027270: .4byte 0x000001AD
 _08027274:
@@ -30072,7 +30072,7 @@ _080272D8: .4byte 0x000001AD
 _080272DC:
 	cmp r0, #0
 	bne _080272E4
-	ldr r0, _0802736C @ =gUnk_0300594C
+	ldr r0, _0802736C @ =gKeyHeld
 	ldrh r6, [r0]
 _080272E4:
 	ldr r4, _08027370 @ =gUnk_03006AC0
@@ -30141,7 +30141,7 @@ _0802733C:
 	lsrs r6, r0, #0x10
 	b _0802737A
 	.align 2, 0
-_0802736C: .4byte gUnk_0300594C
+_0802736C: .4byte gKeyHeld
 _08027370: .4byte gUnk_03006AC0
 _08027374: .4byte 0x000001B3
 _08027378:
@@ -30194,7 +30194,7 @@ _080273D0:
 	bl sub_08012F60
 	cmp r0, #1
 	bne _08027420
-	ldr r0, _08027450 @ =gUnk_03005920
+	ldr r0, _08027450 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #9
 	ands r0, r1
@@ -30250,7 +30250,7 @@ _08027438:
 	.align 2, 0
 _08027448: .4byte gUnk_03006AC0
 _0802744C: .4byte 0x000001AD
-_08027450: .4byte gUnk_03005920
+_08027450: .4byte gKeyNewPress
 _08027454: .4byte 0x00000707
 _08027458: .4byte 0x0000044E
 _0802745C: .4byte 0x000001A9
@@ -30290,7 +30290,7 @@ sub_08027464: @ 0x08027464
 	lsrs r0, r0, #0x18
 	cmp r0, #2
 	bhi _0802752E
-	ldr r0, _0802754C @ =gUnk_03005920
+	ldr r0, _0802754C @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #0xb
 	ands r0, r1
@@ -30373,7 +30373,7 @@ _08027536:
 _08027540: .4byte gUnk_03006AC0
 _08027544: .4byte 0x00001A94
 _08027548: .4byte gUnk_08B801CC
-_0802754C: .4byte gUnk_03005920
+_0802754C: .4byte gKeyNewPress
 _08027550: .4byte 0x00001E44
 _08027554: .4byte 0x00000C4C
 _08027558: .4byte 0x00000FDC
@@ -31300,7 +31300,7 @@ _08027CD0:
 	movs r2, #0x8c
 	lsls r2, r2, #4
 	adds r0, r0, r2
-	ldr r1, _08027D50 @ =gUnk_0300594C
+	ldr r1, _08027D50 @ =gKeyHeld
 	ldrh r1, [r1]
 	bl sub_080412D8
 _08027CE8:
@@ -31344,7 +31344,7 @@ _08027D40: .4byte 0x00000BCC
 _08027D44: .4byte 0x00000BCE
 _08027D48: .4byte 0x00000FDC
 _08027D4C: .4byte 0x00000F5E
-_08027D50: .4byte gUnk_0300594C
+_08027D50: .4byte gKeyHeld
 _08027D54:
 	movs r0, #0x80
 	lsls r0, r0, #1
@@ -32996,7 +32996,7 @@ _08028B04: .4byte 0x000007A6
 _08028B08: .4byte gUnk_02007000
 _08028B0C: .4byte gUnk_080BABDC
 _08028B10:
-	ldr r0, _08028B70 @ =gUnk_03005920
+	ldr r0, _08028B70 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #8
 	ands r0, r1
@@ -33048,21 +33048,21 @@ _08028B66:
 	strb r0, [r5, #0xf]
 	b _08028C34
 	.align 2, 0
-_08028B70: .4byte gUnk_03005920
+_08028B70: .4byte gKeyNewPress
 _08028B74: .4byte 0x000007A6
 _08028B78: .4byte gUnk_03006AC0
 _08028B7C: .4byte 0x00000C58
 _08028B80:
 	lsls r1, r1, #0x10
-	ldr r0, _08028BBC @ =gUnk_0300594C
+	ldr r0, _08028BBC @ =gKeyHeld
 	ldrh r2, [r0]
-	ldr r0, _08028BC0 @ =gUnk_03005944
+	ldr r0, _08028BC0 @ =gCurrentKeyPress
 	ldrh r0, [r0]
 	lsls r0, r0, #0x10
 	lsrs r1, r1, #0x10
 	orrs r1, r0
 	str r1, [sp]
-	ldr r0, _08028BC4 @ =gUnk_03005948
+	ldr r0, _08028BC4 @ =gKeyNewRelease
 	ldrh r0, [r0]
 	lsls r0, r0, #0x10
 	orrs r2, r0
@@ -33082,9 +33082,9 @@ _08028B80:
 	bl sub_08042394
 	b _08028C34
 	.align 2, 0
-_08028BBC: .4byte gUnk_0300594C
-_08028BC0: .4byte gUnk_03005944
-_08028BC4: .4byte gUnk_03005948
+_08028BBC: .4byte gKeyHeld
+_08028BC0: .4byte gCurrentKeyPress
+_08028BC4: .4byte gKeyNewRelease
 _08028BC8:
 	ldrh r0, [r5, #8]
 	subs r0, #1
@@ -34739,7 +34739,7 @@ sub_08029930: @ 0x08029930
 	ldrb r0, [r2, #0x12]
 	cmp r0, #0
 	bne _08029998
-	ldr r0, _08029994 @ =gUnk_03005920
+	ldr r0, _08029994 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #4
 	ands r0, r1
@@ -34760,9 +34760,9 @@ sub_08029930: @ 0x08029930
 _08029988: .4byte gUnk_03006AC0
 _0802998C: .4byte 0x000001AD
 _08029990: .4byte 0x000001BF
-_08029994: .4byte gUnk_03005920
+_08029994: .4byte gKeyNewPress
 _08029998:
-	ldr r0, _080299D0 @ =gUnk_03005920
+	ldr r0, _080299D0 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #7
 	ands r0, r1
@@ -34792,7 +34792,7 @@ _080299CA:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_080299D0: .4byte gUnk_03005920
+_080299D0: .4byte gKeyNewPress
 _080299D4: .4byte gUnk_03006AC0
 _080299D8: .4byte 0x000008C8
 
@@ -36476,7 +36476,7 @@ sub_0802A75C: @ 0x0802A75C
 	ldr r0, [r5, #0x14]
 	cmp r0, #0xa
 	bhi _0802A78E
-	ldr r1, _0802A7F8 @ =gUnk_0300594C
+	ldr r1, _0802A7F8 @ =gKeyHeld
 	strh r7, [r1]
 	cmp r0, #5
 	bne _0802A78E
@@ -36533,7 +36533,7 @@ _0802A7AE:
 	b _0802A80C
 	.align 2, 0
 _0802A7F4: .4byte gUnk_03006AC0
-_0802A7F8: .4byte gUnk_0300594C
+_0802A7F8: .4byte gKeyHeld
 _0802A7FC:
 	movs r6, #1
 	rsbs r6, r6, #0
@@ -36594,7 +36594,7 @@ sub_0802A858: @ 0x0802A858
 	lsrs r0, r0, #0x10
 	cmp r0, #0x14
 	bhi _0802A8B0
-	ldr r0, _0802A8B8 @ =gUnk_0300594C
+	ldr r0, _0802A8B8 @ =gKeyHeld
 	ldrh r3, [r0]
 	ldr r0, _0802A8BC @ =gUnk_03006AC0
 	ldr r2, [r0]
@@ -36632,7 +36632,7 @@ _0802A8B0:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_0802A8B8: .4byte gUnk_0300594C
+_0802A8B8: .4byte gKeyHeld
 _0802A8BC: .4byte gUnk_03006AC0
 _0802A8C0: .4byte 0x00000A48
 
@@ -38255,7 +38255,7 @@ _0802B6FA:
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	bne _0802B7D8
-	ldr r0, _0802B750 @ =gUnk_0300594C
+	ldr r0, _0802B750 @ =gKeyHeld
 	ldrh r1, [r0]
 	movs r0, #4
 	ands r0, r1
@@ -38277,7 +38277,7 @@ _0802B6FA:
 	mov pc, r0
 	.align 2, 0
 _0802B74C: .4byte gUnk_03006AC0
-_0802B750: .4byte gUnk_0300594C
+_0802B750: .4byte gKeyHeld
 _0802B754: .4byte _0802B758
 _0802B758: @ jump table
 	.4byte _0802B77C @ case 0
@@ -73344,7 +73344,7 @@ _0803CA86:
 	ldrh r0, [r5, #0xa]
 	cmp r0, #0
 	beq _0803CACA
-	ldr r0, _0803CAEC @ =gUnk_03005920
+	ldr r0, _0803CAEC @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #8
 	ands r0, r1
@@ -73385,7 +73385,7 @@ _0803CAD6:
 	bl sub_08009FF8
 	b _0803CB0C
 	.align 2, 0
-_0803CAEC: .4byte gUnk_03005920
+_0803CAEC: .4byte gKeyNewPress
 _0803CAF0:
 	ldrh r0, [r6]
 	adds r1, r0, #0

@@ -24,7 +24,7 @@ struct Unk_03006590
     struct Unk_03006590_1 unk2C[8];
 }; /* size = 0x10C */
 
-extern u16 gUnk_0300594C;
+extern u16 gKeyHeld;
 extern int gUnk_03002964;
 extern int gUnk_03002960;
 extern int gUnk_03002968;
