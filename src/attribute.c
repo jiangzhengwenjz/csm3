@@ -975,7 +975,7 @@ bool32 sub_08018AD8(u8 idx)
 bool32 sub_08018B10(u16 idx)
 {
     idx += 0xff9c;
-    if ((gSaveBlock1Ptr->summonGuardianDex[idx / 8] >> (idx & 7) & 1) )
+    if ((gSaveBlock1Ptr->summonGuardianDex[idx / 8] >> (idx & 7) & 1))
     {
         return TRUE;
     }
@@ -987,13 +987,13 @@ u8 sub_08018B50(u16 itemIdx)
     return gSaveBlock1Ptr->itemQuantityList[itemIdx];
 }
 
-/*
 u16 sub_08018B6C(void)
 {
     u16 sum = 0;
     s32 i = 0;
     u8 *iql = gSaveBlock1Ptr->itemQuantityList;
-    void *labels[2] = { &&label };
+    void *labels[2];
+    labels[0] = &&label;
 
     for (; i < 0xc8; i += 5)
 label:
@@ -1007,8 +1007,7 @@ label:
         r0 = i + 3;
         sum += iql[r0];
         r0 = i + 4;
-        sum += iql[r0];        
+        sum += iql[r0];
     }
     return sum;
 }
-*/

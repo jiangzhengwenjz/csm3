@@ -172,7 +172,7 @@ extern void sub_080B3128(void);
 extern void sub_080B4970(void);
 extern void sub_08062EB0(void);
 extern void sub_08093418(void);
-extern void sub_08012D14(u16 a, u16 *b);
+extern void sub_08012D14(u16 a, void *b);
 extern void sub_08012D30(u32 a);
 extern void sub_08012D64(u16 a, u16 b, u32 c);
 extern void sub_08012F0C(int a, int b);
