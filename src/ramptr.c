@@ -158,3 +158,38 @@ s16 sub_08012EF4(void)
     gUnk_03006574->unk4 += 2;
     return r0;
 }
+
+/* The function gets called whenever scene changes. I believe this is an important function, but I don't know what it does. */
+void sub_08012F0C(u16 r0, u32 r1)
+{
+    if (r0 <= 0x3f)
+    {
+        gUnk_030067B0[r0] = r1;
+    }
+    else if (r0 <= 0x17f)
+    {
+        gUnk_0300657C[r0-0x40] = r1;
+    }
+    else
+    {
+        gUnk_03006584[r0-0x180] = r1;
+    }
+}
+
+u32 sub_08012F60(u16 r0)
+{
+    u32 temp;
+    if (r0 <= 0x3f)
+    {
+        temp = gUnk_030067B0[r0];
+    }
+    else if (r0 <= 0x17f)
+    {
+        (s16)temp = gUnk_0300657C[r0-0x40];
+    }
+    else
+    {
+        (s8)temp = gUnk_03006584[r0-0x180];
+    }
+    return temp;
+}

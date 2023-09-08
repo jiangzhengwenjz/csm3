@@ -157,7 +157,7 @@ extern void sub_080092B0(void);
 extern void sub_0800A5BC(void);
 extern void sub_0801978C(void);
 extern void sub_080AB2D0(void);
-extern int sub_08012F60(int a);
+extern u32 sub_08012F60(u16 a);
 extern void sub_08012C44(void);
 extern void sub_0800F094(void);
 extern void sub_080136CC(void);
@@ -175,7 +175,7 @@ extern void sub_08093418(void);
 extern void sub_08012D14(u16 a, void *b);
 extern void sub_08012D30(u32 a);
 extern void sub_08012D64(u16 a, u16 b, u32 c);
-extern void sub_08012F0C(int a, int b);
+extern void sub_08012F0C(u16 a, u32 b);
 
 extern int gUnk_03002968;
 extern u16 gUnk_02006000;
