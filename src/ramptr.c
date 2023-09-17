@@ -3,6 +3,20 @@
 #include "data.h"
 #include "functions.h"
 
+u32 sub_08012BE8(void)
+{
+    u16 a, b;
+    u32 c = sub_08012578();
+    a = *gUnk_03006574->unk4;
+    gUnk_03006574->unk4 += 1;
+    b = c; // ?
+    gUnk_03006590[0].unk0 |= (1 << b);
+    gUnk_03006590[0].unk2C[b].unk0 = 1;
+    gUnk_03006590[0].unk2C[b].unk4 = gUnk_03006590[0].unk28 + 16 + (a >> 1 << 1); // I tried & 0xfffe but not work.
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
 void sub_08012C44(void)
 {
     CpuFill16(0, gUnk_03006590, 0x218);  // TODO: Find out if gUnk_03006590 contains 2 elements. 
@@ -29,7 +43,7 @@ void sub_08012D14(u16 r0, void *r1)
 
 void sub_08012D30(u32 r0)
 {
-    LZ77UnCompWram(sub_08001D3C(2,r0), gUnk_03006590[0].unk28);
+    LZ77UnCompWram(sub_08001D3C(2, r0), gUnk_03006590[0].unk28);
     sub_08012F0C(4, r0);
     sub_08012F0C(0x180, 0);
 }
@@ -61,12 +75,12 @@ void sub_08012E14(u16 r0, u16 r1, u32 r2)
     gUnk_03006590[r0].unk2C[r1].unk4 = gUnk_03006590[r0].unk28 + 16 + (r2 & 0xfffe);
     gUnk_03006574 = &(gUnk_03006590[r0].unk2C[r1]);
     ptr = &gUnk_03006590[r0].unk2C[r1];
-    ptr->unk2 = *(u16 *)ptr->unk4;
-    ptr->unk4 += 2;
+    ptr->unk2 = *ptr->unk4;
+    ptr->unk4 += 1;
     sub_080127E4();
 }
 
-void *sub_08012E78(u16 r0, u16 r1)
+u16 *sub_08012E78(u16 r0, u16 r1)
 {
     return gUnk_03006590[r0].unk2C[r1].unk4;
 }
@@ -77,7 +91,7 @@ void sub_08012EA0(u32 r0)
 }
 
 
-void *sub_08012EC4(void)
+u16 *sub_08012EC4(void)
 {
     return gUnk_03006574->unk4;
 }
@@ -89,15 +103,15 @@ s16 sub_08012ED0(void)
 
 u16 sub_08012EE0(void)
 {
-    u16 r0 = *(u16*)gUnk_03006574->unk4;
-    gUnk_03006574->unk4 += 2;
+    u16 r0 = *gUnk_03006574->unk4;
+    gUnk_03006574->unk4 += 1;
     return r0;
 }
 
 s16 sub_08012EF4(void)
 {
-    u16 r0 = *(u16*)gUnk_03006574->unk4;
-    gUnk_03006574->unk4 += 2;
+    u16 r0 = *gUnk_03006574->unk4;
+    gUnk_03006574->unk4 += 1;
     return r0;
 }
 

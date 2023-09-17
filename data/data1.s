@@ -2765,10 +2765,6 @@ gUnk_08BD5894:: @ 08BD5894
 gUnk_08BD58B0:: @ 08BD58B0
 	.incbin "graphics/game_boy_advance.pltt"
 
-/*
-I don't know how to avoid gbagfx, so I use 'pltt' as the filename.
-*/
-
 gUnk_08BD5AB0:: @ 08BD5AB0
 	.incbin "graphics/game_boy_advance.8bpp"
 

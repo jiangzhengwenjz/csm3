@@ -2,143 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-
-	thumb_func_start sub_08018BE0
-sub_08018BE0: @ 0x08018BE0
-	push {r4, lr}
-	movs r4, #0
-	movs r3, #0x32
-	ldr r0, _08018C4C @ =gSaveBlock1Ptr
-	ldr r0, [r0]
-	ldr r1, _08018C50 @ =0x0000044A
-	adds r2, r0, r1
-_08018BEE:
-	lsls r0, r3, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	ldrb r1, [r0]
-	adds r1, r4, r1
-	lsls r1, r1, #0x10
-	adds r0, r3, #1
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #2
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #3
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #4
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	lsrs r4, r1, #0x10
-	adds r3, #5
-	cmp r3, #0x59
-	ble _08018BEE
-	adds r0, r4, #0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08018C4C: .4byte gSaveBlock1Ptr
-_08018C50: .4byte 0x0000044A
-
-	thumb_func_start sub_08018C54
-sub_08018C54: @ 0x08018C54
-	push {r4, lr}
-	movs r4, #0
-	movs r3, #0xc8
-	ldr r0, _08018CE0 @ =gSaveBlock1Ptr
-	ldr r0, [r0]
-	ldr r1, _08018CE4 @ =0x0000044A
-	adds r2, r0, r1
-_08018C62:
-	lsls r0, r3, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	ldrb r1, [r0]
-	adds r1, r4, r1
-	lsls r1, r1, #0x10
-	adds r0, r3, #1
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #2
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #3
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #4
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #5
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	adds r0, r3, #6
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	adds r0, r2, r0
-	lsrs r1, r1, #0x10
-	ldrb r0, [r0]
-	adds r1, r1, r0
-	lsls r1, r1, #0x10
-	lsrs r4, r1, #0x10
-	adds r3, #7
-	cmp r3, #0xff
-	ble _08018C62
-	adds r0, r4, #0
-	pop {r4}
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08018CE0: .4byte gSaveBlock1Ptr
-_08018CE4: .4byte 0x0000044A
-
+/*
 	thumb_func_start sub_08018CE8
 sub_08018CE8: @ 0x08018CE8
 	push {r4, lr}
@@ -198,7 +62,7 @@ _08018CF6:
 	.align 2, 0
 _08018D54: .4byte gSaveBlock1Ptr
 _08018D58: .4byte 0x0000044A
-
+*/
 	thumb_func_start sub_08018D5C
 sub_08018D5C: @ 0x08018D5C
 	push {r4, r5, lr}

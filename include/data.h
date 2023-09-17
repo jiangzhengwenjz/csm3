@@ -8,14 +8,14 @@ struct Unk_03006590_1
     u8 unk0;
     u8 filler1;
     u16 unk2;
-    void *unk4;
+    u16 *unk4; // Judging from sub_08012BE8, this is u16*. sub_08012E14 and sub_08012D64 must be casts. 
     u8 filler8[0x14];
 }; /* size = 0x1C */
 
 struct Unk_03006590
 {
     u8 unk0; // Judging from sub_08012D64, this looks like a bit field. 
-    u8 filler1;
+    u8 unk1;
     u8 filler2;
     u8 filler3;
     s16 unk4; // sub_08012ED0
