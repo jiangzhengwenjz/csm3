@@ -370,5 +370,6 @@ extern u16 GetWeaponMaxDur(u8 a);
 extern u16 GetPlayerMaxHp(void);
 extern u8 sub_080189BC(u8 a);
 extern void sub_08018298(u8 a, u8 b);
+extern u8 sub_08063868(u16 a);
 
 #endif
