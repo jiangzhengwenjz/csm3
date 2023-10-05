@@ -292,7 +292,7 @@ struct SaveBlock1
     /*0x08C*/ u8 battleAidItemList[4]; // guardimal's equipment. 
     /*0x090*/ struct SB90 unk90[0x15];
     /*0x0E4*/ struct BagWeapon bagWeapon[0x1E]; 
-    /*0x42C*/ u8 unk42C[0x1E];
+    /*0x42C*/ u8 unk42C[0x1E]; // content: from 00 to 1d, the same as their index. no idea why they need this.
     /*0x44A*/ u8 itemQuantityList[0xC8]; // TODO: Find out what's the real data structure. Current array is just for matching. 
     /*0x*/ u8 normalFishPole; // 00 = don't have
     /*0x*/ u8 superFishPole;

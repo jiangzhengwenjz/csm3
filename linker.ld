@@ -403,6 +403,7 @@ SECTIONS {
         src/attribute.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
+        src/battle.o(.text);
         asm/code.o(.text);
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);

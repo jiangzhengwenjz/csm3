@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-
+/*
 	thumb_func_start sub_0803E48C
 sub_0803E48C: @ 0x0803E48C
 	push {r4, r5, r6, r7, lr}
@@ -316,7 +316,7 @@ _0803E5D6:
 _0803E70C: .4byte 0x0000038B
 _0803E710: .4byte 0x0500003A
 _0803E714: .4byte 0x0000030A
-
+*/
 	thumb_func_start sub_0803E718
 sub_0803E718: @ 0x0803E718
 	push {r4, r5, r6, r7, lr}
