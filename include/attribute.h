@@ -362,6 +362,10 @@ extern struct SaveBlock1 gSaveBlock1;
 extern const struct RoleAttrib *gAttribTablePtr;
 extern const struct RoleAttrib gAttribTable[];
 extern const u16 gUnk_08B80178[];
+extern const u8 gUnk_08B7CFA4[];
+extern const u8 gUnk_08B7D007[];
+extern const u8 gUnk_08B7D06A[];
+extern const u8 gUnk_08B7D0CD[];
 
 extern void sub_080154F0(void);
 extern u8 GetWeaponType(u8 a);

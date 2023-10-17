@@ -3,54 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08018E74
-sub_08018E74: @ 0x08018E74
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	ldr r1, _08018E84 @ =gUnk_08B7CFA4
-	subs r0, #1
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	bx lr
-	.align 2, 0
-_08018E84: .4byte gUnk_08B7CFA4
-
-	thumb_func_start sub_08018E88
-sub_08018E88: @ 0x08018E88
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	ldr r1, _08018E98 @ =gUnk_08B7D007
-	subs r0, #1
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	bx lr
-	.align 2, 0
-_08018E98: .4byte gUnk_08B7D007
-
-	thumb_func_start sub_08018E9C
-sub_08018E9C: @ 0x08018E9C
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	ldr r1, _08018EAC @ =gUnk_08B7D06A
-	subs r0, #1
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	bx lr
-	.align 2, 0
-_08018EAC: .4byte gUnk_08B7D06A
-
-	thumb_func_start sub_08018EB0
-sub_08018EB0: @ 0x08018EB0
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	ldr r1, _08018EC0 @ =gUnk_08B7D0CD
-	subs r0, #1
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	bx lr
-	.align 2, 0
-_08018EC0: .4byte gUnk_08B7D0CD
-
 	thumb_func_start sub_08018EC4
 sub_08018EC4: @ 0x08018EC4
 	push {lr}
