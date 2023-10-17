@@ -351,9 +351,9 @@ struct SaveBlock1
     /*0x*/ u8 weaponSpecialEffectDex2[5];
     /*0x*/ u8 filler59A;
     /*0x59B*/ u8 summonGuardianDex[17];
-    /*0x*/ s32 money; // max = 9999999, or 0x0098967F in hex
+    /*0x5AC*/ s32 money; // max = 9999999, or 0x0098967F in hex
     /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the probability to evade enemies. 
-    /*0x*/ u16 fishingPoint;
+    /*0x5D6*/ u16 fishingPoint;
 }; /* size = 0x5D8 */
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

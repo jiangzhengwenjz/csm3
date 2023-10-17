@@ -158,6 +158,8 @@ sound/songs/%.s: sound/songs/%.mid
 $(C_BUILDDIR)/m4a.o: CC1 := tools/agbcc/bin/old_agbcc
 $(C_BUILDDIR)/agb_eeprom.o: CFLAGS := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O1 -g -fhex-asm -ffix-debug-line
 $(C_BUILDDIR)/agb_eeprom.o: CC1 := tools/agbcc/bin/agbcc
+$(C_BUILDDIR)/attribute_O1_1.o: CFLAGS := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O1 -g -fhex-asm -ffix-debug-line
+$(C_BUILDDIR)/attribute_O1_2.o: CFLAGS := -mthumb-interwork -Wimplicit -Wparentheses -Werror -O1 -g -fhex-asm -ffix-debug-line
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=

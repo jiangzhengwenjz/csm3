@@ -400,7 +400,10 @@ SECTIONS {
         asm/code_080123E4.o(.text);
         src/ramptr.o(.text);
         asm/code_ramptr.o(.text);
-        src/attribute.o(.text);
+        src/attribute_O2_1.o(.text);
+        src/attribute_O1_1.o(.text);
+        src/attribute_O2_2.o(.text);
+        src/attribute_O1_2.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
         src/battle.o(.text);
@@ -425,7 +428,7 @@ SECTIONS {
         data/data.o(.rodata);
         src/copy.o(.rodata);
         data/data3.o(.rodata);
-        src/attribute.o(.rodata);
+        src/attribute_O2_1.o(.rodata);
         data/data4.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/data2.o(.rodata);
