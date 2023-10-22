@@ -53,6 +53,13 @@ struct BattleAttrib_44
 }; /* size = 0x28 */
 // function chain: 3e48c->9f0c
 
+struct BattleAttrib_108
+{
+    u16 unk0;
+    u8 filler2[0x14];
+    u8 unk16;
+}; /* size = 0x18 */
+
 struct BattleAttrib
 {
     u16 index;
@@ -97,18 +104,7 @@ struct BattleAttrib
     u16 fillerFE;
     u32 unk100;
     u32 unk104;
-    u16 unk108;
-    u8 filler10A[0x14]; // something related to weapon
-    u8 unk11E;
-    u8 filler11F;
-    u16 unk120;
-    u8 filler122[0x14];
-    u8 unk136;
-    u8 filler137;
-    u16 unk138;
-    u8 filler13A[0X14];
-    u8 unk14E;
-    u8 filler14F;
+    struct BattleAttrib_108 unk108[3]; // Something related to weapons.
     u32 unk150;
     u16 unk154;
     u8 filler156[4];

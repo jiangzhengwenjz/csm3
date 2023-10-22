@@ -7,8 +7,7 @@ u32 sub_08012BE8(void)
 {
     u16 a, b;
     u32 c = sub_08012578();
-    a = *gUnk_03006574->unk4;
-    gUnk_03006574->unk4 += 1;
+    a = *gUnk_03006574->unk4++;
     b = c; // ?
     gUnk_03006590[0].unk0 |= (1 << b);
     gUnk_03006590[0].unk2C[b].unk0 = 1;
@@ -103,9 +102,7 @@ s16 sub_08012ED0(void)
 
 u16 sub_08012EE0(void)
 {
-    u16 r0 = *gUnk_03006574->unk4;
-    gUnk_03006574->unk4 += 1;
-    return r0;
+    return *gUnk_03006574->unk4++;
 }
 
 s16 sub_08012EF4(void)
@@ -141,11 +138,11 @@ u32 sub_08012F60(u16 r0)
     }
     else if (r0 <= 0x17f)
     {
-        (s16)temp = gUnk_0300657C[r0-0x40];
+        temp = (s16)gUnk_0300657C[r0-0x40];
     }
     else
     {
-        (s8)temp = gUnk_03006584[r0-0x180];
+        temp = (s8)gUnk_03006584[r0-0x180];
     }
     return temp;
 }

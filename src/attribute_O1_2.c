@@ -147,7 +147,7 @@ u16 sub_08018E50(void)
 
 u16 *sub_08018E64(void)
 {
-	return gSaveBlock1Ptr->unk5B0; // TODO:figure out the real data structure of unk5B0
+	return gSaveBlock1Ptr->unk5B0; // TODO: figure out the real data structure of unk5B0
 }
 
 u8 sub_08018E74(u8 idx)

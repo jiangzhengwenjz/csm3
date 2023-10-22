@@ -8,8 +8,9 @@
 #ifdef NONMATCHING
 void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
 {
+    struct BattleAttrib_108 *unk108;
     struct BattleAttrib_44 *ba44;
-    const u32 r6 = 0;
+
     ba->index = idx;
     ba->unk2 = 0xffff;
     ba->unk4 = 0;
@@ -67,11 +68,11 @@ void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
     ba->unkC0 = 0x3c;
     if (r2 == 0)
     {
-    	ba->unk384 = 4;
+    	ba->unk38B = 4;
     }
     else
     {
-    	ba->unk384 = 5;
+    	ba->unk38B = 5;
     }
     ba->unk1A4 = 0x100;
     ba->jumpVerticalSpeed = 0;
@@ -79,12 +80,15 @@ void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
     ba->unk1B0 = 0;
     ba->unk1B2 = 0;
     ba44 = &(ba->unk44);
-    ba->unk108 = 0xff;
-    ba->unk11E = 0;
-    ba->unk120 = 0xff;
-    ba->unk136 = 0;
-    ba->unk138 = 0xff;
-    ba->unk14E = 0;
+    unk108 = &ba->unk108[0]; // how to load 0xff before the pointer?
+    unk108->unk0 = 0xff;
+    unk108->unk16 = 0;
+    unk108 = &ba->unk108[1];
+    unk108->unk0 = 0xff;
+    unk108->unk16 = 0;
+    unk108 = &ba->unk108[2];
+    unk108->unk0 = 0xff;
+    unk108->unk16 = 0;
     ba->unk178 = 0;
     ba->unk15A = 0xff;
     ba->unk160 = 0;
@@ -103,7 +107,7 @@ void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
     ba->unk17B = 0;
     ba->unk17C = 0;
     ba->unk370 = 0;
-    CpuSet(&r6, ba->unk220, CPU_SET_SRC_FIXED | CPU_SET_32BIT | 0x3A);
+    CpuFill32(0, ba->unk220, sizeof(ba->unk220));
     ba->unk308 = 0;
     ba->unk30A = 0;
     sub_08009F0C(&(ba->unk30C));
