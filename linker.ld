@@ -277,11 +277,11 @@ SECTIONS {
         . = 0x000058A0; gUnk_030058A0 = .;
         . = 0x000058C8; gUnk_030058C8 = .;
         . = 0x000058D0; gUnk_030058D0 = .;
-        . = 0x00005920; gUnk_03005920 = .;
+        . = 0x00005920; gKeyNewPress = .;
         . = 0x00005930; gUnk_03005930 = .;
-        . = 0x00005944; gUnk_03005944 = .;
-        . = 0x00005948; gUnk_03005948 = .;
-        . = 0x0000594C; gUnk_0300594C = .;
+        . = 0x00005944; gCurrentKeyPress = .;
+        . = 0x00005948; gKeyNewRelease = .;
+        . = 0x0000594C; gKeyHeld = .;
         . = 0x00005950; gUnk_03005950 = .;
         . = 0x00005954; gUnk_03005954 = .;
         . = 0x00005958; gUnk_03005958 = .;
@@ -400,9 +400,13 @@ SECTIONS {
         asm/code_080123E4.o(.text);
         src/ramptr.o(.text);
         asm/code_ramptr.o(.text);
-        src/attribute.o(.text);
+        src/attribute_O2_1.o(.text);
+        src/attribute_O1_1.o(.text);
+        src/attribute_O2_2.o(.text);
+        src/attribute_O1_2.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
+        src/battle.o(.text);
         asm/code.o(.text);
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);
@@ -424,7 +428,7 @@ SECTIONS {
         data/data.o(.rodata);
         src/copy.o(.rodata);
         data/data3.o(.rodata);
-        src/attribute.o(.rodata);
+        src/attribute_O2_1.o(.rodata);
         data/data4.o(.rodata);
         src/m4a_tables.o(.rodata);
         data/data2.o(.rodata);

@@ -941,3 +941,48 @@ u16 sub_08018A04(void)
     struct GuardimalAttrib *ga = &gSaveBlock1Ptr->guardimalAttrib;
     return ga->unk1C;
 }
+
+bool32 sub_08018A14(u8 wpIdx)
+{
+    if (wpIdx <= 0xef && (!(gSaveBlock1Ptr->weaponDexLighted[wpIdx / 8] >> (wpIdx & 7) & 1)))
+    {
+        return FALSE;
+    }
+    return TRUE;
+}
+
+bool32 sub_08018A50(u8 idx, u8 r1)
+{
+    if (gSaveBlock1Ptr->weaponSkillDex1[idx / 8 + r1 * 6] >> (idx & 7) & 1)
+        return TRUE;
+    return FALSE;
+}
+
+bool32 sub_08018A94(u8 idx, u8 r1)
+{
+    if (gSaveBlock1Ptr->weaponSpecialEffectDex1[idx / 8 + r1 * 6] >> (idx & 7) & 1)
+        return TRUE;
+    return FALSE;
+}
+
+bool32 sub_08018AD8(u8 idx)
+{
+    if (gSaveBlock1Ptr->unk54A[idx / 8] >> (idx & 7) & 1)
+        return TRUE;
+    return FALSE;
+}
+
+bool32 sub_08018B10(u16 idx)
+{
+    idx += 0xff9c;
+    if ((gSaveBlock1Ptr->summonGuardianDex[idx / 8] >> (idx & 7) & 1))
+    {
+        return TRUE;
+    }
+    return FALSE;
+}
+
+u8 sub_08018B50(u16 itemIdx)
+{
+    return gSaveBlock1Ptr->itemQuantityList[itemIdx];
+}

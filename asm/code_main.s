@@ -12205,7 +12205,7 @@ sub_080079E0: @ 0x080079E0
 	ldrb r0, [r1]
 	cmp r0, #3
 	bne _08007A50
-	ldr r0, _08007A14 @ =gUnk_03005944
+	ldr r0, _08007A14 @ =gCurrentKeyPress
 	ldrh r2, [r0]
 	movs r0, #0x40
 	ands r0, r2
@@ -12216,7 +12216,7 @@ sub_080079E0: @ 0x080079E0
 	b _08007A50
 	.align 2, 0
 _08007A10: .4byte gUnk_03003480
-_08007A14: .4byte gUnk_03005944
+_08007A14: .4byte gCurrentKeyPress
 _08007A18:
 	movs r0, #0x80
 	ands r0, r2
@@ -13718,7 +13718,7 @@ sub_08008670: @ 0x08008670
 	lsls r1, r1, #2
 	ldr r0, _080086D4 @ =gUnk_03003480
 	adds r7, r1, r0
-	ldr r0, _080086D8 @ =gUnk_03005920
+	ldr r0, _080086D8 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #0x40
 	ands r0, r1
@@ -13756,7 +13756,7 @@ sub_08008670: @ 0x08008670
 	b _0800885E
 	.align 2, 0
 _080086D4: .4byte gUnk_03003480
-_080086D8: .4byte gUnk_03005920
+_080086D8: .4byte gKeyNewPress
 _080086DC:
 	movs r0, #4
 	strb r0, [r7, #1]
@@ -13977,7 +13977,7 @@ sub_0800886C: @ 0x0800886C
 	lsls r1, r1, #2
 	ldr r0, _080088CC @ =gUnk_03003480
 	adds r7, r1, r0
-	ldr r0, _080088D0 @ =gUnk_03005920
+	ldr r0, _080088D0 @ =gKeyNewPress
 	ldrh r1, [r0]
 	movs r0, #0x80
 	ands r0, r1
@@ -14012,7 +14012,7 @@ sub_0800886C: @ 0x0800886C
 	b _08008A86
 	.align 2, 0
 _080088CC: .4byte gUnk_03003480
-_080088D0: .4byte gUnk_03005920
+_080088D0: .4byte gKeyNewPress
 _080088D4:
 	movs r0, #4
 	strb r0, [r7, #1]

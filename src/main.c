@@ -337,8 +337,7 @@ void sub_08001A1C(void)
     }
 
     sub_08012D14(0,&gUnk_02006000);
-    sub_08012F60(4);
-    sub_08012D30();
+    sub_08012D30(sub_08012F60(4));
     sub_08012D64(0, 0, 0);
     sub_08012F0C(0, 0x55555555);
     sub_08012F0C(1, 0x55555555);
@@ -426,7 +425,7 @@ void sub_08001C30(void)
 
 void sub_08001C64(void)
 {
-    if (gUnk_03002964 == 1 && (gUnk_0300594C & 0xF) == 0xF)
+    if (gUnk_03002964 == 1 && (gKeyHeld & 0xF) == 0xF)
     {
         sub_080934A8();
         gUnk_03002960 = 0;
@@ -552,7 +551,7 @@ void sub_08001DE8(struct Unk_08001DE8_1 *a, struct Unk_08001DE8_2 *b)
     b->unkc = a->unk0 + a->unk1c / 4;    
 }
 
-void sub_08001E14(u32 *a, struct Unk_08001E14 *b) //no reference
+void sub_08001E14(u32 *a, struct Unk_08001E14 *b) // no reference
 {
     b->unk0 = a[4];
     b->unk1 = a[5];
@@ -562,7 +561,7 @@ void sub_08001E14(u32 *a, struct Unk_08001E14 *b) //no reference
     b->unk8 = a + a[7] / 4;
 }
 
-void sub_08001E38(u32 *a, struct Unk_08001E38 *b) //no reference
+void sub_08001E38(u32 *a, struct Unk_08001E38 *b) // no reference
 {
     b->unk0 = a[4];
     b->unk2 = a[5];

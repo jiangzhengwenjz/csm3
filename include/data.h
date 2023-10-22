@@ -3,17 +3,35 @@
 
 #include "global.h"
 
+struct Unk_03006590_1
+{
+    u8 unk0;
+    u8 filler1;
+    u16 unk2;
+    u16 *unk4; // Judging from sub_08012BE8, this is u16*. sub_08012E14 and sub_08012D64 must be casts. 
+    u8 filler8[0x14];
+}; /* size = 0x1C */
+
 struct Unk_03006590
 {
-    u8 filler0[0x28];
-    u32 *unk28;
-    u8 filler2c[0xE0];
+    u8 unk0; // Judging from sub_08012D64, this looks like a bit field. 
+    u8 unk1;
+    u8 filler2;
+    u8 filler3;
+    s16 unk4; // sub_08012ED0
+    u8 filler6[0x22];
+    void *unk28; // Judging from the runtime memory, [030065b8] always = 02006000. 
+    struct Unk_03006590_1 unk2C[8];
 }; /* size = 0x10C */
 
-extern u16 gUnk_0300594C;
+extern u16 gKeyHeld;
 extern int gUnk_03002964;
 extern int gUnk_03002960;
 extern int gUnk_03002968;
+
+extern struct Unk_03006590_1 *gUnk_03006574; // See 08012e14
+
+extern struct Unk_03006590 *gUnk_03006578; // See 08012ea0
 
 extern struct Unk_03006590 gUnk_03006590[];
 extern u32 *gUnk_030067B0;
