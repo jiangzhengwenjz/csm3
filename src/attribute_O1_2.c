@@ -137,17 +137,17 @@ u16 sub_08018D9C(u16 r0)
 
 s32 sub_08018E3C(void)
 {
-	return gSaveBlock1Ptr->money;
+    return gSaveBlock1Ptr->money;
 }
 
 u16 sub_08018E50(void)
 {
-	return gSaveBlock1Ptr->fishingPoint;
+    return gSaveBlock1Ptr->fishingPoint;
 }
 
 u16 *sub_08018E64(void)
 {
-	return gSaveBlock1Ptr->unk5B0; // TODO: figure out the real data structure of unk5B0
+    return gSaveBlock1Ptr->unk5B0; // TODO: figure out the real data structure of unk5B0
 }
 
 u8 sub_08018E74(u8 idx)

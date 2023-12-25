@@ -219,23 +219,23 @@ struct RoleAttrib
 
 struct BagWeapon
 {
-    u8 unk0; // something related to reforge
-    u8 weaponType;
-    u8 weaponSpecialEffect;
-    u8 weaponSkill;
-    u8 enhanceItemList[3]; // null = 0xff
-    u8 weaponTec;
-    u16 weaponAtk;
-    u16 weaponDef;
-    s16 weaponAgl;
-    u16 weaponInitAtk; // Atk when not enhanced or boosted
-    u16 weaponInitDef;
-    u16 weaponInitAgl;
-    u16 weaponCurrentDur;
-    u16 weaponMaxDur;
-    u16 weaponInitDur;
-    bool8 isGoodWeapon;
-    u8 unk1B;
+    /*0x00*/ u8 unk0; // something related to reforge
+    /*0x01*/ u8 weaponType;
+    /*0x02*/ u8 weaponSpecialEffect;
+    /*0x03*/ u8 weaponSkill;
+    /*0x04*/ u8 enhanceItemList[3]; // null = 0xff
+    /*0x07*/ u8 weaponTec;
+    /*0x08*/ u16 weaponAtk;
+    /*0x0A*/ u16 weaponDef;
+    /*0x0C*/ s16 weaponAgl;
+    /*0x0E*/ u16 weaponInitAtk; // Atk when not enhanced or boosted
+    /*0x10*/ u16 weaponInitDef;
+    /*0x12*/ u16 weaponInitAgl;
+    /*0x14*/ u16 weaponCurrentDur;
+    /*0x16*/ u16 weaponMaxDur;
+    /*0x18*/ u16 weaponInitDur;
+    /*0x1A*/ bool8 isGoodWeapon;
+    /*0x1B*/ u8 unk1B;
 }; /* size = 0x1C */
 
 struct GuardimalAttrib
@@ -343,13 +343,13 @@ struct SaveBlock1
     /*0x540*/ u8 filler540[0xA];
     /*0x54A*/ u8 unk54A[0x1A];
     /*0x564*/ u8 weaponDexLighted[0x1E]; 
-    /*0x*/ u8 filler582; // Weird. Idk why it needs a struct align here. 
+    /*0x582*/ u8 filler582; // Weird. Idk why it needs a struct align here. 
     /*0x583*/ u8 weaponSkillDex1[6];
-    /*0x*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
+    /*0x589*/ u8 weaponSkillDex2[6]; // May be a useless checksum. Need more evidence
     /*0x58F*/ u8 weaponSpecialEffectDex1[5];
-    /*0x*/ u8 filler594;
-    /*0x*/ u8 weaponSpecialEffectDex2[5];
-    /*0x*/ u8 filler59A;
+    /*0x594*/ u8 filler594;
+    /*0x595*/ u8 weaponSpecialEffectDex2[5];
+    /*0x59A*/ u8 filler59A;
     /*0x59B*/ u8 summonGuardianDex[17];
     /*0x5AC*/ s32 money; // max = 9999999, or 0x0098967F in hex
     /*0x5B0*/ u16 unk5B0[0x13]; // something related to the map. Offset 0xA is a word related to the probability to evade enemies. 

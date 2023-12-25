@@ -177,6 +177,7 @@ int sub_08001894(int r5, int r4)
     sub_08012F0C(9, i);
     return (s32)i % (r4 - r5 + 1) + r5; // UB
 }
+
 u16 sub_080018D8(u8* r5, u32 r4)
 {
     u16 r2 = 0xFFFF;
@@ -375,7 +376,7 @@ void sub_08001B20(void)
     DmaFill32(3, 0xa0, OAM, 0x400);
     DmaFill16(3, 0, PLTT, 0x400);
 
-    sub_08006F00();
+    InitIntrHandlers();
     sub_08001D0C();
 }
 

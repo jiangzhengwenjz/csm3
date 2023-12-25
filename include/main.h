@@ -145,7 +145,7 @@ extern void sub_080092EC(void);
 extern void sub_0800A5E8(void);
 extern void sub_08006AB8(void);
 extern void sub_080146B0(void);
-extern void sub_08006F00(void);
+extern void InitIntrHandlers(void);
 extern void sub_08001D0C(void);
 extern void sub_08001120(void);
 extern void sub_080044B0(void);

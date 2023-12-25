@@ -10501,7 +10501,7 @@ sub_08006CA4: @ 0x08006CA4
 	ldr r4, _08006D1C @ =gUnk_03003340
 	ldr r0, _08006D20 @ =gUnk_03003241
 	mov r8, r0
-	ldr r5, _08006D24 @ =gUnk_03003190
+	ldr r5, _08006D24 @ =gIntrTable
 	ldr r6, _08006D28 @ =gUnk_03003350
 	mov ip, r6
 	ldr r7, _08006D2C @ =gUnk_03003220
@@ -10548,7 +10548,7 @@ _08006D14: .4byte gUnk_03003210
 _08006D18: .4byte gUnk_03003470
 _08006D1C: .4byte gUnk_03003340
 _08006D20: .4byte gUnk_03003241
-_08006D24: .4byte gUnk_03003190
+_08006D24: .4byte gIntrTable
 _08006D28: .4byte gUnk_03003350
 _08006D2C: .4byte gUnk_03003220
 _08006D30: .4byte 0x04000208
@@ -10787,8 +10787,8 @@ _08006EF4: .4byte 0x04000006
 _08006EF8: .4byte gUnk_030031D0
 _08006EFC: .4byte 0x04000004
 
-	thumb_func_start sub_08006F00
-sub_08006F00: @ 0x08006F00
+	thumb_func_start InitIntrHandlers
+InitIntrHandlers: @ 0x08006F00
 	push {lr}
 	ldr r1, _08006F6C @ =gUnk_03003364
 	movs r0, #0
@@ -10796,7 +10796,7 @@ sub_08006F00: @ 0x08006F00
 	bl sub_080071A0
 	bl sub_08006C48
 	movs r0, #0
-	ldr r3, _08006F70 @ =gUnk_03003190
+	ldr r3, _08006F70 @ =gIntrTable
 	ldr r2, _08006F74 @ =__div01
 _08006F16:
 	lsls r1, r0, #0x10
@@ -10811,9 +10811,9 @@ _08006F16:
 	cmp r1, #0xc
 	ble _08006F16
 	ldr r1, _08006F78 @ =0x040000D4
-	ldr r0, _08006F7C @ =sub_080000FC
+	ldr r0, _08006F7C @ =IntrMain
 	str r0, [r1]
-	ldr r2, _08006F80 @ =gUnk_03003370
+	ldr r2, _08006F80 @ =IntrMain_Buffer
 	str r2, [r1, #4]
 	ldr r3, _08006F84 @ =0x80000080
 	str r3, [r1, #8]
@@ -10843,11 +10843,11 @@ _08006F16:
 	bx r0
 	.align 2, 0
 _08006F6C: .4byte gUnk_03003364
-_08006F70: .4byte gUnk_03003190
+_08006F70: .4byte gIntrTable
 _08006F74: .4byte __div01
 _08006F78: .4byte 0x040000D4
-_08006F7C: .4byte sub_080000FC
-_08006F80: .4byte gUnk_03003370
+_08006F7C: .4byte IntrMain
+_08006F80: .4byte IntrMain_Buffer
 _08006F84: .4byte 0x80000080
 _08006F88: .4byte 0x03007FFC
 _08006F8C: .4byte sub_080071F8
@@ -10861,24 +10861,24 @@ _08006FA4: .4byte 0x04000208
 	thumb_func_start sub_08006FA8
 sub_08006FA8: @ 0x08006FA8
 	lsls r0, r0, #0x10
-	ldr r2, _08006FB4 @ =gUnk_03003190
+	ldr r2, _08006FB4 @ =gIntrTable
 	lsrs r0, r0, #0xe
 	adds r0, r0, r2
 	str r1, [r0]
 	bx lr
 	.align 2, 0
-_08006FB4: .4byte gUnk_03003190
+_08006FB4: .4byte gIntrTable
 
 	thumb_func_start sub_08006FB8
 sub_08006FB8: @ 0x08006FB8
 	lsls r0, r0, #0x10
-	ldr r1, _08006FC4 @ =gUnk_03003190
+	ldr r1, _08006FC4 @ =gIntrTable
 	lsrs r0, r0, #0xe
 	adds r0, r0, r1
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
-_08006FC4: .4byte gUnk_03003190
+_08006FC4: .4byte gIntrTable
 
 	thumb_func_start __div01
 __div01: @ 0x08006FC8
@@ -10906,7 +10906,7 @@ _08006FEC: .4byte 0x03007FF8
 	thumb_func_start sub_08006FF0
 sub_08006FF0: @ 0x08006FF0
 	ldr r1, _08007018 @ =__div01
-	ldr r0, _0800701C @ =gUnk_03003190
+	ldr r0, _0800701C @ =gIntrTable
 	str r1, [r0, #4]
 	ldr r3, _08007020 @ =0x04000208
 	movs r0, #0
@@ -10926,7 +10926,7 @@ sub_08006FF0: @ 0x08006FF0
 	bx lr
 	.align 2, 0
 _08007018: .4byte __div01
-_0800701C: .4byte gUnk_03003190
+_0800701C: .4byte gIntrTable
 _08007020: .4byte 0x04000208
 _08007024: .4byte 0x04000200
 _08007028: .4byte 0x0000FFFD
@@ -11078,7 +11078,7 @@ sub_08007150: @ 0x08007150
 	push {lr}
 	bl sub_08006C48
 	ldr r1, _08007180 @ =sub_08006E44
-	ldr r0, _08007184 @ =gUnk_03003190
+	ldr r0, _08007184 @ =gIntrTable
 	str r1, [r0, #8]
 	ldr r3, _08007188 @ =0x04000208
 	movs r0, #0
@@ -11099,7 +11099,7 @@ sub_08007150: @ 0x08007150
 	bx r0
 	.align 2, 0
 _08007180: .4byte sub_08006E44
-_08007184: .4byte gUnk_03003190
+_08007184: .4byte gIntrTable
 _08007188: .4byte 0x04000208
 _0800718C: .4byte 0x04000200
 _08007190: .4byte 0x04000004

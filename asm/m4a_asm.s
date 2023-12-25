@@ -836,9 +836,6 @@ _080B7112:
 	cmp r3, #0
 	beq _080B7124
 	ldr r0, [r0, #0x3c]
-
-	thumb_func_start j_.call_r3_rev
-j_.call_r3_rev: @ 0x080B7120
 	bl .call_r3_rev
 _080B7124:
 	pop {r0}
@@ -852,9 +849,6 @@ _080B7124:
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	bge _080B713C
-
-	non_word_aligned_thumb_func_start j_.pause
-j_.pause: @ 0x080B713A
 	b _080B7350
 _080B713C:
 	ldr r0, _080B7368 @ =0x03007FF0
@@ -865,17 +859,11 @@ _080B713C:
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	bge _080B7150
-
-	non_word_aligned_thumb_func_start j_.pause_0
-j_.pause_0: @ 0x080B714E
 	b _080B7350
 _080B7150:
 	ldrh r0, [r7, #0x22]
 	ldrh r1, [r7, #0x20]
 	adds r0, r0, r1
-
-	non_word_aligned_thumb_func_start sub_080B7156
-sub_080B7156: @ 0x080B7156
 	b _080B72A0
 _080B7158:
 	ldrb r6, [r7, #8]
@@ -887,9 +875,6 @@ _080B7160:
 	movs r1, #0x80
 	tst r1, r0
 	bne _080B716A
-
-	thumb_func_start sub_080B7168
-sub_080B7168: @ 0x080B7168
 	b _080B727C
 _080B716A:
 	mov sl, r3
@@ -912,9 +897,6 @@ _080B7176:
 	movs r0, #0x40
 	orrs r1, r0
 	strb r1, [r4]
-
-	thumb_func_start sub_080B7190
-sub_080B7190: @ 0x080B7190
 	b _080B7198
 _080B7192:
 	adds r0, r4, #0
@@ -941,9 +923,6 @@ _080B719E:
 	movs r0, #1
 	adds r1, r5, #6
 	strb r0, [r1, #0x1e]
-
-	non_word_aligned_thumb_func_start sub_080B71C2
-sub_080B71C2: @ 0x080B71C2
 	b _080B721C
 _080B71C4:
 	ldr r2, [r5, #0x40]
@@ -951,9 +930,6 @@ _080B71C4:
 	cmp r1, #0x80
 	bhs _080B71D0
 	ldrb r1, [r5, #7]
-
-	non_word_aligned_thumb_func_start sub_080B71CE
-sub_080B71CE: @ 0x080B71CE
 	b _080B71DA
 _080B71D0:
 	adds r2, #1
@@ -970,13 +946,7 @@ _080B71DA:
 	subs r0, #0xcf
 	adds r1, r7, #0
 	adds r2, r5, #0
-
-	non_word_aligned_thumb_func_start j_.call_r3_rev_0
-j_.call_r3_rev_0: @ 0x080B71EA
 	bl .call_r3_rev
-
-	non_word_aligned_thumb_func_start sub_080B71EE
-sub_080B71EE: @ 0x080B71EE
 	b _080B721C
 _080B71F0:
 	cmp r1, #0xb0
@@ -990,16 +960,10 @@ _080B71F0:
 	ldr r3, [r3, r0]
 	adds r0, r7, #0
 	adds r1, r5, #0
-
-	non_word_aligned_thumb_func_start j_.call_r3_rev_1
-j_.call_r3_rev_1: @ 0x080B7206
 	bl .call_r3_rev
 	ldrb r0, [r5]
 	cmp r0, #0
 	beq _080B7278
-
-	thumb_func_start sub_080B7210
-sub_080B7210: @ 0x080B7210
 	b _080B721C
 _080B7212:
 	ldr r0, _080B7364 @ =gClockTable
@@ -1024,9 +988,6 @@ _080B721C:
 	beq _080B723E
 	subs r0, #1
 	strb r0, [r5, #0x1c]
-
-	thumb_func_start j_.next_trk
-j_.next_trk: @ 0x080B723C
 	b _080B7278
 _080B723E:
 	ldrb r0, [r5, #0x1a]
@@ -1038,9 +999,6 @@ _080B723E:
 	bpl _080B7252
 	lsls r2, r1, #0x18
 	asrs r2, r2, #0x18
-
-	thumb_func_start sub_080B7250
-sub_080B7250: @ 0x080B7250
 	b _080B7256
 _080B7252:
 	movs r0, #0x80
@@ -1059,9 +1017,6 @@ _080B7256:
 	cmp r1, #0
 	bne _080B7272
 	movs r1, #0xc
-
-	thumb_func_start sub_080B7270
-sub_080B7270: @ 0x080B7270
 	b _080B7274
 _080B7272:
 	movs r1, #3
@@ -1074,9 +1029,6 @@ _080B7278:
 _080B727C:
 	subs r6, #1
 	ble _080B7288
-
-	thumb_func_start sub_080B7280
-sub_080B7280: @ 0x080B7280
 	movs r0, #0x50
 	adds r5, r5, r0
 	lsls r3, r3, #1
@@ -1090,9 +1042,6 @@ _080B7288:
 	movs r0, #0x80
 	lsls r0, r0, #0x18
 	str r0, [r7, #4]
-
-	thumb_func_start j_.pause_1
-j_.pause_1: @ 0x080B7298
 	b _080B7350
 _080B729A:
 	str r4, [r7, #4]
@@ -1102,9 +1051,6 @@ _080B72A0:
 	strh r0, [r7, #0x22]
 	cmp r0, #0x96
 	blo _080B72A8
-
-	non_word_aligned_thumb_func_start sub_080B72A6
-sub_080B72A6: @ 0x080B72A6
 	b _080B7158
 _080B72A8:
 	ldrb r2, [r7, #8]
@@ -1131,9 +1077,6 @@ _080B72CA:
 	bne _080B72DA
 	adds r0, r4, #0
 	bl ClearChain
-
-	thumb_func_start sub_080B72D8
-sub_080B72D8: @ 0x080B72D8
 	b _080B7336
 _080B72DA:
 	ldrb r0, [r4, #1]
@@ -1169,18 +1112,12 @@ _080B730C:
 	adds r1, r2, #0
 	ldrb r2, [r5, #9]
 	adds r0, r6, #0
-
-	non_word_aligned_thumb_func_start j_.call_r3_rev_2
-j_.call_r3_rev_2: @ 0x080B731A
 	bl .call_r3_rev
 	str r0, [r4, #0x20]
 	ldrb r0, [r4, #0x1d]
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r4, #0x1d]
-
-	thumb_func_start sub_080B7328
-sub_080B7328: @ 0x080B7328
 	b _080B7336
 _080B732A:
 	adds r1, r2, #0

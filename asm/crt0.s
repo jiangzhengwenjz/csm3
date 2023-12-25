@@ -20,7 +20,7 @@ _080000C0:
 	msr cpsr_fc, r0
 	ldr sp, _080000F8 @ =0x03007E00
 	ldr r1, _080001C4 @ =0x03007FFC
-	add r0, pc, #0x18 @ =sub_080000FC
+	add r0, pc, #0x18 @ =IntrMain
 	str r0, [r1]
 	ldr r1, _080001C8 @ =sub_08001C98
 	mov lr, pc
@@ -30,8 +30,8 @@ _080000C0:
 _080000F4: .4byte 0x03007FA0
 _080000F8: .4byte 0x03007E00
 
-	arm_func_start sub_080000FC
-sub_080000FC: @ 0x080000FC
+	arm_func_start IntrMain
+IntrMain: @ 0x080000FC
 	mov r3, #0x4000000
 	add r3, r3, #0x200
 	ldr r2, [r3]
@@ -80,11 +80,11 @@ _08000114:
 	ands r0, r1, #0x1000
 _080001B0:
 	strh r0, [r3, #2]
-	ldr r1, _080001CC @ =gUnk_03003190
+	ldr r1, _080001CC @ =gIntrTable
 	add r1, r1, r2
 	ldr r0, [r1]
 	bx r0
 	.align 2, 0
 _080001C4: .4byte 0x03007FFC
 _080001C8: .4byte sub_08001C98
-_080001CC: .4byte gUnk_03003190
+_080001CC: .4byte gIntrTable
