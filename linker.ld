@@ -408,6 +408,8 @@ SECTIONS {
         asm/code_0803E098.o(.text); /* handwritten */
         src/battle.o(.text);
         asm/code.o(.text);
+        src/small_strucures.o(.text);
+        asm/code_small_structures.o(.text);
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);
         asm/libagbsyscall.o(.text);
