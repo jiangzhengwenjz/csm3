@@ -1,4 +1,6 @@
 #include "global.h"
+#include "main.h"
+#include "gba/syscall.h"
 
 struct Unk_03006AE0
 {
@@ -20,15 +22,46 @@ struct Unk_03006AE0
     u8 unk29;
     u8 unk2A;
     u8 filler2B;
-    u32 unk2C;
-    u8 unk30[0x24];
+    u32 unk2C; // May be a sub struct.
+    u8 filler30[0x24];
 };
 /* size = 0x54 */
 
+struct Unk_03006AE4
+{
+    u8 filler0[0x12];
+    u8 unk12;
+    u8 unk13;
+    u8 unk14;
+    u8 unk15;
+    u8 unk16;
+    u8 unk17;
+    u8 unk18;
+    u8 unk19;
+    u16 unk1A;
+    u16 unk1C;
+    u16 unk1E;
+    s16 unk20;
+    u16 unk22;
+    u16 unk24;
+    u16 unk26;
+    s16 unk28;
+    u16 unk2A;
+    u8 unk2C;
+    u8 unk2D;
+    u8 unk2E;
+    u8 unk2F;
+    u8 unk30;
+    u8 unk31;
+    u16 unk32;
+    u8 filler34[0x24];
+};
+/* size = 0x58 */
+
 extern struct Unk_03006AE0 *gUnk_03006AE0;
 extern struct Unk_03006AE0 gUnk_08BBCA9C[];
-extern u32 *gUnk_03006AE4;
-extern u32 gUnk_08BC1E9C;
+extern struct Unk_03006AE4 *gUnk_03006AE4;
+extern struct Unk_03006AE4 gUnk_08BC1E9C[];
 extern u32 *gUnk_03006AF0;
 extern u32 gUnk_08BC73DC;
 extern u32 *gUnk_03006AEC;
@@ -39,7 +72,7 @@ extern u32 gUnk_08BC9100;
 void sub_080637C4(void)
 {
     gUnk_03006AE0 = gUnk_08BBCA9C;
-    gUnk_03006AE4 = &gUnk_08BC1E9C;
+    gUnk_03006AE4 = gUnk_08BC1E9C;
     gUnk_03006AF0 = &gUnk_08BC73DC;
     gUnk_03006AEC = &gUnk_08BC81DC;
     gUnk_03006AE8 = &gUnk_08BC9100;
@@ -129,3 +162,135 @@ s8 sub_080639A0(u16 r0)
 {
     return gUnk_03006AE0[r0].unk2A;
 }
+
+struct Unk_03006AE4 *sub_080639BC(u8 r0)
+{
+    return &gUnk_03006AE4[r0]; // May be the first element's address.
+}
+
+u16 *sub_080639D0(u8 r0)
+{
+    return &gUnk_03006AE4[r0].unk32;
+}
+
+u8 sub_080639E8(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk12;
+}
+
+u8 sub_08063A00(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk13;
+}
+
+u8 sub_08063A18(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk14;
+}
+
+u8 sub_08063A30(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk15;
+}
+
+u8 sub_08063A48(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk16;
+}
+
+u8 sub_08063A60(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk18;
+}
+
+u8 sub_08063A78(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk19;
+}
+
+s8 sub_08063A90(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk31;
+}
+
+u16 sub_08063AAC(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk1A;
+}
+
+u16 sub_08063AC4(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk1C;
+}
+
+u16 sub_08063ADC(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk1E;
+}
+
+s16 sub_08063AF4(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk20;
+}
+
+u16 sub_08063B0C(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk22;
+}
+
+u16 sub_08063B24(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk24;
+}
+
+u16 sub_08063B3C(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk26;
+}
+
+s16 sub_08063B54(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk28;
+}
+
+u16 sub_08063B6C(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk2A;
+}
+
+u8 sub_08063B84(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk17;
+}
+
+u8 sub_08063B9C(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk30;
+}
+
+u8 sub_08063BB4(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk2F;
+}
+
+u8 sub_08063BCC(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk2C;
+}
+
+u8 sub_08063BE4(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk2D;
+}
+
+u8 sub_08063BFC(u8 r0)
+{
+    return gUnk_03006AE4[r0].unk2E;
+}
+
+/*
+void sub_08063C14(u16 r0, void *r1)
+{
+    RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0xf), gUnk_03006AE4[(u8)r0].unk14), r1);
+}
+*/
