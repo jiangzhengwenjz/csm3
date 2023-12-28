@@ -497,9 +497,9 @@ int sub_08001D5C(u16 a, u16 b)
     return 16 * gUnk_03002970[a][b * 2 + 3];
 }
 
-int *sub_08001D78(int *a, u16 b)
+const int *sub_08001D78(const int *a, u16 b)
 {
-    int *var = &a[b * 2 + 2];
+    const int *var = &a[b * 2 + 2];
     return &a[*var * 4];
 }
 

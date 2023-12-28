@@ -3,33 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08063C14
-sub_08063C14: @ 0x08063C14
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	lsls r4, r4, #0x10
-	lsrs r4, r4, #0x10
-	movs r0, #3
-	movs r1, #0xf
-	bl sub_08001D3C
-	lsls r4, r4, #0x18
-	lsrs r4, r4, #0x18
-	ldr r1, _08063C48 @ =gUnk_03006AE4
-	ldr r2, [r1]
-	movs r1, #0x58
-	muls r1, r4, r1
-	adds r1, r1, r2
-	ldrb r1, [r1, #0x14]
-	bl sub_08001D78
-	adds r1, r5, #0
-	bl RLUnCompWram
-	pop {r4, r5}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_08063C48: .4byte gUnk_03006AE4
-
 	thumb_func_start sub_08063C4C
 sub_08063C4C: @ 0x08063C4C
 	push {r4, r5, lr}

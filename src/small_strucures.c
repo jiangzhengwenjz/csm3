@@ -69,6 +69,9 @@ extern u32 gUnk_08BC81DC;
 extern u32 *gUnk_03006AE8;
 extern u32 gUnk_08BC9100;
 
+extern const int *sub_08001D3C(u16 a, u16 b);
+extern const int *sub_08001D78(const int *a, u16 b);
+
 void sub_080637C4(void)
 {
     gUnk_03006AE0 = gUnk_08BBCA9C;
@@ -288,9 +291,7 @@ u8 sub_08063BFC(u8 r0)
     return gUnk_03006AE4[r0].unk2E;
 }
 
-/*
 void sub_08063C14(u16 r0, void *r1)
 {
-    RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0xf), gUnk_03006AE4[(u8)r0].unk14), r1);
+    RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0xf), gUnk_03006AE4[(u8)r0].unk14), r1); // The cast is weird
 }
-*/
