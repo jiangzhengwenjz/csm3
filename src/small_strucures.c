@@ -295,3 +295,11 @@ void sub_08063C14(u16 r0, void *r1)
 {
     RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0xf), gUnk_03006AE4[(u8)r0].unk14), r1); // The cast is weird
 }
+
+/*
+Maybe 3 means the assets are rl compressed?
+*/
+void sub_08063C4C(u16 r0, void *r1)
+{
+    RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0x10), r0), r1);
+}

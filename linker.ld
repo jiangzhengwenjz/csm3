@@ -394,6 +394,8 @@ SECTIONS {
         asm/code_080001D0.o(.text);
         src/main.o(.text);
         asm/code_main.o(.text);
+        src/vcount.o(.text);
+        asm/code_vcount.o(.text);
         src/copy.o(.text);
         asm/code_copy.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
