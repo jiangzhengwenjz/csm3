@@ -58,12 +58,25 @@ struct Unk_03006AE4
 };
 /* size = 0x58 */
 
+struct Unk_03006AF0
+{
+    u8 filler0[0x12];
+    u8 unk12;
+    u8 unk13;
+    u8 unk14;
+    u8 unk15;
+    u16 unk16;
+    u32 unk18;
+    u8 unk1C[0x24];
+};
+/* size = 0x40 */
+
 extern struct Unk_03006AE0 *gUnk_03006AE0;
 extern struct Unk_03006AE0 gUnk_08BBCA9C[];
 extern struct Unk_03006AE4 *gUnk_03006AE4;
 extern struct Unk_03006AE4 gUnk_08BC1E9C[];
-extern u32 *gUnk_03006AF0;
-extern u32 gUnk_08BC73DC;
+extern struct Unk_03006AF0 *gUnk_03006AF0;
+extern struct Unk_03006AF0 gUnk_08BC73DC[];
 extern u32 *gUnk_03006AEC;
 extern u32 gUnk_08BC81DC;
 extern u32 *gUnk_03006AE8;
@@ -76,7 +89,7 @@ void sub_080637C4(void)
 {
     gUnk_03006AE0 = gUnk_08BBCA9C;
     gUnk_03006AE4 = gUnk_08BC1E9C;
-    gUnk_03006AF0 = &gUnk_08BC73DC;
+    gUnk_03006AF0 = gUnk_08BC73DC;
     gUnk_03006AEC = &gUnk_08BC81DC;
     gUnk_03006AE8 = &gUnk_08BC9100;
 }
@@ -299,7 +312,43 @@ void sub_08063C14(u16 r0, void *r1)
 /*
 Maybe 3 means the assets are rl compressed?
 */
+
 void sub_08063C4C(u16 r0, void *r1)
 {
     RLUnCompWram(sub_08001D78(sub_08001D3C(3, 0x10), r0), r1);
+}
+
+struct Unk_03006AF0 *sub_08063C70(u8 r0)
+{
+    return &gUnk_03006AF0[r0];
+}
+
+u32 *sub_08063C84(u8 r0)
+{
+    return &gUnk_03006AF0[r0].unk18;
+}
+
+u8 sub_08063C98(u8 r0)
+{
+    return gUnk_03006AF0[r0].unk12;
+}
+
+u8 sub_08063CAC(u8 r0)
+{
+    return gUnk_03006AF0[r0].unk13;
+}
+
+u8 sub_08063CC0(u8 r0)
+{
+    return gUnk_03006AF0[r0].unk14;
+}
+
+u8 sub_08063CD4(u8 r0)
+{
+    return gUnk_03006AF0[r0].unk15;
+}
+
+u16 sub_08063CE8(u8 r0)
+{
+    return gUnk_03006AF0[r0].unk16;
 }
