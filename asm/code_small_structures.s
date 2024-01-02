@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-
+/*
 	thumb_func_start sub_08063CFC
 sub_08063CFC: @ 0x08063CFC
 	lsls r0, r0, #0x18
@@ -114,7 +114,7 @@ sub_08063D94: @ 0x08063D94
 	bx lr
 	.align 2, 0
 _08063DB0: .4byte gUnk_03006AEC
-
+*/
 	thumb_func_start sub_08063DB4
 sub_08063DB4: @ 0x08063DB4
 	lsls r0, r0, #0x18

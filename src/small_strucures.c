@@ -67,9 +67,23 @@ struct Unk_03006AF0
     u8 unk15;
     u16 unk16;
     u32 unk18;
-    u8 unk1C[0x24];
+    u8 filler1C[0x24];
 };
 /* size = 0x40 */
+
+struct Unk_03006AEC
+{
+    u8 filler0[0x12];
+    u8 unk12;
+    u8 unk13;
+    u8 unk14;
+    u8 filler15;
+    u8 unk16[3];
+    u8 unk19[3];
+    u32 unk1C;
+    u8 filler20[0x24];
+};
+/* size = 0x44 */
 
 extern struct Unk_03006AE0 *gUnk_03006AE0;
 extern struct Unk_03006AE0 gUnk_08BBCA9C[];
@@ -77,8 +91,8 @@ extern struct Unk_03006AE4 *gUnk_03006AE4;
 extern struct Unk_03006AE4 gUnk_08BC1E9C[];
 extern struct Unk_03006AF0 *gUnk_03006AF0;
 extern struct Unk_03006AF0 gUnk_08BC73DC[];
-extern u32 *gUnk_03006AEC;
-extern u32 gUnk_08BC81DC;
+extern struct Unk_03006AEC *gUnk_03006AEC;
+extern struct Unk_03006AEC gUnk_08BC81DC[];
 extern u32 *gUnk_03006AE8;
 extern u32 gUnk_08BC9100;
 
@@ -90,7 +104,7 @@ void sub_080637C4(void)
     gUnk_03006AE0 = gUnk_08BBCA9C;
     gUnk_03006AE4 = gUnk_08BC1E9C;
     gUnk_03006AF0 = gUnk_08BC73DC;
-    gUnk_03006AEC = &gUnk_08BC81DC;
+    gUnk_03006AEC = gUnk_08BC81DC;
     gUnk_03006AE8 = &gUnk_08BC9100;
 }
 
@@ -351,4 +365,39 @@ u8 sub_08063CD4(u8 r0)
 u16 sub_08063CE8(u8 r0)
 {
     return gUnk_03006AF0[r0].unk16;
+}
+
+struct Unk_03006AEC *sub_08063CFC(u8 r0)
+{
+    return &gUnk_03006AEC[r0];
+}
+
+u32 *sub_08063D14(u8 r0)
+{
+    return &gUnk_03006AEC[r0].unk1C;
+}
+
+u8 sub_08063D2C(u8 r0)
+{
+    return gUnk_03006AEC[r0].unk12;
+}
+
+u8 sub_08063D44(u8 r0)
+{
+    return gUnk_03006AEC[r0].unk13;
+}
+
+u8 sub_08063D5C(u8 r0)
+{
+    return gUnk_03006AEC[r0].unk14;
+}
+
+u8 sub_08063D74(u8 r0, u8 r1)
+{
+    return gUnk_03006AEC[r0].unk16[r1];
+}
+
+u8 sub_08063D94(u8 r0, u8 r1)
+{
+    return gUnk_03006AEC[r0].unk19[r1];
 }
