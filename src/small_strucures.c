@@ -93,8 +93,8 @@ extern struct Unk_03006AF0 *gUnk_03006AF0;
 extern struct Unk_03006AF0 gUnk_08BC73DC[];
 extern struct Unk_03006AEC *gUnk_03006AEC;
 extern struct Unk_03006AEC gUnk_08BC81DC[];
-extern u32 *gUnk_03006AE8;
-extern u32 gUnk_08BC9100;
+extern struct Unk_03006AEC *gUnk_03006AE8; // the access interfaces are same as 6AEC without the reference to unk14
+extern struct Unk_03006AEC gUnk_08BC9100[];
 
 extern const int *sub_08001D3C(u16 a, u16 b);
 extern const int *sub_08001D78(const int *a, u16 b);
@@ -105,7 +105,7 @@ void sub_080637C4(void)
     gUnk_03006AE4 = gUnk_08BC1E9C;
     gUnk_03006AF0 = gUnk_08BC73DC;
     gUnk_03006AEC = gUnk_08BC81DC;
-    gUnk_03006AE8 = &gUnk_08BC9100;
+    gUnk_03006AE8 = gUnk_08BC9100;
 }
 
 struct Unk_03006AE0 *sub_0806380C(u16 r0)
@@ -400,4 +400,34 @@ u8 sub_08063D74(u8 r0, u8 r1)
 u8 sub_08063D94(u8 r0, u8 r1)
 {
     return gUnk_03006AEC[r0].unk19[r1];
+}
+
+struct Unk_03006AEC *sub_08063DB4(u8 r0)
+{
+    return &gUnk_03006AE8[r0];
+}
+
+u32 *sub_08063DCC(u8 r0)
+{
+    return &gUnk_03006AE8[r0].unk1C;
+}
+
+u8 sub_08063DE4(u8 r0)
+{
+    return gUnk_03006AE8[r0].unk12;
+}
+
+u8 sub_08063DFC(u8 r0)
+{
+    return gUnk_03006AE8[r0].unk13;
+}
+
+u8 sub_08063E14(u8 r0, u8 r1)
+{
+    return gUnk_03006AE8[r0].unk16[r1];
+}
+
+u8 sub_08063E34(u8 r0, u8 r1)
+{
+    return gUnk_03006AE8[r0].unk19[r1];
 }
