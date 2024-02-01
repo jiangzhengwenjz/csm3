@@ -372,9 +372,9 @@ void sub_08001B20(void)
 
     DmaFill32(3, 0x55555555, EWRAM_START, 0x40000);
     DmaFill32(3, 0x55555555, IWRAM_START, 0x7b00);
-    DmaFill32(3, 0, VRAM, 0x18000);
-    DmaFill32(3, 0xa0, OAM, 0x400);
-    DmaFill16(3, 0, PLTT, 0x400);
+    DmaFill32(3, 0, VRAM, VRAM_SIZE);
+    DmaFill32(3, 0xa0, OAM, OAM_SIZE);
+    DmaFill16(3, 0, PLTT, PLTT_SIZE);
 
     InitIntrHandlers();
     sub_08001D0C();

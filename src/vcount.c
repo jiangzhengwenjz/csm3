@@ -11,24 +11,24 @@ void sub_08006E44(void)
     {
         *gUnk_030031D0[idx].unk0 = ptr->unk6;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT = ptr->unkC * 0x100 | REG_DISPSTAT;
+        REG_DISPSTAT |= ptr->unkC << 8;
     }
     if (ptr->unkC == vc)
     {
         *gUnk_030031D0[idx].unk8 = ptr->unkE;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT = ptr->unk14 * 0x100 | REG_DISPSTAT;
+        REG_DISPSTAT |= ptr->unk14 << 8;
     }
     if (ptr->unk14 == vc)
     {
         *gUnk_030031D0[idx].unk10 = ptr->unk16;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT = ptr->unk1C * 0x100 | REG_DISPSTAT;
+        REG_DISPSTAT |= ptr->unk1C << 8;
     }
     if (ptr->unk1C == vc)
     {
         *gUnk_030031D0[idx].unk18 = ptr->unk1E;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT = ptr->unk4 * 0x100 | REG_DISPSTAT;
+        REG_DISPSTAT |= ptr->unk4 << 8;
     }
 }
