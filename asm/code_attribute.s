@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-
+/*
 	thumb_func_start sub_08018EC4
 sub_08018EC4: @ 0x08018EC4
 	push {lr}
@@ -25,7 +25,7 @@ _08018EE0:
 	bx r1
 	.align 2, 0
 _08018EE4: .4byte gUnk_08B7D8EC
-
+*/
 	thumb_func_start sub_08018EE8
 sub_08018EE8: @ 0x08018EE8
 	lsls r0, r0, #0x18

@@ -366,6 +366,7 @@ extern const u8 gUnk_08B7CFA4[];
 extern const u8 gUnk_08B7D007[];
 extern const u8 gUnk_08B7D06A[];
 extern const u8 gUnk_08B7D0CD[];
+extern const u32 gUnk_08B7D8EC[];
 
 extern void sub_080154F0(void);
 extern u8 GetWeaponType(u8 a);

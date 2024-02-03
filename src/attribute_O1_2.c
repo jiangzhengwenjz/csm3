@@ -169,3 +169,49 @@ u8 sub_08018EB0(u8 idx)
 {
     return gUnk_08B7D0CD[idx - 1];
 }
+
+#ifdef NONMATCHING
+
+u32 sub_08018EC4(u8 idx)
+{
+    u32 ridx = idx - 1;
+    idx = ridx;
+    if (idx <= 0x62)
+    {
+        return gUnk_08B7D8EC[ridx];
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+#else
+
+__attribute__((naked)) u32 sub_08018EC4(u8 idx)
+{
+    asm(".syntax unified");
+    asm("push {lr}");
+    asm("lsls r0, r0, #0x18");
+    asm("lsrs r0, r0, #0x18");
+    asm("subs r1, r0, #1");
+    asm("lsls r0, r1, #0x18");
+    asm("lsrs r0, r0, #0x18");
+    asm("cmp r0, #0x62");
+    asm("bls _08018ED8");
+    asm("movs r0, #0");
+    asm("b _08018EE0");
+    asm("_08018ED8:");
+    asm("ldr r0, _08018EE4 @ =gUnk_08B7D8EC");
+    asm("lsls r1, r1, #2");
+    asm("adds r1, r1, r0");
+    asm("ldr r0, [r1]");
+    asm("_08018EE0:");
+    asm("pop {r1}");
+    asm("bx r1");
+    asm(".align 2, 0");
+    asm("_08018EE4: .4byte gUnk_08B7D8EC");
+    asm(".syntax divided");
+}
+
+#endif
