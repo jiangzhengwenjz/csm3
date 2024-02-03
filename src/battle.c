@@ -443,7 +443,7 @@ __attribute__((naked)) void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r
 #endif
 
 /*
-I don't think this can be matched under current circumstance. 
+I don't think this can be matched under the current circumstance.
 we need to figure out the data structure of BattleAttrib.
 https://cexplore.karathan.at/z/XMFsqu
 I pull this mainly because some fields of BattleAttrib can be documented.

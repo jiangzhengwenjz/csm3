@@ -85,6 +85,13 @@ struct Unk_03006AEC
 };
 /* size = 0x44 */
 
+struct Unk_03006AF4
+{
+    u32 filler0;
+    struct Unk_03006AF4 *unk4; // Linklist?
+};
+/* size = 8? */
+
 extern struct Unk_03006AE0 *gUnk_03006AE0;
 extern struct Unk_03006AE0 gUnk_08BBCA9C[];
 extern struct Unk_03006AE4 *gUnk_03006AE4;
@@ -96,8 +103,19 @@ extern struct Unk_03006AEC gUnk_08BC81DC[];
 extern struct Unk_03006AEC *gUnk_03006AE8; // the access interfaces are same as 6AEC without the reference to unk14
 extern struct Unk_03006AEC gUnk_08BC9100[];
 
+extern u8 gUnk_08BC9BA0[];
+
+extern struct Unk_03006AF4 *gUnk_03006AF4;
+
 extern const int *sub_08001D3C(u16 a, u16 b);
 extern const int *sub_08001D78(const int *a, u16 b);
+extern void sub_08006210(u32 r0);
+extern void sub_0800E764(u32 r0);
+extern void sub_08014848(u32 r0);
+extern void sub_080138D4(u32 r0, u32 r1);
+extern void sub_0800480C(u32 r0);
+extern void sub_0800471C(u32 r0, u32 r1);
+extern void sub_08011104(u32 r0);
 
 void sub_080637C4(void)
 {
@@ -430,4 +448,57 @@ u8 sub_08063E14(u8 r0, u8 r1)
 u8 sub_08063E34(u8 r0, u8 r1)
 {
     return gUnk_03006AE8[r0].unk19[r1];
+}
+
+u8 sub_08063E54(u8 r0)
+{
+    return gUnk_08BC9BA0[r0];
+}
+
+void sub_08063E64(struct Unk_03006AF4 *r0)
+{
+    u32 r5;
+    gUnk_03006AF4 = r0;
+    r5 = 0x220;
+    CpuFill16(0, r0, r5);
+    gUnk_03006AF4->unk4 = &r0[r5 / 8]; // ?
+
+    sub_08006210(0);
+    sub_08006210(1);
+    sub_08006210(2);
+    sub_08006210(3);
+
+    sub_0800E764(0);
+    sub_0800E764(1);
+    sub_0800E764(2);
+    sub_0800E764(3);
+
+    sub_08014848(1);
+    sub_08014848(2);
+    sub_08014848(3);
+    sub_08014848(4);
+
+    sub_080138D4(1, 0x100);
+    sub_080138D4(2, 0x100);
+    sub_080138D4(3, 0x100);
+    sub_080138D4(4, 0x100);
+
+    sub_0800480C(0);
+
+    sub_0800471C(0, 0);
+    sub_0800471C(1, 0);
+    sub_0800471C(2, 0);
+    sub_0800471C(3, 0);
+
+    sub_08011104(0);
+    sub_08011104(1);
+    sub_08011104(2);
+    sub_08011104(3);
+    sub_08011104(4);
+    sub_08011104(5);
+    sub_08011104(6);
+    sub_08011104(7);
+    sub_08011104(8);
+    sub_08011104(9);
+    sub_08011104(10);
 }

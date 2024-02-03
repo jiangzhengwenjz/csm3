@@ -27,12 +27,12 @@ void sub_080092B0(void)
 
 void DmaCopyBufferToOam(void)
 {
-    DmaCopy32(3, gOamBuffer, OAM, 0x400);
+    DmaCopy32(3, gOamBuffer, OAM, OAM_SIZE);
 }
 
 void sub_080092EC(void)
 {
-    CpuFastFill(0x2e4, gOamBuffer, 0x400);
+    CpuFastFill(0x2e4, gOamBuffer, OAM_SIZE);
     CpuFill32(-1, gUnk_030037A0, 0x10);
     gUnk_03003CB0[0] = 0;
     gUnk_03003CB0[2] = 0;
