@@ -215,3 +215,8 @@ __attribute__((naked)) u32 sub_08018EC4(u8 idx)
 }
 
 #endif
+
+u16 sub_08018EE8(u8 idx)
+{
+    return gUnk_08B80178[idx];
+}

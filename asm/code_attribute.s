@@ -25,7 +25,7 @@ _08018EE0:
 	bx r1
 	.align 2, 0
 _08018EE4: .4byte gUnk_08B7D8EC
-*/
+
 	thumb_func_start sub_08018EE8
 sub_08018EE8: @ 0x08018EE8
 	lsls r0, r0, #0x18
@@ -36,7 +36,7 @@ sub_08018EE8: @ 0x08018EE8
 	bx lr
 	.align 2, 0
 _08018EF4: .4byte gUnk_08B80178
-
+*/
 	thumb_func_start sub_08018EF8
 sub_08018EF8: @ 0x08018EF8
 	push {r4, r5, r6, lr}
