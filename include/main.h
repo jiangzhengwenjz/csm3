@@ -14,7 +14,7 @@ struct Unk_08001CBC
     u32 *unk10;
     u32 *unk14;
     u32 *unk18;
-}; /* size = unknown */
+}; /* size = 0x1C */
 
 struct Unk_08001D98 
 {

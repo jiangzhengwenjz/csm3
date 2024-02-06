@@ -394,6 +394,8 @@ SECTIONS {
         asm/code_080001D0.o(.text);
         src/main.o(.text);
         asm/code_main.o(.text);
+        src/codec_08004544.o(.text);
+        asm/code_08004544.o(.text);
         src/vcount.o(.text);
         asm/code_vcount.o(.text);
         src/copy.o(.text);
