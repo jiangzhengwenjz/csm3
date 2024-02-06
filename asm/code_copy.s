@@ -17206,7 +17206,7 @@ sub_08011AF4: @ 0x08011AF4
 _08011B10: .4byte gUnk_03005960
 _08011B14: .4byte 0x00000AA2
 _08011B18: .4byte gUnk_03006578
-
+/*
 	thumb_func_start sub_08011B1C
 sub_08011B1C: @ 0x08011B1C
 	push {r4, r5, r6, r7, lr}
@@ -17756,3 +17756,4 @@ _08011F44:
 	pop {r0}
 	bx r0
 	.align 2, 0
+*/

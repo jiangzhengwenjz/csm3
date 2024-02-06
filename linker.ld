@@ -400,6 +400,7 @@ SECTIONS {
         asm/code_vcount.o(.text);
         src/copy.o(.text);
         asm/code_copy.o(.text);
+        src/pltt_buffer.o(.text);
         asm/code_08011F54.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
         src/ramptr.o(.text);
