@@ -3,6 +3,7 @@
 
 extern void sub_08001CBC(const u32 *arr0, struct Unk_08001CBC *arr1); // const?
 extern const int *sub_08001D3C(u16 a, u16 b);
+extern void sub_08010D40(u32 *r0, u16 r1, u16 r2);
 
 extern u16 gUnk_03002990[];
 extern u32 *gUnk_030029AC;
@@ -23,4 +24,24 @@ void sub_08004570(u32 *r0)
     gUnk_030029AC = r0;
     sub_08001CBC(sub_08001D3C(3, 0), &temp);
     CpuFastSet(temp.unk10, r0, temp.unk4 << 9 >> 11); // ?
+}
+
+u32 *sub_080045A4(void)
+{
+    return gUnk_030029AC;
+}
+
+void sub_080045B0(u32 *r0)
+{
+    struct Unk_08001CBC temp;
+    gUnk_030029AC = r0;
+    sub_08001CBC(sub_08001D3C(3, 1), &temp);
+    CpuFastSet(temp.unk10, r0, temp.unk4 << 9 >> 11); // ?
+}
+
+void sub_080045E4(u16 r0, u16 r1)
+{
+    struct Unk_08001CBC temp;
+    sub_08001CBC(sub_08001D3C(3, 0), &temp);
+    sub_08010D40(temp.unk14, r0, r1);
 }

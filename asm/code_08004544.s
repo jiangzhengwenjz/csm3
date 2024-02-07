@@ -5,63 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_080045A4
-sub_080045A4: @ 0x080045A4
-	ldr r0, _080045AC @ =gUnk_030029AC
-	ldr r0, [r0]
-	bx lr
-	.align 2, 0
-_080045AC: .4byte gUnk_030029AC
-
-	thumb_func_start sub_080045B0
-sub_080045B0: @ 0x080045B0
-	push {r4, lr}
-	sub sp, #0x1c
-	adds r4, r0, #0
-	ldr r0, _080045E0 @ =gUnk_030029AC
-	str r4, [r0]
-	movs r0, #3
-	movs r1, #1
-	bl sub_08001D3C
-	mov r1, sp
-	bl sub_08001CBC
-	ldr r0, [sp, #0x10]
-	ldr r2, [sp, #4]
-	lsls r2, r2, #9
-	lsrs r2, r2, #0xb
-	adds r1, r4, #0
-	bl CpuFastSet
-	add sp, #0x1c
-	pop {r4}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_080045E0: .4byte gUnk_030029AC
-
-	thumb_func_start sub_080045E4
-sub_080045E4: @ 0x080045E4
-	push {r4, r5, lr}
-	sub sp, #0x1c
-	adds r4, r0, #0
-	adds r5, r1, #0
-	lsls r4, r4, #0x10
-	lsrs r4, r4, #0x10
-	lsls r5, r5, #0x10
-	lsrs r5, r5, #0x10
-	movs r0, #3
-	movs r1, #0
-	bl sub_08001D3C
-	mov r1, sp
-	bl sub_08001CBC
-	ldr r0, [sp, #0x14]
-	adds r1, r4, #0
-	adds r2, r5, #0
-	bl sub_08010D40
-	add sp, #0x1c
-	pop {r4, r5}
-	pop {r0}
-	bx r0
-
 	thumb_func_start sub_08004614
 sub_08004614: @ 0x08004614
 	push {r4, r5, r6, lr}
