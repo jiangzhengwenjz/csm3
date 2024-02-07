@@ -14,13 +14,13 @@ u16 sub_08004544(void)
 
 void sub_08004554(u16 r0)
 {
-	gUnk_03002990[0] = (gUnk_03002990[0] & 0xFFF8) | r0;
+    gUnk_03002990[0] = (gUnk_03002990[0] & 0xFFF8) | r0;
 }
 
 void sub_08004570(u32 *r0)
 {
-	struct Unk_08001CBC temp;
-	gUnk_030029AC = r0;
-	sub_08001CBC(sub_08001D3C(3, 0), &temp);
-	CpuFastSet(temp.unk10, r0, temp.unk4 << 9 >> 11); // ?
+    struct Unk_08001CBC temp;
+    gUnk_030029AC = r0;
+    sub_08001CBC(sub_08001D3C(3, 0), &temp);
+    CpuFastSet(temp.unk10, r0, temp.unk4 << 9 >> 11); // ?
 }
