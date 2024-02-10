@@ -37,13 +37,13 @@ void sub_08006E44(void)
 extern void sub_080071A0(void);
 extern void sub_08006C48(void);
 extern void (*gIntrTable[])(void);
-extern u16 IntrMain_Buffer[];
+extern u16 IntrMain_Buffer[0x80];
 extern void IntrMain(void);
-extern u16 gUnk_03003240[];
+extern u16 gUnk_03003240[0x80];
 extern void sub_080071F8(void); // handwritten?
 extern void sub_08006FCC(void);
 extern void sub_08006FA8(u16 r0, void (*r1)(void)); // set gIntrTable
-extern void __div01(void);
+extern void IntrDummy(void);
 
 void InitIntrHandlers(void)
 {
@@ -53,11 +53,11 @@ void InitIntrHandlers(void)
     sub_08006C48();
     for (temp = 0; temp <= 0xc; temp++)
     {
-        gIntrTable[temp] = __div01;
+        gIntrTable[temp] = IntrDummy;
     }
-    DmaCopy16(3, IntrMain, IntrMain_Buffer, 0x100);
+    DmaCopy16(3, IntrMain, IntrMain_Buffer, sizeof(IntrMain_Buffer));
     INTR_VECTOR = IntrMain_Buffer;
-    DmaCopy16(3, sub_080071F8, gUnk_03003240, 0x100);
+    DmaCopy16(3, sub_080071F8, gUnk_03003240, sizeof(gUnk_03003240));
     sub_08006FA8(0, sub_08006FCC);
     REG_IE = INTR_FLAG_VBLANK | INTR_FLAG_GAMEPAK;
     REG_DISPSTAT = DISPSTAT_VBLANK_INTR;
@@ -74,7 +74,7 @@ void (*sub_08006FB8(u16 r0))(void)
     return gIntrTable[r0];
 }
 
-void __div01(void)
+void IntrDummy(void)
 {
 }
 
@@ -91,10 +91,10 @@ void sub_08006FCC(void)
 
 void sub_08006FF0(void)
 {
-    void (*temp)(void) = __div01; // ?
+    void (*temp)(void) = IntrDummy; // ?
     gIntrTable[1] = temp;
     REG_IME = 0;
-    REG_IE &= 0xfffd;
-    REG_DISPSTAT &= 0xffef;
+    REG_IE &= ~INTR_FLAG_HBLANK;
+    REG_DISPSTAT &= ~DISPSTAT_HBLANK_INTR;
     REG_IME = 1;
 }
