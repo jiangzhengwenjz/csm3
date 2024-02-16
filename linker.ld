@@ -394,14 +394,14 @@ SECTIONS {
         asm/code_080001D0.o(.text);
         src/main.o(.text);
         asm/code_main.o(.text);
+        asm/code_08003BC0.o(.text); /* handwritten */
         src/codec_08004544.o(.text);
         asm/code_08004544.o(.text);
         src/vcount.o(.text);
         asm/code_vcount.o(.text);
         src/copy.o(.text);
         asm/code_copy.o(.text);
-        src/pltt_buffer.o(.text);
-        asm/code_08011F54.o(.text); /* handwritten */
+        asm/code_08011B1C.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
         src/ramptr.o(.text);
         asm/code_ramptr.o(.text);
