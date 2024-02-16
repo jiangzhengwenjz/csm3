@@ -5,7 +5,15 @@
 #include "functions.h"
 #include "battle.h"
 
+/*
+I don't think this can be matched under the current circumstance.
+we need to figure out the data structure of BattleAttrib.
+https://cexplore.karathan.at/z/XMFsqu
+I pull this mainly because some fields of BattleAttrib can be documented.
+*/
+
 #ifdef NONMATCHING
+
 void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
 {
     struct BattleAttrib_108 *unk108;
@@ -122,7 +130,9 @@ void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
     ba->unk38C = 0;
     ba->unk180 = 0;
 }
+
 #else
+
 __attribute__((naked)) void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r2)
 {
     asm(".syntax unified");
@@ -441,10 +451,3 @@ __attribute__((naked)) void sub_0803E48C(struct BattleAttrib *ba, u16 idx, u32 r
 }
 
 #endif
-
-/*
-I don't think this can be matched under the current circumstance.
-we need to figure out the data structure of BattleAttrib.
-https://cexplore.karathan.at/z/XMFsqu
-I pull this mainly because some fields of BattleAttrib can be documented.
-*/
