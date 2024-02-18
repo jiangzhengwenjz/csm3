@@ -409,6 +409,7 @@ SECTIONS {
         src/attribute_O1_1.o(.text);
         src/attribute_O2_2.o(.text);
         src/attribute_O1_2.o(.text);
+        src/attribute_O2_3.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
         src/battle.o(.text);
