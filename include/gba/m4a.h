@@ -38,13 +38,13 @@
 
 struct WaveData
 {
-    u16 type;
-    u16 status;
-    u32 freq;
-    u32 loopStart;
-    u32 size; // number of samples
-    s8 data[1]; // samples
-};
+    /*0x00*/ u16 type;
+    /*0x02*/ u16 status;
+    /*0x04*/ u32 freq;
+    /*0x08*/ u32 loopStart;
+    /*0x0C*/ u32 size; // number of samples
+    /*0x10*/ s8 data[1]; // samples
+}; /*size = not determined*/
 
 #define TONEDATA_TYPE_CGB    0x07
 #define TONEDATA_TYPE_FIX    0x08
@@ -56,96 +56,96 @@ struct WaveData
 
 struct ToneData
 {
-    u8 type;
-    u8 key;
-    u8 length; // sound length (compatible sound)
-    u8 pan_sweep; // pan or sweep (compatible sound ch. 1)
-    struct WaveData *wav;
-    u8 attack;
-    u8 decay;
-    u8 sustain;
-    u8 release;
-};
+    /*0x0*/ u8 type;
+    /*0x1*/ u8 key;
+    /*0x2*/ u8 length; // sound length (compatible sound)
+    /*0x3*/ u8 pan_sweep; // pan or sweep (compatible sound ch. 1)
+    /*0x4*/ struct WaveData *wav;
+    /*0x8*/ u8 attack;
+    /*0x9*/ u8 decay;
+    /*0xA*/ u8 sustain;
+    /*0xB*/ u8 release;
+}; /*size = 0xC*/
 
 struct CgbChannel
 {
-    u8 sf;
-    u8 ty;
-    u8 rightVolume;
-    u8 leftVolume;
-    u8 at;
-    u8 de;
-    u8 su;
-    u8 re;
-    u8 ky;
-    u8 ev;
-    u8 eg;
-    u8 ec;
-    u8 echoVolume;
-    u8 echoLength;
-    u8 d1;
-    u8 d2;
-    u8 gt;
-    u8 mk;
-    u8 ve;
-    u8 pr;
-    u8 rp;
-    u8 d3[3];
-    u8 d5;
-    u8 sg;
-    u8 n4;
-    u8 pan;
-    u8 panMask;
-    u8 mo;
-    u8 le;
-    u8 sw;
-    u32 fr;
-    u32 *wp;
-    u32 cp;
-    u32 tp;
-    u32 pp;
-    u32 np;
-    u8 d4[8];
-};
+    /*0x00*/ u8 sf;
+    /*0x01*/ u8 ty;
+    /*0x02*/ u8 rightVolume;
+    /*0x03*/ u8 leftVolume;
+    /*0x04*/ u8 at;
+    /*0x05*/ u8 de;
+    /*0x06*/ u8 su;
+    /*0x07*/ u8 re;
+    /*0x08*/ u8 ky;
+    /*0x09*/ u8 ev;
+    /*0x0A*/ u8 eg;
+    /*0x0B*/ u8 ec;
+    /*0x0C*/ u8 echoVolume;
+    /*0x0D*/ u8 echoLength;
+    /*0x0E*/ u8 d1;
+    /*0x0F*/ u8 d2;
+    /*0x10*/ u8 gt;
+    /*0x11*/ u8 mk;
+    /*0x12*/ u8 ve;
+    /*0x13*/ u8 pr;
+    /*0x14*/ u8 rp;
+    /*0x15*/ u8 d3[3];
+    /*0x18*/ u8 d5;
+    /*0x19*/ u8 sg;
+    /*0x1A*/ u8 n4;
+    /*0x1B*/ u8 pan;
+    /*0x1C*/ u8 panMask;
+    /*0x1D*/ u8 mo;
+    /*0x1E*/ u8 le;
+    /*0x1F*/ u8 sw;
+    /*0x20*/ u32 fr;
+    /*0x24*/ u32 *wp;
+    /*0x28*/ u32 cp;
+    /*0x2C*/ u32 tp;
+    /*0x30*/ u32 pp;
+    /*0x34*/ u32 np;
+    /*0x38*/ u8 d4[8];
+}; /*size = 0x40*/
 
 struct MusicPlayerTrack;
 
 struct SoundChannel
 {
-    u8 status;
-    u8 type;
-    u8 rightVolume;
-    u8 leftVolume;
-    u8 attack;
-    u8 decay;
-    u8 sustain;
-    u8 release;
-    u8 ky;
-    u8 ev;
-    u8 er;
-    u8 el;
-    u8 echoVolume;
-    u8 echoLength;
-    u8 d1;
-    u8 d2;
-    u8 gt;
-    u8 mk;
-    u8 ve;
-    u8 pr;
-    u8 rp;
-    u8 d3[3];
-    u32 ct;
-    u32 fw;
-    u32 freq;
-    struct WaveData *wav;
-    u32 cp;
-    struct MusicPlayerTrack *track;
-    u32 pp;
-    u32 np;
-    u32 d4;
-    u16 xpi;
-    u16 xpc;
-};
+    /*0x00*/ u8 status;
+    /*0x01*/ u8 type;
+    /*0x02*/ u8 rightVolume;
+    /*0x03*/ u8 leftVolume;
+    /*0x04*/ u8 attack;
+    /*0x05*/ u8 decay;
+    /*0x06*/ u8 sustain;
+    /*0x07*/ u8 release;
+    /*0x08*/ u8 ky;
+    /*0x09*/ u8 ev;
+    /*0x0A*/ u8 er;
+    /*0x0B*/ u8 el;
+    /*0x0C*/ u8 echoVolume;
+    /*0x0D*/ u8 echoLength;
+    /*0x0E*/ u8 d1;
+    /*0x0F*/ u8 d2;
+    /*0x10*/ u8 gt;
+    /*0x11*/ u8 mk;
+    /*0x12*/ u8 ve;
+    /*0x13*/ u8 pr;
+    /*0x14*/ u8 rp;
+    /*0x15*/ u8 d3[3];
+    /*0x18*/ u32 ct;
+    /*0x1C*/ u32 fw;
+    /*0x20*/ u32 freq;
+    /*0x24*/ struct WaveData *wav;
+    /*0x28*/ u32 cp;
+    /*0x2C*/ struct MusicPlayerTrack *track;
+    /*0x30*/ u32 pp;
+    /*0x34*/ u32 np;
+    /*0x38*/ u32 d4;
+    /*0x3C*/ u16 xpi;
+    /*0x3E*/ u16 xpc;
+}; /*size = 0x40*/
 
 #define MAX_DIRECTSOUND_CHANNELS 12
 
@@ -191,12 +191,12 @@ struct SoundInfo
 
 struct SongHeader
 {
-    u8 trackCount;
-    u8 blockCount;
-    u8 priority;
-    u8 reverb;
-    struct ToneData *tone;
-    u8 *part[1];
+    /*0x0*/ u8 trackCount;
+    /*0x1*/ u8 blockCount;
+    /*0x2*/ u8 priority;
+    /*0x3*/ u8 reverb;
+    /*0x4*/ struct ToneData *tone;
+    /*0x8*/ u8 *part[1];
 };
 
 #define MPT_FLG_VOLSET 0x01
@@ -208,46 +208,46 @@ struct SongHeader
 
 struct MusicPlayerTrack
 {
-    u8 flags;
-    u8 wait;
-    u8 patternLevel;
-    u8 repN;
-    u8 gateTime;
-    u8 key;
-    u8 velocity;
-    u8 runningStatus;
-    u8 keyM;
-    u8 pitM;
-    s8 keyShift;
-    s8 keyShiftX;
-    s8 tune;
-    u8 pitX;
-    s8 bend;
-    u8 bendRange;
-    u8 volMR;
-    u8 volML;
-    u8 vol;
-    u8 volX;
-    s8 pan;
-    s8 panX;
-    s8 modM;
-    u8 mod;
-    u8 modT;
-    u8 lfoSpeed;
-    u8 lfoSpeedC;
-    u8 lfoDelay;
-    u8 lfoDelayC;
-    u8 priority;
-    u8 echoVolume;
-    u8 echoLength;
-    struct SoundChannel *chan;
-    struct ToneData tone;
-    u8 gap[10];
-    u16 unk_3A;
-    u32 unk_3C;
-    u8 *cmdPtr;
-    u8 *patternStack[3];
-};
+    /*0x00*/ u8 flags;
+    /*0x01*/ u8 wait;
+    /*0x02*/ u8 patternLevel;
+    /*0x03*/ u8 repN;
+    /*0x04*/ u8 gateTime;
+    /*0x05*/ u8 key;
+    /*0x06*/ u8 velocity;
+    /*0x07*/ u8 runningStatus;
+    /*0x08*/ u8 keyM;
+    /*0x09*/ u8 pitM;
+    /*0x0A*/ s8 keyShift;
+    /*0x0B*/ s8 keyShiftX;
+    /*0x0C*/ s8 tune;
+    /*0x0D*/ u8 pitX;
+    /*0x0E*/ s8 bend;
+    /*0x0F*/ u8 bendRange;
+    /*0x10*/ u8 volMR;
+    /*0x11*/ u8 volML;
+    /*0x12*/ u8 vol;
+    /*0x13*/ u8 volX;
+    /*0x14*/ s8 pan;
+    /*0x15*/ s8 panX;
+    /*0x16*/ s8 modM;
+    /*0x17*/ u8 mod;
+    /*0x18*/ u8 modT;
+    /*0x19*/ u8 lfoSpeed;
+    /*0x1A*/ u8 lfoSpeedC;
+    /*0x1B*/ u8 lfoDelay;
+    /*0x1C*/ u8 lfoDelayC;
+    /*0x1D*/ u8 priority;
+    /*0x1E*/ u8 echoVolume;
+    /*0x1F*/ u8 echoLength;
+    /*0x20*/ struct SoundChannel *chan;
+    /*0x24*/ struct ToneData tone;
+    /*0x30*/ u8 gap[10];
+    /*0x3A*/ u16 unk_3A;
+    /*0x3C*/ u32 unk_3C;
+    /*0x40*/ u8 *cmdPtr;
+    /*0x44*/ u8 *patternStack[3];
+}; /*size = 0x50*/
 
 #define MUSICPLAYER_STATUS_TRACK 0x0000ffff
 #define MUSICPLAYER_STATUS_PAUSE 0x80000000
@@ -261,28 +261,28 @@ struct MusicPlayerTrack
 
 struct MusicPlayerInfo
 {
-    struct SongHeader *songHeader;
-    u32 status;
-    u8 trackCount;
-    u8 priority;
-    u8 cmd;
-    u8 unk_B;
-    u32 clock;
-    u8 gap[8];
-    u8 *memAccArea;
-    u16 tempoD;
-    u16 tempoU;
-    u16 tempoI;
-    u16 tempoC;
-    u16 fadeOI;
-    u16 fadeOC;
-    u16 fadeOV;
-    struct MusicPlayerTrack *tracks;
-    struct ToneData *tone;
-    u32 ident;
-    u32 func;
-    u32 intp;
-};
+    /*0x00*/ struct SongHeader *songHeader;
+    /*0x04*/ u32 status;
+    /*0x08*/ u8 trackCount;
+    /*0x09*/ u8 priority;
+    /*0x0A*/ u8 cmd;
+    /*0x0B*/ u8 unk_B;
+    /*0x0C*/ u32 clock;
+    /*0x10*/ u8 gap[8];
+    /*0x18*/ u8 *memAccArea;
+    /*0x1C*/ u16 tempoD;
+    /*0x1E*/ u16 tempoU;
+    /*0x20*/ u16 tempoI;
+    /*0x22*/ u16 tempoC;
+    /*0x24*/ u16 fadeOI;
+    /*0x26*/ u16 fadeOC;
+    /*0x28*/ u16 fadeOV;
+    /*0x2C*/ struct MusicPlayerTrack *tracks;
+    /*0x30*/ struct ToneData *tone;
+    /*0x34*/ u32 ident;
+    /*0x38*/ u32 func;
+    /*0x3C*/ u32 intp;
+}; /* size = 0x40 */
 
 struct MusicPlayer
 {

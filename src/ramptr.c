@@ -121,11 +121,11 @@ void sub_08012F0C(u16 r0, u32 r1)
     }
     else if (r0 <= 0x17f)
     {
-        gUnk_0300657C[r0-0x40] = r1;
+        gUnk_0300657C[r0 - 0x40] = r1;
     }
     else
     {
-        gUnk_03006584[r0-0x180] = r1;
+        gUnk_03006584[r0 - 0x180] = r1;
     }
 }
 
@@ -138,11 +138,11 @@ u32 sub_08012F60(u16 r0)
     }
     else if (r0 <= 0x17f)
     {
-        temp = (s16)gUnk_0300657C[r0-0x40];
+        temp = (s16)gUnk_0300657C[r0 - 0x40];
     }
     else
     {
-        temp = (s8)gUnk_03006584[r0-0x180];
+        temp = (s8)gUnk_03006584[r0 - 0x180];
     }
     return temp;
 }

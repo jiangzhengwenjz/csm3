@@ -177,6 +177,7 @@ int sub_08001894(int r5, int r4)
     sub_08012F0C(9, i);
     return (s32)i % (r4 - r5 + 1) + r5; // UB
 }
+
 u16 sub_080018D8(u8* r5, u32 r4)
 {
     u16 r2 = 0xFFFF;
@@ -371,11 +372,11 @@ void sub_08001B20(void)
 
     DmaFill32(3, 0x55555555, EWRAM_START, 0x40000);
     DmaFill32(3, 0x55555555, IWRAM_START, 0x7b00);
-    DmaFill32(3, 0, VRAM, 0x18000);
-    DmaFill32(3, 0xa0, OAM, 0x400);
-    DmaFill16(3, 0, PLTT, 0x400);
+    DmaFill32(3, 0, VRAM, VRAM_SIZE);
+    DmaFill32(3, 0xa0, OAM, OAM_SIZE);
+    DmaFill16(3, 0, PLTT, PLTT_SIZE);
 
-    sub_08006F00();
+    InitIntrHandlers();
     sub_08001D0C();
 }
 
@@ -496,9 +497,9 @@ int sub_08001D5C(u16 a, u16 b)
     return 16 * gUnk_03002970[a][b * 2 + 3];
 }
 
-int *sub_08001D78(int *a, u16 b)
+const int *sub_08001D78(const int *a, u16 b)
 {
-    int *var = &a[b * 2 + 2];
+    const int *var = &a[b * 2 + 2];
     return &a[*var * 4];
 }
 

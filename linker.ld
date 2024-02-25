@@ -219,7 +219,7 @@ SECTIONS {
         . = 0x00002DC0; gUnk_03002DC0 = .;
         . = 0x00003180; gUnk_03003180 = .;
         . = 0x00003184; gUnk_03003184 = .;
-        . = 0x00003190; gUnk_03003190 = .;
+        . = 0x00003190; gIntrTable = .;
         . = 0x000031D0; gUnk_030031D0 = .;
         . = 0x00003210; gUnk_03003210 = .;
         . = 0x00003220; gUnk_03003220 = .;
@@ -230,7 +230,7 @@ SECTIONS {
         . = 0x00003350; gUnk_03003350 = .;
         . = 0x00003360; gUnk_03003360 = .;
         . = 0x00003364; gUnk_03003364 = .;
-        . = 0x00003370; gUnk_03003370 = .;
+        . = 0x00003370; IntrMain_Buffer = .;
         . = 0x00003470; gUnk_03003470 = .;
         . = 0x00003480; gUnk_03003480 = .;
         . = 0x00003798; gUnk_03003798 = .;
@@ -394,9 +394,14 @@ SECTIONS {
         asm/code_080001D0.o(.text);
         src/main.o(.text);
         asm/code_main.o(.text);
+        asm/code_08003BC0.o(.text); /* handwritten */
+        src/codec_08004544.o(.text);
+        asm/code_08004544.o(.text);
+        src/vcount.o(.text);
+        asm/code_vcount.o(.text);
         src/copy.o(.text);
         asm/code_copy.o(.text);
-        asm/code_08011F54.o(.text); /* handwritten */
+        asm/code_08011B1C.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
         src/ramptr.o(.text);
         asm/code_ramptr.o(.text);
@@ -404,10 +409,13 @@ SECTIONS {
         src/attribute_O1_1.o(.text);
         src/attribute_O2_2.o(.text);
         src/attribute_O1_2.o(.text);
+        src/attribute_O2_3.o(.text);
         asm/code_attribute.o(.text);
         asm/code_0803E098.o(.text); /* handwritten */
         src/battle.o(.text);
         asm/code.o(.text);
+        src/small_strucures.o(.text);
+        asm/code_small_structures.o(.text);
         asm/m4a_asm.o(.text);
         src/m4a.o(.text);
         asm/libagbsyscall.o(.text);

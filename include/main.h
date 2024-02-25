@@ -14,7 +14,7 @@ struct Unk_08001CBC
     u32 *unk10;
     u32 *unk14;
     u32 *unk18;
-}; /* size = unknown */
+}; /* size = 0x1C */
 
 struct Unk_08001D98 
 {
@@ -145,7 +145,7 @@ extern void sub_080092EC(void);
 extern void sub_0800A5E8(void);
 extern void sub_08006AB8(void);
 extern void sub_080146B0(void);
-extern void sub_08006F00(void);
+extern void InitIntrHandlers(void);
 extern void sub_08001D0C(void);
 extern void sub_08001120(void);
 extern void sub_080044B0(void);
