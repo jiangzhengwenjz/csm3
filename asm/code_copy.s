@@ -11548,8 +11548,8 @@ _0800EF18:
 	.align 2, 0
 _0800EF44: .4byte gUnk_03006578
 
-	thumb_func_start sub_0800EF48
-sub_0800EF48: @ 0x0800EF48
+	thumb_func_start GetInput
+GetInput: @ 0x0800EF48
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8

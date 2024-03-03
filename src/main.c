@@ -390,7 +390,7 @@ void sub_08001BC0(void)
     
     gUnk_03002948 = REG_VCOUNT;
 
-    sub_0800EF48();
+    GetInput();
     sub_080092EC();
     sub_0800A5E8();
     sub_08006AB8();
@@ -437,7 +437,7 @@ void sub_08001C94(void)
 {
 }
 
-void sub_08001C98(void)
+void AgbMain(void)
 {
     sub_08001B20();
     gUnk_03002968 = 0;
