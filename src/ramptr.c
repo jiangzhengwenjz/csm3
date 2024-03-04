@@ -146,3 +146,49 @@ u32 sub_08012F60(u16 r0)
     }
     return temp;
 }
+
+void sub_08012FB8(u16 r0, s32 r1)
+{
+    u32 r4;
+
+    if (r0 <= 0x1f)
+    {
+        gUnk_030067AC[r0] = (u16)r1;
+        return;
+    }
+    if (r0 <= 0xff)
+    {
+        gUnk_03006570[r0 - 0x20] = (u8)r1;
+        return;
+    }
+
+    r4 = 7 & r0;
+
+    if (r1 == 0)
+    {
+        gUnk_030067A8[(r0 - 0x100) >> 3] &= ~(1 << r4);
+    }
+    else
+    {
+        gUnk_030067A8[(r0 - 0x100) >> 3] |= (1 << r4);
+    }
+}
+
+/*
+    Judging from these function's behavior, csm3 tends to store a signed value as unsigned,and get that value as signed.
+*/
+
+s16 sub_08013038(u16 r0)
+{
+    u32 r2;
+    if (r0 <= 0x1f)
+    {
+        return gUnk_030067AC[r0]; // the type cast is weird
+    }
+    if (r0 <= 0xff)
+    {
+        return (s8)gUnk_03006570[r0 - 0x20]; // the baseblock is adjusted
+    }
+    r2 = (7 & r0);
+    return ((s8)gUnk_030067A8[(r0 - 0x100) >> 3] >> r2) & 1;
+}
