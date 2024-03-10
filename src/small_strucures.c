@@ -87,7 +87,8 @@ struct Unk_03006AEC
 
 struct Unk_03006AF4
 {
-    u32 filler0;
+    u16 filler0;
+    u16 unk2;
     struct Unk_03006AF4 *unk4; // Linklist?
 };
 /* size = 8? */
@@ -501,4 +502,32 @@ void sub_08063E64(struct Unk_03006AF4 *r0)
     sub_08011104(8);
     sub_08011104(9);
     sub_08011104(10);
+}
+
+extern void (*gUnk_08BC9C68[])(s16 a, s16 b, s16 c, s16 d);
+extern s16 (*gUnk_08BC9C7C[])(void);
+extern u16 sub_08068070(u16);
+
+s16 sub_08063F70(void)
+{
+    u16 r3,r4,r5,r6;
+    struct Unk_03006AF4 *ptr = gUnk_03006AF4;
+    switch ((s16)ptr->unk2) // TODO:figure out why this weird cast keeps to happen
+    {
+        case 0 :
+            r6 = sub_08068070(1);
+            r5 = sub_08068070(2);
+            r4 = sub_08068070(3);
+            r3 = sub_08068070(4);
+            gUnk_08BC9C68[ptr[1].unk2](r6, r5, r4, r3);
+            ptr->unk2++; // tailmerge
+            break;
+        case 1 :
+            if (gUnk_08BC9C7C[ptr[1].unk2]() == 0)
+            {
+                ptr->unk2 = 0;
+            }
+            break;
+    }
+    return (s16)ptr->unk2;
 }
