@@ -2,41 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-/*
-	thumb_func_start sub_08018EC4
-sub_08018EC4: @ 0x08018EC4
-	push {lr}
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	subs r1, r0, #1
-	lsls r0, r1, #0x18
-	lsrs r0, r0, #0x18
-	cmp r0, #0x62
-	bls _08018ED8
-	movs r0, #0
-	b _08018EE0
-_08018ED8:
-	ldr r0, _08018EE4 @ =gUnk_08B7D8EC
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r0, [r1]
-_08018EE0:
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08018EE4: .4byte gUnk_08B7D8EC
 
-	thumb_func_start sub_08018EE8
-sub_08018EE8: @ 0x08018EE8
-	lsls r0, r0, #0x18
-	ldr r1, _08018EF4 @ =gUnk_08B80178
-	lsrs r0, r0, #0x17
-	adds r0, r0, r1
-	ldrh r0, [r0]
-	bx lr
-	.align 2, 0
-_08018EF4: .4byte gUnk_08B80178
-*/
 	thumb_func_start sub_08018EF8
 sub_08018EF8: @ 0x08018EF8
 	push {r4, r5, r6, lr}

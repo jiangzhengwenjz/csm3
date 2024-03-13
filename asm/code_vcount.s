@@ -5,50 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_08007034
-sub_08007034: @ 0x08007034
-	push {r4, r5, r6, lr}
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	ldr r3, _0800707C @ =gUnk_03003230
-	ldrh r3, [r3]
-	movs r5, #1
-	subs r5, r5, r3
-	lsls r5, r5, #0x10
-	lsrs r5, r5, #0x10
-	lsls r6, r5, #5
-	ldr r3, _08007080 @ =gUnk_03003360
-	lsls r5, r5, #1
-	adds r5, r5, r3
-	ldrh r3, [r5]
-	lsls r3, r3, #3
-	ldr r4, _08007084 @ =gUnk_030031D0
-	adds r3, r3, r4
-	adds r6, r6, r3
-	str r1, [r6]
-	strh r0, [r6, #4]
-	strh r2, [r6, #6]
-	ldr r2, _08007088 @ =0x04000004
-	ldrh r3, [r2]
-	movs r1, #0xff
-	ands r1, r3
-	strh r1, [r2]
-	lsls r0, r0, #8
-	ldrh r1, [r2]
-	orrs r0, r1
-	strh r0, [r2]
-	ldrh r0, [r5]
-	adds r0, #1
-	strh r0, [r5]
-	pop {r4, r5, r6}
-	pop {r0}
-	bx r0
-	.align 2, 0
-_0800707C: .4byte gUnk_03003230
-_08007080: .4byte gUnk_03003360
-_08007084: .4byte gUnk_030031D0
-_08007088: .4byte 0x04000004
-
 	thumb_func_start sub_0800708C
 sub_0800708C: @ 0x0800708C
 	push {r4, r5, r6, lr}

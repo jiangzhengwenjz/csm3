@@ -8,29 +8,29 @@ void sub_08006E44(void)
     u16 vc = REG_VCOUNT;
     struct Unk_030031D0 *ptr2 = gUnk_030031D0;
     struct Unk_030031D0 *ptr = &ptr2[idx];
-    if (ptr->unk4 == vc)
+    if (ptr->unk0[0].unk4 == vc)
     {
-        *gUnk_030031D0[idx].unk0 = ptr->unk6;
+        *gUnk_030031D0[idx].unk0[0].unk0 = ptr->unk0[0].unk6;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT |= ptr->unkC << 8;
+        REG_DISPSTAT |= ptr->unk0[1].unk4 << 8;
     }
-    if (ptr->unkC == vc)
+    if (ptr->unk0[1].unk4 == vc)
     {
-        *gUnk_030031D0[idx].unk8 = ptr->unkE;
+        *gUnk_030031D0[idx].unk0[1].unk0 = ptr->unk0[1].unk6;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT |= ptr->unk14 << 8;
+        REG_DISPSTAT |= ptr->unk0[2].unk4 << 8;
     }
-    if (ptr->unk14 == vc)
+    if (ptr->unk0[2].unk4 == vc)
     {
-        *gUnk_030031D0[idx].unk10 = ptr->unk16;
+        *gUnk_030031D0[idx].unk0[2].unk0 = ptr->unk0[2].unk6;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT |= ptr->unk1C << 8;
+        REG_DISPSTAT |= ptr->unk0[3].unk4 << 8;
     }
-    if (ptr->unk1C == vc)
+    if (ptr->unk0[3].unk4 == vc)
     {
-        *gUnk_030031D0[idx].unk18 = ptr->unk1E;
+        *gUnk_030031D0[idx].unk0[3].unk0 = ptr->unk0[3].unk6;
         REG_DISPSTAT &= 0xff;
-        REG_DISPSTAT |= ptr->unk4 << 8;
+        REG_DISPSTAT |= ptr->unk0[0].unk4 << 8;
     }
 }
 
@@ -97,4 +97,19 @@ void sub_08006FF0(void)
     REG_IE &= ~INTR_FLAG_HBLANK;
     REG_DISPSTAT &= ~DISPSTAT_HBLANK_INTR;
     REG_IME = 1;
+}
+
+extern u16 gUnk_03003230;
+extern u16 gUnk_03003360[];
+
+void sub_08007034(u16 r0, u16 *r1, u16 r2)
+{
+    u16 r5 = 1 - gUnk_03003230;
+    struct Unk_030031D0_1 *ptr = &gUnk_030031D0[r5].unk0[gUnk_03003360[r5]];
+    ptr->unk0 = r1;
+    ptr->unk4 = r0;
+    ptr->unk6 = r2;
+    REG_DISPSTAT &= 0xff;
+    REG_DISPSTAT |= r0 << 8;
+    gUnk_03003360[r5] += 1;
 }
