@@ -4,7 +4,7 @@
 	.syntax unified
 
 	.text
-
+/*
 	thumb_func_start sub_0800708C
 sub_0800708C: @ 0x0800708C
 	push {r4, r5, r6, lr}
@@ -55,7 +55,7 @@ _080070E8: .4byte gUnk_03003350
 _080070EC: .4byte gUnk_03003210
 _080070F0: .4byte gUnk_03003470
 _080070F4: .4byte gUnk_030031D0
-
+*/
 	thumb_func_start sub_080070F8
 sub_080070F8: @ 0x080070F8
 	push {r4, lr}
