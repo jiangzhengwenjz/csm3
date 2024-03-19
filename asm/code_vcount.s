@@ -4328,7 +4328,7 @@ _0800922E:
 	pop {r1}
 	bx r1
 	.align 2, 0
-
+/*
 	thumb_func_start sub_08009238
 sub_08009238: @ 0x08009238
 	push {r4, r5, r6, lr}
@@ -4388,3 +4388,4 @@ _0800929A:
 _080092A4: .4byte gUnk_080BAAF8
 _080092A8: .4byte gUnk_080BAAEC
 _080092AC: .4byte gUnk_030040C0
+*/
