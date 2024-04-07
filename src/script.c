@@ -182,7 +182,7 @@ void sub_08012FB8(u16 r0, s32 r1)
 }
 
 /*
-    Judging from these function's behavior, csm3 tends to store a signed value as unsigned,and get that value as signed.
+    Judging from these function's behavior, csm3 tends to store a signed value as unsigned and get that value as signed.
 */
 
 s16 sub_08013038(u16 r0)
@@ -299,6 +299,6 @@ u32 sub_080132B4(void)
 {
     u32 r0 = 0;
     gUnk_030067B0[4] = r0;
-    sub_08001AEC(r0); // is this UB?
+    sub_08001AEC(r0);
     return 0;
 }

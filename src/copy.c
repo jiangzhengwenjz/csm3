@@ -16,103 +16,30 @@ const u8 gUnk_080BAAF8[3][4] = {
         8,    8, 0x10, 0x20,
 };
 
-/*
-    This is a simple modify of sub_080095D0
-    It's weird that the if statement in this function gets ignored completely.
-    https://cexplore.karathan.at/z/rIt42N
-    Maybe just I made something wrong.
-*/
-
-#ifdef NONMATCHING
-
-u16 sub_08009238(u8 r0, u8 r1)
+u16 sub_08009238(u8 a1, u8 a2)
 {
     u16 result;
     u8 array1[3][4];
     u8 array2[3][4];
     const struct Unk_030040C0_8_4 *var2, *var;
-    u32 id1,id2;
+    u32 id1, id2;
+    u32 r0, r1;
 
     memcpy(array1, gUnk_080BAAF8, sizeof(gUnk_080BAAF8));
     memcpy(array2, gUnk_080BAAEC, sizeof(gUnk_080BAAEC));
-    var2 = gUnk_030040C0[r0].unk8->unk4;
-    var = var2 + r1;
+    var2 = gUnk_030040C0[a1].unk8->unk4;
+    var = var2 + a2;
     id1 = var->unk0 / 0x40;
     id2 = var->unk1 / 0x40;
-    result = array2[var->unk0 / 0x40][var->unk1 / 0x40] * array1[var->unk0 / 0x40][var->unk1 / 0x40];
-    if (!gUnk_030040C0[r0].unk0 & 1)
-    {
-        result << 1;
-    }
+    result = array2[id1][id2] * array1[id1][id2];
+    // swap registers
+    r1 = gUnk_030040C0[a1].unk0;
+    r0 = 1;
+    r0 &= r1;
+    if (!r0)
+        result /= 2;
     return result;
 }
-
-#else
-
-__attribute__((naked)) u16 sub_08009238(u8 r0, u8 r1)
-{
-    asm(".syntax unified");
-    asm("push {r4, r5, r6, lr}");
-    asm("sub sp, #0x18");
-    asm("adds r5, r0, #0");
-    asm("adds r4, r1, #0");
-    asm("lsls r5, r5, #0x18");
-    asm("lsrs r5, r5, #0x18");
-    asm("lsls r4, r4, #0x18");
-    asm("lsrs r4, r4, #0x18");
-    asm("ldr r1, _080092A4 @ =gUnk_080BAAF8");
-    asm("mov r0, sp");
-    asm("movs r2, #0xc");
-    asm("bl memcpy");
-    asm("add r6, sp, #0xc");
-    asm("ldr r1, _080092A8 @ =gUnk_080BAAEC");
-    asm("adds r0, r6, #0");
-    asm("movs r2, #0xc");
-    asm("bl memcpy");
-    asm("ldr r3, _080092AC @ =gUnk_030040C0");
-    asm("lsls r5, r5, #4");
-    asm("adds r0, r3, #0");
-    asm("adds r0, #8");
-    asm("adds r0, r5, r0");
-    asm("ldr r1, [r0]");
-    asm("adds r1, #4");
-    asm("lsls r4, r4, #2");
-    asm("adds r1, r1, r4");
-    asm("ldrb r0, [r1]");
-    asm("lsrs r0, r0, #6");
-    asm("ldrb r1, [r1, #1]");
-    asm("lsrs r1, r1, #6");
-    asm("lsls r0, r0, #2");
-    asm("adds r1, r1, r0");
-    asm("adds r6, r6, r1");
-    asm("ldrb r2, [r6]");
-    asm("mov r4, sp");
-    asm("adds r0, r4, r1");
-    asm("ldrb r0, [r0]");
-    asm("muls r0, r2, r0");
-    asm("lsls r4, r0, #0x10");
-    asm("lsrs r2, r4, #0x10");
-    asm("adds r5, r5, r3");
-    asm("ldrh r1, [r5]");
-    asm("movs r0, #1");
-    asm("ands r0, r1");
-    asm("cmp r0, #0");
-    asm("bne _0800929A");
-    asm("lsrs r2, r4, #0x11");
-    asm("_0800929A:");
-    asm("adds r0, r2, #0");
-    asm("add sp, #0x18");
-    asm("pop {r4, r5, r6}");
-    asm("pop {r1}");
-    asm("bx r1");
-    asm(".align 2, 0");
-    asm("_080092A4: .4byte gUnk_080BAAF8");
-    asm("_080092A8: .4byte gUnk_080BAAEC");
-    asm("_080092AC: .4byte gUnk_030040C0");
-    asm(".syntax divided");
-}
-
-#endif
 
 void sub_080092B0(void)
 {
