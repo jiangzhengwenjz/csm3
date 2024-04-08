@@ -7,7 +7,7 @@ void sub_08006E44(void)
     u16 idx = gUnk_03003230;
     u16 vc = REG_VCOUNT;
     struct Unk_030031D0 (*ptr2)[4] = gUnk_030031D0;
-    struct Unk_030031D0 *ptr = &ptr2[idx][0];
+    struct Unk_030031D0 *ptr = ptr2[idx];
     if (ptr[0].unk4 == vc)
     {
         *gUnk_030031D0[idx][0].unk0 = ptr[0].unk6;
@@ -129,9 +129,9 @@ void sub_0800708C(void)
     (gUnk_03003350 + 2)[r5] = 0;
     gUnk_03003210 = 0;
     r6 = gUnk_03003470;
-    r2 = &gUnk_030031D0[0][0];
+    r2 = gUnk_030031D0[0];
     r1 = 0xff;
-    r2 = r0 = &gUnk_030031D0[r5][0];
+    r2 = r0 = gUnk_030031D0[r5];
     ++r0; --r0;
     r0[0].unk4 = r1;
     r0[1].unk4 = r1;

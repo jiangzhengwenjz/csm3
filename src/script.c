@@ -3,11 +3,11 @@
 #include "data.h"
 #include "functions.h"
 
-extern u32 (*gUnk_08B716B4[])(void);
-extern u32 (*gUnk_08B716F4[])(void);
-extern u32 (*gUnk_08B71750[])(void);
-extern u32 (*gUnk_08B718B0[])(void);
-extern u32 (*gUnk_08B71AEC[])(void);
+extern u32 (*const gUnk_08B716B4[])(void);
+extern u32 (*const gUnk_08B716F4[])(void);
+extern u32 (*const gUnk_08B71750[])(void);
+extern u32 (*const gUnk_08B718B0[])(void);
+extern u32 (*const gUnk_08B71AEC[])(void);
 
 extern void sub_08001AEC(s16 unk);
 
@@ -252,6 +252,8 @@ void sub_080131A4(void)
     }
 }
 
+// https://cexplore.karathan.at/z/rhnv92
+
 u32 sub_080131DC(void)
 {
     u16 r2 = *gUnk_03006574->unk4;
@@ -260,7 +262,7 @@ u32 sub_080131DC(void)
     r4 = r2 << 0x10;
     if (sub_08012578() == 0)
     {
-        gUnk_03006574->unk4 = (r4 >> 0x11 << 1) + 0x10 + gUnk_03006578->unk28; // TODO: I think this is a fakematch.
+        gUnk_03006574->unk4 = (r4 >> 0x11 << 1) + 0x10 + gUnk_03006578->unk28;
     }
     gUnk_03006578->unk1 = 1;
     return 0;
