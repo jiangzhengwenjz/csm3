@@ -20,8 +20,8 @@ u16 sub_08018EE8(u8 idx)
     return gUnk_08B80178[idx];
 }
 
-// need more time to analyze this one.
-// https://cexplore.karathan.at/z/eH1Jfa
+// I am not sure how to fix the rest issues.
+// https://cexplore.karathan.at/z/PNyO6J
 
 #ifdef NONMATCHING
 
@@ -31,7 +31,7 @@ void sub_08018EF8(u32 r4, u8 *r5, u32 *r6)
     u32 temp;
     for (i = 1; i <= 0x63; ++i)
     {
-        if ((i - 1) <= 0x62)
+        if ((u8)((u8)i - 1) <= 0x62)
         {
             temp = gUnk_08B7D8EC[(u32)(i - 1)];
         }
@@ -41,11 +41,16 @@ void sub_08018EF8(u32 r4, u8 *r5, u32 *r6)
         }
         if (temp > r4) break;
     }
+    ++i;--i;
     *r5 = i - 1;
-
+    ++i;--i;
     if (i == 0x64)
     {
-        if ((i - 1) <= 0x62) // Can this be a macro?
+        *r6 = 0;
+    }
+    else
+    {
+        if ((u8)((u8)i - 1) <= 0x62) // Can this be a macro?
         {
             temp = gUnk_08B7D8EC[(u32)(i - 1)];
         }
@@ -54,10 +59,6 @@ void sub_08018EF8(u32 r4, u8 *r5, u32 *r6)
             temp = 0;
         }
         *r6 = temp - r4;
-    }
-    else
-    {
-        *r6 = 0;
     }
 }
 

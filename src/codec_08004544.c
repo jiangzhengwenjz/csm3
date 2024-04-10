@@ -54,12 +54,11 @@ u16 sub_08004614(u32 r0, u32 r1, u32 r2, u32 r3, u32 sp10, u32 sp14, u32 sp18)
     return  v1 | sp14 | sp18 | (r3 >> 8 | sp10 >> 14);
 }
 
-// https://cexplore.karathan.at/z/xfEHuH
-
-u32 sub_0800463C(u16 r0)
+bool32 sub_0800463C(u16 r0)
 {
-    register u32 r2 asm("r2") = gUnk_03002990[0] & (0x100 << r0);
-    return (r2 | -r2) >> 0x1f;
+    u32 zero = 0;
+
+    return (gUnk_03002990[zero] & (0x100 << r0)) != zero;
 }
 
 // https://cexplore.karathan.at/z/d1NWSU
