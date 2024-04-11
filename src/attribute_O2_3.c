@@ -78,3 +78,45 @@ const struct RoleAttrib *sub_08018FA0(u16 idx)
 {
     return &gAttribTablePtr[idx];
 }
+
+u8 sub_08018FB8(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk12;
+}
+
+u16 sub_08018FD0(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk14;
+}
+
+u16 sub_08018FE8(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk16;
+}
+
+u16 sub_08019000(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk18;
+}
+
+u16 sub_08019018(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1A;
+}
+
+s16 sub_08019030(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1C;
+}
+
+u16 sub_0801904C(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1E;
+}
