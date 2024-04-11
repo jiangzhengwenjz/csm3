@@ -3,54 +3,6 @@
 
 	.syntax unified
 
-	thumb_func_start sub_08018F64
-sub_08018F64: @ 0x08018F64
-	push {r4, r5, r6, r7, lr}
-	mov r7, r8
-	push {r7}
-	adds r6, r0, #0
-	adds r7, r1, #0
-	mov r8, r2
-	movs r4, #1
-	b _08018F76
-_08018F74:
-	adds r4, #1
-_08018F76:
-	lsls r5, r4, #0x18
-	cmp r4, #0x63
-	bhi _08018F86
-	lsrs r0, r5, #0x18
-	bl sub_08016E58
-	cmp r0, r6
-	bls _08018F74
-_08018F86:
-	subs r0, r4, #1
-	strb r0, [r7]
-	lsrs r0, r5, #0x18
-	bl sub_08016E58
-	subs r0, r0, r6
-	mov r1, r8
-	str r0, [r1]
-	pop {r3}
-	mov r8, r3
-	pop {r4, r5, r6, r7}
-	pop {r0}
-	bx r0
-
-	thumb_func_start sub_08018FA0
-sub_08018FA0: @ 0x08018FA0
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	ldr r2, _08018FB4 @ =gAttribTablePtr
-	lsls r1, r0, #4
-	subs r1, r1, r0
-	lsls r1, r1, #3
-	ldr r0, [r2]
-	adds r0, r0, r1
-	bx lr
-	.align 2, 0
-_08018FB4: .4byte gAttribTablePtr
-
 	thumb_func_start sub_08018FB8
 sub_08018FB8: @ 0x08018FB8
 	lsls r0, r0, #0x10
