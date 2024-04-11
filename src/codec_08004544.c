@@ -61,27 +61,22 @@ bool32 sub_0800463C(u16 r0)
     return (gUnk_03002990[zero] & (0x100 << r0)) != zero;
 }
 
-// https://cexplore.karathan.at/z/d1NWSU
-
 void sub_08004658(u16 r0, u16 *r1, u16 *r2, u16 *r3)
 {
-    u16 *ptr = gUnk_03002990;
-    u16 r4 = ptr[r0];
-    ptr++;
-    r4 = ptr[r0];
+    u16 r4 = gUnk_03002990[0];
+
+    r4 = (gUnk_03002990 + 1)[r0]; // TODO:find the real compiler I guess?
     *r1 = 0x80 & r4;
     *r2 = 3 & r4;
     *r3 = 0xc000 & r4;
 }
 
-// https://cexplore.karathan.at/z/IsOUQE
-
 void sub_08004684(u16 r0, u16 *r1, u16 *r2)
 {
-    u16 *ptr = gUnk_03002990;
-    u16 r3 = ptr[r0];
-    ptr++;
-    r3 = ptr[r0]; // TODO:fix fakematch
+    u16 r3 = gUnk_03002990[r0];
+
+    r3 = (gUnk_03002990 + 1)[r0]; // TODO:find the real compiler I guess?
     *r1 = (0x1f00 & r3) >> 8;
     *r2 = (0xc & r3) >> 2;
 }
+
