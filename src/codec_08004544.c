@@ -36,7 +36,7 @@ void sub_080045B0(u32 *r0)
     struct Unk_08001CBC temp;
     gUnk_030029AC = r0;
     sub_08001CBC(sub_08001D3C(3, 1), &temp);
-    CpuFastSet(temp.unk10, r0, temp.unk4 << 9 >> 11); // ?
+    CpuFastSet(temp.unk10, r0, (temp.unk4 / 4) & 0x1FFFFF); // ?
 }
 
 void sub_080045E4(u16 r0, u16 r1)

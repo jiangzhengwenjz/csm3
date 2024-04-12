@@ -3,11 +3,11 @@
 #include "data.h"
 #include "functions.h"
 
-extern u32 (*const gUnk_08B716B4[])(void);
-extern u32 (*const gUnk_08B716F4[])(void);
-extern u32 (*const gUnk_08B71750[])(void);
-extern u32 (*const gUnk_08B718B0[])(void);
-extern u32 (*const gUnk_08B71AEC[])(void);
+extern u16 (*const gUnk_08B716B4[])(void);
+extern u16 (*const gUnk_08B716F4[])(void);
+extern u16 (*const gUnk_08B71750[])(void);
+extern u16 (*const gUnk_08B718B0[])(void);
+extern u16 (*const gUnk_08B71AEC[])(void);
 
 extern void sub_08001AEC(s16 unk);
 
@@ -209,7 +209,7 @@ void sub_0801309C(void)
 
 void sub_080130C4(void)
 {
-    if (gUnk_08B716B4[(u8)gUnk_03006574->unk2]() << 0x10 == 0)
+    if (!gUnk_08B716B4[(u8)gUnk_03006574->unk2]())
     {
         gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
         sub_080127E4();
@@ -218,7 +218,7 @@ void sub_080130C4(void)
 
 void sub_080130FC(void)
 {
-    if (gUnk_08B716F4[(u8)gUnk_03006574->unk2]() << 0x10 == 0)
+    if (!gUnk_08B716F4[(u8)gUnk_03006574->unk2]())
     {
         gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
         sub_080127E4();
@@ -227,7 +227,7 @@ void sub_080130FC(void)
 
 void sub_08013134(void)
 {
-    if (gUnk_08B71750[(u8)gUnk_03006574->unk2]() << 0x10 == 0)
+    if (!gUnk_08B71750[(u8)gUnk_03006574->unk2]())
     {
         gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
         sub_080127E4();
@@ -236,7 +236,7 @@ void sub_08013134(void)
 
 void sub_0801316C(void)
 {
-    if (gUnk_08B718B0[(u8)gUnk_03006574->unk2]() << 0x10 == 0)
+    if (!gUnk_08B718B0[(u8)gUnk_03006574->unk2]())
     {
         gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
         sub_080127E4();
@@ -245,24 +245,22 @@ void sub_0801316C(void)
 
 void sub_080131A4(void)
 {
-    if (gUnk_08B71AEC[(u8)gUnk_03006574->unk2]() << 0x10 == 0)
+    if (!gUnk_08B71AEC[(u8)gUnk_03006574->unk2]())
     {
         gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
         sub_080127E4();
     }
 }
 
-// https://cexplore.karathan.at/z/rhnv92
-
 u32 sub_080131DC(void)
 {
     u16 r2 = *gUnk_03006574->unk4;
-    u32 r4;
+
     gUnk_03006574->unk4++;
-    r4 = r2 << 0x10;
+    ++r2; --r2;
     if (sub_08012578() == 0)
     {
-        gUnk_03006574->unk4 = (r4 >> 0x11 << 1) + 0x10 + gUnk_03006578->unk28;
+        gUnk_03006574->unk4 = (r2 >> 1 << 1) + 0x10 + gUnk_03006578->unk28;
     }
     gUnk_03006578->unk1 = 1;
     return 0;

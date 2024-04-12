@@ -510,24 +510,24 @@ extern u16 sub_08068070(u16);
 
 s16 sub_08063F70(void)
 {
-    u16 r3,r4,r5,r6;
+    u16 r3, r4, r5, r6;
     struct Unk_03006AF4 *ptr = gUnk_03006AF4;
-    switch ((s16)ptr->unk2) // TODO:figure out why this weird cast keeps to happen
+    switch ((s16)ptr->unk2) // TODO: figure out why this weird cast keeps to happen
     {
-        case 0 :
-            r6 = sub_08068070(1);
-            r5 = sub_08068070(2);
-            r4 = sub_08068070(3);
-            r3 = sub_08068070(4);
-            gUnk_08BC9C68[ptr[1].unk2](r6, r5, r4, r3);
-            ptr->unk2++; // tailmerge
-            break;
-        case 1 :
-            if (gUnk_08BC9C7C[ptr[1].unk2]() == 0)
-            {
-                ptr->unk2 = 0;
-            }
-            break;
+    case 0:
+        r6 = sub_08068070(1);
+        r5 = sub_08068070(2);
+        r4 = sub_08068070(3);
+        r3 = sub_08068070(4);
+        gUnk_08BC9C68[ptr[1].unk2](r6, r5, r4, r3);
+        ptr->unk2++;
+        break;
+    case 1:
+        if (gUnk_08BC9C7C[ptr[1].unk2]() == 0)
+        {
+            ptr->unk2 = 0;
+        }
+        break;
     }
     return (s16)ptr->unk2;
 }

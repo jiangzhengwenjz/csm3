@@ -65,10 +65,10 @@ extern u32 sub_08016E58(u8 a);
 
 void sub_08018F64(u32 r6, u8 *r7, u32 *r8)
 {
-    u32 r4,temp;
-    for (r4 = 1; r4 <= 0x63; r4++)
+    u32 r4;
+    for (r4 = 1; r4 < 100; r4++)
     {
-        if ((sub_08016E58(r4)) > r6) break;
+        if (sub_08016E58(r4) > r6) break;
     }
     *r7 = r4 - 1;
     *r8 = sub_08016E58(r4) - r6;
