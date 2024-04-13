@@ -88,7 +88,7 @@ struct Unk_03006AEC
 struct Unk_03006AF4
 {
     u16 filler0;
-    u16 unk2;
+    s16 unk2;
     struct Unk_03006AF4 *unk4; // Linklist?
 };
 /* size = 8? */
@@ -512,22 +512,22 @@ s16 sub_08063F70(void)
 {
     u16 r3, r4, r5, r6;
     struct Unk_03006AF4 *ptr = gUnk_03006AF4;
-    switch ((s16)ptr->unk2) // TODO: figure out why this weird cast keeps to happen
+    switch (ptr->unk2)
     {
     case 0:
         r6 = sub_08068070(1);
         r5 = sub_08068070(2);
         r4 = sub_08068070(3);
         r3 = sub_08068070(4);
-        gUnk_08BC9C68[ptr[1].unk2](r6, r5, r4, r3);
+        gUnk_08BC9C68[(u16)ptr[1].unk2](r6, r5, r4, r3);
         ptr->unk2++;
         break;
     case 1:
-        if (gUnk_08BC9C7C[ptr[1].unk2]() == 0)
+        if (gUnk_08BC9C7C[(u16)ptr[1].unk2]() == 0)
         {
             ptr->unk2 = 0;
         }
         break;
     }
-    return (s16)ptr->unk2;
+    return ptr->unk2;
 }
