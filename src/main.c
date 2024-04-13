@@ -16,7 +16,8 @@ u16 sub_080015B4(u8 *r4, u8 *r3)
 }
 
 void nullsub_9(void)
-{}
+{
+}
 
 void sub_080015E4(int a1, int a2, u16 a3, int a4, u16 a5)
 {
@@ -178,18 +179,18 @@ int sub_08001894(int r5, int r4)
     return (s32)i % (r4 - r5 + 1) + r5; // UB
 }
 
-u16 sub_080018D8(u8* r5, u32 r4)
+u16 sub_080018D8(u8 *r5, u32 r4)
 {
     u16 r2 = 0xFFFF;
     u16 r3;
     u8 idx;
-    
+
     for (r3 = 0; r3 < r4; r3++)
     {
         idx = r2 ^ r5[r3];
         r2 = gUnk_08B6D04C[idx] ^ (r2 >> 8);
     }
-    
+
     return r2;
 }
 
@@ -308,7 +309,7 @@ void sub_08001A1C(void)
     sub_0800A5BC();
     sub_0801978C();
     sub_080AB2D0();
-    
+
     if (sub_08012F60(0x180) != 1)
     {
         sub_08012C44();
@@ -321,7 +322,7 @@ void sub_08001A1C(void)
     sub_0801B960();
     sub_08008B3C();
     sub_080637C4();
-    
+
     if (sub_08012F60(0x180) != 1)
     {
         InitAttribTablePointer();
@@ -331,13 +332,13 @@ void sub_08001A1C(void)
     sub_080B3128();
     sub_080B4970();
     sub_08062EB0();
-    
+
     if (sub_08012F60(0x180) != 1)
     {
         sub_08093418();
     }
 
-    sub_08012D14(0,&gUnk_02006000);
+    sub_08012D14(0, &gUnk_02006000);
     sub_08012D30(sub_08012F60(4));
     sub_08012D64(0, 0, 0);
     sub_08012F0C(0, 0x55555555);
@@ -387,10 +388,10 @@ void sub_08001BC0(void)
     sub_08004B30();
     DmaCopyBufferToOam();
     DmaCopyMapAndPltt();
-    
+
     gUnk_03002948 = REG_VCOUNT;
 
-    sub_0800EF48();
+    GetInput();
     sub_080092EC();
     sub_0800A5E8();
     sub_08006AB8();
@@ -437,7 +438,7 @@ void sub_08001C94(void)
 {
 }
 
-void sub_08001C98(void)
+void AgbMain(void)
 {
     sub_08001B20();
     gUnk_03002968 = 0;
@@ -516,14 +517,14 @@ u16 sub_08001D94(u16 *a)
 void sub_08001D98(u32 *a, struct Unk_08001D98 *b)
 {
     u32 var;
-    
+
     b->unk0 = a[4];
     b->unk2 = a[6];
     b->unk4 = a[8];
-    
+
     var = a[5] / 4;
     b->unk8 = &a[var];
-    
+
     var = a[7] / 4;
     b->unkc = &a[var];
 
@@ -569,7 +570,7 @@ void sub_08001E38(u32 *a, struct Unk_08001E38 *b) // no reference
     b->unk4 = a + a[6] / 4;
 }
 
-void sub_08001E4C(struct Unk_08001E4C_1 *a, struct Unk_08001E4C_2 *b) 
+void sub_08001E4C(struct Unk_08001E4C_1 *a, struct Unk_08001E4C_2 *b)
 {
     b->unk0 = a->unk10;
     b->unk1 = a->unk11;
@@ -577,37 +578,37 @@ void sub_08001E4C(struct Unk_08001E4C_1 *a, struct Unk_08001E4C_2 *b)
     b->unk4 = a->unk0 + a->unk14 / 4;
 }
 
-void sub_08001E64(u16 *a, struct Unk_08001E64 *b) 
+void sub_08001E64(u16 *a, struct Unk_08001E64 *b)
 {
     b->unk0 = a[8];
     b->unk4 = a + 9;
 }
 
-s16 sub_08001E70(u16 a) 
+s16 sub_08001E70(u16 a)
 {
     if (a >= 360)
         a = DivRem(a, 360);
     return gUnk_08B6D24C[a];
 }
 
-s16 sub_08001EA0(u16 a) 
+s16 sub_08001EA0(u16 a)
 {
     if (a >= 360)
         a = DivRem(a, 360);
     return gUnk_08B6D24C[a + 90];
 }
 
-s16 sub_08001ED4(s16 a, s16 b) 
+s16 sub_08001ED4(s16 a, s16 b)
 {
     return a * b >> 8;
 }
 
-s16 sub_08001EE4(s16 a, s16 b) 
+s16 sub_08001EE4(s16 a, s16 b)
 {
     return Div(a * 0x100, b);
 }
 
-s16 sub_08001EFC(s16 a) 
+s16 sub_08001EFC(s16 a)
 {
     s32 var1 = 0x10000;
     return var1 / a;

@@ -140,7 +140,7 @@ extern void sub_080044E4(void);
 extern void sub_08004B30(void);
 extern void DmaCopyBufferToOam(void);
 extern void DmaCopyMapAndPltt(void);
-extern void sub_0800EF48(void);
+extern void GetInput(void);
 extern void sub_080092EC(void);
 extern void sub_0800A5E8(void);
 extern void sub_08006AB8(void);
@@ -198,6 +198,6 @@ extern const int gUnk_094D446C[];
 extern const int gUnk_09E2261C[];
 extern const s16 gUnk_08B6D24C[];
 
-void sub_08001C98(void);
+void AgbMain(void);
 
 #endif

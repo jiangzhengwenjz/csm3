@@ -1,7 +1,15 @@
 #include "global.h"
-#include "ramptr.h"
+#include "script.h"
 #include "data.h"
 #include "functions.h"
+
+extern u16 (*const gUnk_08B716B4[])(void);
+extern u16 (*const gUnk_08B716F4[])(void);
+extern u16 (*const gUnk_08B71750[])(void);
+extern u16 (*const gUnk_08B718B0[])(void);
+extern u16 (*const gUnk_08B71AEC[])(void);
+
+extern void sub_08001AEC(s16 unk);
 
 u32 sub_08012BE8(void)
 {
@@ -89,7 +97,6 @@ void sub_08012EA0(u32 r0)
     gUnk_03006574->unk4 = gUnk_03006578->unk28 + 16 + (r0 & 0xfffe);
 }
 
-
 u16 *sub_08012EC4(void)
 {
     return gUnk_03006574->unk4;
@@ -145,4 +152,153 @@ u32 sub_08012F60(u16 r0)
         temp = (s8)gUnk_03006584[r0 - 0x180];
     }
     return temp;
+}
+
+void sub_08012FB8(u16 r0, s32 r1)
+{
+    u32 r4;
+
+    if (r0 <= 0x1f)
+    {
+        gUnk_030067AC[r0] = (u16)r1;
+        return;
+    }
+    if (r0 <= 0xff)
+    {
+        gUnk_03006570[r0 - 0x20] = (u8)r1;
+        return;
+    }
+
+    r4 = 7 & r0;
+
+    if (r1 == 0)
+    {
+        gUnk_030067A8[(r0 - 0x100) >> 3] &= ~(1 << r4);
+    }
+    else
+    {
+        gUnk_030067A8[(r0 - 0x100) >> 3] |= (1 << r4);
+    }
+}
+
+/*
+    Judging from these function's behavior, csm3 tends to store a signed value as unsigned and get that value as signed.
+*/
+
+s16 sub_08013038(u16 r0)
+{
+    u32 r2;
+    if (r0 <= 0x1f)
+    {
+        return gUnk_030067AC[r0]; // the type cast is weird
+    }
+    if (r0 <= 0xff)
+    {
+        return (s8)gUnk_03006570[r0 - 0x20]; // the baseblock is adjusted
+    }
+    r2 = (7 & r0);
+    return ((s8)gUnk_030067A8[(r0 - 0x100) >> 3] >> r2) & 1;
+}
+
+void sub_0801309C(void)
+{
+    gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+    sub_080127E4();
+    gUnk_03006578->unk1 = 1;
+}
+
+void sub_080130C4(void)
+{
+    if (!gUnk_08B716B4[(u8)gUnk_03006574->unk2]())
+    {
+        gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+        sub_080127E4();
+    }
+}
+
+void sub_080130FC(void)
+{
+    if (!gUnk_08B716F4[(u8)gUnk_03006574->unk2]())
+    {
+        gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+        sub_080127E4();
+    }
+}
+
+void sub_08013134(void)
+{
+    if (!gUnk_08B71750[(u8)gUnk_03006574->unk2]())
+    {
+        gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+        sub_080127E4();
+    }
+}
+
+void sub_0801316C(void)
+{
+    if (!gUnk_08B718B0[(u8)gUnk_03006574->unk2]())
+    {
+        gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+        sub_080127E4();
+    }
+}
+
+void sub_080131A4(void)
+{
+    if (!gUnk_08B71AEC[(u8)gUnk_03006574->unk2]())
+    {
+        gUnk_03006574->unk2 = *gUnk_03006574->unk4++;
+        sub_080127E4();
+    }
+}
+
+u32 sub_080131DC(void)
+{
+    u16 r2 = *gUnk_03006574->unk4;
+
+    gUnk_03006574->unk4++;
+    ++r2; --r2;
+    if (sub_08012578() == 0)
+    {
+        gUnk_03006574->unk4 = (r2 >> 1 << 1) + 0x10 + gUnk_03006578->unk28;
+    }
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
+u32 sub_08013220(void)
+{
+    u16 r1 = *gUnk_03006574->unk4++;
+    gUnk_03006574->unk4 = (r1 >> 1 << 1) + 0x10 + gUnk_03006578->unk28;
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
+u32 sub_0801324C(void)
+{
+    gUnk_03006590[0].unk2C[sub_08012578()].unk0 = 9;
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
+u32 sub_08013278(void)
+{
+    u32 t1 = sub_08012578();
+    u8 t2 = gUnk_03006590[t1].unk0;
+    gUnk_030067B0[0x7] = t2;
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
+u32 sub_080132B0(void)
+{
+    return 0;
+}
+
+u32 sub_080132B4(void)
+{
+    u32 r0 = 0;
+    gUnk_030067B0[4] = r0;
+    sub_08001AEC(r0);
+    return 0;
 }

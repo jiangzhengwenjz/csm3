@@ -19,3 +19,104 @@ u16 sub_08018EE8(u8 idx)
 {
     return gUnk_08B80178[idx];
 }
+
+void sub_08018EF8(u32 r4, u8 *r5, u32 *r6)
+{
+    u32 i;
+    u32 temp;
+    for (i = 1; i < 100; ++i)
+    {
+        u32 r3 = (u8)i - 1;
+        u8 ii = r3;
+
+        if (ii < 99)
+        {
+            temp = gUnk_08B7D8EC[r3];
+        }
+        else
+        {
+            temp = 0;
+        }
+        if (temp > r4) break;
+    }
+    *r5 = i - 1;
+    if (i == 100)
+    {
+        *r6 = 0;
+    }
+    else
+    {
+        u32 r3 = (u8)i - 1;
+        u8 ii = r3;
+
+        if (ii < 99)
+        {
+            temp = gUnk_08B7D8EC[r3];
+        }
+        else
+        {
+            temp = 0;
+        }
+        *r6 = temp - r4;
+    }
+}
+
+extern u32 sub_08016E58(u8 a);
+
+void sub_08018F64(u32 r6, u8 *r7, u32 *r8)
+{
+    u32 r4;
+    for (r4 = 1; r4 < 100; r4++)
+    {
+        if (sub_08016E58(r4) > r6) break;
+    }
+    *r7 = r4 - 1;
+    *r8 = sub_08016E58(r4) - r6;
+}
+
+const struct RoleAttrib *sub_08018FA0(u16 idx)
+{
+    return &gAttribTablePtr[idx];
+}
+
+u8 sub_08018FB8(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk12;
+}
+
+u16 sub_08018FD0(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk14;
+}
+
+u16 sub_08018FE8(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk16;
+}
+
+u16 sub_08019000(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk18;
+}
+
+u16 sub_08019018(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1A;
+}
+
+s16 sub_08019030(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1C;
+}
+
+u16 sub_0801904C(u16 idx)
+{
+    const struct RoleAttrib *ptr = &gAttribTablePtr[idx];
+    return ptr->unk1E;
+}

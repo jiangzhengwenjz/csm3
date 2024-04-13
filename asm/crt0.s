@@ -22,7 +22,7 @@ _080000C0:
 	ldr r1, _080001C4 @ =0x03007FFC
 	add r0, pc, #0x18 @ =IntrMain
 	str r0, [r1]
-	ldr r1, _080001C8 @ =sub_08001C98
+	ldr r1, _080001C8 @ =AgbMain
 	mov lr, pc
 	bx r1
 	b _080000C0
@@ -86,5 +86,5 @@ _080001B0:
 	bx r0
 	.align 2, 0
 _080001C4: .4byte 0x03007FFC
-_080001C8: .4byte sub_08001C98
+_080001C8: .4byte AgbMain
 _080001CC: .4byte gIntrTable

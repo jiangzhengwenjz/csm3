@@ -16,6 +16,30 @@ const u8 gUnk_080BAAF8[3][4] = {
         8,    8, 0x10, 0x20,
 };
 
+u16 sub_08009238(u8 a1, u8 a2)
+{
+    u16 result;
+    u8 array1[3][4];
+    u8 array2[3][4];
+    const struct Unk_030040C0_8_4 *var2, *var;
+    u32 id1, id2;
+    u32 r0, r1;
+
+    memcpy(array1, gUnk_080BAAF8, sizeof(gUnk_080BAAF8));
+    memcpy(array2, gUnk_080BAAEC, sizeof(gUnk_080BAAEC));
+    var2 = gUnk_030040C0[a1].unk8->unk4;
+    var = var2 + a2;
+    id1 = var->unk0 / 0x40;
+    id2 = var->unk1 / 0x40;
+    result = array2[id1][id2] * array1[id1][id2];
+    // swap registers
+    r1 = gUnk_030040C0[a1].unk0;
+    r0 = 1;
+    r0 &= r1;
+    if (!r0)
+        result /= 2;
+    return result;
+}
 
 void sub_080092B0(void)
 {

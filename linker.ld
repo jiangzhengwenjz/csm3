@@ -403,8 +403,8 @@ SECTIONS {
         asm/code_copy.o(.text);
         asm/code_08011B1C.o(.text); /* handwritten */
         asm/code_080123E4.o(.text);
-        src/ramptr.o(.text);
-        asm/code_ramptr.o(.text);
+        src/script.o(.text);
+        asm/code_script.o(.text);
         src/attribute_O2_1.o(.text);
         src/attribute_O1_1.o(.text);
         src/attribute_O2_2.o(.text);

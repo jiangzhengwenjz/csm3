@@ -214,8 +214,17 @@
 
 struct RoleAttrib
 {
-    u8 filler0[0x78];
-};
+    u8 filler0[0x12];
+    u8 unk12;
+    u8 filler13;
+    u16 unk14;
+    u16 unk16;
+    u16 unk18;
+    u16 unk1A;
+    s16 unk1C;
+    u16 unk1E;
+    u8 filler20[0x58];
+};/* size = 0x78 */
 
 struct BagWeapon
 {
