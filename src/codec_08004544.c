@@ -80,26 +80,30 @@ void sub_08004684(u16 r0, u16 *r1, u16 *r2)
     *r2 = (0xc & r3) >> 2;
 }
 
-u32 sub_080046A8(u16 r0)
+bool32 sub_080046A8(u16 r0)
 {
+    u32 zero;
     u16 r1 = gUnk_03002990[r0];
-    u32 r2;
+    bool32 r2;
     r1 = (gUnk_03002990 + 1)[r0];
     r2 = 0;
+    zero = 0;
 
     if (r0 == 2)
     {
-        r2 = (u32)(-(r1 & 0x2000)) >> 0x1f;
+        r2 = (u32)(-(r1 & 0x2000)) != zero;
     }
 
     return r2;
 }
 
-u32 sub_080046D8(u16 r0)
+bool32 sub_080046D8(u16 r0)
 {
+    u32 zero;
     u16 r1 = gUnk_03002990[r0];
     r1 = (gUnk_03002990 + 1)[r0];
-    return (u32)(-(r1 & 0x40)) >> 0x1f;
+    zero = 0;
+    return (u32)(-(r1 & 0x40)) != zero;
 }
 
 void sub_080046F8(u16 r0, u16 r1)
