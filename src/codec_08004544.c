@@ -134,3 +134,76 @@ void sub_0800476C(u16 r0, u16 r1, u16 r2)
     temp1 = (gUnk_03002990 + 1)[r0] & 0xE0F3;
     (gUnk_03002990 + 1)[r0] = temp1 | (r1 << 8 | r2 << 2);
 }
+
+void sub_0800479C(u16 r0, u16 r1)
+{
+    u16 *temp1, temp2;
+    temp1 = gUnk_03002990;
+    if (r0 == 2)
+    {
+        temp2 = (temp1[3] & 0xDFFF);
+        gUnk_03002990[3] = temp2 | r1;
+    }
+}
+
+void sub_080047C4(u16 r0, u16 r1)
+{
+    register u16 temp1 asm("r3");
+    temp1 = gUnk_03002990[r0];
+    temp1 = (gUnk_03002990 + 1)[r0];
+    (gUnk_03002990 + 1)[r0] = (temp1 & 0xFFBF) | r1;
+}
+
+void sub_080047E8(u16 r0, u16 r1)
+{
+    u16 temp1;
+    temp1 = gUnk_03002990[4];
+    temp1 = (gUnk_03002990 + 1)[4] & 0xFF00;
+    (gUnk_03002990 + 1)[4] = temp1 | (r1 << 4 | r0);
+}
+
+void sub_0800480C(u16 r0)
+{
+    gUnk_03002990[0] = (gUnk_03002990[0] & 0xEFFF) | (r0 << 0xc);
+}
+
+// this function shows that gUnk_03002990 is a struct, so I'll modify functions above later
+
+#ifdef NONMATCHING
+
+void sub_08004828(u16 r0, u16 r1)
+{
+    gUnk_03002990[5] = gUnk_03002990[5] | ((r1 << 0xc) | r0 << 8);
+}
+
+#else
+
+__attribute__((naked)) void sub_08004828(u16 r0, u16 r1)
+{
+    asm(".syntax unified");
+    asm("lsls r0, r0, #0x10");
+    asm("lsls r1, r1, #0x10");
+    asm("ldr r3, _0800483C @ =gUnk_03002990");
+    asm("ldrb r2, [r3, #0xa]");
+    asm("lsrs r1, r1, #4");
+    asm("lsrs r0, r0, #8");
+    asm("orrs r1, r0");
+    asm("orrs r2, r1");
+    asm("strh r2, [r3, #0xa]");
+    asm("bx lr");
+    asm(".align 2, 0");
+    asm("_0800483C: .4byte gUnk_03002990");
+    asm(".syntax divided");
+}
+
+#endif
+
+void sub_08004840(u16 r0)
+{
+    gUnk_03002990[6] = (gUnk_03002990[6] & 0xFF3F) | r0;
+}
+
+void sub_0800485C(u16 r0)
+{
+    gUnk_03002990[6] = (gUnk_03002990[6] & 0xFFC0) | r0;
+}
