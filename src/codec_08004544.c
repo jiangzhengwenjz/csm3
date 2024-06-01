@@ -91,7 +91,7 @@ bool32 sub_080046A8(u16 r0)
 
     if (r0 == 2)
     {
-        r2 = (u32)(-(r1 & 0x2000)) != zero;
+        r2 = ((r1 & 0x2000) == zero) ? 0: 1;
     }
 
     return r2;
@@ -103,7 +103,7 @@ bool32 sub_080046D8(u16 r0)
     u16 r1 = gUnk_03002990[r0];
     r1 = (gUnk_03002990 + 1)[r0];
     zero = 0;
-    return (u32)(-(r1 & 0x40)) != zero;
+    return ((r1 & 0x40) == zero) ? 0: 1;
 }
 
 void sub_080046F8(u16 r0, u16 r1)

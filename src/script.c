@@ -11,6 +11,22 @@ extern u16 (*const gUnk_08B71AEC[])(void);
 
 extern void sub_08001AEC(s16 unk);
 
+u32 sub_08012BA4(void)
+{
+    if (gUnk_03006574->unk8 != 0)
+    {
+        gUnk_03006574->unk8--;
+        if (gUnk_03006574->unkC[gUnk_03006574->unk8] != NULL)
+        {
+            gUnk_03006574->unk4 = gUnk_03006574->unkC[gUnk_03006574->unk8];
+            gUnk_03006574->unkC[gUnk_03006574->unk8] = NULL;
+        }
+    }
+
+    gUnk_03006578->unk1 = 1;
+    return 0;
+}
+
 u32 sub_08012BE8(void)
 {
     u16 a, b;

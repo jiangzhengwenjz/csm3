@@ -1029,39 +1029,3 @@ sub_08012B60: @ 0x08012B60
 	.align 2, 0
 _08012B9C: .4byte gUnk_03006574
 _08012BA0: .4byte gUnk_03006578
-
-	thumb_func_start sub_08012BA4
-sub_08012BA4: @ 0x08012BA4
-	push {lr}
-	ldr r0, _08012BE0 @ =gUnk_03006574
-	ldr r1, [r0]
-	ldrh r0, [r1, #8]
-	cmp r0, #0
-	beq _08012BD0
-	subs r0, #1
-	strh r0, [r1, #8]
-	ldrh r0, [r1, #8]
-	lsls r0, r0, #2
-	adds r2, r1, #0
-	adds r2, #0xc
-	adds r0, r2, r0
-	ldr r0, [r0]
-	cmp r0, #0
-	beq _08012BD0
-	str r0, [r1, #4]
-	ldrh r0, [r1, #8]
-	lsls r0, r0, #2
-	adds r0, r2, r0
-	movs r1, #0
-	str r1, [r0]
-_08012BD0:
-	ldr r0, _08012BE4 @ =gUnk_03006578
-	ldr r1, [r0]
-	movs r0, #1
-	strb r0, [r1, #1]
-	movs r0, #0
-	pop {r1}
-	bx r1
-	.align 2, 0
-_08012BE0: .4byte gUnk_03006574
-_08012BE4: .4byte gUnk_03006578
