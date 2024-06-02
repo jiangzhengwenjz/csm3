@@ -9,7 +9,9 @@ struct Unk_03006590_1
     u8 filler1;
     u16 unk2;
     u16 *unk4; // Judging from sub_08012BE8, this is u16*. sub_08012E14 and sub_08012D64 must be casts. 
-    u8 filler8[0x14];
+    u16 unk8;
+    u16 fillerA;
+    u16 *unkC[4];
 }; /* size = 0x1C */
 
 struct Unk_03006590
